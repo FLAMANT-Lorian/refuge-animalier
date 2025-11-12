@@ -12,10 +12,10 @@
 <body class="relative bg-gray-50 has-[.bg-menu:checked]:overflow-hidden">
 
     {{--Header--}}
-    <x-layouts.partials.header />
+    <x-partials.header />
 
     {!! $slot !!}
 
-    <x-layouts.partials.footer />
+    <x-partials.footer />
 </body>
 </html>
