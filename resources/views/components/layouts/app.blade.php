@@ -9,7 +9,7 @@
     <title>{!! $title !!}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-50">
+<body class="relative bg-gray-50 has-[.bg-menu:checked]:overflow-hidden">
 
     {{--Header--}}
     <x-layouts.partials.header />
