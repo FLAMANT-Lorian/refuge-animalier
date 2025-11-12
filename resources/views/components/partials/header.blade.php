@@ -7,6 +7,7 @@
     {{-----Menu de navigation mobile-----}}
     {{-----------------------------------}}
     <nav class="flex px-6 py-4 items-center justify-between bg-white border border-gray-200 rounded-2xl">
+        <h2 class="sr-only">Navigation principale</h2>
         <img src="{!! asset('assets/img/logo_small_normal.svg') !!}" alt="Logo des pattes heureuses">
         <input class="hidden bg-menu peer" type="checkbox" name="bg-menu" id="burger-menu">
 
