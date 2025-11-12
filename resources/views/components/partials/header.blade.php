@@ -21,6 +21,6 @@
 
 
         {{--Burger Menu--}}
-        <x-layouts.menu.bg-menu/>
+        <x-menu.bg-menu/>
     </nav>
 </header>
