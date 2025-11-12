@@ -4,7 +4,10 @@
    'content',
    'img_path',
    'img_alt',
-   'text_location'
+   'text_location',
+   'btn_label',
+   'btn_title',
+   'btn_destination'
 ])
 
 <section class="py-[4.5rem] px-6 flex {!! $text_location === 'left' ? 'flex-col' : 'flex-col-reverse' !!} gap-12">
@@ -20,9 +23,9 @@
         <p class="text-base font-normal">
             {!! $content !!}
         </p>
-        <x-public.link destination="/" title="Vers la page des animaux">
-            Découvrir nos animaux
-        </x-public.link>
+        <x-public.button destination="{!! $btn_destination !!}" title="{!! $btn_title !!}">
+            {!! $btn_label !!}
+        </x-public.button>
     </div>
     <picture>
         <img src="{!! $img_path !!}" alt="{!! $img_alt !!}">
