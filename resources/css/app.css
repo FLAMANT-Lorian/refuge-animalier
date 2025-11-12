@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@import './fonts/fonts.css';
+@import './mediaqueries/font_sizes.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -6,6 +8,50 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Mona Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /****** GRAY ******/
+    --color-gray-50: #f6f6f6;
+    --color-gray-100: #e1e1e1;
+    --color-gray-200: #cfcfcf;
+    --color-gray-300: #b5b6b7;
+    --color-gray-400: #9a9b9c;
+    --color-gray-500: #6c6d6e;
+    --color-gray-600: #555657;
+    --color-gray-700: #3e3f40;
+    --color-gray-800: #292a2b;
+    --color-gray-900: #141515;
+
+    /****** BLUE ******/
+    --color-blue-50: #eff6ff;
+    --color-blue-100: #dbeafe;
+    --color-blue-200: #bfdbfe;
+    --color-blue-300: #93c5fd;
+    --color-blue-400: #60a5fa;
+    --color-blue-500: #3b82f6;
+    --color-blue-600: #2563eb;
+    --color-blue-700: #1d4ed8;
+    --color-blue-800: #1e40af;
+    --color-blue-900: #1e3a8a;
+
+    /****** BASICS ******/
+    --color-white: #fbfcfa;
+    --color-black: #1f1f1f;
+    --color-red: #d82929;
+
+    /****** GREEN ******/
+    --color-green-green-50: #f4f9f6;
+    --color-green-100: #e3f0e7;
+    --color-green-200: #c9e2d0;
+    --color-green-300: #a6cfae;
+    --color-green-400: #7cbf8a;
+    --color-green-500: #57a770;
+    --color-green-600: #3f8f5b;
+    --color-green-700: #31744a;
+    --color-green-800: #275c3c;
+    --color-green-900: #1e49;
+
+    /****** BRAKEPOINTS ******/
+    --breakpoint-lg: 1400px;
 }
