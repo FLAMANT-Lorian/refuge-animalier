@@ -4,13 +4,13 @@
         ['label' => 'Nos animaux', 'title' => 'Vers la page des animaux', 'destination' => '#'],
         ['label' => 'À propos', 'title' => 'Vers la page à propos', 'destination' => '#'],
         ['label' => 'Contact', 'title' => 'Vers la page de contact', 'destination' => '#'],
-];
+    ];
 
     $coordinates = [
         ['label' => 'Rue des Lavandes 12, 4000 Liège, Belgique', 'title' => 'L’adresse de notre refuge', 'destination' => '#'],
         ['label' => 'contact@lespattesheureuses.be', 'title' => 'L’adresse e-mail du refuge', 'destination' => '#'],
         ['label' => '+32 81 23 45 67', 'title' => 'Le numéro de téléphone du refuge', 'destination' => '#'],
-];
+    ];
 
         $opening_hours = ['Lundi - Vendredi : 12h30 - 17h30', 'Samedi : 10h00 - 17h30', 'Dimanche : Fermé'];
 @endphp
