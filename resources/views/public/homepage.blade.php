@@ -8,9 +8,9 @@
 
 @endphp
 
-<x-layouts.app title="Accueil · Les pattes heureuses">
+<x-public.app title="Accueil · Les pattes heureuses">
     <main id="content">
-        <x-public.text-media
+        <x-public.sections.text-media
             title="Où nous trouver"
             subtitle="Au cœur de la nature"
             content="Le refuge Les Pattes Heureuses est situé au 12, Rue des Lavandes, 4000 Liège, Belgique, dans un cadre calme et verdoyant, idéal pour le bien-être de nos pensionnaires. Que vous veniez pour adopter ou simplement nous rendre visite, notre équipe vous accueillera avec plaisir et vous présentera nos compagnons à quatre pattes."
@@ -21,9 +21,9 @@
             btn_title="Vers la page des animaux"
             :btn_destination="route('public.homepage')"/>
 
-        <x-public.slider title="Les points forts de notre refuge" :articles="$slider"/>
+        <x-public.sections.slider title="Les points forts de notre refuge" :articles="$slider"/>
 
-        <x-public.text-media
+        <x-public.sections.text-media
             title="Envie de nous rejoindre ?"
             subtitle="Devenez bénévole !"
             content="Aux Pattes Heureuses, chaque coup de main compte ! Rejoindre notre équipe de bénévoles, c’est offrir un peu de votre temps et beaucoup d’amour aux animaux qui en ont besoin. Que ce soit pour nourrir, promener, nettoyer, accompagner les adoptions ou simplement offrir des câlins, votre présence fait toute la différence !"
@@ -34,4 +34,4 @@
             btn_title="Vers la page de contat"
             :btn_destination="route('public.homepage')"/>
     </main>
-</x-layouts.app>
+</x-public.app>

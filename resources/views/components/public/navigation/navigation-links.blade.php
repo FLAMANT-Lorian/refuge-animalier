@@ -10,10 +10,9 @@
 <ul class="flex flex-col gap-6">
     @foreach($items as $item)
         <li>
-            <a class="text-2xl font-normal hover:font-bold active:font-bold transition-all"
-               href="{!! $item['destination'] !!}" title="{!! $item['title'] !!}">
+            <x-public.navigation.navigation-link :destination="$item['destination']" :title="$item['title']">
                 {!! $item['label'] !!}
-            </a>
+            </x-public.navigation.navigation-link>
         </li>
     @endforeach
 </ul>
