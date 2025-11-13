@@ -10,9 +10,13 @@
         <h2 class="sr-only">Navigation principale</h2>
         <img src="{!! asset('assets/img/logo_small_normal.svg') !!}" alt="Logo des pattes heureuses">
 
-        {{--Pouvoir lui passer les classes pour mobile ou desktop => caché pour ordi--}}
-        <x-public.navigation.burger-menu-cross/>
+        <div class="block lg:hidden">
+            <x-public.navigation.burger-menu-cross/>
+            <x-public.navigation.navigation-bar device="mobile"/>
+        </div>
 
-        <x-public.navigation.navigation-bar device="mobile"/>
+        <div class="hidden lg:block">
+            <x-public.navigation.navigation-bar device="desktop"/>
+        </div>
     </nav>
 </header>
