@@ -20,7 +20,6 @@
             </svg>
         </label>
 
-
         {{--Burger Menu--}}
         <x-menu.bg-menu/>
     </nav>
