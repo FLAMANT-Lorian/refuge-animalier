@@ -1,4 +1,8 @@
 @layer base {
+    h1, h2, h3, h4, p, small, a, svg, span{
+        color: #292A2B;
+    }
+
     :root {
         --text-sm: 0.75rem;
         --text-sm--line-height: 1.125rem;

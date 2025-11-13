@@ -1,0 +1,43 @@
+:root {
+
+    /****** BOXSHADOW ******/
+    --slider-boxshadow: 0 0 20px 0 rgba(87, 167, 112, 0.50);
+}
+
+/****** SLIDER ******/
+.slider_selector::-webkit-scrollbar {
+    display: none;
+}
+
+.slider_item_selector:not(:first-child)::before {
+    content: "";
+    width: 1px;
+    height: 6rem;
+    background-color: var(--color-gray-100);
+    position: absolute;
+    left: -3rem;
+    transform: translateY(50%);
+}
+
+.slider_btn_selector {
+    height: 1rem;
+    width: 1rem;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 100%;
+}
+
+.slider_btn_selector:hover, .slider_btn_selector:active {
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: var(--color-green-500);
+    border-color: var(--color-green-500);
+}
+
+.slider_btn_selector.active {
+    width: 2rem;
+    border-radius: 1rem;
+    background-color: var(--color-green-500);
+    border-color: var(--color-green-500);
+}
+
