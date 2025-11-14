@@ -2,13 +2,13 @@
     'title' => 'Titre',
     'articles' => []
 ])
-<section>
+<section class="px-6">
     <h2 class="text-2xl font-bold text-center">
         {!! $title !!}
     </h2>
 
     @if($articles)
-        <div class="slider_selector grid grid-cols-[repeat(3,327px)] gap-[6rem] px-6 overflow-x-scroll">
+        <div class="slider_selector grid grid-cols-[repeat(3,327px)] gap-[6rem] overflow-x-scroll">
             @foreach($articles as $idx => $article)
 
                 <article class="slider_item_selector pt-8 relative flex flex-col items-center">
