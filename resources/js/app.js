@@ -2,8 +2,8 @@ import './bootstrap';
 import './nojs.js';
 
 /* Import components script */
-import './slider.js';
-import './accordion.js';
+import './components/slider.js';
+import './components/accordion.js';
 
 /* Import alpinejs */
 import Alpine from 'alpinejs';
