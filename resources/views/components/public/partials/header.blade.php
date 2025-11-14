@@ -10,7 +10,7 @@
         <h2 class="sr-only">Navigation principale</h2>
         <img src="{!! asset('assets/img/logo_small_normal.svg') !!}" alt="Logo des pattes heureuses">
 
-        <div class="block lg:hidden">
+        <div class="flex lg:hidden" x-data="{ menuOpen: false }">
             <x-public.navigation.burger-menu-cross/>
             <x-public.navigation.navigation-bar device="mobile"/>
         </div>
