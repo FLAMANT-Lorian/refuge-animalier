@@ -2,6 +2,7 @@
 @import './fonts/fonts.css';
 @import './custom/font_sizes.css';
 @import './custom/custom.css';
+@import './partials/burger-menu.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';

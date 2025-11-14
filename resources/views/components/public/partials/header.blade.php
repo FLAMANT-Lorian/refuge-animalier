@@ -8,15 +8,12 @@
     {{----------------------------}}
     <nav class="flex px-6 py-4 items-center justify-between bg-white border border-gray-200 rounded-2xl">
         <h2 class="sr-only">Navigation principale</h2>
-        <img src="{!! asset('assets/img/logo_small_normal.svg') !!}" alt="Logo des pattes heureuses">
+        <a href="{!! route('public.homepage') !!}" title="Vers la page d’accueil">
+            <img src="{!! asset('assets/img/logo_small_normal.svg') !!}" alt="Logo des pattes heureuses">
+        </a>
 
-        <div class="flex lg:hidden">
-            <x-public.navigation.burger-menu-cross/>
-            <x-public.navigation.navigation-bar device="mobile"/>
-        </div>
+        <x-public.navigation.burger-menu-cross/>
 
-        <div class="hidden lg:block">
-            <x-public.navigation.navigation-bar device="desktop"/>
-        </div>
+        <x-public.navigation.navigation-bar device="mobile"/>
     </nav>
 </header>
