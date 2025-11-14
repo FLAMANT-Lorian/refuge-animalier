@@ -1,9 +1,11 @@
 import './bootstrap';
 import './nojs.js';
 
-/* import ALPINEJS */
+/* Import components script */
+import './slider.js';
+import './accordion.js';
+
+/* Import alpinejs */
 import Alpine from 'alpinejs';
-
 window.Alpine = Alpine;
-
 Alpine.start();
