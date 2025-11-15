@@ -9,7 +9,7 @@
 @endphp
 
 <x-public.app title="Accueil · Les pattes heureuses">
-    <main id="content">
+    <main id="content" class="homepage">
         <x-public.sections.text-media
             title="Bienvenue au refuge,"
             subtitle="Les pattes heureuses !"

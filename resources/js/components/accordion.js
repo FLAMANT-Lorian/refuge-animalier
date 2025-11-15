@@ -28,11 +28,13 @@
 
         initCorrectClassesWithJS() {
             this.articles.forEach((article) => {
-               article.classList.remove('open');
+                article.classList.remove('open');
             });
 
             document.querySelector('.accordion_selector:first-of-type').classList.add('open');
         }
     };
-    accordion.init();
+    if (document.querySelector('main').classList.contains('about')) {
+        accordion.init();
+    }
 })();

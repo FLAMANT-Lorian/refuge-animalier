@@ -31,5 +31,7 @@
             });
         }
     };
-    slider.init();
+    if (document.querySelector('main').classList.contains('homepage')) {
+        slider.init();
+    }
 })();

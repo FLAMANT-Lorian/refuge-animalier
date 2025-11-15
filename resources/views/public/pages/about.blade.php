@@ -8,27 +8,29 @@
 @endphp
 
 <x-public.app title="À propos · Les pattes heureuses">
-    <x-public.sections.text-media
-        title="Où nous trouver"
-        subtitle="Au cœur de la nature"
-        content="Le refuge Les Pattes Heureuses est situé au 12, Rue des Lavandes, 4000 Liège, Belgique, dans un cadre calme et verdoyant, idéal pour le bien-être de nos pensionnaires. Que vous veniez pour adopter ou simplement nous rendre visite, notre équipe vous accueillera avec plaisir et vous présentera nos compagnons à quatre pattes."
-        :img_path="asset('assets/img/tmp.png')"
-        img_alt="Image temporaire"
-        text_location="left"
-        btn_label="Nous contacter"
-        btn_title="Vers la page de contact"/>
+    <main id="content" class="about">
+        <x-public.sections.text-media
+            title="Où nous trouver"
+            subtitle="Au cœur de la nature"
+            content="Le refuge Les Pattes Heureuses est situé au 12, Rue des Lavandes, 4000 Liège, Belgique, dans un cadre calme et verdoyant, idéal pour le bien-être de nos pensionnaires. Que vous veniez pour adopter ou simplement nous rendre visite, notre équipe vous accueillera avec plaisir et vous présentera nos compagnons à quatre pattes."
+            :img_path="asset('assets/img/tmp.png')"
+            img_alt="Image temporaire"
+            text_location="left"
+            btn_label="Nous contacter"
+            btn_title="Vers la page de contact"/>
 
-    <x-public.sections.accordion
-        title="Nos missions"
-        :articles="$accordion"/>
+        <x-public.sections.accordion
+            title="Nos missions"
+            :articles="$accordion"/>
 
-    <x-public.sections.text-media
-        title="Ils ont besoins de vous !"
-        subtitle="Un foyer pour nos compagnons"
-        content="Chaque animal accueilli au refuge Les Pattes Heureuses mérite amour, attention et sécurité. Votre soutien peut faire toute la différence : adopter, devenir bénévole, ou faire un don permet de leur offrir une vie meilleure. Ensemble, donnons-leur une chance de connaître le bonheur qu’ils méritent"
-        :img_path="asset('assets/img/tmp.png')"
-        img_alt="Image temporaire"
-        text_location="right"
-        btn_label="Découvrir nos animaux"
-        btn_title="Vers la page des animaux"/>
+        <x-public.sections.text-media
+            title="Ils ont besoins de vous !"
+            subtitle="Un foyer pour nos compagnons"
+            content="Chaque animal accueilli au refuge Les Pattes Heureuses mérite amour, attention et sécurité. Votre soutien peut faire toute la différence : adopter, devenir bénévole, ou faire un don permet de leur offrir une vie meilleure. Ensemble, donnons-leur une chance de connaître le bonheur qu’ils méritent"
+            :img_path="asset('assets/img/tmp.png')"
+            img_alt="Image temporaire"
+            text_location="right"
+            btn_label="Découvrir nos animaux"
+            btn_title="Vers la page des animaux"/>
+    </main>
 </x-public.app>
