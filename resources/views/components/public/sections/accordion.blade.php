@@ -14,7 +14,7 @@
 
                 <article
                     class="flex flex-col border-b border-b-green-500 first-of-type:border-t first-of-type:border-t-green-500">
-                    <div class="accordion_selector {!! $idx + 1 === 1 ? 'open' : 'close' !!} py-6 px-4 flex flex-row justify-between items-center">
+                    <div class="accordion_selector open py-6 px-4 flex flex-row justify-between items-center">
                         <h3 class="text-lg font-semibold pr-2">
                             {!! $article['title'] !!}
                         </h3>

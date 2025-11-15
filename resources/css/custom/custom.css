@@ -45,15 +45,13 @@
 
 
     /****** SLIDER ******/
-    .accordion_content_selector {
-        display: none;
-    }
 
     .accordion_selector.open ~ .accordion_content_selector {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         padding: 0 1rem 1.5rem 1rem;
+        height: auto;
     }
 
     .accordion_selector svg {
@@ -69,7 +67,8 @@
     }
 
     .accordion_selector:not(.open) ~ .accordion_content_selector {
-        display: none;
+        height: 0;
+        overflow: hidden;
     }
 
 

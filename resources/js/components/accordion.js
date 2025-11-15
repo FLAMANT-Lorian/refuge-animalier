@@ -2,6 +2,7 @@
     const accordion = {
         articles: document.querySelectorAll('.accordion_selector'),
         init() {
+            this.initCorrectClassesWithJS();
             this.addEventListeners();
         },
 
@@ -24,6 +25,14 @@
             e.currentTarget.classList.remove('close');
             e.currentTarget.classList.add('open');
         },
+
+        initCorrectClassesWithJS() {
+            this.articles.forEach((article) => {
+               article.classList.remove('open');
+            });
+
+            document.querySelector('.accordion_selector:first-of-type').classList.add('open');
+        }
     };
     accordion.init();
 })();
