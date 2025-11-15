@@ -8,10 +8,11 @@
     </h2>
 
     @if($articles)
-        <div class="slider_selector grid grid-cols-[repeat(3,327px)] gap-[6rem] overflow-x-scroll">
+        <div x-data="{ current: null }"
+             class="slider_selector grid grid-cols-[repeat(3,327px)] gap-[6rem] overflow-x-scroll">
             @foreach($articles as $idx => $article)
 
-                <article class="slider_item_selector pt-8 relative flex flex-col items-center">
+                <article id="slider_{!! $idx + 1 !!}" class="slider_item_selector pt-8 relative flex flex-col items-center">
                         <span
                             class="mb-3 shadow-(--slider-boxshadow) rounded-full flex justify-center items-center w-[50px] h-[50px] text-lg font-bold text-white bg-green-500">
                             {!! $idx + 1 !!}
@@ -27,9 +28,9 @@
             @endforeach
         </div>
         <div class="flex gap-4 justify-center mt-6">
-            <div class="slider_btn_selector active"></div>
-            <div class="slider_btn_selector"></div>
-            <div class="slider_btn_selector"></div>
+            <div class="slider_btn_selector active" data-target="slider_1"></div>
+            <div class="slider_btn_selector" data-target="slider_2"></div>
+            <div class="slider_btn_selector" data-target="slider_3"></div>
         </div>
     @endif
 </section>
