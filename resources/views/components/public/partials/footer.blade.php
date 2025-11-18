@@ -15,10 +15,10 @@
         $opening_hours = ['Lundi - Vendredi : 12h30 - 17h30', 'Samedi : 10h00 - 17h30', 'Dimanche : Fermé'];
 @endphp
 
-<footer class="bg-green-500 py-[5rem] px-6 flex flex-col gap-10">
-    <div class="grid grid-cols-1 gap-6">
+<footer class="bg-green-500 py-[5rem] md:py-[6rem] lg:py-[8rem] px-6 md:px-12 lg:px-[12rem] flex flex-col gap-10 md:grid md:grid-cols-10 lg:grid-cols-[repeat(13,minmax(0,1fr))] md:gap-x-6 md:gap-y-10">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-subgrid md:col-start-1 md:col-end-11 lg:col-start-5 lg:col-end-14 md:gap-y-14">
         <h2 class="sr-only">Footer</h2>
-        <nav>
+        <nav class="md:col-start-1 lg:col-start-1 md:col-end- lg:col-end-4 md:row-start-1 md:row-end-2">
             <h3 class="text-lg font-semibold text-white pb-4">Navigation</h3>
             <ul class="flex flex-col gap-2">
                 @foreach($nav_links as $nav_link)
@@ -32,7 +32,7 @@
                 @endforeach
             </ul>
         </nav>
-        <aside>
+        <aside class="md:col-start-6 lg:col-start-4 md:col-end-11 lg:col-end-7 md:row-start-1 md:row-end-2">
             <h3 class="text-lg font-semibold text-white pb-4">Coordonnées</h3>
             <ul class="flex flex-col gap-2">
                 @foreach($coordinates as $coordinate)
@@ -46,7 +46,7 @@
                 @endforeach
             </ul>
         </aside>
-        <aside>
+        <aside class="md:col-start-1 lg:col-start-7 md:col-end-6 md:col-end-10 md:row-start-2 md:row-end-3 lg:row-start-1 lg:row-end-2">
             <h3 class="text-lg font-semibold text-white pb-4">Heures d’ouvertures</h3>
             <ul class="flex flex-col gap-2">
                 @foreach($opening_hours as $opening_hour)
@@ -57,7 +57,7 @@
             </ul>
         </aside>
     </div>
-    <div class="flex flex-col gap-2 border-t border-t-white pt-6">
+    <div class="flex flex-col md:flex-row lg:flex-col md:items-center lg:items-start gap-2 border-t lg:border-none border-t-white pt-6 lg:p-0 md:col-start-1 md:col-end-11 lg:col-end-4 lg:row-start-1 lg:row-end-2">
         <a href="{!! route('public.homepage') !!}" title="Vers la page d’accueil">
             <img src="{!! asset('assets/img/logo_small_white.svg') !!}" class="self-start"
                  alt="Logo des pattes heureuses">
