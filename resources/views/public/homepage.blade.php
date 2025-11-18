@@ -11,8 +11,8 @@
 <x-public.app title="Accueil · Les pattes heureuses">
     <main id="content" class="homepage">
         <x-public.sections.text-media
-            title="Bienvenue au refuge,"
-            subtitle="Les pattes heureuses !"
+            title="Bienvenue au refuge&nbsp;,"
+            subtitle="Les pattes heureuses&nbsp;!"
             content="Chiens, chats, oiseaux, lapins et bien d’autres compagnons attendent ici une nouvelle famille.Venez leur rendre visite, découvrez leurs histoires et laissez-vous toucher par leurs regards remplis d’espoir. Peut-être trouverez-vous celui ou celle qui fera battre votre cœur"
             :img_path="asset('assets/img/tmp.png')"
             img_alt="Image temporaire"
@@ -23,8 +23,8 @@
         <x-public.sections.slider title="Les points forts de notre refuge" :articles="$slider"/>
 
         <x-public.sections.text-media
-            title="Envie de nous rejoindre ?"
-            subtitle="Devenez bénévole !"
+            title="Envie de nous rejoindre&nbsp;?"
+            subtitle="Devenez bénévole&nbsp;!"
             content="Aux Pattes Heureuses, chaque coup de main compte ! Rejoindre notre équipe de bénévoles, c’est offrir un peu de votre temps et beaucoup d’amour aux animaux qui en ont besoin. Que ce soit pour nourrir, promener, nettoyer, accompagner les adoptions ou simplement offrir des câlins, votre présence fait toute la différence !"
             :img_path="asset('assets/img/tmp.png')"
             img_alt="Image temporaire"

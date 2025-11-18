@@ -8,10 +8,10 @@
 
 @endphp
 
-<ul class="flex flex-col gap-6">
+<ul class="flex flex-col gap-6 md:flex-row md:items-center md:justify-end">
     @foreach($items as $item)
-        <li>
-            <x-public.navigation.navigation-link :destination="$item['destination']" :title="$item['title']">
+        <li class="flex">
+            <x-public.navigation.navigation-link :last="$loop->last" :destination="$item['destination']" :title="$item['title']">
                 {!! $item['label'] !!}
             </x-public.navigation.navigation-link>
         </li>
