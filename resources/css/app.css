@@ -55,5 +55,6 @@
     --color-green-900: #1e49;
 
     /****** BRAKEPOINTS ******/
+    --breakpoint-md: 834px;
     --breakpoint-lg: 1400px;
 }
