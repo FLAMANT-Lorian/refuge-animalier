@@ -60,6 +60,10 @@
         height: auto;
     }
 
+    .accordion_selector:not(.open) ~ .accordion_content_selector > picture {
+        display: none;
+    }
+
     .accordion_selector svg {
         transition: all ease-in-out 200ms;
     }

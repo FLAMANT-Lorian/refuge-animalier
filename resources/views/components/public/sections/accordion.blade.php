@@ -3,17 +3,16 @@
     'articles' => [],
 ])
 
-<section class="px-6 flex flex-col gap-8">
+<section class="px-6 md:px-12 lg:px-[12rem] flex flex-col gap-8 lg:gap-10">
     <h2 class="text-2xl font-bold text-center">
         {!! $title !!}
     </h2>
 
     @if($articles)
-        <div>
+        <div class="md:grid md:grid-cols-10 lg:grid-cols-[repeat(13,minmax(0,1fr))] relative md:gap-x-6">
             @foreach($articles as $idx => $article)
 
-                <article
-                    class="flex flex-col border-b border-b-green-500 first-of-type:border-t first-of-type:border-t-green-500">
+                <article class="md:col-start-6 lg:col-start-8 md:col-end-11 lg:col-end-14 flex flex-col justify-center border-b border-b-green-500 first-of-type:border-t first-of-type:border-t-green-500">
                     <div class="accordion_selector open py-6 px-4 flex flex-row justify-between items-center">
                         <h3 class="text-lg font-semibold pr-2">
                             {!! $article['title'] !!}
@@ -24,12 +23,12 @@
                                 fill="#292A2B"/>
                         </svg>
                     </div>
-                    <div class="accordion_content_selector">
+                    <div class="accordion_content_selector flex">
                         <p class="font-base font-normal">
                             {!! $article['content'] !!}
                         </p>
-                        <picture>
-                            <img class="rounded-2xl"
+                        <picture class="self-center @if($loop->first) z-10 @endif md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 w-[calc(50%-0.75rem)] lg:w-[calc(50%-4rem)]">
+                            <img class="rounded-2xl w-full has-auto"
                                  src="{!! $article['img_path'] !!}" alt="{!! $article['img_alt'] !!}">
                         </picture>
                     </div>
