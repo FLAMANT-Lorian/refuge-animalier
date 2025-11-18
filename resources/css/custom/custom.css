@@ -29,6 +29,12 @@
         transition: all ease-in-out 200ms;
     }
 
+    @media (min-width: 84.375rem) {
+        .slider_btn_selector {
+            display: none;
+        }
+    }
+
     .slider_btn_selector:hover, .slider_btn_selector:active {
         cursor: pointer;
         border-radius: 1rem;
@@ -44,7 +50,7 @@
     }
 
 
-    /****** SLIDER ******/
+    /****** ACCORDION ******/
 
     .accordion_selector.open ~ .accordion_content_selector {
         display: flex;
