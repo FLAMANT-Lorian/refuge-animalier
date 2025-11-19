@@ -14,6 +14,6 @@ Route::get('/contact', function (){
     return view('public.pages.contact');
 })->name('public.contact');
 
-Route::get('/animals', function (){
+Route::get('/nos-animaux', function (){
     return view('public.animals.index');
 })->name('public.animals.index');
