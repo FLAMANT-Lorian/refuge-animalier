@@ -3,7 +3,7 @@
     --slider-boxshadow: 0 0 20px 0 rgba(87, 167, 112, 0.50);
 }
 
-img {
+img:not(.hero) {
     max-height: 360px;
     object-position: center center;
     object-fit: cover;

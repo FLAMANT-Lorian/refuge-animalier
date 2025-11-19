@@ -1,7 +1,7 @@
 @php
     $nav_links = [
         ['label' => 'Accueil', 'title' => 'Vers la page d\'accueil', 'destination' => route('public.homepage'), 'class' => 'hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white'],
-        ['label' => 'Nos animaux', 'title' => 'Vers la page des animaux', 'destination' => '#', 'class' => 'hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white'],
+        ['label' => 'Nos animaux', 'title' => 'Vers la page des animaux', 'destination' => route('public.animals.index'), 'class' => 'hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white'],
         ['label' => 'À propos', 'title' => 'Vers la page à propos', 'destination' => route('public.about'), 'class' => 'hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white'],
         ['label' => 'Contact', 'title' => 'Vers la page de contact', 'destination' => route('public.contact'), 'class' => 'hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white'],
     ];
@@ -17,7 +17,7 @@
 @endphp
 
 <footer
-    class="relative bg-green-500 py-[5rem] md:py-[6rem] lg:py-[8rem] px-6 md:px-12 lg:px-[12rem] flex flex-col gap-10 md:grid md:grid-cols-10 lg:grid-cols-[repeat(13,minmax(0,1fr))] md:gap-x-6 md:gap-y-10">
+    class="relative -z-[2] bg-green-500 py-[5rem] md:py-[6rem] lg:py-[8rem] px-6 md:px-12 lg:px-[12rem] flex flex-col gap-10 md:grid md:grid-cols-10 lg:grid-cols-[repeat(13,minmax(0,1fr))] md:gap-x-6 md:gap-y-10">
     <div
         class="dogs grid grid-cols-1 gap-6 md:grid-cols-subgrid md:col-start-1 md:col-end-11 lg:col-start-5 lg:col-end-14 md:gap-y-14">
         <h2 class="sr-only">Footer</h2>
