@@ -6,7 +6,7 @@
     {{----------------------------}}
     {{-----Menu de navigation-----}}
     {{----------------------------}}
-    <nav class="flex px-6 py-4 items-center justify-between bg-white border border-gray-200 rounded-2xl">
+    <nav aria-label="Navigation principale" class="flex px-6 py-4 items-center justify-between bg-white border border-gray-200 rounded-2xl">
         <h2 class="sr-only">Navigation principale</h2>
         <a class="block md:hidden max-w-[13.75rem] w-full hover:translate-x-1 transition-all"
             href="{!! route('public.homepage') !!}" title="Vers la page d’accueil">

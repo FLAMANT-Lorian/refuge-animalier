@@ -20,7 +20,7 @@
     <div
         class="grid grid-cols-1 gap-6 md:grid-cols-subgrid md:col-start-1 md:col-end-11 lg:col-start-5 lg:col-end-14 md:gap-y-14">
         <h2 class="sr-only">Footer</h2>
-        <nav class="md:col-start-1 lg:col-start-1 md:col-end- lg:col-end-4 md:row-start-1 md:row-end-2">
+        <nav aria-label="Navigation secondaire" class="md:col-start-1 lg:col-start-1 md:col-end- lg:col-end-4 md:row-start-1 md:row-end-2">
             <h3 class="text-lg font-semibold text-white pb-4">Navigation</h3>
             <ul class="flex flex-col gap-2">
                 @foreach($nav_links as $nav_link)
