@@ -1,8 +1,11 @@
 @import 'tailwindcss';
 @import './fonts/fonts.css';
-@import './custom/font_sizes.css';
-@import './custom/custom.css';
+@import './fonts/font_sizes.css';
+@import './custom/custom-styles.css';
 @import './partials/burger-menu.css';
+@import './partials/accordion.css';
+@import './partials/slider.css';
+@import './partials/bg-images.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';

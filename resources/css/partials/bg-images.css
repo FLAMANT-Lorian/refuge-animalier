@@ -1,0 +1,13 @@
+/* BACKGROUND BODY */
+body {
+    background-image: url("../../img/bg-image-mobile.svg");
+    background-repeat: repeat;
+    background-position: top center;
+    background-size: 100%;
+}
+
+@media (min-width: 93.75rem) {
+    body {
+        background-image: url("../../img/bg-image-desktop.svg");
+    }
+}
