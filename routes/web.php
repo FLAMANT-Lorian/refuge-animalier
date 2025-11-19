@@ -9,3 +9,7 @@ Route::get('/', function (){
 Route::get('/a-propos', function (){
     return view('public.pages.about');
 })->name('public.about');
+
+Route::get('/contact', function (){
+    return view('public.pages.contact');
+})->name('public.contact');
