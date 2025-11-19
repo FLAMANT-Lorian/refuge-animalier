@@ -11,3 +11,9 @@ it('verifies if a guest can access to the public website about page', function (
 
     $response->assertStatus(200);
 });
+
+it('verifies if a guest can access to the public website contact page', function (){
+    $response = $this->get(route('public.contact'));
+
+    $response->assertStatus(200);
+});
