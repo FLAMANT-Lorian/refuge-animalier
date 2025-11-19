@@ -1,9 +1,9 @@
 @php
     $nav_links = [
-        ['label' => 'Accueil', 'title' => 'Vers la page d\'accueil', 'destination' => route('public.homepage')],
-        ['label' => 'Nos animaux', 'title' => 'Vers la page des animaux', 'destination' => '#'],
-        ['label' => 'À propos', 'title' => 'Vers la page à propos', 'destination' => route('public.about')],
-        ['label' => 'Contact', 'title' => 'Vers la page de contact', 'destination' => route('public.contact')],
+        ['label' => 'Accueil', 'title' => 'Vers la page d\'accueil', 'destination' => route('public.homepage'), 'class' => 'hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white'],
+        ['label' => 'Nos animaux', 'title' => 'Vers la page des animaux', 'destination' => '#', 'class' => 'hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white'],
+        ['label' => 'À propos', 'title' => 'Vers la page à propos', 'destination' => route('public.about'), 'class' => 'hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white'],
+        ['label' => 'Contact', 'title' => 'Vers la page de contact', 'destination' => route('public.contact'), 'class' => 'hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white'],
     ];
 
     $coordinates = [
@@ -12,7 +12,8 @@
         ['label' => '+32 81 23 45 67', 'title' => 'Le numéro de téléphone du refuge', 'destination' => '#'],
     ];
 
-        $opening_hours = ['Lundi - Vendredi : 12h30 - 17h30', 'Samedi : 10h00 - 17h30', 'Dimanche : Fermé'];
+    $opening_hours = ['Lundi - Vendredi : 12h30 - 17h30', 'Samedi : 10h00 - 17h30', 'Dimanche : Fermé'];
+
 @endphp
 
 <footer
@@ -26,11 +27,14 @@
             <ul class="flex flex-col gap-2">
                 @foreach($nav_links as $nav_link)
                     <li>
-                        <a class="hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white"
-                           href="{!! $nav_link['destination'] !!}"
-                           title="{!! $nav_link['title'] !!}">
+
+                        <x-public.navigation.navigation-link
+                            :destination="$nav_link['destination']"
+                            :title="$nav_link['title']"
+                            :class="$nav_link['class']">
                             {!! $nav_link['label'] !!}
-                        </a>
+                        </x-public.navigation.navigation-link>
+
                     </li>
                 @endforeach
             </ul>
