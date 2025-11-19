@@ -6,7 +6,7 @@
         <x-public.sections.hero/>
 
         {{-- ANIMALS SECTION--}}
-        <x-public.sections.animals/>
+        <x-public.sections.animals.index/>
 
     </main>
 

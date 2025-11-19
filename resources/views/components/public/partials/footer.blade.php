@@ -5,13 +5,13 @@
         <h2 class="sr-only">Footer</h2>
 
         {{-- Nav secondaire --}}
-        <x-public.navigation.footer-navigation-link/>
+        <x-public.navigation.footer.footer-navigation-link/>
 
         {{-- Coordonnées --}}
-        <x-public.navigation.footer-coordinate/>
+        <x-public.navigation.footer.footer-coordinate/>
 
         {{-- Heure d’ouverture --}}
-        <x-public.navigation.footer-opening-hours/>
+        <x-public.navigation.footer.footer-opening-hours/>
     </div>
     <div
         class="flex-col md:flex-row lg:flex-col md:items-center lg:items-start gap-2 border-t lg:border-none border-t-white pt-6 lg:p-0 md:col-start-1 md:col-end-11 lg:col-end-4 lg:row-start-1 lg:row-end-2">

@@ -15,12 +15,12 @@
         @foreach($nav_links as $nav_link)
             <li>
 
-                <x-public.navigation.navigation-link
+                <x-public.navigation.header.navigation-link
                     :destination="$nav_link['destination']"
                     :title="$nav_link['title']"
                     :class="$nav_link['class']">
                     {!! $nav_link['label'] !!}
-                </x-public.navigation.navigation-link>
+                </x-public.navigation.header.navigation-link>
 
             </li>
         @endforeach

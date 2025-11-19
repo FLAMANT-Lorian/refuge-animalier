@@ -11,12 +11,12 @@
 <ul class="flex flex-col gap-6 md:flex-row md:items-center md:justify-end">
     @foreach($items as $item)
         <li class="flex">
-            <x-public.navigation.navigation-link
+            <x-public.navigation.header.navigation-link
                 :destination="$item['destination']"
                 :title="$item['title']"
                 :class="$item['class']">
                 {!! $item['label'] !!}
-            </x-public.navigation.navigation-link>
+            </x-public.navigation.header.navigation-link>
         </li>
     @endforeach
 </ul>

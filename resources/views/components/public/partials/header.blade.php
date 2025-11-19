@@ -17,8 +17,8 @@
             <img class="w-full h-auto" src="{!! asset('assets/img/logo_normal.svg') !!}" alt="Logo des pattes heureuses">
         </a>
 
-        <x-public.navigation.burger-menu-cross/>
+        <x-public.navigation.header.burger-menu-cross/>
 
-        <x-public.navigation.navigation-bar/>
+        <x-public.navigation.header.navigation-bar/>
     </nav>
 </header>
