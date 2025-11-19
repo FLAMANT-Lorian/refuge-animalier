@@ -17,7 +17,8 @@
             img_alt="Image temporaire"
             text_location="left"
             btn_label="Nous contacter"
-            btn_title="Vers la page de contact"/>
+            btn_title="Vers la page de contact"
+            animals="true"/>
 
         <x-public.sections.accordion
             title="Nos missions"

@@ -15,10 +15,8 @@
         $opening_hours = ['Lundi - Vendredi : 12h30 - 17h30', 'Samedi : 10h00 - 17h30', 'Dimanche : Fermé'];
 @endphp
 
-<footer
-    class="bg-green-500 py-[5rem] md:py-[6rem] lg:py-[8rem] px-6 md:px-12 lg:px-[12rem] flex flex-col gap-10 md:grid md:grid-cols-10 lg:grid-cols-[repeat(13,minmax(0,1fr))] md:gap-x-6 md:gap-y-10">
-    <div
-        class="grid grid-cols-1 gap-6 md:grid-cols-subgrid md:col-start-1 md:col-end-11 lg:col-start-5 lg:col-end-14 md:gap-y-14">
+<footer class="relative bg-green-500 py-[5rem] md:py-[6rem] lg:py-[8rem] px-6 md:px-12 lg:px-[12rem] flex flex-col gap-10 md:grid md:grid-cols-10 lg:grid-cols-[repeat(13,minmax(0,1fr))] md:gap-x-6 md:gap-y-10">
+    <div class="dogs grid grid-cols-1 gap-6 md:grid-cols-subgrid md:col-start-1 md:col-end-11 lg:col-start-5 lg:col-end-14 md:gap-y-14">
         <h2 class="sr-only">Footer</h2>
         <nav aria-label="Navigation secondaire" class="md:col-start-1 lg:col-start-1 md:col-end- lg:col-end-4 md:row-start-1 md:row-end-2">
             <h3 class="text-lg font-semibold text-white pb-4">Navigation</h3>

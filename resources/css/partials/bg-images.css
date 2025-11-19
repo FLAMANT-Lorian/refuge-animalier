@@ -11,3 +11,52 @@ body {
         background-image: url("../../img/bg-image-desktop.svg");
     }
 }
+
+/* ANIMALS : CATS */
+.animals::before {
+    content: url("../../img/cat-mobile.svg");
+    display: inline-block;
+    position: absolute;
+    right: 1rem;
+    top: -4.6875rem;
+}
+
+@media (min-width: 52.125rem) {
+    .animals::before {
+        right: 0;
+        left: 1rem;
+    }
+}
+
+@media (min-width: 93.75rem) {
+    .animals::before {
+        top: -6.9375rem;
+        content: url("../../img/cat-desktop.svg");
+    }
+}
+
+/* ANIMALS : DOGS */
+
+.dogs::before {
+    content: url("../../img/dogs-mobile.svg");
+    display: inline-block;
+    position: absolute;
+    left: 1.5rem;
+    top: -3.5rem;
+}
+
+@media (min-width: 52.125rem) {
+    .dogs::before {
+        content: url("../../img/dogs-tablet.svg");
+        left: 3rem;
+        top: -4.6875rem;
+    }
+}
+
+@media (min-width: 93.75rem) {
+    .dogs::before {
+        content: url("../../img/dogs-desktop.svg");
+        left: 12rem;
+        top: -7rem;
+    }
+}

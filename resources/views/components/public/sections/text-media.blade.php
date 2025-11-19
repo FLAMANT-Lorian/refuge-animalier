@@ -7,7 +7,8 @@
    'text_location',
    'btn_label',
    'btn_title',
-   'btn_destination'
+   'btn_destination',
+   'animals' => false
 ])
 
 <section class="py-[4.5rem] md:py-[6rem] lg:py-[11rem] px-6 md:px-12 lg:px-[12rem] flex md:grid md:grid-cols-10 gap-12 md:gap-6 lg:grid-cols-[repeat(13,minmax(0,1fr))] md:items-center
@@ -29,7 +30,8 @@ md:{!! $text_location === 'left' ? 'flex-row' : 'flex-row-reverse' !!}">
             {!! $btn_label !!}
         </x-public.button>
     </div>
-    <picture class="rounded-2xl md:col-start-6 lg:col-start-8 md:col-end-11 lg:col-end-[14]">
-        <img class="rounded-2xl w-full" src="{!! $img_path !!}" alt="{!! $img_alt !!}">
+    <picture class="{!! $animals ? 'animals' : '' !!} relative rounded-2xl md:col-start-6 lg:col-start-8 md:col-end-11 lg:col-end-[14]">
+        <img class="rounded-2xl w-full" src="{!! $img_path !!}"
+             alt="{!! $img_alt !!}">
     </picture>
 </section>

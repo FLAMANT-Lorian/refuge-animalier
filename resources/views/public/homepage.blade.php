@@ -18,7 +18,8 @@
             img_alt="Image temporaire"
             text_location="left"
             btn_label="Découvrir nos animaux"
-            btn_title="Vers la page des animaux"/>
+            btn_title="Vers la page des animaux"
+            animals="true"/>
 
         <x-public.sections.slider title="Les points forts de notre refuge" :articles="$slider"/>
 
