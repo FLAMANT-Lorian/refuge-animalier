@@ -10,16 +10,6 @@
         display: none;
     }
 
-    .slider_item_selector:not(:first-child)::before {
-        content: "";
-        width: 1px;
-        height: 6rem;
-        background-color: var(--color-gray-100);
-        position: absolute;
-        left: -3rem;
-        transform: translateY(50%);
-    }
-
     .slider_btn_selector {
         height: 1rem;
         width: 1rem;
