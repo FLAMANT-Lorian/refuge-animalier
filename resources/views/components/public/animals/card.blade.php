@@ -14,7 +14,7 @@
         <figure class="aspect-square rounded-lg overflow-hidden">
             <img class="w-full h-full" alt="Photo de {!! $animal->name !!}" src="{!! asset($animal->img_path) !!}">
         </figure>
-        <x-animals.state :animal_state="$animal->state"/>
+        <x-animals.state :animal_state="$animal->state" class="absolute left-4 bottom-4 "/>
     </div>
     <div class="flex items-center justify-between gap-4">
         <h3 class="text-lg font-medium">{!! $animal->name !!}</h3>
