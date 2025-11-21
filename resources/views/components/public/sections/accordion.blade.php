@@ -28,7 +28,7 @@
                             {!! $article['content'] !!}
                         </p>
                         <picture class="w-full self-center @if($loop->first) z-10 @endif md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 w-[calc(50%-0.75rem)] lg:w-[calc(50%-4rem)]">
-                            <img class="rounded-2xl w-full has-auto"
+                            <img class="max-h-[22.5rem] rounded-2xl w-full has-auto"
                                  src="{!! $article['img_path'] !!}" alt="{!! $article['img_alt'] !!}">
                         </picture>
                     </div>
