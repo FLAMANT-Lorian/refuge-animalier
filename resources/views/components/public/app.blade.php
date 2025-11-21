@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{!! app()->getLocale() !!}">
+<html class="scroll-smooth" lang="{!! app()->getLocale() !!}">
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Flamant Lorian">
