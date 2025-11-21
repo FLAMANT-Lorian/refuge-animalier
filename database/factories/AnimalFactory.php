@@ -19,12 +19,15 @@ class AnimalFactory extends Factory
 
         $sex = ['Mâle', 'Femelle'];
 
+        $statese = [AnimalStatus::Adopted, AnimalStatus::InTreatment, AnimalStatus::ProcessOfAdoption, AnimalStatus::AwaitingAdoption];
+
+
         return [
             'name' => $this->faker->randomElement($animals_name),
             'breed' => $this->faker->randomElement($breed),
             'sex' => $this->faker->randomElement($sex),
             'age' => $this->faker->numberBetween(1, 6),
-            'state' => $this->faker->randomElement(AnimalStatus::cases()),
+            'state' => $this->faker->randomElement($states),
             'img_path' => 'assets/img/caniche.jpg'
         ];
     }
