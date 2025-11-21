@@ -1,5 +1,5 @@
 <div class="nav__container">
-    <x-public.navigation.navigation-links/>
+    <x-public.navigation.header.navigation-links/>
 
     <div class="flex flex-col gap-1 border-t border-t-gray-100 pt-4 mt-auto md:hidden">
         <a href="{!! route('public.homepage') !!}" title="Vers la page d’accueil">

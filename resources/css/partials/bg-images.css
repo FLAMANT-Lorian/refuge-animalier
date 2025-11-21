@@ -8,6 +8,8 @@ body {
 
 @media (min-width: 93.75rem) {
     body {
+        background-size: max(110rem);
+        background-repeat: repeat-y;
         background-image: url("../../img/bg-image-desktop.svg");
     }
 }
