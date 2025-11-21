@@ -1,0 +1,33 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Animal;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
+
+class AnimalFactory extends Factory
+{
+    protected $model = Animal::class;
+
+    public function definition(): array
+    {
+        $breed = ['Caniche', 'Berger Allemand', 'Dobermann'];
+
+        $animals_name = ['Pedro', 'Pascal', 'Capsule', 'Cléopatre', 'Harber'];
+
+        $sex = ['Mâle', 'Femelle'];
+
+        $state = ['Adopté', 'En soin', 'En cours d’adoptions', 'En attente d’adoption'];
+
+
+        return [
+            'name' => $this->faker->randomElement($animals_name),
+            'breed' => $this->faker->randomElement($breed),
+            'sex' => $this->faker->randomElement($sex),
+            'age' => $this->faker->numberBetween(1, 6),
+            'state' => $this->faker->randomElement($state),
+            'img_path' => 'assets/img/caniche.jpg'
+        ];
+    }
+}
