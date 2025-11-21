@@ -5,7 +5,7 @@
     'placeholder',
 ])
 
-<div {!! $attributes->merge(['class' => 'relative']) !!}>
+<div {!! $attributes->merge(['class' => 'max-w-[15rem] relative']) !!}>
     <label class="sr-only" for="{!! $id !!}">
         {!! $label !!}
     </label>
