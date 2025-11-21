@@ -16,3 +16,4 @@ Route::get('/contact', function () {
 })->name('public.contact');
 
 Route::get('/nos-animaux', [AnimalController::class, 'index'])->name('public.animals.index');
+Route::get('/nos-animaux/{animal}', [AnimalController::class, 'show'])->name('public.animals.show');
