@@ -12,9 +12,10 @@
             label="Rechercher un animal"/>
     </div>
 
-    <div class="pb-10 animals_container flex flex-col items-center gap-8 min-[700px]:grid min-[700px]:grid-cols-2 min-[1000px]:grid-cols-3 min-[1300px]:grid-cols-4">
+    <div
+        class="pb-10 animals_container flex flex-col items-center gap-8 min-[700px]:grid min-[700px]:grid-cols-2 min-[1000px]:grid-cols-3 min-[1300px]:grid-cols-4">
         @foreach($animals as $animal)
-            <x-public.animals.card :data="$animal"/>
+            <x-public.animals.card :animal="$animal" class="absolute left-4 bottom-4 shadow-(--animal-card-boxshadow)"/>
         @endforeach
     </div>
     {!! $animals->withQueryString()->fragment('animals')->links('vendor.pagination.tailwind', ['results_name' => 'animaux']) !!}
