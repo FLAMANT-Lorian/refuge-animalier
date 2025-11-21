@@ -1,6 +1,7 @@
-<x-public.app title="{!! $animal['name'] !!} · Les pattes heureuses">
+<x-public.app title="{!! $animal->name !!} · Les pattes heureuses">
+    <main id="content" class="animal_detail">
 
-    <main class="animal_detail">
-        <h1 class="pb-[12rem]">{!! $animal['name'] !!}</h1>
+        <x-public.sections.animal-detail :animal="$animal"/>
+
     </main>
 </x-public.app>
