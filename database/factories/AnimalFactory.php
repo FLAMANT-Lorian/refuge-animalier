@@ -17,6 +17,8 @@ class AnimalFactory extends Factory
 
         $animals_name = ['Pedro', 'Pascal', 'Capsule', 'Cléopatre', 'Harber'];
 
+        $colors = ['Brun', 'Blanc', 'Noir'];
+
         $sex = ['Mâle', 'Femelle'];
 
         $states = [AnimalStatus::Adopted, AnimalStatus::InTreatment, AnimalStatus::ProcessOfAdoption, AnimalStatus::AwaitingAdoption];
@@ -26,6 +28,8 @@ class AnimalFactory extends Factory
             'name' => $this->faker->randomElement($animals_name),
             'breed' => $this->faker->randomElement($breed),
             'sex' => $this->faker->randomElement($sex),
+            'color' => $this->faker->randomElement($colors),
+            'description' => $this->faker->text(),
             'age' => $this->faker->numberBetween(1, 6),
             'state' => $this->faker->randomElement($states),
             'img_path' => 'assets/img/caniche.jpg'
