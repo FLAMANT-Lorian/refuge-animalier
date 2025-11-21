@@ -19,7 +19,7 @@ class AnimalFactory extends Factory
 
         $sex = ['Mâle', 'Femelle'];
 
-        $statese = [AnimalStatus::Adopted, AnimalStatus::InTreatment, AnimalStatus::ProcessOfAdoption, AnimalStatus::AwaitingAdoption];
+        $states = [AnimalStatus::Adopted, AnimalStatus::InTreatment, AnimalStatus::ProcessOfAdoption, AnimalStatus::AwaitingAdoption];
 
 
         return [
