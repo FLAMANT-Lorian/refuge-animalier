@@ -1,6 +1,6 @@
 /* BACKGROUND BODY */
 body {
-    background-image: url("../../img/bg-image-mobile.svg");
+    background-image: url("../../img/svg/background/bg-image-mobile.svg");
     background-repeat: repeat;
     background-position: top center;
     background-size: 100%;
@@ -10,13 +10,13 @@ body {
     body {
         background-size: max(110rem);
         background-repeat: repeat-y;
-        background-image: url("../../img/bg-image-desktop.svg");
+        background-image: url("../../img/svg/background/bg-image-desktop.svg");
     }
 }
 
 /* ANIMALS : CATS */
 .animals::before {
-    content: url("../../img/cat-mobile.svg");
+    content: url("../../img/svg/animals/cat-mobile.svg");
     display: inline-block;
     position: absolute;
     right: 1rem;
@@ -33,14 +33,14 @@ body {
 @media (min-width: 93.75rem) {
     .animals::before {
         top: -6.9375rem;
-        content: url("../../img/cat-desktop.svg");
+        content: url("../../img/svg/animals/cat-desktop.svg");
     }
 }
 
 /* ANIMALS : DOGS */
 
 .dogs::before {
-    content: url("../../img/dogs-mobile.svg");
+    content: url("../../img/svg/animals/dogs-mobile.svg");
     display: inline-block;
     position: absolute;
     left: 1.5rem;
@@ -49,7 +49,7 @@ body {
 
 @media (min-width: 52.125rem) {
     .dogs::before {
-        content: url("../../img/dogs-tablet.svg");
+        content: url("../../img/svg/animals/dogs-tablet.svg");
         left: 3rem;
         top: -4.6875rem;
     }
@@ -57,7 +57,7 @@ body {
 
 @media (min-width: 93.75rem) {
     .dogs::before {
-        content: url("../../img/dogs-desktop.svg");
+        content: url("../../img/svg/animals/dogs-desktop.svg");
         left: 12rem;
         top: -7rem;
     }
