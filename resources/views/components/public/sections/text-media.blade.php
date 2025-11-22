@@ -31,6 +31,7 @@ md:{!! $text_location === 'left' ? 'flex-row' : 'flex-row-reverse' !!}">
         </x-public.button>
     </div>
     <picture class="{!! $animals ? 'animals' : '' !!} relative rounded-2xl md:col-start-6 lg:col-start-8 md:col-end-11 lg:col-end-[14]">
+        {!! responsiveImage() !!}
         <img class="max-h-[22.5rem] rounded-2xl w-full" src="{!! $img_path !!}"
              alt="{!! $img_alt !!}">
     </picture>
