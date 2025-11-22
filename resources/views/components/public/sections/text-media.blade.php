@@ -2,7 +2,7 @@
    'title',
    'subtitle',
    'content',
-   'img_path',
+   'img_name',
    'img_alt',
    'text_location',
    'btn_label',
@@ -30,8 +30,11 @@ md:{!! $text_location === 'left' ? 'flex-row' : 'flex-row-reverse' !!}">
             {!! $btn_label !!}
         </x-public.button>
     </div>
-    <picture class="{!! $animals ? 'animals' : '' !!} relative rounded-2xl md:col-start-6 lg:col-start-8 md:col-end-11 lg:col-end-[14]">
-        <img class="max-h-[22.5rem] rounded-2xl w-full" src="{!! $img_path !!}"
-             alt="{!! $img_alt !!}">
-    </picture>
+    {!!
+    responsiveImage(
+        $img_name,
+        $img_alt,
+        ($animals ? 'animals ' : '') . 'relative md:col-start-6 lg:col-start-8 md:col-end-11 lg:col-end-[14]',
+        'aspect-square lg:aspect-auto max-h-[22.5rem] rounded-2xl w-full h-full')
+!!}
 </section>

@@ -11,9 +11,12 @@
         </span>
     </a>
     <div class="relative">
-        <figure class="aspect-square rounded-lg overflow-hidden">
-            <img class="w-full h-full" alt="Photo de {!! $animal->name !!}" src="{!! asset($animal->img_path) !!}">
-        </figure>
+        {!!  responsiveImage(
+        $animal->img_path,
+        "Photo de $animal->name",
+        "",
+        'aspect-square rounded-lg w-full h-full')
+!!}
         <x-animals.state :animal_state="$animal->state" class="absolute left-4 bottom-4 "/>
     </div>
     <div class="flex items-center justify-between gap-4">

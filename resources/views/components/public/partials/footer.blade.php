@@ -17,7 +17,7 @@
         class="flex-col md:flex-row lg:flex-col md:items-center lg:items-start gap-2 border-t lg:border-none border-t-white pt-6 lg:p-0 md:col-start-1 md:col-end-11 lg:col-end-4 lg:row-start-1 lg:row-end-2">
         <a class="block hover:translate-x-1 transition-all" href="{!! route('public.homepage') !!}"
            title="Vers la page d’accueil">
-            <img src="{!! asset('assets/img/logo_small_white.svg') !!}" class="self-start"
+            <img src="{!! asset('assets/img/svg/logo/logo_small_white.svg') !!}" class="self-start"
                  alt="Logo des pattes heureuses">
         </a>
         <p class="text-sm font-normal text-white">© 2025 Les Pattes Heureuses – Tous droits réservés.</p>

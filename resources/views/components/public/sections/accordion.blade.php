@@ -11,8 +11,8 @@
     @if($articles)
         <div class="md:grid md:grid-cols-10 lg:grid-cols-[repeat(13,minmax(0,1fr))] relative md:gap-x-6">
             @foreach($articles as $idx => $article)
-
-                <article class="md:col-start-6 lg:col-start-8 md:col-end-11 lg:col-end-14 flex flex-col justify-center border-b border-b-green-500 first-of-type:border-t first-of-type:border-t-green-500">
+                <article
+                    class="md:col-start-6 lg:col-start-8 md:col-end-11 lg:col-end-14 flex flex-col justify-center border-b border-b-green-500 first-of-type:border-t first-of-type:border-t-green-500">
                     <div class="accordion_selector open py-6 px-4 flex flex-row justify-between items-center">
                         <h3 class="text-lg font-semibold pr-2">
                             {!! $article['title'] !!}
@@ -27,10 +27,11 @@
                         <p class="font-base font-normal">
                             {!! $article['content'] !!}
                         </p>
-                        <picture class="w-full self-center @if($loop->first) z-10 @endif md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 w-[calc(50%-0.75rem)] lg:w-[calc(50%-4rem)]">
-                            <img class="max-h-[22.5rem] rounded-2xl w-full has-auto"
-                                 src="{!! $article['img_path'] !!}" alt="{!! $article['img_alt'] !!}">
-                        </picture>
+                        {!! responsiveImage(
+                                $article['img_name'],
+                                $article['img_alt'],
+                                ($loop->first ? 'z-10 ' : '') . "w-full self-center md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 md:w-[calc(50%-0.75rem)] lg:w-[calc(50%-4rem)]",
+                                'max-h-[22.5rem] rounded-2xl w-full has-auto')!!}
                     </div>
                 </article>
 
