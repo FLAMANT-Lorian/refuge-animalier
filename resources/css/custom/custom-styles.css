@@ -1,0 +1,13 @@
+:root {
+    /****** BOXSHADOW ******/
+    --slider-boxshadow: 0 0 20px 0 rgba(87, 167, 112, 0.50);
+    --animal-card-boxshadow: 0 7px 29px 0 rgba(100, 100, 111, 0.50);
+
+    /****** ANIMALS MEDIA QUERIES ******/
+    --animals-tablet: 43.75rem;
+}
+
+img:not(.hero) {
+    object-position: center center;
+    object-fit: cover;
+}
