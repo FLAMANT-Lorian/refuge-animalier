@@ -15,7 +15,7 @@
             Partager
             <x-icons.share/>
         </a>
-        <span class="opacity-0 transition-all ease-in-out duration-100 share_message absolute right-0 -top-0.5 -rotate-2 font-bold">Copier !</span>
+        <span class="opacity-0 transition-all ease-in-out duration-100 share_message absolute right-0 -top-0.5 -rotate-2 font-bold">Copié !</span>
     </div>
     <p>
         {!! $animal->description !!}
