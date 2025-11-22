@@ -35,6 +35,6 @@ md:{!! $text_location === 'left' ? 'flex-row' : 'flex-row-reverse' !!}">
         $img_name,
         $img_alt,
         ($animals ? 'animals ' : '') . 'relative md:col-start-6 lg:col-start-8 md:col-end-11 lg:col-end-[14]',
-        'aspect-square md:aspect-auto max-h-[22.5rem] rounded-2xl w-full h-full')
+        'aspect-square lg:aspect-auto max-h-[22.5rem] rounded-2xl w-full h-full')
 !!}
 </section>

@@ -12,7 +12,6 @@ if (!function_exists('responsiveImage')) {
         $breakpoints = [
             1 => '400px',
             2 => '834px',
-            3 => '1500px',
         ];
 
         /* CRÉATION DU IMG_PATH */
