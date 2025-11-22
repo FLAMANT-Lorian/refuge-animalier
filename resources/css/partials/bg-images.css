@@ -1,5 +1,5 @@
 /* BACKGROUND BODY */
-body {
+body:not(.admin) {
     background-image: url("../../img/svg/background/bg-image-mobile.svg");
     background-repeat: repeat;
     background-position: top center;

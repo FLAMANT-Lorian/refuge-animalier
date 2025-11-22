@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnimalController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
     return view('public.homepage');
 })->name('public.homepage');
@@ -17,3 +18,5 @@ Route::get('/contact', function () {
 
 Route::get('/nos-animaux', [AnimalController::class, 'index'])->name('public.animals.index');
 Route::get('/nos-animaux/{animal}', [AnimalController::class, 'show'])->name('public.animals.show');
+
+Route::livewire('/dashboard', 'pages::dashboard')->name('admin.dashboard');
