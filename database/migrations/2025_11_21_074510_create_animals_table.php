@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('breed');
+            $table->string('color');
+            $table->string('description');
             $table->string('sex');
             $table->string('age');
             $table->string('state');
