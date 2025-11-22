@@ -1,6 +1,6 @@
 <span {!! $attributes->merge(['class' => '']) !!}>
 
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M9.16667 5C10.0871 5 10.8333 4.25381 10.8333 3.33333C10.8333 2.41286 10.0871 1.66667 9.16667 1.66667C8.24619 1.66667 7.5 2.41286 7.5 3.33333C7.5 4.25381 8.24619 5 9.16667 5Z"
             stroke="#292A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
