@@ -1,5 +1,5 @@
 /* BACKGROUND BODY */
-body {
+body:not(.admin) {
     background-image: url("../../img/svg/background/bg-image-mobile.svg");
     background-repeat: repeat;
     background-position: top center;
@@ -7,7 +7,7 @@ body {
 }
 
 @media (min-width: 93.75rem) {
-    body {
+    body:not(.admin) {
         background-size: max(110rem);
         background-repeat: repeat-y;
         background-image: url("../../img/svg/background/bg-image-desktop.svg");

@@ -3,12 +3,6 @@
 use App\Enums\AnimalStatus;
 use App\Models\Animal;
 
-it('verifies if a guest can access to the public website animals index page', function () {
-    $response = $this->get(route('public.animals.index'));
-
-    $response->assertStatus(200);
-});
-
 it('verifies if the animals that are displays in the animals index page are the animals with the correct status', function () {
 
     foreach (AnimalStatus::cases() as $status) {
@@ -26,9 +20,11 @@ it('verifies if the animals that are displays in the animals index page are the 
     $response->assertDontSee(AnimalStatus::InTreatment->value);
 });
 
-it('verifies if a guest can access to a animal detail page and that the inforamtions are correct', function () {
+it('verifies if a guest can access to a animal detail page and that the informations are correct', function () {
 
-    $animal = Animal::factory()->create()->toArray();
+    $animal = Animal::factory()->create(
+        ['state' => AnimalStatus::ProcessOfAdoption->value]
+    )->toArray();
 
     $other_animal = Animal::factory()->create()->toArray();
 
