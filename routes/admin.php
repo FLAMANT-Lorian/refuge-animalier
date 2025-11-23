@@ -1,5 +1,7 @@
 <?php
 
+Route::livewire('/login', 'pages::login')->name('admin.login');
+
 Route::livewire('/dashboard', 'pages::dashboard')->name('admin.dashboard');
 
 Route::livewire('/settings', 'pages::settings')->name('admin.settings');
