@@ -12,4 +12,7 @@
 
     {{-- FICHES ANIMAUX --}}
     <x-admin.pages.dashboard.sheets :sheets="$sheet"/>
+
+    {{-- DEMANDES d’ADOPTIONS --}}
+    <x-admin.pages.dashboard.adoption-requests :adoption_requests="$adoptions_requests"/>
 </main>

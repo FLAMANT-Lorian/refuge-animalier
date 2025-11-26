@@ -4,7 +4,8 @@
 
 <li class="relative p-4 border border-gray-200 bg-white rounded-2xl">
     {{-- TODO: OUVRIR UNE MODAL --}}
-    <a href="#"
+    <a title="Voir le statut de la fiche de {!! $data['name'] !!}"
+       href="#"
        class="hover:cursor-pointer rounded-2xl z-10 absolute top-0 bottom-0 right-0 left-0">
         <span class="sr-only">
             Statut de la fiche de {!! $data['name'] !!}
@@ -17,7 +18,7 @@
                 <a class="relative z-20 hover:underline"
                    title="Vers la fiche de {!! $data['name'] !!}"
                    href="{!! route('admin.animals.show', 1) !!}">
-                    {!! $data['animal'] !!}
+                    {!! $data['name'] !!}
                 </a>
             </dd>
         </div>
