@@ -7,7 +7,7 @@
     <a href="#"
        class="hover:cursor-pointer rounded-2xl z-10 absolute top-0 bottom-0 right-0 left-0">
         <span class="sr-only">
-            Statut de la fiche de {!! $data['animal'] !!}
+            Statut de la fiche de {!! $data['name'] !!}
         </span>
     </a>
     <dl class="flex flex-col gap-4">
@@ -15,7 +15,7 @@
             <dt class="font-bold">Animal</dt>
             <dd>
                 <a class="relative z-20 hover:underline"
-                   title="Vers la fiche de {!! $data['animal'] !!}"
+                   title="Vers la fiche de {!! $data['name'] !!}"
                    href="{!! route('admin.animals.show', 1) !!}">
                     {!! $data['animal'] !!}
                 </a>
