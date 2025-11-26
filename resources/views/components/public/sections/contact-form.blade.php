@@ -46,5 +46,5 @@
         />
 
     </fieldset>
-    <x-forms.button label="Envoyer"/>
+    <x-forms.button-submit label="Envoyer"/>
 </form>
