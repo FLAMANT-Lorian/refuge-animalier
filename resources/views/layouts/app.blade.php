@@ -15,7 +15,7 @@
     @if(url()->current() === route('admin.login'))
         <header class="sr-only">Menu login</header>
     @else
-        <livewire:admin.partials.header-admin />
+        <livewire:admin.partials.header-admin/>
     @endif
 
     {{ $slot }}
