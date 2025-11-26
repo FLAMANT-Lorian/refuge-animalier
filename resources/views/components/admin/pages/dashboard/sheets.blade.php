@@ -14,7 +14,7 @@
             Tout afficher
         </x-buttons.base>
     </div>
-    <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-scroll">
+    <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-y-scroll">
         @for($i = 0; $i < $sheets_count; $i++)
             <x-admin.pages.dashboard.sheets-card :data="$sheets"/>
         @endfor

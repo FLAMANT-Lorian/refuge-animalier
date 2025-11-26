@@ -14,7 +14,7 @@
             Tout afficher
         </x-buttons.base>
     </div>
-    <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-scroll">
+    <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-y-scroll">
         @for($i = 0; $i < $adoption_request_count; $i++)
             <x-admin.pages.dashboard.adoption-request-card :data="$adoption_requests"/>
         @endfor
