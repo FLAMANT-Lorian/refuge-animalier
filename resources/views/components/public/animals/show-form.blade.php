@@ -54,6 +54,6 @@
             />
 
         </fieldset>
-        <x-forms.button label="Demander un rendez-vous"/>
+        <x-forms.button-submit label="Demander un rendez-vous"/>
     </form>
 </div>
