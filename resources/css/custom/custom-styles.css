@@ -11,3 +11,7 @@ img:not(.hero) {
     object-position: center center;
     object-fit: cover;
 }
+
+.menu_profile:has(a:hover) .underline_text {
+    text-decoration: underline;
+}

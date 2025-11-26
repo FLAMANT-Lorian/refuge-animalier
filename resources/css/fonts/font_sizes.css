@@ -1,5 +1,5 @@
 @layer base {
-    h1, h2, h3, h4, p, small, a, svg, span{
+    h1, h2, h3, h4, p, small, a, span{
         color: #292A2B;
     }
 

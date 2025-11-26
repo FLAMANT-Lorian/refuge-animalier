@@ -1,4 +1,4 @@
-<div class="nav__container">
+<div class="nav__container--public">
     <x-public.navigation.header.navigation-links/>
 
     <div class="flex flex-col gap-1 border-t border-t-gray-100 pt-4 mt-auto md:hidden">
