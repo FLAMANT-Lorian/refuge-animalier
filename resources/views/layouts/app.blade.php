@@ -13,7 +13,7 @@
 <body class="admin">
 
     @if(url()->current() === route('admin.login'))
-        <header>Menu login</header>
+        <header class="sr-only">Menu login</header>
     @else
         <header>Menu admin</header>
     @endif
