@@ -18,7 +18,7 @@ new class extends Component
 };
 ?>
 
-<header class="h-screen px-6 pt-10 lg:pt-0 md:px-12 lg:px-0 lg:w-[18.75rem]">
+<header class="lg:h-screen px-6 pt-10 lg:pt-0 md:px-12 lg:px-0 lg:w-[18.75rem]">
     <h1 class="sr-only">Les pattes heureuses</h1>
     <a class="sr-only" href="#content" title="Aller directement au contenu principal">Aller directement au
         contenu principal</a>
