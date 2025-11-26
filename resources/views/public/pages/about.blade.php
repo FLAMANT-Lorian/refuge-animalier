@@ -18,6 +18,7 @@
             text_location="left"
             btn_label="Nous contacter"
             btn_title="Vers la page de contact"
+            :btn_destination="route('public.contact')"
             animals="true"/>
 
         <x-public.sections.accordion
@@ -32,6 +33,7 @@
             img_alt="Image temporaire"
             text_location="right"
             btn_label="Découvrir nos animaux"
+            :btn_destination="route('public.animals.index')"
             btn_title="Vers la page des animaux"/>
     </main>
 </x-public.app>
