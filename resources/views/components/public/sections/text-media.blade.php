@@ -26,9 +26,9 @@ md:{!! $text_location === 'left' ? 'flex-row' : 'flex-row-reverse' !!}">
         <p class="text-base font-normal">
             {!! $content !!}
         </p>
-        <x-public.button :destination="$btn_destination ?? '#'" :title="$btn_title">
+        <x-buttons.base :destination="$btn_destination ?? '#'" :title="$btn_title">
             {!! $btn_label !!}
-        </x-public.button>
+        </x-buttons.base>
     </div>
     {!!
     responsiveImage(

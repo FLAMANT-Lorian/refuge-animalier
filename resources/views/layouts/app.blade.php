@@ -10,12 +10,12 @@
 
     @livewireStyles
 </head>
-<body class="admin">
+<body class="admin max-w-[110rem] m-auto relative bg-gray-50 has-[.bg-menu:checked]:overflow-hidden lg:flex">
 
     @if(url()->current() === route('admin.login'))
         <header class="sr-only">Menu login</header>
     @else
-        <header>Menu admin</header>
+        <livewire:admin.partials.header-admin />
     @endif
 
     {{ $slot }}

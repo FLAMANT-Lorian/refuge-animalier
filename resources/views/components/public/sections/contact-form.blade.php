@@ -6,6 +6,7 @@
 
         {{-- NOM --}}
         <x-forms.input-text
+            type="text"
             class="md:col-start-1 md:col-end-6"
             name="lastname"
             title="lastname"
@@ -17,6 +18,7 @@
 
         {{-- PRÉNOM --}}
         <x-forms.input-text
+            type="text"
             class="md:col-start-6 md:col-end-11"
             name="firstname"
             id="firstname"
@@ -27,6 +29,7 @@
 
         {{-- ADRESSE E-MAIL --}}
         <x-forms.input-text
+            type="email"
             class="md:col-start-1 md:col-end-11"
             name="email"
             id="email"
