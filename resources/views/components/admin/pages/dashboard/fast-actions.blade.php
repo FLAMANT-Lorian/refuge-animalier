@@ -5,7 +5,7 @@
     <div class="flex flex-col gap-6">
 
         {{-- CRÉER UN ANIMAL --}}
-        <x-admin.pages.dashboard.action_card
+        <x-admin.pages.dashboard.action-card
             title="Ajouter un animal"
             subtitle="Ajouter un nouvel animal au refuge"
             :img_path="asset('assets/img/svg/dashboard/dog.svg')"
@@ -15,7 +15,7 @@
         />
 
         {{-- CRÉER UN BÉNÉVOLE --}}
-        <x-admin.pages.dashboard.action_card
+        <x-admin.pages.dashboard.action-card
             title="Ajouter un bénévole"
             subtitle="Enregistrer un nouveau bénévole pour votre refuge"
             :img_path="asset('assets/img/svg/dashboard/children.svg')"
