@@ -8,7 +8,7 @@
             <h3 class="text-3xl font-bold">
                 {!! $animal->name !!}
             </h3>
-            <x-animals.state :animal_state="$animal->state"/>
+            <x-states.animal-state :animal_state="$animal->state"/>
         </div>
         <div class="relative">
             <a

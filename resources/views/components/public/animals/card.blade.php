@@ -17,7 +17,7 @@
         "",
         'aspect-square rounded-lg w-full h-full')
 !!}
-        <x-animals.state :animal_state="$animal->state" class="absolute left-4 bottom-4 "/>
+        <x-states.animal-state :animal_state="$animal->state" class="absolute left-4 bottom-4 "/>
     </div>
     <div class="flex items-center justify-between gap-4">
         <h3 class="text-lg font-medium">{!! $animal->name !!}</h3>
