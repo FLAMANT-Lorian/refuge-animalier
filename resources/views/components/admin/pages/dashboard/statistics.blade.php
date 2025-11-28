@@ -2,7 +2,7 @@
     use \App\Enums\DateRange;
 @endphp
 
-<section class="flex flex-col gap-6 p-6 border border-gray-200 rounded-2xl bg-white">
+<section {!! $attributes->merge(['class' => 'flex flex-col gap-6 p-6 border border-gray-200 rounded-2xl bg-white']) !!}>
     <div class="flex flex-col md:flex-row gap-4">
         <h2 class="text-lg font-semibold">
             Statistiques

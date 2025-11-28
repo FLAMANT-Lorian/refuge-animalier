@@ -2,15 +2,18 @@
     'adoption_request_count' => 6,
     'adoption_requests'
 ])
-<section class="flex flex-col gap-6 p-6 border border-gray-200 rounded-2xl bg-white">
-    <div class="flex flex-col gap-4">
+<section
+    {!! $attributes->merge(['class' => 'flex flex-col gap-6 p-6 border border-gray-200 rounded-2xl bg-white']) !!}>
+    <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4">
         <div class="flex flex-col gap-1">
             <h2 class="text-lg font-semibold">
                 Demandes d’adoptions
             </h2>
             <p class="font-base font-normal text-gray-500">Vous avez {!! $adoption_request_count !!} nouvelles demandes d’adoptions !</p>
         </div>
-        <x-buttons.base :destination="route('admin.adoption-requests.index')" title="Vers la page des demandes d’adoptions">
+        <x-buttons.base
+            class="max-lg:self-start"
+            :destination="route('admin.adoption-requests.index')" title="Vers la page des demandes d’adoptions">
             Tout afficher
         </x-buttons.base>
     </div>

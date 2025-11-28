@@ -1,8 +1,8 @@
-<section class="flex flex-col gap-6 p-6 border border-gray-200 rounded-2xl bg-white">
+<section {!! $attributes->merge(['class' => 'flex flex-col gap-6 p-6 border border-gray-200 rounded-2xl bg-white']) !!}>
     <h3 class="text-lg font-semibold">
         Actions rapides
     </h3>
-    <div class="flex md:grid flex-col md:grid-cols-2 gap-6">
+    <div class="flex md:grid flex-col md:grid-cols-2 lg:flex lg:flex-col gap-6">
 
         {{-- CRÉER UN ANIMAL --}}
         <x-admin.pages.dashboard.action-card
