@@ -7,7 +7,9 @@
     <x-admin.navigation.navigation-links/>
 
     {{-- BOUTON AJOUTER UN ANIMAL --}}
-    <x-buttons.add-item-button :href="route('admin.animals.create')">
+    <x-buttons.add-item-button
+        title="Ajouter un animal"
+        :href="route('admin.animals.create')">
         Ajouter un animal
     </x-buttons.add-item-button>
 
