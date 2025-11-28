@@ -5,6 +5,9 @@
 
     /****** ANIMALS MEDIA QUERIES ******/
     --animals-tablet: 43.75rem;
+    --canvas-red-color: #FF6384;
+    --canvas-yellow-color: #FFCD56;
+    --canvas-blue-color: #36A2EB;
 }
 
 img:not(.hero) {
