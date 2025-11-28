@@ -2,7 +2,7 @@
     <h3 class="text-lg font-semibold">
         Actions rapides
     </h3>
-    <div class="flex flex-col gap-6">
+    <div class="flex md:grid flex-col md:grid-cols-2 gap-6">
 
         {{-- CRÉER UN ANIMAL --}}
         <x-admin.pages.dashboard.action-card

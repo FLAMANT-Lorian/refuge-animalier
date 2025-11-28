@@ -3,11 +3,12 @@
 @endphp
 
 <section class="flex flex-col gap-6 p-6 border border-gray-200 rounded-2xl bg-white">
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col md:flex-row gap-4">
         <h2 class="text-lg font-semibold">
             Statistiques
         </h2>
         <x-buttons.download-button
+            class="md:ml-auto"
             destination="#"
             title="Télécharger le rapport d’activité">
             Télécharger le rapport d’activité
@@ -22,9 +23,6 @@
             identifier="value"/>
     </div>
 
-    {{-- LÉGENDE STATISTIQUES --}}
-    <x-admin.pages.dashboard.statistics-legend/>
-
     {{-- GRAPHIQUES --}}
-    <x-admin.pages.dashboard.statistics-charts/>
+    <x-admin.pages.dashboard.statistics-cards/>
 </section>
