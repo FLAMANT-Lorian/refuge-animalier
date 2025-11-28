@@ -35,7 +35,8 @@
 
                 {{-- SELECTION DES FILTRES --}}
                 <x-forms.select
-                    class="px-2 py-2.5 border border-green-500 rounded-lg"
+                    :all_selector="true"
+                    all_selector_label="Tous"
                     id="animals_filter"
                     label="Filtrer les animaux"
                     :with_label="false"
