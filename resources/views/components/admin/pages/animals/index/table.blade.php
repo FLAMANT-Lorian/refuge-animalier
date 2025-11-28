@@ -11,4 +11,7 @@
         {{-- TBODY --}}
         <x-admin.pages.animals.index.tbody :animals="$animals"/>
     </table>
+
+    {{--  PAGINATION --}}
+    {!! $animals->links('vendor.livewire.tailwind', ['results_name' => 'animaux']) !!}
 </section>

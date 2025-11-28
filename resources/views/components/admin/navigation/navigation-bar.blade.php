@@ -1,7 +1,7 @@
 @props([
     'profile_data'
 ])
-<div class="nav__container--admin lg:h-screen">
+<div class="nav__container--admin">
 
     {{-- MENU DE NAVIGATION --}}
     <x-admin.navigation.navigation-links/>
