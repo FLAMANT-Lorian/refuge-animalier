@@ -20,6 +20,6 @@
                 sont obligatoires !
             </p>
         </div>
-        <x-admin.login.login-form/>
+        <x-admin.pages.login.login-form/>
     </section>
 </main>

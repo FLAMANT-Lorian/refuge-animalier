@@ -7,9 +7,9 @@
     <x-admin.navigation.navigation-links/>
 
     {{-- BOUTON AJOUTER UN ANIMAL --}}
-    <x-admin.buttons.add_item_button :href="route('admin.animals.create')">
+    <x-buttons.add-item-button :href="route('admin.animals.create')">
         Ajouter un animal
-    </x-admin.buttons.add_item_button>
+    </x-buttons.add-item-button>
 
     {{-- FOND DU MENU --}}
     <x-admin.navigation.navigation-bottom :profile_data="$profile_data"/>

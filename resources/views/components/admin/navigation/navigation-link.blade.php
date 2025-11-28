@@ -8,7 +8,7 @@
     $class_for_icons = 'hidden lg:block group-hover:text-white transition-all ease-in-out duration-200' . (url()->current() === $destination ? ' lg:text-white' : '');
 @endphp
 
-<a {!! $attributes->merge(['class' => 'lg:self-auto lg:px-4 lg:py-3 lg:rounded-lg lg:border lg:border-transparent lg:hover:border-green-500 lg:hover:bg-green-500 transition-all ease-in-out duration-200 lg:flex lg:flex-row lg:gap-2 text-xl lg:text-base max-lg:hover:font-bold font-medium font-normal transition-all' . (url()->current() === $destination ? ' lg:text-white lg:bg-green-500 lg:border-green-500' : '')]) !!}
+<a wire:navigate wire:current="max-lg:font-bold lg:text-white lg:bg-green-500 lg:border-green-500" {!! $attributes->merge(['class' => 'lg:self-auto lg:px-4 lg:py-3 lg:rounded-lg lg:border lg:border-transparent lg:hover:border-green-500 lg:hover:bg-green-500 transition-all ease-in-out duration-200 lg:flex lg:flex-row lg:gap-2 text-xl lg:text-base max-lg:hover:font-bold font-medium font-normal transition-all']) !!}
 
    href="{!! $destination !!}"
    title="{!! $title !!}">

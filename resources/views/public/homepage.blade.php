@@ -18,6 +18,7 @@
             img_alt="Image temporaire"
             text_location="left"
             btn_label="Découvrir nos animaux"
+            :btn_destination="route('public.animals.index')"
             btn_title="Vers la page des animaux"
             animals="true"/>
 
@@ -31,6 +32,7 @@
             img_alt="Image temporaire"
             text_location="right"
             btn_label="Devenir bénévole"
+            :btn_destination="route('public.contact')"
             btn_title="Vers la page de contact"/>
     </main>
 </x-public.app>
