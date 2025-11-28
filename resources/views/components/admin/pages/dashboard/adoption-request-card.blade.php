@@ -2,25 +2,20 @@
     'data'
 ])
 
-<li class="relative p-4 border border-gray-200 bg-white rounded-2xl">
+<li class="relative p-4 border border-green-300 hover:bg-green-100 transition-all ease-in-out duration-200 bg-white rounded-2xl">
     {{-- TODO: OUVRIR UNE MODAL --}}
-    <a title="Voir la demande de {!! $data['name'] !!}"
-       href="#"
-       class="hover:cursor-pointer rounded-2xl z-10 absolute top-0 bottom-0 right-0 left-0">
-        <span class="sr-only">
-            Voir la demande de {!! $data['name'] !!}
-        </span>
-    </a>
-    <dl class="flex flex-col gap-4">
-        <div>
-            <dt class="font-bold">Nom&nbsp;:</dt>
-            <dd>{!! $data['name'] !!}</dd>
+    <dl class="flex flex-col md:flex-row gap-4">
+        <div class="flex flex-col gap-4 md:gap-0">
+            <div>
+                <dt class="md:sr-only pb-1 font-bold">Nom&nbsp;:</dt>
+                <dd class="md:font-bold">{!! $data['name'] !!}</dd>
+            </div>
+            <div>
+                <dt class="md:sr-only pb-1 font-bold">Adresse e-mail&nbsp;:</dt>
+                <dd>{!! $data['email'] !!}</dd>
+            </div>
         </div>
-        <div>
-            <dt class="font-bold">Adresse e-mail</dt>
-            <dd>{!! $data['email'] !!}</dd>
-        </div>
-        <div class="flex flex-col gap-2 items-start">
+        <div class="md:ml-auto flex flex-col md:flex-row md:items-center gap-2 items-start">
             <p>Intéressé par</p>
             <a title="Voir la fichde de {!! $data['animal_name'] !!}"
                href="{!! route('public.animals.show', 1) !!}"

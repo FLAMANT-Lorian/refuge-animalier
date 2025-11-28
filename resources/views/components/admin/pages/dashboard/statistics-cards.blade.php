@@ -18,5 +18,4 @@
         <span class="self-end font-bold text-2xl">4</span>
     </div>
 
-
 </div>
