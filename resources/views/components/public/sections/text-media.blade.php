@@ -26,7 +26,9 @@ md:{!! $text_location === 'left' ? 'flex-row' : 'flex-row-reverse' !!}">
         <p class="text-base font-normal">
             {!! $content !!}
         </p>
-        <x-buttons.base :destination="$btn_destination ?? '#'" :title="$btn_title">
+        <x-buttons.base
+            class="self-start"
+            :destination="$btn_destination ?? '#'" :title="$btn_title">
             {!! $btn_label !!}
         </x-buttons.base>
     </div>
