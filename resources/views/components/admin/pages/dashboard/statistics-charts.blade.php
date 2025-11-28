@@ -1,3 +1,7 @@
+@assets
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+@endassets
+
 <div class="sheet_dashboard flex flex-col gap-4">
 
     {{-- GRAPHIQUE DONUTS --}}
