@@ -10,7 +10,7 @@
 
 <div>
     <label class="{!! $with_label ? '' : 'sr-only' !!}" for="{!! $id !!}">{!! $label !!}</label>
-    <select {!! $attributes->merge(['class' => '']) !!}
+    <select {!! $attributes->merge(['class' => 'select_form']) !!}
         name="{!! $name !!}"
         id="{!! $id !!}">
         @foreach ($collection as $item)
