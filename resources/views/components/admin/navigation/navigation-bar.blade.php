@@ -1,13 +1,15 @@
 @props([
     'profile_data'
 ])
-<div class="nav__container--admin lg:h-screen">
+<div class="nav__container--admin">
 
     {{-- MENU DE NAVIGATION --}}
     <x-admin.navigation.navigation-links/>
 
     {{-- BOUTON AJOUTER UN ANIMAL --}}
-    <x-buttons.add-item-button :href="route('admin.animals.create')">
+    <x-buttons.add-item-button
+        title="Ajouter un animal"
+        :href="route('admin.animals.create')">
         Ajouter un animal
     </x-buttons.add-item-button>
 

@@ -8,7 +8,7 @@
     </h2>
 
     @if($articles)
-        <div class="slider_selector grid grid-cols-[repeat(3,327px)] gap-[6rem] overflow-x-scroll md:justify-center lg:justify-between">
+        <div class="slider_selector grid grid-cols-[repeat(3,327px)] gap-[6rem] overflow-x-auto md:justify-center lg:justify-between">
             @foreach($articles as $idx => $article)
 
                 <article id="slider_{!! $idx + 1 !!}" class="slider_item_selector pt-8 lg:pt-10 relative flex flex-col items-center">

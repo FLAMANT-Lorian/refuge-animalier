@@ -27,7 +27,7 @@ new class extends Component
     {{-----Menu de navigation-----}}
     {{----------------------------}}
     <nav aria-label="Navigation principale"
-         class="lg:w-[18.75rem] flex lg:flex-col lg:h-screen px-6 py-4 lg:py-10 items-center justify-between lg:justify-start bg-white border border-gray-200 rounded-2xl">
+         class="lg:overflow-auto lg:w-[18.75rem] flex lg:flex-col lg:h-full px-6 py-4 lg:py-10 items-center justify-between lg:justify-start bg-white border border-gray-200 rounded-2xl">
         <h2 class="sr-only">Navigation principale</h2>
         <a wire:navigate class="relative z-50 block max-w-[13.75rem] w-full hover:translate-x-1 transition-all"
            href="{!! route('admin.dashboard') !!}" title="Vers le tableau de bord">

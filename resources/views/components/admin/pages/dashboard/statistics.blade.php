@@ -14,7 +14,7 @@
             Télécharger le rapport d’activité
         </x-buttons.download-button>
         <x-forms.select
-            class="px-2 py-2.5 border border-green-500 rounded-lg font-medium"
+            :all_selector="false"
             id="stats_filter"
             name="stats_filter"
             label="Séléctionner le filtre"
