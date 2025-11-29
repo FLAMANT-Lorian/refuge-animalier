@@ -3,7 +3,7 @@
 ])
 
 <section class="flex flex-col gap:6">
-    <table class="w-full overflow-hidden border-separate rounded-2xl border border-green-300 border-spacing-0">
+    <table class="lg:overflow-hidden lg:border-separate lg:rounded-2xl lg:border lg:border-green-300 lg:border-spacing-0">
 
         {{-- THEAD --}}
         <x-admin.pages.animals.index.thead/>

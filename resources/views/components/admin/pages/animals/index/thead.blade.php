@@ -1,4 +1,4 @@
-<thead class="w-full bg-green-500">
+<thead class="max-lg:hidden w-full bg-green-500">
     <tr class="flex w-full items-center">
         <th scope="col" class="p-2 w-[3rem]">
             <input class="animal hover:cursor-pointer" type="checkbox" name="all_coll_selector"
