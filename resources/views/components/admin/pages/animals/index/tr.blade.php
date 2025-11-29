@@ -16,7 +16,8 @@
         <span class="font-normal sr-only">
             Image de l’animal
         </span>
-        <img class="w-[5rem] h-[5rem] rounded-2xl" src="{!! asset('assets/img/tmp.png') !!}">
+        <img alt="phot de {!! $animal->name !!}"
+            class="w-[5rem] h-[5rem] rounded-2xl" src="{!! asset('assets/img/tmp.png') !!}">
     </td>
 
     <td class="lg:flex-1 h-full lg:text-left font-normal">
