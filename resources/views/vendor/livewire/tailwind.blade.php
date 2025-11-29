@@ -10,30 +10,29 @@
         : '';
 @endphp
 
-<div>
-    @if ($paginator->hasPages())
-        <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="flex items-center justify-end">
+@if ($paginator->hasPages())
+    <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="flex items-center justify-end">
 
-            <div class="flex items-center max-md:flex-col max-md:items-end max-md:items-end gap-6">
-                <div>
-                    <p class="text-base font-normal dark:text-gray-400">
-                        {!! __('pagination.showing') !!}
-                        @if ($paginator->firstItem())
-                            <span class="">{{ $paginator->firstItem() }}</span>
-                            {!! __('pagination.to') !!}
-                            <span class="">{{ $paginator->lastItem() }}</span>
-                        @else
-                            {{ $paginator->count() }}
-                        @endif
-                        {!! __('pagination.of') !!}
-                        <span class="">{{ $paginator->total() }}</span>
-                        <span class="font-bold">
+        <div class="flex items-center max-md:flex-col max-md:items-end max-md:items-end gap-6">
+            <div>
+                <p class="text-base font-normal dark:text-gray-400">
+                    {!! __('pagination.showing') !!}
+                    @if ($paginator->firstItem())
+                        <span class="">{{ $paginator->firstItem() }}</span>
+                        {!! __('pagination.to') !!}
+                        <span class="">{{ $paginator->lastItem() }}</span>
+                    @else
+                        {{ $paginator->count() }}
+                    @endif
+                    {!! __('pagination.of') !!}
+                    <span class="">{{ $paginator->total() }}</span>
+                    <span class="font-bold">
                     {!! __('pagination.results', ['results' => $results_name]) !!}
                     </span>
-                    </p>
-                </div>
+                </p>
+            </div>
 
-                <div>
+            <div>
                 <span class="relative z-0 flex gap-2">
                     {{-- Previous Page Link --}}
                     @if ($paginator->onFirstPage())
@@ -91,9 +90,8 @@
                         </span>
                     @endif
                 </span>
-                </div>
             </div>
+        </div>
 
-        </nav>
-    @endif
-</div>
+    </nav>
+@endif

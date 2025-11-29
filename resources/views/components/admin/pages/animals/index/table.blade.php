@@ -2,7 +2,7 @@
     'animals'
 ])
 
-<section class="flex flex-col gap:6">
+<section {!! $attributes->merge(['class' => 'flex flex-col gap-6']) !!}>
     <table class="lg:overflow-hidden lg:border-separate lg:rounded-2xl lg:border lg:border-green-300 lg:border-spacing-0">
 
         {{-- THEAD --}}
