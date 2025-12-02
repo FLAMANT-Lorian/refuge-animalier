@@ -48,9 +48,9 @@
         </div>
     </td>
 
-    <td class="lg:text-left lg:w-[10rem]">
+    <td class="absolute top-4 right-4 lg:static lg:text-left lg:w-[10rem]">
         <div class="flex flex-col gap-1">
-            <span class="min-lg:hidden font-bold">
+            <span class="hidden font-bold">
                 Statut&nbsp;:
             </span>
             <div class="flex flex-row justify-start lg:px-4 lg:py-4 font-normal">
