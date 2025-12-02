@@ -11,7 +11,7 @@
 
             {{-- FIL D'ARIANE --}}
             <a wire:navigate href="{!! route('admin.animals.index') !!}"
-               class="font-bold text-gray-500">| {!! $app_title !!}</a>
+               class="self-start font-bold text-gray-500">| {!! $app_title !!}</a>
 
             <div class="flex flex-col lg:grid lg:grid-cols-9 lg:items-center lg:gap-6 gap-6">
                 <div class="flex flex-col gap-2 lg:col-start-1 lg:col-end-5">
