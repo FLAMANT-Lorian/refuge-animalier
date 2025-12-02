@@ -1,5 +1,5 @@
 <thead class="max-lg:hidden w-full bg-green-500">
-    <tr x-data="{ arrow_top_name: 'middle', arrow_top_breed: 'middle' }" class="flex w-full items-center">
+    <tr x-data="{ arrow_name: 'middle', arrow_breed: 'middle' }" class="flex w-full items-center">
         <th scope="col" class="p-2 w-[3rem]">
             <input class="animal hover:cursor-pointer" type="checkbox" name="all_coll_selector"
                    id="all_coll_selector"
@@ -10,25 +10,25 @@
             <span class="sr-only">Image de l’animal</span>
         </th>
         <th scope="col" class="flex-1 text-left">
-            <div class="flex flex-row justify-start px-4 py-2">
+            <div class="flex flex-row px-4 py-2">
                 <span @click="
-                if (arrow_top_name === 'middle') {
-                    arrow_top_breed = 'middle';
-                    arrow_top_name = 'desc';
-                } else if (arrow_top_name === 'desc') {
-                    arrow_top_breed = 'middle';
-                    arrow_top_name = 'asc';
-                } else if (arrow_top_name === 'asc') {
-                    arrow_top_breed = 'middle';
-                    arrow_top_name = 'middle';
+                if (arrow_name === 'middle') {
+                    arrow_breed = 'middle';
+                    arrow_name = 'desc';
+                } else if (arrow_name === 'desc') {
+                    arrow_breed = 'middle';
+                    arrow_name = 'asc';
+                } else if (arrow_name === 'asc') {
+                    arrow_breed = 'middle';
+                    arrow_name = 'middle';
                 }"
                       class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     Nom de l’animal
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
-                            '-rotate-0': arrow_top_name === 'desc',
-                            '-rotate-180': arrow_top_name === 'asc',
-                            '-rotate-90': arrow_top_name === 'middle'
+                            '-rotate-0': arrow_name === 'desc',
+                            '-rotate-180': arrow_name === 'asc',
+                            '-rotate-90': arrow_name === 'middle'
                          }"
                          width="24" height="24" viewBox="0 0 24 24"
                          fill="fill-current"
@@ -42,23 +42,23 @@
         <th scope="col" class="flex-1 text-left">
             <div class="px-4 py-2">
                 <span @click="
-                if (arrow_top_breed === 'middle') {
-                    arrow_top_name = 'middle';
-                    arrow_top_breed = 'desc';
-                } else if (arrow_top_breed === 'desc') {
-                    arrow_top_name = 'middle';
-                    arrow_top_breed = 'asc';
-                } else if (arrow_top_breed === 'asc') {
-                    arrow_top_name = 'middle';
-                    arrow_top_breed = 'middle';
+                if (arrow_breed === 'middle') {
+                    arrow_name = 'middle';
+                    arrow_breed = 'desc';
+                } else if (arrow_breed === 'desc') {
+                    arrow_name = 'middle';
+                    arrow_breed = 'asc';
+                } else if (arrow_breed === 'asc') {
+                    arrow_name = 'middle';
+                    arrow_breed = 'middle';
                 }"
                       class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     Race
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
-                            '-rotate-0': arrow_top_breed === 'desc',
-                            '-rotate-180': arrow_top_breed === 'asc',
-                            '-rotate-90': arrow_top_breed === 'middle'
+                            '-rotate-0': arrow_breed === 'desc',
+                            '-rotate-180': arrow_breed === 'asc',
+                            '-rotate-90': arrow_breed === 'middle'
                          }"
                          width="24" height="24"
                          viewBox="0 0 24 24"
