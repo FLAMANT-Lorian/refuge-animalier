@@ -30,7 +30,7 @@
                     </x-buttons.add-item-button>
 
                     {{-- CHAMPS DE RECHERCHE --}}
-                    <x-forms.input-search
+                    <x-forms.fields.input-search
                         class="md:order-1"
                         name="animal_search"
                         id="animal_search"
@@ -39,7 +39,7 @@
                     />
 
                     {{-- SELECTION DES FILTRES --}}
-                    <x-forms.select
+                    <x-forms.fields.select
                         container_classes="md:order-3"
                         :all_selector="true"
                         all_selector_label="Tous"

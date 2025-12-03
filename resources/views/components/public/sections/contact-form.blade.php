@@ -4,50 +4,36 @@
     <fieldset class="flex flex-col gap-6 md:grid md:grid-cols-10">
         <legend class="sr-only">Informations de contact</legend>
 
-        {{-- NOM --}}
-        <x-forms.input-text
-            type="text"
+        <x-forms.fields.input-text
             class="md:col-start-1 md:col-end-6"
-            name="lastname"
-            title="lastname"
-            id="lastname"
-            label="Nom"
+            field_name="full_name"
+            name="full_name"
+            label="Nom complet"
             placeholder="Doe"
             :required="true"
         />
 
-        {{-- PRÉNOM --}}
-        <x-forms.input-text
-            type="text"
-            class="md:col-start-6 md:col-end-11"
-            name="firstname"
-            id="firstname"
-            label="Prénom"
-            placeholder="John"
-            :required="true"
-        />
-
         {{-- ADRESSE E-MAIL --}}
-        <x-forms.input-text
+        <x-forms.fields.input-text
+            class="md:col-start-6 md:col-end-11"
             type="email"
-            class="md:col-start-1 md:col-end-11"
+            field_name="email"
             name="email"
-            id="email"
             label="Adresse e-mail"
             placeholder="johndoe@example.be"
             :required="true"
         />
 
         {{-- COMMUNICATION --}}
-        <x-forms.textarea
+        <x-forms.fields.textarea
             class="md:col-start-1 md:col-end-11"
+            field_name="message"
             name="message"
-            id="message"
             label="Communication"
             placeholder="Je vous contacte pour ..."
             :required="true"
         />
 
     </fieldset>
-    <x-forms.outlined-button-submit label="Envoyer"/>
+    <x-forms.buttons.outlined-button-submit label="Envoyer"/>
 </form>

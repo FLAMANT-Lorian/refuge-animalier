@@ -13,7 +13,7 @@
             title="Télécharger le rapport d’activité">
             Télécharger le rapport d’activité
         </x-buttons.download-button>
-        <x-forms.select
+        <x-forms.fields.select
             :all_selector="false"
             id="stats_filter"
             name="stats_filter"
