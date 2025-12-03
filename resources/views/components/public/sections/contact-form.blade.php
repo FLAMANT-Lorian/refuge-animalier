@@ -4,35 +4,21 @@
     <fieldset class="flex flex-col gap-6 md:grid md:grid-cols-10">
         <legend class="sr-only">Informations de contact</legend>
 
-        {{-- NOM --}}
         <x-forms.input-text
-            type="text"
             class="md:col-start-1 md:col-end-6"
-            name="lastname"
-            title="lastname"
-            id="lastname"
-            label="Nom"
+            field_name="full_name"
+            name="full_name"
+            label="Nom complet"
             placeholder="Doe"
-            :required="true"
-        />
-
-        {{-- PRÉNOM --}}
-        <x-forms.input-text
-            type="text"
-            class="md:col-start-6 md:col-end-11"
-            name="firstname"
-            id="firstname"
-            label="Prénom"
-            placeholder="John"
             :required="true"
         />
 
         {{-- ADRESSE E-MAIL --}}
         <x-forms.input-text
+            class="md:col-start-6 md:col-end-11"
             type="email"
-            class="md:col-start-1 md:col-end-11"
+            field_name="email"
             name="email"
-            id="email"
             label="Adresse e-mail"
             placeholder="johndoe@example.be"
             :required="true"
@@ -41,8 +27,8 @@
         {{-- COMMUNICATION --}}
         <x-forms.textarea
             class="md:col-start-1 md:col-end-11"
+            field_name="message"
             name="message"
-            id="message"
             label="Communication"
             placeholder="Je vous contacte pour ..."
             :required="true"

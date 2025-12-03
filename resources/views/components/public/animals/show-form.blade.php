@@ -8,39 +8,24 @@
             Les champs renseignés avec <strong class="text-red">*</strong> sont obligatoires
         </span>
     </div>
-    <form action="" method="post" class="flex flex-col gap-4">
+    <form action="" method="post" class="flex flex-col gap-6">
         <fieldset class="flex flex-col gap-6 min-[600px]:grid min-[600px]:grid-cols-2">
             <legend class="sr-only">Informations pour une demande de rendez-vous</legend>
 
-            {{-- NOM --}}
+            {{-- NOM COMPLET --}}
             <x-forms.input-text
-                class="min-[600px]:col-start-1 min-[600px]:col-end-2"
-                type="text"
-                name="lastname"
-                title="lastname"
-                id="lastname"
-                label="Nom"
+                field_name="full_name"
+                name="full_name"
+                label="Nom complet"
                 placeholder="Doe"
-                :required="true"
-            />
-
-            {{-- PRÉNOM --}}
-            <x-forms.input-text
-                type="text"
-                class="min-[600px]:col-start-2 min-[600px]:col-end-3"
-                name="firstname"
-                id="firstname"
-                label="Prénom"
-                placeholder="John"
                 :required="true"
             />
 
             {{-- ADRESSE E-MAIL --}}
             <x-forms.input-text
                 type="email"
-                class="min-[600px]:col-start-1 min-[600px]:col-end-3"
+                field_name="email"
                 name="email"
-                id="email"
                 label="Adresse e-mail"
                 placeholder="johndoe@example.be"
                 :required="true"
@@ -49,8 +34,8 @@
             {{-- COMMUNICATION --}}
             <x-forms.textarea
                 class="min-[600px]:col-start-1 min-[600px]:col-end-3"
+                field_name="message"
                 name="message"
-                id="message"
                 label="Communication"
                 placeholder="Je vous contacte pour ..."
                 :required="true"
