@@ -8,7 +8,6 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    @livewireStyles
 </head>
 <body class="admin max-w-[110rem] m-auto relative bg-gray-50 has-[.bg-menu:checked]:overflow-hidden lg:flex">
 
@@ -19,7 +18,6 @@
     @endif
 
     {{ $slot }}
-
-    @livewireScripts
+    
 </body>
 </html>
