@@ -23,7 +23,9 @@ it('verifies if the animals that are displays in the animals index page are the 
 it('verifies if a guest can access to a animal detail page and that the informations are correct', function () {
 
     $animal = Animal::factory()->create(
-        ['state' => AnimalStatus::ProcessOfAdoption->value]
+        ['state' => AnimalStatus::ProcessOfAdoption->value,
+            'name' => 'toto'
+        ]
     )->toArray();
 
     $other_animal = Animal::factory()->create()->toArray();
@@ -32,6 +34,5 @@ it('verifies if a guest can access to a animal detail page and that the informat
 
     $response->assertStatus(200);
 
-    $response->assertSee($animal['name']);
-    $response->assertDontSee($other_animal['name']);
+    $response->assertSee($animal['name'])->assertDontSee($other_animal['name']);
 });
