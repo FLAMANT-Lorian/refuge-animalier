@@ -11,7 +11,7 @@
             <p class="font-base font-normal text-gray-500">Il vous reste {!! $sheets_count !!} fiches à valider !</p>
         </div>
         <x-buttons.base
-            class="max-md:self-start"
+            class="max-lg:self-start"
             :destination="route('admin.animal-sheets.index')" title="Vers la page des fiches des animaux">
             Tout afficher
         </x-buttons.base>
