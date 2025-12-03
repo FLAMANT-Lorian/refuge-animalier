@@ -16,6 +16,20 @@ img:not(.hero) {
     text-decoration: underline;
 }
 
+.menu_profile:has(a:hover) .settings {
+    animation: rotate infinite 2s ease-in-out;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 /* CURRENT LINK */
 @media (min-width:theme('--breakpoint-lg')) {
     a.active_btn > span {
