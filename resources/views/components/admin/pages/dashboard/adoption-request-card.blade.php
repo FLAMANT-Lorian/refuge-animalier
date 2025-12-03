@@ -18,7 +18,7 @@
         <div class="md:ml-auto flex flex-col md:flex-row md:items-center gap-2 items-start">
             <p>Intéressé par</p>
             <a title="Voir la fichde de {!! $data['animal_name'] !!}"
-               href="{!! route('public.animals.show', 1) !!}"
+               href="{!! route('admin.animals.show', 1) !!}"
                class="relative z-20 hover:underline text-lg font-bold py-1 px-4 text-white bg-green-500 rounded-lg">
                 {!! $data['animal_name'] !!}
             </a>
