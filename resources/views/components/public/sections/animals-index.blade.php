@@ -4,7 +4,7 @@
             Nos animaux
         </h2>
 
-        <x-forms.input-search
+        <x-forms.fields.input-search
             class="mb-8 lg:mb-10"
             name="search-field"
             id="search-field"

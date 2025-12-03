@@ -1,7 +1,7 @@
 <form action="" method="post" class="flex flex-col gap-5 w-full">
 
     {{-- INPUT EMAIL --}}
-    <x-forms.input-text
+    <x-forms.fields.input-text
         field_name="email"
         name="email"
         type="email"
@@ -11,7 +11,7 @@
 
     {{-- INPUT PASSWORD --}}
     <div class="flex flex-col gap-2">
-        <x-forms.input-password
+        <x-forms.fields.input-password
             field_name="password"
             name="password"
             label="Mot de passe"
@@ -22,5 +22,5 @@
     </div>
 
     {{-- INPUT SUBMIT --}}
-    <x-forms.outlined-button-submit label="Me connecter"/>
+    <x-forms.buttons.outlined-button-submit label="Me connecter"/>
 </form>

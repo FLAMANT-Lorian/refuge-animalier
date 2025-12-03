@@ -4,7 +4,7 @@
     <fieldset class="flex flex-col gap-6 md:grid md:grid-cols-10">
         <legend class="sr-only">Informations de contact</legend>
 
-        <x-forms.input-text
+        <x-forms.fields.input-text
             class="md:col-start-1 md:col-end-6"
             field_name="full_name"
             name="full_name"
@@ -14,7 +14,7 @@
         />
 
         {{-- ADRESSE E-MAIL --}}
-        <x-forms.input-text
+        <x-forms.fields.input-text
             class="md:col-start-6 md:col-end-11"
             type="email"
             field_name="email"
@@ -25,7 +25,7 @@
         />
 
         {{-- COMMUNICATION --}}
-        <x-forms.textarea
+        <x-forms.fields.textarea
             class="md:col-start-1 md:col-end-11"
             field_name="message"
             name="message"
@@ -35,5 +35,5 @@
         />
 
     </fieldset>
-    <x-forms.outlined-button-submit label="Envoyer"/>
+    <x-forms.buttons.outlined-button-submit label="Envoyer"/>
 </form>

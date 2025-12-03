@@ -22,7 +22,7 @@
                 <div class="flex flex-col md:flex-row gap-4 lg:col-start-5 lg:col-end-10 lg:justify-end lg:items-center lg:gap-6">
 
                     {{-- CHAMPS DE RECHERCHE --}}
-                    <x-forms.input-search
+                    <x-forms.fields.input-search
                         class="md:order-1"
                         name="adoption-requests_search"
                         id="adoption-requests_search"
@@ -31,7 +31,7 @@
                     />
 
                     {{-- SELECTION DES FILTRES --}}
-                    <x-forms.select
+                    <x-forms.fields.select
                         container_classes="md:order-3"
                         :all_selector="true"
                         all_selector_label="Toutes"

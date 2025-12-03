@@ -10,7 +10,7 @@
     <x-admin.pages.settings.base-form.notifications-fieldset/>
 
     {{-- BOUTON DE SOUMISSION --}}
-    <x-forms.normal-button-submit
+    <x-forms.buttons.normal-button-submit
         class="self-start"
         label="Sauvegarder les changements"/>
 </form>

@@ -13,7 +13,7 @@
             <legend class="sr-only">Informations pour une demande de rendez-vous</legend>
 
             {{-- NOM COMPLET --}}
-            <x-forms.input-text
+            <x-forms.fields.input-text
                 field_name="full_name"
                 name="full_name"
                 label="Nom complet"
@@ -22,7 +22,7 @@
             />
 
             {{-- ADRESSE E-MAIL --}}
-            <x-forms.input-text
+            <x-forms.fields.input-text
                 type="email"
                 field_name="email"
                 name="email"
@@ -32,7 +32,7 @@
             />
 
             {{-- COMMUNICATION --}}
-            <x-forms.textarea
+            <x-forms.fields.textarea
                 class="min-[600px]:col-start-1 min-[600px]:col-end-3"
                 field_name="message"
                 name="message"
@@ -42,6 +42,6 @@
             />
 
         </fieldset>
-        <x-forms.outlined-button-submit label="Demander un rendez-vous"/>
+        <x-forms.buttons.outlined-button-submit label="Demander un rendez-vous"/>
     </form>
 </div>

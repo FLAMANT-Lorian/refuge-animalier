@@ -3,25 +3,23 @@
     <div class="flex flex-col md:grid md:grid-cols-2 min-[68.75rem]:grid-cols-3 gap-6">
 
         {{-- Nom de famille --}}
-        <x-forms.input-text
+        <x-forms.fields.input-text
             field_name="last_name"
             name="last_name"
             label="Nom"
             placeholder="Flamant"
-            :required="true"
         />
 
         {{-- Prénom --}}
-        <x-forms.input-text
+        <x-forms.fields.input-text
             field_name="first_name"
             name="first_name"
             label="Prénom"
             placeholder="Lorian"
-            :required="true"
         />
 
         {{-- EMAIL --}}
-        <x-forms.input-text
+        <x-forms.fields.input-text
             type="email"
             field_name="email"
             name="email"
@@ -31,22 +29,20 @@
         />
 
         {{-- CODE POSTAL --}}
-        <x-forms.input-number
+        <x-forms.fields.input-number
             field_name="postal_code"
             name="postal_code"
             label="Code postal"
             min_number="0"
             placeholder="4000"
-            :required="true"
         />
 
         {{-- ADRESSE --}}
-        <x-forms.input-text
+        <x-forms.fields.input-text
             field_name="location"
             name="location"
             label="Adresse"
             placeholder="Rue du champs, 12"
-            :required="true"
         />
     </div>
 </fieldset>
