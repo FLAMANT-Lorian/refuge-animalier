@@ -38,7 +38,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Animal&nbsp;
+                Animal&nbsp;:
             </span>
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
