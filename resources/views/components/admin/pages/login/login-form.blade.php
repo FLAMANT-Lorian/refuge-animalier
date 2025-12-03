@@ -2,7 +2,7 @@
 
     {{-- INPUT EMAIL --}}
     <x-forms.input-text
-        id="email"
+        field_name="email"
         name="email"
         type="email"
         label="Adresse e-mail"
@@ -12,7 +12,7 @@
     {{-- INPUT PASSWORD --}}
     <div class="flex flex-col gap-2">
         <x-forms.input-password
-            id="password"
+            field_name="password"
             name="password"
             label="Mot de passe"
             :required="true"/>

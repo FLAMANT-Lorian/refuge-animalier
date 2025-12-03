@@ -4,16 +4,16 @@
 
         {{-- ANCIEN MOT DE PASSE --}}
         <x-forms.input-password
+            field_name="old_password"
             name="old_password"
-            id="old_password"
             label="Ancien mot de passe"
-            required="true"
+            :required="true"
         />
 
         {{-- NOUVEAU MOT DE PASSE --}}
         <x-forms.input-password
+            field_name="new_password"
             name="new_password"
-            id="new_password"
             label="Nouveau mot de passe"
             required="true"
         />

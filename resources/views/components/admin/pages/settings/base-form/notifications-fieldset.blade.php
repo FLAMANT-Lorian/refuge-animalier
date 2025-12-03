@@ -1,7 +1,7 @@
 <fieldset class="flex flex-col gap-4">
     <div class="flex flex-col gap-1">
         <legend class="contents text-lg font-semibold">Notifications</legend>
-        <p class="text-base font-normal">
+        <p class="text-base font-normal text-gray-500">
             Sélectionnez les notifications que vous souhaitez recevoir par e-mail
         </p>
     </div>
