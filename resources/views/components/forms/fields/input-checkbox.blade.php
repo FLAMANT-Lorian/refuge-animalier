@@ -1,7 +1,7 @@
 @props([
-    'value',
+    'field_name',
     'name',
-    'id',
+    'value' => 1,
     'label'
 ])
 
@@ -9,11 +9,9 @@
     <input class="peer checkbox hover:cursor-pointer"
            type="checkbox"
            name="{!! $name !!}"
-           id="{!! $id !!}"
-           @if(old($name))
-               checked
-        @endif>
-    <label class="pl-3 hover:cursor-pointer peer-checked:text-black peer-checked:font-medium text-gray-500 transition-all ease-in-out duration-200" for="{!! $id !!}">
+           value="{!! $value !!}"
+           id="{!! $field_name !!}">
+    <label  for="{!! $field_name !!}" class="pl-3 hover:cursor-pointer peer-checked:text-black peer-checked:font-medium text-gray-500 transition-all ease-in-out duration-200">
         {!! $label !!}
     </label>
 </div>
