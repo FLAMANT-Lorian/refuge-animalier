@@ -22,7 +22,7 @@
         id="{!! $field_name !!}"
         autocomplete="off"
     >{!! $value ?? old($name) !!}</textarea>
-    @error($name)
+    @error($field_name)
     <p class="absolute -bottom-5 text-red text-sm font-semibold">{!! $message !!}</p>
     @enderror
 </div>
