@@ -3,7 +3,7 @@
         <legend class="sr-only">Changer mon mot de passe</legend>
 
         {{-- ANCIEN MOT DE PASSE --}}
-        <x-forms.input-password
+        <x-forms.fields.input-password
             field_name="old_password"
             name="old_password"
             label="Ancien mot de passe"
@@ -11,7 +11,7 @@
         />
 
         {{-- NOUVEAU MOT DE PASSE --}}
-        <x-forms.input-password
+        <x-forms.fields.input-password
             field_name="new_password"
             name="new_password"
             label="Nouveau mot de passe"
@@ -20,7 +20,7 @@
 
     </fieldset>
     {{-- BOUTON DE SOUMISSION --}}
-    <x-forms.normal-button-submit
+    <x-forms.buttons.normal-button-submit
         class="self-start"
         label="Changer mon mot de passe"/>
 </form>

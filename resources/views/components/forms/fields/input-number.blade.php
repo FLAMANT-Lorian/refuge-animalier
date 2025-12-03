@@ -4,7 +4,7 @@
     'label',
     'placeholder',
     'value',
-    'required',
+    'required' => false,
     'min_number',
     'max_number'
 ])
