@@ -1,5 +1,5 @@
 <main
-    class="login max-md:flex max-md:justify-center max-md:items-center md:grid md:grid-cols-10 lg:grid-cols-[repeat(13,minmax(0,1fr))] md:gap-6 md:pr-12 lg:pr-18">
+    class="h-screen login max-md:flex max-md:justify-center max-md:items-center md:grid md:grid-cols-10 lg:grid-cols-[repeat(13,minmax(0,1fr))] md:gap-6 md:pr-12 lg:pr-18">
     <figure class="h-screen max-md:hidden md:col-start-1 md:col-end-6 lg:col-end-8">
         <img class="h-full" src="{!! asset("assets/img/bg-image-login.jpg") !!}"
              alt="Photo d'un animal avec son maître">
