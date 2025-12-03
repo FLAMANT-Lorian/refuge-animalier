@@ -25,3 +25,9 @@ img:not(.hero) {
     background-repeat: no-repeat;
     background-position: 95% 50%;
 }
+
+@media (min-width:theme('--breakpoint-lg')) {
+    a.active_btn > span {
+        color: white;
+    }
+}
