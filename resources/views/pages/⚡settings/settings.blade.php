@@ -23,7 +23,8 @@
                 <fieldset class="flex flex-col gap-4">
                     <legend class="contents text-lg font-semibold">Photo de profil</legend>
                     <div class="flex flex-row gap-6">
-                        <img class="rounded-full h-[7.5rem] w-[7.5rem] bg-gray-100"
+                        <img alt="avatar de Lorian"
+                            class="rounded-full h-[7.5rem] w-[7.5rem] bg-gray-100"
                              src="{!! asset('assets/img/avatar.png') !!}">
                         <div class="flex flex-col gap-4">
                             <div class="inline-flex">
