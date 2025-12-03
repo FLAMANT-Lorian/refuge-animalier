@@ -16,7 +16,8 @@
             </span>
         </div>
     </div>
-    <x-icons.settings/>
+    <x-icons.settings
+        class="settings"/>
     <a wire:navigate class="absolute top-0 bottom-0 left-0 right-0 group" href="{!! route('admin.settings') !!}">
         <span class="sr-only">
             Aller vers mon profil

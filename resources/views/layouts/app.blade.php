@@ -8,11 +8,10 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    @livewireStyles
 </head>
-<body class="admin max-w-[110rem] m-auto relative bg-gray-50 has-[.bg-menu:checked]:overflow-hidden lg:flex">
+<body class="admin max-w-[120rem] m-auto relative bg-gray-50 has-[.bg-menu:checked]:overflow-hidden lg:flex">
 
-    @if(url()->current() === route('admin.login'))
+    @if(Route::is('admin.login'))
         <header class="sr-only">Menu login</header>
     @else
         <livewire:admin.partials.header-admin/>
@@ -20,6 +19,5 @@
 
     {{ $slot }}
 
-    @livewireScripts
 </body>
 </html>

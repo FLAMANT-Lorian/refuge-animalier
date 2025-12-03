@@ -22,5 +22,5 @@
     </div>
 
     {{-- INPUT SUBMIT --}}
-    <x-forms.button-submit label="Me connecter"/>
+    <x-forms.outlined-button-submit label="Me connecter"/>
 </form>
