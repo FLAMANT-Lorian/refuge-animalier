@@ -1,0 +1,9 @@
+.select_form {
+    /* Désactive l'apparence par défaut de Safari/Chrome */
+    -webkit-appearance: none;
+
+    /* Positionne l'icône personnalisée */
+    background-image: url('../../img/svg/arrow-select.svg');
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+}
