@@ -15,7 +15,7 @@
         </div>
 
         {{-- ACTIONS --}}
-        <x-admin.pages.volunteers.heading.actions/>
+        <x-admin.pages.volunteers.index.heading.actions/>
     </div>
 
 </section>

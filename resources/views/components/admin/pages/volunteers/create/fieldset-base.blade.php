@@ -1,5 +1,5 @@
 <fieldset class="flex flex-col gap-4">
-    <legend class="contents text-lg font-semibold">Vos informations</legend>
+    <legend class="contents text-lg font-semibold">Informations sur le bénévole</legend>
     <div class="flex flex-col md:grid md:grid-cols-2 min-[68.75rem]:grid-cols-3 gap-6">
 
         {{-- Nom de famille --}}
@@ -46,5 +46,6 @@
             label="Adresse"
             placeholder="Rue du champs, 12"
         />
+
     </div>
 </fieldset>
