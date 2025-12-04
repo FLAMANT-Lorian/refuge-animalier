@@ -1,29 +1,27 @@
 @props([
-    'id',
+    'field_name',
     'label',
-    'with_label',
     'name',
     'collection',
+    'required' => false,
     'identifier',
-    'all_selector',
-    'all_selector_label',
-    'container_classes' => ''
+    'value'
 
 ])
 
-<div class="{!! $container_classes !!}">
-    <label class="{!! $with_label ? '' : 'sr-only ' !!}" for="{!! $id !!}">{!! $label !!}</label>
-    <select
-        {!! $attributes->merge(['class' => 'select_form pl-2 pr-7 py-2.5 border border-green-500 rounded-lg font-medium']) !!}
-        name="{!! $name !!}"
-        id="{!! $id !!}">
-        @if($all_selector)
-            <option value="all">
-                {!! $all_selector_label !!}
-            </option>
+<div {!! $attributes->merge(['class' => 'flex flex-col gap-1']) !!}>
+    <label class="text-base pl-3 font-semibold"
+        for="{!! $field_name !!}">
+        {!! $label !!}
+        @if($required)
+            <strong class="pl-1 text-red">*</strong>
         @endif
+    </label>
+    <select class="select_form pl-4 pr-7 py-3 outline bg-gray-50 outline-gray-200 focus:outline-gray-400 rounded-lg font-medium"
+            name="{!! $name !!}"
+            id="{!! $field_name !!}">
         @foreach ($collection as $item)
-            <option value="{!! $item->$identifier !!}">
+            <option value="{!! $item->$identifier !!}" @if($value && $item->$identifier === $value) selected @endif>
                 {!! $item->$identifier !!}
             </option>
         @endforeach
