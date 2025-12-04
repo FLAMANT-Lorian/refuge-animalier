@@ -1,3 +1,7 @@
+@php
+    use App\Enums\VolunteerStatus;
+@endphp
+
 <fieldset class="flex flex-col gap-4">
     <legend class="contents text-lg font-semibold">Informations sur le bénévole</legend>
     <div class="flex flex-col md:grid md:grid-cols-2 min-[68.75rem]:grid-cols-3 gap-6">
@@ -45,6 +49,17 @@
             name="location"
             label="Adresse"
             placeholder="Rue du champs, 12"
+        />
+
+        {{-- STATUT --}}
+        <x-forms.fields.select
+            field_name="volunteer_status"
+            label="Statut du bénévole"
+            name="volunteer_status"
+            :value="VolunteerStatus::Active->value"
+            :required="true"
+            :collection="VolunteerStatus::cases()"
+            identifier="value"
         />
 
     </div>
