@@ -34,14 +34,14 @@ function displayImageMultiple() {
 
             const reader = new FileReader();
             reader.onload = (evt) => {
-                const id = Math.random().toString(16).slice(2);
 
                 imagesContainer.insertAdjacentHTML("afterbegin", `
                 <div data-id="${file.id}" class="upload_img flex flex-row justify-between items-center px-2 py-1 rounded-lg border border-gray-200">
 
                     <!-- IMAGE -->
                     <div class="flex flex-row items-center gap-4">
-                        <img class="w-12 h-12 rounded-sm"
+                        <img alt="image"
+                             class="w-12 h-12 rounded-sm"
                              src="${evt.target.result}">
                         <div class="flex flex-col gap-1">
                             <span>${fileName}</span>
