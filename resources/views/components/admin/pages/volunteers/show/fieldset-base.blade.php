@@ -10,6 +10,7 @@
         <x-forms.fields.input-text
             field_name="last_name"
             name="last_name"
+            value="Flamant"
             label="Nom"
             placeholder="Flamant"
             required="true"
@@ -19,6 +20,7 @@
         <x-forms.fields.input-text
             field_name="first_name"
             name="first_name"
+            value="Lorian"
             label="Prénom"
             placeholder="Lorian"
             required="true"
@@ -29,6 +31,7 @@
             type="email"
             field_name="email"
             name="email"
+            value="lorian.flamant@example.be"
             label="Adresse e-mail"
             placeholder="lorian.flamant@example.be"
             :required="true"
@@ -38,6 +41,7 @@
         <x-forms.fields.input-number
             field_name="postal_code"
             name="postal_code"
+            value="4000"
             label="Code postal"
             min_number="0"
             placeholder="4000"
@@ -47,6 +51,7 @@
         <x-forms.fields.input-text
             field_name="location"
             name="location"
+            value="Rue du champs, 12"
             label="Adresse"
             placeholder="Rue du champs, 12"
         />
@@ -56,7 +61,7 @@
             field_name="volunteer_status"
             label="Statut du bénévole"
             name="volunteer_status"
-            :value="VolunteerStatus::Active->value"
+            :value="VolunteerStatus::Parts->value"
             :required="true"
             :collection="VolunteerStatus::cases()"
             identifier="value"

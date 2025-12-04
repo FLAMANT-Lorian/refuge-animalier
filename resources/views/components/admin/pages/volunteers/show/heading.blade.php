@@ -7,15 +7,17 @@
     {{-- FIL D'ARIANE --}}
     <span class="flex flex-row gap-1 items-center">
                 ·
-                <a class="text-gray-500"
+                <a wire:navigate
+                   class="text-gray-500"
                    title="Vers la page des bénévoles"
                    href="{!! route('admin.volunteers.index') !!}">
                     Bénévoles
                 </a>
                 →
-                <a class="text-gray-500 font-bold hover:underline"
-                   title="Vers la page de création d’un bénévole"
-                   href="{!! route('admin.volunteers.create') !!}">
+                <a wire:navigate
+                   class="text-gray-500 font-bold hover:underline"
+                   title="Vers la page du bénévole"
+                   href="{!! route('admin.volunteers.show', 1) !!}">
                     {!! $app_title !!}
                 </a>
             </span>
