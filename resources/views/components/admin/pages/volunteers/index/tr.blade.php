@@ -66,7 +66,7 @@
             {{-- VOIR LE BÉNÉVOLES - MOBILE --}}
             <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
                title="Voir la fiche de : {!! $volunteers['name'] !!}"
-               href="#">
+               href="{!! route('admin.volunteers.show', 1) !!}">
                 Voir la fiche du bénévole
             </a>
 

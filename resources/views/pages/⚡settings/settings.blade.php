@@ -1,4 +1,4 @@
-<main class="settings flex-1 px-6 md:px-12 py-12 " id="content">
+<main class="settings flex-1 px-6 md:px-12 py-12 flex flex-col gap-6" id="content">
     <div class="flex flex-col gap-10 lg:bg-white lg:border lg:border-gray-200 lg:rounded-2xl lg:p-6">
 
         {{-- EN-TÊTE --}}
@@ -17,7 +17,10 @@
         {{-- FORMULAIRE --}}
         <x-admin.pages.settings.base-section/>
 
-        {{-- FORMULAIRE DE CHANGEMENT DE MOT DE PASSE--}}
+    </div>
+
+    {{-- FORMULAIRE DE CHANGEMENT DE MOT DE PASSE--}}
+    <div class="flex flex-col gap-10 bg-white border border-gray-200 rounded-2xl p-6">
         <x-admin.pages.settings.change-password-section/>
     </div>
 </main>

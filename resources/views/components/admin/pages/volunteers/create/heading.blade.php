@@ -7,13 +7,13 @@
     {{-- FIL D'ARIANE --}}
     <span class="flex flex-row gap-1 items-center">
                 ·
-                <a class="hover:underline"
+                <a class="text-gray-500"
                    title="Vers la page des bénévoles"
                    href="{!! route('admin.volunteers.index') !!}">
                     Bénévoles
                 </a>
                 →
-                <a class="font-bold hover:underline"
+                <a class="text-gray-500 font-bold hover:underline"
                    title="Vers la page de création d’un bénévole"
                    href="{!! route('admin.volunteers.create') !!}">
                     {!! $app_title !!}

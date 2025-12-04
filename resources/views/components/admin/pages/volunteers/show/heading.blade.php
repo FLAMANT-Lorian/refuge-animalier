@@ -8,14 +8,14 @@
     <span class="flex flex-row gap-1 items-center">
                 ·
                 <a wire:navigate
-                   class="hover:underline"
+                   class="text-gray-500"
                    title="Vers la page des bénévoles"
                    href="{!! route('admin.volunteers.index') !!}">
                     Bénévoles
                 </a>
                 →
                 <a wire:navigate
-                   class="font-bold hover:underline"
+                   class="text-gray-500 font-bold hover:underline"
                    title="Vers la page du bénévole"
                    href="{!! route('admin.volunteers.show', 1) !!}">
                     {!! $app_title !!}
