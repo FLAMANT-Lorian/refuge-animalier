@@ -22,7 +22,7 @@
     />
 
     {{-- SELECTION DES FILTRES --}}
-    <x-forms.fields.select
+    <x-forms.fields.select-filter
         container_classes="md:order-3"
         :all_selector="true"
         all_selector_label="Tous"
