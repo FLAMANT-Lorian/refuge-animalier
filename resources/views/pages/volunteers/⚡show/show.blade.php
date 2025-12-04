@@ -10,6 +10,6 @@
     </div>
 
     <div class="flex flex-col gap-10 bg-white border border-gray-200 rounded-2xl p-6">
-        <x-admin.pages.volunteers.create.danger-zone/>
+        <x-admin.pages.volunteers.show.danger-zone/>
     </div>
 </main>
