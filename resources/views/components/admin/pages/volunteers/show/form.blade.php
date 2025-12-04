@@ -14,7 +14,7 @@
         {{-- BOUTON DE SOUMISSION --}}
         <x-forms.buttons.normal-button-submit
             class="self-end"
-            label="Créer le profil du bénévole"/>
+            label="Enregistrer les modifications"/>
     </form>
 
 </section>
