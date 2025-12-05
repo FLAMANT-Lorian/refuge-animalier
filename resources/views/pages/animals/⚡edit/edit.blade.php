@@ -1,3 +1,13 @@
-<main class="animals_edit">
-    <h1>Modifier la fiche de {!! $animal->name !!}</h1>
+<main class="animal-edit flex-1 px-6 py-12 md:px-12 lg:px-16 lg:py-10" id="content">
+    <div class="flex flex-col gap-10 lg:bg-white lg:border lg:border-gray-200 lg:rounded-2xl lg:p-6">
+
+        {{-- EN-TÊTE --}}
+        <x-admin.pages.animals.edit.heading
+            :app_title="$app_title"
+            :animal="$this->animal"/>
+
+        {{-- FORMULAIRE --}}
+        <x-admin.pages.animals.edit.form
+            :animal="$this->animal"/>
+    </div>
 </main>
