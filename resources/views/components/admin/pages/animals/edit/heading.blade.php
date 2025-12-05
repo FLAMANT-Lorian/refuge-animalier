@@ -1,6 +1,6 @@
-
 @props([
-    'app_title'
+    'app_title',
+    'animal'
 ])
 
 <section class="flex flex-col gap-4">
@@ -16,9 +16,16 @@
                 </a>
                 →
                 <a wire:navigate
+                   class="text-gray-500"
+                   title="Vers la page des animaux"
+                   href="{!! route('admin.animals.show', $animal->id) !!}">
+                    fiche de {!! $animal->name !!}
+                </a>
+                →
+                <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
-                   title="Vers la page de création d’une nouvelle fiche animal"
-                   href="{!! route('admin.animals.create') !!}">
+                   title="Vers la page de modification d’une fiche animal"
+                   href="{!! route('admin.animals.edit', $animal->id) !!}">
                     {!! $app_title !!}
                 </a>
     </span>
