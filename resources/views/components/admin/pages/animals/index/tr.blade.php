@@ -28,7 +28,7 @@
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
                title="Vers la page de pedro"
-               href="{!! route('admin.animals.show', 1) !!}">
+               href="{!! route('admin.animals.show', $animal->id) !!}">
                 {!! $animal->name !!}
             </a>
         </div>

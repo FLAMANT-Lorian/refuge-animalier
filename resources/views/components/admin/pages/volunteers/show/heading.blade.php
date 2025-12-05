@@ -20,7 +20,7 @@
                    href="{!! route('admin.volunteers.show', 1) !!}">
                     {!! $app_title !!}
                 </a>
-            </span>
+    </span>
 
     <div class="flex flex-col gap-1">
         <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>

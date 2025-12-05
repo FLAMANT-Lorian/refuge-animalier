@@ -21,6 +21,8 @@ class AnimalFactory extends Factory
 
         $sex = ['Mâle', 'Femelle'];
 
+        $vaccines = [null, 'Rage'];
+
         $states = [AnimalStatus::Adopted, AnimalStatus::InTreatment, AnimalStatus::ProcessOfAdoption, AnimalStatus::AwaitingAdoption];
 
 
@@ -29,6 +31,7 @@ class AnimalFactory extends Factory
             'breed' => $this->faker->randomElement($breed),
             'sex' => $this->faker->randomElement($sex),
             'color' => $this->faker->randomElement($colors),
+            'vaccines' => $this->faker->randomElement($vaccines),
             'description' => $this->faker->text(),
             'age' => $this->faker->numberBetween(1, 6),
             'state' => $this->faker->randomElement($states),
