@@ -10,7 +10,7 @@
                 ·
                 <a wire:navigate
                    class="text-gray-500"
-                   title="Vers la page des bénévoles"
+                   title="Vers la page des animaux"
                    href="{!! route('admin.animals.index') !!}">
                     Animaux
                 </a>
