@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('breed');
             $table->string('color');
+            $table->string('vaccines')->nullable();
             $table->string('description');
             $table->string('sex');
             $table->string('age');
