@@ -3,7 +3,7 @@
         Notes de visite
     </h2>
 
-    <x-admin.pages.animals.create.table.table
+    <x-admin.pages.animals.show.table.table
         :notes="$this->notes"/>
 
     <div class="flex flex-col md:flex-row gap-4">

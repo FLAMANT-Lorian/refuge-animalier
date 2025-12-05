@@ -1,35 +1,30 @@
+
 @props([
-    'app_title',
-    'animal'
+    'app_title'
 ])
 
 <section class="flex flex-col gap-4">
-    <span class="flex flex-row gap-1 items-center text-gray-500">
+
+    {{-- FIL D'ARIANE --}}
+    <span class="flex flex-row gap-1 items-center">
                 ·
                 <a wire:navigate
                    class="text-gray-500"
-                   title="Vers la page des animaux"
+                   title="Vers la page des bénévoles"
                    href="{!! route('admin.animals.index') !!}">
                     Animaux
                 </a>
                 →
                 <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
-                   title="Vers la page de l’animal"
-                   href="{!! route('admin.animals.show', $animal->id) !!}">
+                   title="Vers la page de création d’une nouvelle fiche animal"
+                   href="{!! route('admin.animals.create') !!}">
                     {!! $app_title !!}
                 </a>
     </span>
-    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-        <div>
-            <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>
-            <p class="font-base text-gray-500">Toutes les informations sur {!! $animal->name !!}</p>
-        </div>
-        <x-buttons.base
-            class="self-start md:self-center"
-            :destination="route('admin.animals.edit', $animal->id)"
-            title="Modifier la page de {!! $animal->name !!}">
-            Modifier la fiche de {!! $animal->name !!}
-        </x-buttons.base>
+
+    <div class="flex flex-col gap-1">
+        <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>
+        <p class="text-base">Les champs renseignés avec <strong class="text-red">*</strong> sont obligatoires</p>
     </div>
 </section>
