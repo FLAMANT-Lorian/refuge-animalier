@@ -9,8 +9,34 @@ class extends Component {
     public Animal $animal;
     public string $app_title = 'Modification de la fiche de l’animal';
 
+    public bool $openAddBreed = false;
+    public bool $openDeleteAnimal = false;
+    public Animal $animalToDelete;
+
     public function mount(Animal $animal): void
     {
         $this->animal = $animal;
+    }
+
+    public function openModal(string $modal, Animal $animal = null): void
+    {
+        if ($modal === 'add-breed') {
+            $this->openAddBreed = true;
+        } elseif ($modal === 'delete-animal') {
+            if ($animal !== null) {
+                $this->animalToDelete = $animal;
+            }
+
+            $this->openDeleteAnimal = true;
+        }
+
+        $this->dispatch('open-modal');
+    }
+
+    public function closeModal(): void
+    {
+        $this->openAddBreed = false;
+        $this->openDeleteAnimal = false;
+        $this->dispatch('close-modal');
     }
 };

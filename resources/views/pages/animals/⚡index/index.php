@@ -12,7 +12,10 @@ class extends Component {
 
     use WithPagination;
 
+
     public string $app_title = "Animaux";
+    public bool $openDeleteAnimal = false;
+    public Animal $animalToDelete;
 
     #[Computed]
     public function animals()
@@ -21,5 +24,25 @@ class extends Component {
             ->paginate(12)
             ->withPath(route('admin.animals.index'));
 
+    }
+
+    public function openModal(string $modal, Animal $animal = null): void
+    {
+        if ($modal === 'delete-animal') {
+
+            if ($animal !== null) {
+                $this->animalToDelete = $animal;
+            }
+
+            $this->openDeleteAnimal = true;
+        }
+
+        $this->dispatch('open-modal');
+    }
+
+    public function closeModal(): void
+    {
+        $this->openDeleteAnimal = false;
+        $this->dispatch('close-modal');
     }
 };

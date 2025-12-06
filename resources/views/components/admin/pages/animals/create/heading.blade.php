@@ -7,7 +7,7 @@
 
     {{-- FIL D'ARIANE --}}
     <span class="flex flex-row gap-1 items-center">
-                ·
+                –
                 <a wire:navigate
                    class="text-gray-500"
                    title="Vers la page des animaux"
@@ -25,6 +25,6 @@
 
     <div class="flex flex-col gap-1">
         <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>
-        <p class="text-base">Les champs renseignés avec <strong class="text-red">*</strong> sont obligatoires</p>
+        <p class="text-gray-500 text-base">Les champs renseignés avec <strong class="text-red">*</strong> sont obligatoires</p>
     </div>
 </section>

@@ -4,7 +4,7 @@
 
         {{-- EN TÊTE --}}
         <x-admin.pages.animal-sheets.heading.section
-        :app_title="$app_title"/>
+            :app_title="$app_title"/>
 
         {{-- TABLEAU DES FiCHES --}}
         <x-admin.pages.animal-sheets.index.table
@@ -12,6 +12,9 @@
             :animal_sheets="$this->animal_sheets"/>
 
     </div>
+    @if($openSheetMessage)
+        <x-admin.modals.animal-sheets.adoption-request/>
+    @endif
 </main>
 
 

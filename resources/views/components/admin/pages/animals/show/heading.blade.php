@@ -5,7 +5,7 @@
 
 <section class="flex flex-col gap-4">
     <span class="flex flex-row gap-1 items-center text-gray-500">
-                ·
+                –
                 <a wire:navigate
                    class="text-gray-500"
                    title="Vers la page des animaux"

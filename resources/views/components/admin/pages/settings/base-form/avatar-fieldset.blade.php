@@ -12,12 +12,10 @@
                     un avatar
                 </label>
             </div>
-            <x-buttons.base
-                destination="#"
-                title="Supprimer l’image"
-                class="bg-red text-white border-red">
-                Supprimer l’avatar
-            </x-buttons.base>
+            <x-forms.buttons.delete
+                label="Supprimer l’avatar"
+                wire:click="openModal('delete-user-avatar')"
+            />
         </div>
     </div>
 </fieldset>

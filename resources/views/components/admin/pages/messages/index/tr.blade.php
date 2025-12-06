@@ -17,12 +17,11 @@
             <span class="min-lg:hidden font-bold">
                 Nom complet&nbsp;:
             </span>
-            <a wire:navigate
-               class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
-               title="Voie le message de {!! $message['name'] !!}"
-               href="#">
+            <button type="button"
+                    wire:click="openModal('message')"
+               class="text-left cursor-pointer lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200">
                 {!! $message['name'] !!}
-            </a>
+            </button>
         </div>
     </td>
 
@@ -53,7 +52,7 @@
             <span class="hidden font-bold">
                 Statut&nbsp;:
             </span>
-            <div class="flex flex-row justify-start lg:px-4 lg:py-4 font-normal">
+            <div class="flex flex-row justify-start font-normal">
                 <x-states.message-state
                     :message_state="$message['status']"/>
             </div>
@@ -72,7 +71,7 @@
 
             {{-- DELETE --}}
             <x-table.delete
-                destination="#"/>
+                wire:click="openModal('delete-message')"/>
 
         </div>
     </td>

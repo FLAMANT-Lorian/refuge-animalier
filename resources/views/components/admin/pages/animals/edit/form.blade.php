@@ -18,6 +18,6 @@
 
         <x-forms.buttons.normal-button-submit
             class="self-end"
-            label="Créer la fiche de l’animal"/>
+            label="Enregistrer les modifications"/>
     </form>
 </section>

@@ -12,6 +12,14 @@
     </div>
 
     <div class="flex flex-col gap-10 bg-white border border-gray-200 rounded-2xl p-6">
-        <x-admin.pages.animals.edit.danger-zone/>
+        <x-admin.pages.animals.edit.danger-zone
+        :animal="$animal"/>
     </div>
+
+    @if($openAddBreed)
+        <x-admin.modals.animals.edit.addBreed/>
+    @elseif($openDeleteAnimal)
+        <x-admin.modals.animals.edit.deleteAnimal
+            :animal="$animalToDelete"/>
+    @endif
 </main>

@@ -12,7 +12,8 @@
         </div>
         <x-buttons.base
             class="max-lg:self-start"
-            :destination="route('admin.animal-sheets.index')" title="Vers la page des fiches des animaux">
+            :destination="route('admin.animal-sheets.index')"
+            title="Vers la page des fiches des animaux">
             Tout afficher
         </x-buttons.base>
     </div>

@@ -4,7 +4,7 @@
 
         {{-- EN TÊTE --}}
         <x-admin.pages.messages.heading.section
-        :app_title="$app_title"/>
+            :app_title="$app_title"/>
 
         {{-- TABLEAU DES ANIMAUX --}}
         <x-admin.pages.messages.index.table
@@ -12,6 +12,11 @@
             :messages="$this->messages"/>
 
     </div>
+    @if($openMessage)
+        <x-admin.modals.messages.message/>
+    @elseif($openDeleteMessage)
+        <x-admin.modals.messages.message-delete/>
+    @endif
 </main>
 
 

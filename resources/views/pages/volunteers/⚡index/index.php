@@ -13,6 +13,9 @@ class extends Component {
 
     public string $app_title = "Bénévoles";
 
+    public bool $openDeleteVolunteer = false;
+    public bool $openDeleteVolunteerAvatar = false;
+
     #[Computed]
     public function volunteers(): array
     {
@@ -23,5 +26,23 @@ class extends Component {
             'status' => VolunteerStatus::InBreak->value
         ];
 
+    }
+
+    public function openModal(string $modal): void
+    {
+        if ($modal === 'delete-volunteer') {
+            $this->openDeleteVolunteer = true;
+        } elseif ($modal === 'delete-volunteer-avatar') {
+            $this->openDeleteVolunteerAvatar = true;
+        }
+
+        $this->dispatch('open-modal');
+    }
+
+    public function closeModal(): void
+    {
+        $this->openDeleteVolunteer = false;
+        $this->openDeleteVolunteerAvatar = false;
+        $this->dispatch('close-modal');
     }
 };

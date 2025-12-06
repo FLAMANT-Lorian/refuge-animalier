@@ -8,7 +8,7 @@
         {{-- NOM DE L’ADOPTANT--}}
         <x-forms.fields.input-text
             field_name="name"
-            name="adopter-name"
+            name="adopter_name"
             label="Nom"
             value=""
             placeholder="Moka"
@@ -18,7 +18,7 @@
         {{-- EMAIL DE L’ADOPTANT--}}
         <x-forms.fields.input-text
             field_name="email"
-            name="adopter-email"
+            name="adopter_email"
             label="Adresse-mail"
             placeholder="Moka"
             :required="true"
@@ -27,7 +27,7 @@
         {{-- ADRESSE DE L’ADOPTANT --}}
         <x-forms.fields.input-text
             field_name="address"
-            name="adopter-address"
+            name="adopter_address"
             label="Adresse"
             placeholder="Rue du&nbsp;&hellip;"
             :required="true"
@@ -36,7 +36,7 @@
         {{-- CODE POSTAL DE L’ADOPTANT --}}
         <x-forms.fields.input-number
             field_name="postal_code"
-            name="adopter-postal-code"
+            name="adopter_postal_code"
             label="Code postal"
             placeholder="4000"
             :required="true"
@@ -47,7 +47,7 @@
         <x-forms.fields.input-text
             field_name="departure_hour"
             type="time"
-            name="adopter-departure-hour"
+            name="adopter_departure_hour"
             label="Heure de départ"
             placeholder="Moka"
             :required="true"
@@ -57,7 +57,7 @@
         <x-forms.fields.input-text
             field_name="departure_date"
             type="date"
-            name="adopter-departure-date"
+            name="adopter_departure_date"
             label="Date de départ"
             placeholder="Moka"
             :required="true"

@@ -18,9 +18,10 @@
             <span class="min-lg:hidden font-bold">
                 Nom complet&nbsp;:
             </span>
-            <span class="lg:px-4 lg:py-4 hover:cursor-pointer hover:font-bold transition-all ease-in-out duration-200">
+            <button wire:click="openModal('adoption-request')"
+                    class="text-left lg:px-4 lg:py-4 hover:cursor-pointer hover:font-bold transition-all ease-in-out duration-200">
                 {!! $adoption_requests['name'] !!}
-            </span>
+            </button>
         </div>
     </td>
 
@@ -54,7 +55,7 @@
             <span class="hidden font-bold">
                 Statut&nbsp;:
             </span>
-            <div class="flex flex-row justify-start lg:px-4 lg:py-4 font-normal">
+            <div class="flex flex-row justify-start font-normal">
                 <x-states.adoption-request-state
                     :adoption_request_state="$adoption_requests['status']"/>
             </div>
@@ -65,15 +66,15 @@
         <div class="flex justify-between items-center lg:justify-end flex-row gap-4 lg:px-4">
 
             {{-- VOIR LA DEMANDES D'ADOPTION - MOBILE --}}
-            <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
-               title="Voir la fiche de : {!! $adoption_requests['name'] !!}"
-               href="#">
+            <button type="button"
+                    wire:click="openModal('adoption-request')"
+                    class="cursor-pointer lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
                 Voir la demande
-            </a>
+            </button>
 
-            {{-- EDIT --}}
-            <x-table.email
-                destination="#"/>
+            {{-- DELETE --}}
+            <x-table.delete
+                wire:click="openModal('delete-adoption-request')"/>
 
         </div>
     </td>
