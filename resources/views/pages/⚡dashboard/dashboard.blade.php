@@ -8,7 +8,9 @@
             <a title="Vers le tableau de bord"
                wire:navigate
                href="{!! route('admin.dashboard') !!}"
-               class="font-bold text-gray-500">| {!! $app_title !!}</a>
+               class="font-bold text-gray-500">
+                – {!! $app_title !!}
+            </a>
             <h2 class="text-2xl font-bold">Tableau de bord</h2>
         </section>
 
