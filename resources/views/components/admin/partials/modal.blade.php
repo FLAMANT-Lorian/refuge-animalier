@@ -5,8 +5,8 @@
     'have_sub_title' => true,
 ])
 <div class="show_modal p-6 md:p-12 flex h-full w-full justify-center items-center fixed inset-0 bg-[rgba(0,0,0,0.4)]">
-    <div class="w-full max-lg:max-w-[43.75rem] lg:max-w-[50rem] bg-white p-6 rounded-2xl">
-        <div class="flex flex-row justify-between">
+    <div class="flex flex-col gap-4 w-full max-lg:max-w-[43.75rem] lg:max-w-[50rem] bg-white p-6 rounded-2xl">
+        <div class="flex flex-row gap-4 justify-between">
             <div class="flex flex-col gap-1">
                 <p class="text-lg font-medium">
                     {!! $title!!}
