@@ -6,11 +6,11 @@
     :have_sub_title="false">
 
     <x-slot:title>
-        Supprimer la fiche de ({!! $animal->name !!})
+        Supprimer la fiche de {!! $animal->name !!}
     </x-slot:title>
 
     <x-slot:body>
-        {{-- TODO: CONTENT OF MODAL --}}
+        {{-- TODO : ADD MODAL CONTENT --}}
     </x-slot:body>
 
 </x-admin.partials.modal>

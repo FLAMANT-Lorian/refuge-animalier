@@ -7,7 +7,7 @@
 
     {{-- FIL D'ARIANE --}}
     <span class="flex flex-row gap-1 items-center">
-                ·
+                –
                 <a wire:navigate
                    class="text-gray-500"
                    title="Vers la page des animaux"
