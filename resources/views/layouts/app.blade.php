@@ -9,7 +9,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body class="admin max-w-[120rem] m-auto relative bg-gray-50 has-[.bg-menu:checked]:overflow-hidden lg:flex">
+<body x-data="{modalOpen: false}"
+      x-on:open-modal.window="modalOpen = true"
+      x-on:close-modal.window="modalOpen = false"
+      :class="modalOpen ? 'overflow-hidden' : ''"
+      class="admin max-w-[120rem] m-auto relative bg-gray-50 has-[.bg-menu:checked]:overflow-hidden lg:flex">
 
     @if(Route::is('admin.login'))
         <header class="sr-only">Menu login</header>
@@ -21,3 +25,5 @@
 
 </body>
 </html>
+
+

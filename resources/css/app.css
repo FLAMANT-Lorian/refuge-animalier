@@ -8,6 +8,8 @@
 @import './partials/bg-images.css';
 @import './partials/select.css';
 @import './partials/transition.css';
+@import './partials/modal.css';
+
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';

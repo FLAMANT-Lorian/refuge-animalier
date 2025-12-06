@@ -15,4 +15,8 @@
         <x-admin.pages.animals.show.animal_notes/>
 
     </div>
+
+    @if($openCreateNote)
+        <x-admin.modals.animals.show.createNote/>
+    @endif
 </main>
