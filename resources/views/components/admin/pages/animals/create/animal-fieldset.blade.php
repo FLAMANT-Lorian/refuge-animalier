@@ -46,7 +46,9 @@
                 :collection="VolunteerStatus::cases()"
                 identifier="value"
             />
-            <button type="button" class="text-blue-500 hover:underline absolute -bottom-6 max-md:right-0">
+            <button wire:click="openModal('add-breed')"
+                type="button"
+                class="cursor-pointer text-blue-500 hover:underline absolute -bottom-6 max-md:right-0">
                 Ajouter une nouvelle espèce
             </button>
         </div>
