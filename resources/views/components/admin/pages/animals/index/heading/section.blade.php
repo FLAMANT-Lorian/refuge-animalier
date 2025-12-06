@@ -14,7 +14,7 @@
             <p class="text-gray-500">Vous avez actuellement 26 animaux dans votre refuge</p>
         </div>
 
-        <x-admin.pages.animals.heading.actions/>
+        <x-admin.pages.animals.index.heading.actions/>
     </div>
 
 </section>
