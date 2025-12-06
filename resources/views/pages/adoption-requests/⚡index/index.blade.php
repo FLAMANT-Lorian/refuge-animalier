@@ -11,6 +11,11 @@
             :adoption_requests="$this->adoption_requests"/>
 
     </div>
+    @if($openAdoptionRequest)
+        <x-admin.modals.adoptionRequests.adoption-request/>
+    @elseif($openDeleteAdoptionRequest)
+        <x-admin.modals.adoptionRequests.adoption-request-delete/>
+    @endif
 </main>
 
 

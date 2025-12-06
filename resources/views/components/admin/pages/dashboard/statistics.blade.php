@@ -14,7 +14,6 @@
             Télécharger le rapport d’activité
         </x-buttons.download-button>
         <x-forms.fields.select-filter
-            class="hover:cursor-pointer"
             :all_selector="false"
             id="stats_filter"
             name="stats_filter"
