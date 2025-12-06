@@ -17,7 +17,7 @@
             <strong class="pl-1 text-red">*</strong>
         @endif
     </label>
-    <select class="select_form pl-4 pr-7 py-3 outline bg-gray-50 outline-gray-200 focus:outline-gray-400 rounded-lg font-medium"
+    <select class="cursor-pointer select_form pl-4 pr-7 py-3 outline bg-gray-50 outline-gray-200 focus:outline-gray-400 rounded-lg font-medium"
             name="{!! $name !!}"
             id="{!! $field_name !!}">
         @foreach ($collection as $item)
