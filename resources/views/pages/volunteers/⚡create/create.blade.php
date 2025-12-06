@@ -3,9 +3,13 @@
 
         {{-- EN-TÊTE --}}
         <x-admin.pages.volunteers.create.heading
-        :app_title="$app_title"/>
+            :app_title="$app_title"/>
 
         {{-- FORMULAIRE --}}
         <x-admin.pages.volunteers.create.form/>
     </div>
+
+    @if($openDeleteVolunteerAvatar)
+        <x-admin.modals.volunteers.delete-volunteer-avatar/>
+    @endif
 </main>

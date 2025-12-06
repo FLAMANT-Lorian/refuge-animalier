@@ -14,10 +14,11 @@
                     un avatar
                 </label>
             </div>
-            <span
+            <button type="button"
+                    wire:click="openModal('delete-volunteer-avatar')"
                 class="font-medium px-4 py-2.5 font-base rounded-lg text-white trans-all bg-red border border-red hover:bg-transparent hover:text-black hover:cursor-pointer">
                 Supprimer l’avatar
-            </span>
+            </button>
         </div>
     </div>
 </fieldset>
