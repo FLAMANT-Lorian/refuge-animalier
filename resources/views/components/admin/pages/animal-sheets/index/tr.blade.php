@@ -12,16 +12,16 @@
         <label for="animal_sheet_{!! '1' !!}" class="sr-only">Séléctionner la fiche</label>
     </td>
 
-    <td class="lg:flex-1 h-full lg:text-left font-normal">
+    <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Nom de l’animal&nbsp;:
+                Bénévoles&nbsp;:
             </span>
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
-               title="Voir la fiche animal de {!! $animal_sheet['name'] !!}"
-               href="{!! route('admin.animals.show', 1) !!}">
-                {!! $animal_sheet['name'] !!}
+               title="Voir le profil bénévole de {!! $animal_sheet['volunteer'] !!}"
+               href="{!! route('admin.volunteers.show', 1) !!}">
+                {!! $animal_sheet['volunteer'] !!}
             </a>
         </div>
     </td>
@@ -37,26 +37,12 @@
         </div>
     </td>
 
-    <td class="lg:flex-1 lg:text-left">
-        <div class="flex flex-col gap-1">
-            <span class="min-lg:hidden font-bold">
-                Bénévoles&nbsp;:
-            </span>
-            <a wire:navigate
-               class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
-               title="Voir le profil bénévole de {!! $animal_sheet['volunteer'] !!}"
-               href="{!! route('admin.volunteers.show', 1) !!}">
-                {!! $animal_sheet['volunteer'] !!}
-            </a>
-        </div>
-    </td>
-
     <td class="absolute top-4 right-4 lg:static lg:text-left lg:w-[10rem]">
         <div class="flex flex-col gap-1">
             <span class="hidden font-bold">
                 Statut&nbsp;:
             </span>
-            <div class="flex flex-row justify-start lg:px-4 lg:py-4 font-normal">
+            <div class="flex flex-row justify-start font-normal">
                 <x-states.sheet-state
                     :sheet_state="$animal_sheet['status']"/>
             </div>
@@ -74,10 +60,20 @@
             </a>
 
             {{-- EDIT --}}
-            <x-table.edit
-                class="max-lg:hidden"
-                :destination="route('admin.animals.show', 1)"/>
-
+            <button wire:click="openModal('sheet-message')"
+                    class="hover:cursor-pointer">
+                <svg
+                    {!! $attributes->merge(['class' => 'rounded-0 hover:bg-green-100 border border-transparent hover:border-green-300 hover:rounded-lg transition-all ease-in-out duration-200']) !!}
+                    width="36"
+                    height="36"
+                    viewBox="0 0 36 36"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M15.5572 27.5574H10.7572C9.43168 27.5574 8.35717 26.4828 8.35718 25.1574L8.35727 10.7574C8.35728 9.43193 9.43179 8.35742 10.7573 8.35742H21.5575C22.883 8.35742 23.9575 9.43194 23.9575 10.7574V15.5574M12.5576 13.1574H19.7576M12.5576 16.7574H19.7576M12.5576 20.3574H16.1576M19.1574 24.2484L24.2485 19.1573L27.6427 22.5514L22.5515 27.6426H19.1574V24.2484Z"
+                        stroke="#292A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </div>
     </td>
 </tr>
