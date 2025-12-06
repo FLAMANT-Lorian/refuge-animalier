@@ -1,5 +1,6 @@
 @props([
-    'notes'
+    'notes',
+    'animal'
 ])
 
 <table class="lg:overflow-hidden lg:border-separate lg:rounded-2xl lg:border lg:border-green-300 lg:border-spacing-0">
@@ -9,6 +10,7 @@
 
     {{-- TBODY --}}
     <x-admin.pages.animals.show.table.tbody
+        :animal="$animal"
         :notes="$notes"/>
 </table>
 

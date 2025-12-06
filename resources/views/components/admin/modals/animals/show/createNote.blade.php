@@ -1,7 +1,11 @@
+@props([
+    'animal'
+])
+
 <x-admin.partials.modal>
 
     <x-slot:title>
-        Ajouter une nouvelle note de visite
+        Ajouter une nouvelle note de visite pour {!! $animal->name !!}
     </x-slot:title>
 
     <x-slot:sub_title>

@@ -1,5 +1,6 @@
 @props([
-    'note'
+    'note',
+    'animal'
 ])
 
 <tr scope="row"
@@ -17,12 +18,11 @@
             <span class="min-lg:hidden font-bold">
                 Nom complet&nbsp;:
             </span>
-            <a wire:navigate
-               class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
-               title="Voir la note pour {!! $note['name'] !!}"
-               href="#">
+            <button type="button"
+                    wire:click="openModal('edit-note', {!! $animal !!})"
+                    class="hover:font-bold hover:cursor-pointer text-left lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200">
                 {!! $note['name'] !!}
-            </a>
+            </button>
         </div>
     </td>
 
@@ -59,10 +59,12 @@
             </a>
 
             {{-- EDIT --}}
-            <x-table.edit/>
+            <x-table.edit-modal
+                wire:click="openModal('edit-note', {!! $animal !!})"/>
 
             {{-- DELETE --}}
-            <x-table.delete/>
+            <x-table.delete
+                wire:click="openModal('delete-note', {!! $animal !!})"/>
 
         </div>
     </td>

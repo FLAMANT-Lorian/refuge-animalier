@@ -18,7 +18,7 @@
                 @endif
             </div>
             <button type="button" wire:click="closeModal()">
-                <svg class="hover:bg-gray-100 rounded-none hover:rounded-lg trans-all" width="32" height="32"
+                <svg class="hover:cursor-pointer hover:bg-gray-100 rounded-none hover:rounded-lg trans-all" width="32" height="32"
                      viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M16.7071 15.9889L22.0159 21.2978L21.3088 22.0049L16 16.696L10.6912 22.0049L9.98407 21.2978L15.2929 15.9889L9.99512 10.6912L10.7022 9.98406L16 15.2818L21.2978 9.98406L22.0049 10.6912L16.7071 15.9889Z"
