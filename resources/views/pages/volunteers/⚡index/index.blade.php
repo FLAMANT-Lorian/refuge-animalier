@@ -13,6 +13,12 @@
             :volunteers="$this->volunteers"/>
 
     </div>
+
+    @if($openDeleteVolunteer)
+        <x-admin.modals.volunteers.delete-volunteer/>
+    @elseif($openDeleteVolunteerAvatar)
+        <x-admin.modals.volunteers.delete-volunteer-avatar/>
+    @endif
 </main>
 
 

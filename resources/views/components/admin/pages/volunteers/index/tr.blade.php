@@ -53,7 +53,7 @@
             <span class="hidden font-bold">
                 Statut&nbsp;:
             </span>
-            <div class="flex flex-row justify-start lg:px-4 lg:py-4 font-normal">
+            <div class="flex flex-row justify-start font-normal">
                 <x-states.volunteer-state
                     :volunteer_state="$volunteers['status']"/>
             </div>
@@ -72,12 +72,13 @@
 
             {{-- EDIT --}}
             <x-table.edit
+                title="Vers la fiche du bénévole"
                 class="max-lg:hidden"
                 :destination="route('admin.volunteers.show', 1)"/>
 
             {{-- DELETE --}}
             <x-table.delete
-                destination="#"/>
+                wire:click="openModal('delete-volunteer')"/>
 
         </div>
     </td>

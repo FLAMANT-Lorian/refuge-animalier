@@ -5,8 +5,8 @@
 <section class="flex flex-col gap-4">
 
     {{-- FIL D'ARIANE --}}
-    <span class="flex flex-row gap-1 items-center">
-                ·
+    <span class="flex flex-row gap-1 items-center text-gray-500">
+                –
                 <a wire:navigate
                    class="text-gray-500"
                    title="Vers la page des bénévoles"
@@ -24,6 +24,6 @@
 
     <div class="flex flex-col gap-1">
         <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>
-        <p>Les champs renseignés avec <strong class="text-red">*</strong> sont obligatoires</p>
+        <p class="text-base text-gray-500">Les champs renseignés avec <strong class="text-red">*</strong> sont obligatoires</p>
     </div>
 </section>
