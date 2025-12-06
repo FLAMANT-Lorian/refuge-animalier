@@ -26,12 +26,12 @@ class extends Component {
 
     }
 
-    public function openModal(string $modal, int $animalToDelete = null): void
+    public function openModal(string $modal, Animal $animal = null): void
     {
         if ($modal === 'delete-animal') {
 
-            if ($animalToDelete !== null) {
-                $this->animalToDelete = Animal::where('id', $animalToDelete)->first();
+            if ($animal !== null) {
+                $this->animalToDelete = $animal;
             }
 
             $this->openDeleteAnimal = true;

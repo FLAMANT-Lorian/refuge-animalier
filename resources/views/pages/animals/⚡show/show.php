@@ -36,13 +36,15 @@ class extends Component {
     public function openModal(string $modal, Animal $animal = null): void
     {
         if ($animal !== null) {
-            $this->animalToAddNote = $animal;
 
             if ($modal === 'create-note') {
+                $this->animalToAddNote = $animal;
                 $this->openCreateNote = true;
             } else if ($modal === 'edit-note') {
+                $this->animalToEditNote = $animal;
                 $this->openEditNote = true;
             } else if ($modal === 'delete-note') {
+                $this->animalToDeleteNote = $animal;
                 $this->openDeleteNote = true;
             }
         }

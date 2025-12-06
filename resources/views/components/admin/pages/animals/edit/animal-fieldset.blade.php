@@ -57,7 +57,7 @@
                 wire:click="openModal('add-breed')"
                 type="button"
                 class="hover:cursor-pointer text-blue-500 hover:underline absolute -bottom-6 max-md:right-0">
-                Ajouter une nouvelle espèce
+                Ajouter une nouvelle race
             </button>
         </div>
 
