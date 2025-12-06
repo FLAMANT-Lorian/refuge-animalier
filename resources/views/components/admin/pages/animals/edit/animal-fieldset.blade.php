@@ -78,6 +78,18 @@
             :required="true"
         />
 
+        {{-- STATUT --}}
+        <x-forms.fields.select
+            class="md:col-start-1 lg:col-start-auto md:col-end-3 lg:col-end-auto md:row-start-4 lg:row-start-auto md:row-end-5 lg:row-end-auto"
+            field_name="state"
+            name="state"
+            label="Statut"
+            :value="$animal->status"
+            :required="true"
+            :collection="AnimalStatus::cases()"
+            identifier="value"
+        />
+
         {{-- CARACTÈRE --}}
         <x-forms.fields.textarea
             class="md:col-start-1 md:col-end-2 md:row-start-5 md:row-end-6 lg:col-start-2 lg:col-end-3 lg:row-start-3 lg:row-end-6"
@@ -88,20 +100,9 @@
             placeholder="Doux&hellip;"
             :required="true"/>
 
-        {{-- STATUT --}}
-        <x-forms.fields.select
-            field_name="state"
-            name="state"
-            label="Statut"
-            :value="$animal->status"
-            :required="true"
-            :collection="AnimalStatus::cases()"
-            identifier="value"
-        />
-
         {{-- PHOTOS --}}
         <x-forms.fields.input-file
-            container_class="md:col-start-2 md:col-end-3 md:row-start-4 md:row-end-6 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-6"
+            container_class="md:col-start-2 md:col-end-3 md:row-start-5 md:row-end-6 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-6"
             label="Photos de l’animal"
             input_content="Choisir des images&nbsp;&hellip;"
             :multiple="true"/>

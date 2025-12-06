@@ -16,7 +16,7 @@
     </label>
 
     <textarea
-        class="max-md:max-h-[15rem] max-lg:h-[12rem] md:max-h-full lg:h-full md:resize-none focus:outline-gray-400 transition-all px-4 py-3 bg-gray-50 outline outline-gray-200 rounded-lg placeholder:text-gray-500"
+        class="max-md:h-[15rem] md:max-h-full h-full md:resize-none focus:outline-gray-400 transition-all px-4 py-3 bg-gray-50 outline outline-gray-200 rounded-lg placeholder:text-gray-500"
         placeholder="{!! $placeholder ?? '' !!}"
         name="{!! $name !!}"
         id="{!! $field_name !!}"
