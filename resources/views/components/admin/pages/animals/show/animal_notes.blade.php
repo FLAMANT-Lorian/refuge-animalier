@@ -7,7 +7,7 @@
         :notes="$this->notes"/>
 
     <div class="flex flex-col md:flex-row gap-4">
-        <button type="button" class="text-blue-500 hover:underline hover:cursor-pointer self-start">
+        <button wire:click="openModal('create')"type="button" class="text-blue-500 hover:underline hover:cursor-pointer self-start">
             Ajouter une nouvelle note de visite
         </button>
         {{--  PAGINATION --}}
