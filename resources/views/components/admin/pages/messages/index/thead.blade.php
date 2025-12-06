@@ -8,7 +8,7 @@
         </th>
         <th scope="col" class="flex-1 text-left">
             <div class="px-4 py-2">
-                <span @click="
+                <button type="button" @click="
                 if (arrow_name === 'middle') {
                     arrow_email = 'middle';
                     arrow_date = 'middle';
@@ -22,7 +22,7 @@
                     arrow_date = 'middle';
                     arrow_name = 'middle'
                 }"
-                      class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     Nom complet
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
@@ -36,12 +36,12 @@
                         <path
                             d="M12.8641 4V17.182L16.2778 13.9219L17.5 15.0891L12.6111 19.7582C12.2736 20.0806 11.7264 20.0806 11.3889 19.7582L6.5 15.0891L7.72222 13.9219L11.1359 17.182V4H12.8641Z"/>
                     </svg>
-                </span>
+                </button>
             </div>
         </th>
         <th scope="col" class="flex-1 text-left">
             <div class="px-4 py-2">
-                <span @click="
+                <button type="button" @click="
                 if (arrow_email === 'middle') {
                     arrow_name = 'middle';
                     arrow_date = 'middle';
@@ -55,7 +55,7 @@
                     arrow_date = 'middle';
                     arrow_email = 'middle'
                 }"
-                    class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     Adresse e-mail
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
@@ -69,12 +69,12 @@
                         <path
                             d="M12.8641 4V17.182L16.2778 13.9219L17.5 15.0891L12.6111 19.7582C12.2736 20.0806 11.7264 20.0806 11.3889 19.7582L6.5 15.0891L7.72222 13.9219L11.1359 17.182V4H12.8641Z"/>
                     </svg>
-                </span>
+                </button>
             </div>
         </th>
         <th scope="col" class="flex-1 text-left">
             <div class="px-4 py-2">
-                <span @click="
+                <button type="button" @click="
                 if (arrow_date === 'middle') {
                     arrow_name = 'middle';
                     arrow_email = 'middle';
@@ -88,7 +88,7 @@
                     arrow_email = 'middle';
                     arrow_date = 'middle'
                 }"
-                    class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     Date d’envoi
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
@@ -102,7 +102,7 @@
                         <path
                             d="M12.8641 4V17.182L16.2778 13.9219L17.5 15.0891L12.6111 19.7582C12.2736 20.0806 11.7264 20.0806 11.3889 19.7582L6.5 15.0891L7.72222 13.9219L11.1359 17.182V4H12.8641Z"/>
                     </svg>
-                </span>
+                </button>
             </div>
         </th>
         <th scope="col" class="text-left w-[10rem]">

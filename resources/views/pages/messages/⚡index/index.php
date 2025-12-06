@@ -13,6 +13,9 @@ class extends Component {
 
     public string $app_title = "Messages";
 
+    public bool $openMessage = false;
+    public bool $openDeleteMessage = false;
+
     #[Computed]
     public function messages(): array
     {
@@ -24,5 +27,23 @@ class extends Component {
             'status' => MessageStatus::read->value
         ];
 
+    }
+
+    public function openModal(string $modal): void
+    {
+        if ($modal === 'message') {
+            $this->openMessage = true;
+        } elseif ($modal === 'delete-message') {
+            $this->openDeleteMessage = true;
+        }
+
+        $this->dispatch('open-modal');
+    }
+
+    public function closeModal(): void
+    {
+        $this->openMessage = false;
+        $this->openDeleteMessage = false;
+        $this->dispatch('close-modal');
     }
 };
