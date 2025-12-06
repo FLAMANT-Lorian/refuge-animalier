@@ -58,7 +58,7 @@
             {{-- VOIR LA FICHE DE L’ANIMAL - MOBILE --}}
             <x-buttons.base
                 title="Aller vers la page de {!! $animal->name !!}"
-                :destination="route('admin.animals.show', 1)"
+                :destination="route('admin.animals.show', $animal->id)"
                 class="lg:hidden">
                 Voir la fiche de l’animal
             </x-buttons.base>
@@ -66,11 +66,13 @@
             {{-- EDIT --}}
             <x-table.edit
                 class="max-lg:hidden"
+                title="Vers la page de modification de l'animal"
                 :destination="route('admin.animals.show', $animal->id)"/>
 
             {{-- DELETE --}}
             <x-table.delete
-                destination="#"/>
+                wire:click="openModal('delete-animal' , {!! $animal->id !!})"
+            />
 
         </div>
     </td>

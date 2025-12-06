@@ -17,7 +17,7 @@
             <strong class="text-red">*</strong>
         @endif</label>
     <select
-        {!! $attributes->merge(['class' => 'select_form pl-2 pr-7 py-2.5 border border-green-500 rounded-lg font-medium']) !!}
+        {!! $attributes->merge(['class' => 'hover:cursor-pointer select_form pl-2 pr-7 py-2.5 border border-green-500 rounded-lg font-medium']) !!}
         name="{!! $name !!}"
         id="{!! $id !!}">
         @if($all_selector)

@@ -1,4 +1,4 @@
-<button>
+<button type="button" class="hover:cursor-pointer">
     <svg
         {!! $attributes->merge(['class' => 'rounded-0 hover:bg-green-100 border border-transparent hover:border-green-300 hover:rounded-lg transition-all ease-in-out duration-200']) !!}
         width="36" height="36" viewBox="0 0 36 36"
