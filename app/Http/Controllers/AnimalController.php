@@ -14,8 +14,9 @@ class AnimalController extends Controller
         return view('public.animals.index', compact('animals'));
     }
 
-    public function show(Animal $animal)
+    public function show($locale, Animal $animal)
     {
-        return view('public.animals.show', compact('animal'));
+
+        return view('public.animals.show', compact('locale', 'animal'));
     }
 }

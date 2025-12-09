@@ -1,18 +1,21 @@
 <?php
 
 use App\Http\Controllers\AnimalController;
+use App\Http\Middleware\SetLocale;
 
-Route::get('/', function () {
-    return view('public.homepage');
-})->name('public.homepage');
+Route::prefix('{locale}')->middleware([SetLocale::class])->group(function () {
+    Route::get('/', function () {
+        return view('public.homepage');
+    })->name('public.homepage');
 
-Route::get('/a-propos', function () {
-    return view('public.pages.about');
-})->name('public.about');
+    Route::get('/a-propos', function () {
+        return view('public.pages.about');
+    })->name('public.about');
 
-Route::get('/contact', function () {
-    return view('public.pages.contact');
-})->name('public.contact');
+    Route::get('/contact', function () {
+        return view('public.pages.contact');
+    })->name('public.contact');
 
-Route::get('/nos-animaux', [AnimalController::class, 'index'])->name('public.animals.index');
-Route::get('/nos-animaux/{animal}', [AnimalController::class, 'show'])->name('public.animals.show');
+    Route::get('/nos-animaux', [AnimalController::class, 'index'])->name('public.animals.index');
+    Route::get('/nos-animaux/{animal}', [AnimalController::class, 'show'])->name('public.animals.show');
+});
