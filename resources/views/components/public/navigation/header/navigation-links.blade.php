@@ -1,9 +1,9 @@
 @php
 
     $items = [
-        ['label'=> 'Nos animaux', 'title' => 'Aller vers la page des animaux', 'destination' => route('public.animals.index'), 'class' => 'text-2xl md:text-base font-normal md:font-medium hover:font-bold active:font-bold transition-all'],
-        ['label'=> 'À propos', 'title' => 'Aller vers la page à propos', 'destination' => route('public.about'), 'class'=> 'text-2xl md:text-base font-normal md:font-medium hover:font-bold active:font-bold transition-all'],
-        ['label'=> 'Contact', 'title' => 'Aller vers la page de contact', 'destination' => route('public.contact'), 'class' => 'text-2xl md:text-base font-normal md:font-medium hover:font-bold active:font-bold transition-all md:last:py-2.5 md:last:px-4 md:last:bg-green-500 md:last:text-white md:last:rounded-lg md:last:hover:font-medium md:last:hover:bg-transparent md:last:hover:text-black md:last:border md:border-green-500'],
+        ['label'=> __('public/header.link_1'), 'title' => __('public/header.link_1_title'), 'destination' => route('public.animals.index'), 'class' => 'text-2xl md:text-base font-normal md:font-medium hover:font-bold active:font-bold transition-all'],
+        ['label'=> __('public/header.link_2'), 'title' => __('public/header.link_2_title'), 'destination' => route('public.about'), 'class'=> 'text-2xl md:text-base font-normal md:font-medium hover:font-bold active:font-bold transition-all'],
+        ['label'=> __('public/header.link_3'), 'title' => __('public/header.link_3_title'), 'destination' => route('public.contact'), 'class' => 'text-2xl md:text-base font-normal md:font-medium hover:font-bold active:font-bold transition-all md:last:py-2.5 md:last:px-4 md:last:bg-green-500 md:last:text-white md:last:rounded-lg md:last:hover:font-medium md:last:hover:bg-transparent md:last:hover:text-black md:last:border md:border-green-500'],
     ];
 
 @endphp

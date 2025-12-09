@@ -1,0 +1,20 @@
+<?php
+return [
+    'link_1' => 'Accueil',
+    'link_1_title' => 'Vers la page d\'accueil',
+    'link_2' => 'Nos animaux',
+    'link_2_title' => 'Vers la page des animaux',
+    'link_3' => 'À propos',
+    'link_3_title' => 'Vers la page à propos',
+    'link_4' => 'Contact',
+    'link_4_title' => 'Vers la page de contact',
+    'secondary_nav' => 'Navigation secondaire',
+    'coordinate_title' => 'Coordonnées',
+    'coordinate_1_title' => 'L’adresse de notre refuge',
+    'coordinate_2_title' => 'L’adresse e-mail du refuge',
+    'coordinate_3_title' => 'Le numéro de téléphone du refuge',
+    'opening_hours' => 'Heures d’ouvertures',
+    'opening_hours_1' => 'Lundi - Vendredi : 12h30 - 17h30',
+    'opening_hours_2' => 'Samedi : 10h00 - 17h30',
+    'opening_hours_3' => 'Dimanche : Fermé',
+];
