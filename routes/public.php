@@ -3,6 +3,11 @@
 use App\Http\Controllers\AnimalController;
 use App\Http\Middleware\SetLocale;
 
+// Pour être automatiquement redirigé vers "/fr"
+Route::get('/', function () {
+    return redirect('/' . config('app.locale'));
+});
+
 Route::prefix('{locale}')->middleware([SetLocale::class])->group(function () {
     Route::get('/', function () {
         return view('public.homepage');

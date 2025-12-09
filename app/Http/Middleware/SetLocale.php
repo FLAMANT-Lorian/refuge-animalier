@@ -12,10 +12,15 @@ class SetLocale
     {
         $locale = $request->segment(1);
 
-        if (in_array($locale, config('app.supported_locales'))) {
+        if (!$locale || in_array($locale, config('app.supported_locales'))) {
             app()->setLocale($locale);
         } else {
+            $segments = $request->segments();
+            $segments[0] = config('app.locale');
+
             app()->setLocale(config('app.locale'));
+
+            return redirect('/' . implode('/', $segments));
         }
 
         URL::defaults(['locale' => app()->getLocale()]);
