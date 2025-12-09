@@ -35,7 +35,7 @@ class AnimalFactory extends Factory
             'description' => $this->faker->text(),
             'age' => $this->faker->numberBetween(1, 6),
             'state' => $this->faker->randomElement($states),
-            'img_path' => 'dog1.webp'
+            'img_path' => 'public_2.webp'
         ];
     }
 }
