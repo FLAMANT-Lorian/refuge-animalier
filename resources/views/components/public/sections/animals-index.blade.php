@@ -8,8 +8,8 @@
             class="mb-8 lg:mb-10"
             name="search-field"
             id="search-field"
-            placeholder="Rechercher"
-            label="Rechercher un animal"/>
+            placeholder="{!! __('public/animals.index_animals_search_placeholder') !!}"
+            label="{!! __('public/animals.index_animals_search_label') !!}"/>
     </div>
 
     <div

@@ -12,14 +12,15 @@
         </div>
         <div class="relative">
             <a
+                title="{!! __('public/animals.show_share_title') !!}"
                 class="share_button flex flex-row gap-2 transition-all p-2 rounded-lg border border-transparent hover:border-gray-100 hover:bg-white"
                 href="{!! url()->current() !!}">
-                Partager
+                {!! __('public/animals.show_share_title') !!}
                 <x-icons.share/>
             </a>
             <span
                 class="opacity-0 transition-all ease-in-out duration-100 share_message absolute right-0 -top-7 -rotate-2 font-bold">
-                Copié !
+                {!! __('public/animals.show_share_message') !!}
             </span>
         </div>
     </div>

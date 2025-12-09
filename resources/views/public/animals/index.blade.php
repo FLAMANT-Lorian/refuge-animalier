@@ -1,4 +1,4 @@
-<x-public.app title="Nos animaux · Les pattes heureuses">
+<x-public.app title="{!! __('public/animals.index_page_title') !!}">
 
     <main class="animals_index" id="content">
 
