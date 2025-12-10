@@ -2,7 +2,7 @@
 
 return [
     'text_media_1_title' => 'Welcome to the shelter&nbsp;,',
-    'text_media_1_subtitle' => 'Happy Paws&nbsp;!',
+    'text_media_1_subtitle' => 'Les pattes heureuses&nbsp;!',
     'text_media_1_text' => 'Dogs, cats, birds, rabbits, and many other companions are here waiting for a new family. Come visit them, discover their stories, and be touched by their hopeful eyes. Perhaps you will find the one who will make your heart beat.',
     'text_media_1_alt' => 'Photo of a dog lying on a cushion',
     'text_media_1_btn' => 'Discover our animals',
