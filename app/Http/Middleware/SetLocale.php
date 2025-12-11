@@ -12,7 +12,7 @@ class SetLocale
     {
         $locale = $request->segment(1);
 
-        if (!$locale || in_array($locale, config('app.supported_locales'))) {
+        if (in_array($locale, config('app.supported_locales'))) {
             app()->setLocale($locale);
         } else {
             $segments = $request->segments();

@@ -11,7 +11,7 @@
 
 @endphp
 
-<ul class="flex flex-col gap-6 lg:gap-4 mt-12 lg:mt-[5rem] mb-auto">
+<ul class="flex flex-col gap-6 lg:gap-4 mt-12 lg:mt-20 mb-auto">
     @foreach($items as $item)
         <li class="group">
             <x-admin.navigation.navigation-link

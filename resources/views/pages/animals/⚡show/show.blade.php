@@ -4,12 +4,12 @@
 
         {{-- EN TÊTE --}}
         <x-admin.pages.animals.show.heading
-            :animal="$this->animal"
+            :animal="$animal"
             :app_title="$app_title"/>
 
         {{-- INFORMATIONS --}}
         <x-admin.pages.animals.show.animal_informations
-            :animal="$this->animal"/>
+            :animal="$animal"/>
 
         {{-- NOTES --}}
         <x-admin.pages.animals.show.animal_notes

@@ -7,7 +7,7 @@
     {{-- PROFIL --}}
     <x-admin.navigation.navigation-profile :profile_data="$profile_data"/>
     <form action="" method="post">
-        <button class="w-full font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black self-start hover:bg-transparent border border-green-500 transition-all">
+        <button class="w-full font-medium px-4 py-2.5 bg-green-500 rounded-lg text-white hover:text-black self-start hover:bg-transparent border border-green-500 transition-all">
             Me déconnecter
         </button>
     </form>

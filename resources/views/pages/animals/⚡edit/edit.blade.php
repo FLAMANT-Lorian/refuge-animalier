@@ -4,11 +4,11 @@
         {{-- EN-TÊTE --}}
         <x-admin.pages.animals.edit.heading
             :app_title="$app_title"
-            :animal="$this->animal"/>
+            :animal="$animal"/>
 
         {{-- FORMULAIRE --}}
         <x-admin.pages.animals.edit.form
-            :animal="$this->animal"/>
+            :animal="$animal"/>
     </div>
 
     <div class="flex flex-col gap-10 bg-white border border-gray-200 rounded-2xl p-6">

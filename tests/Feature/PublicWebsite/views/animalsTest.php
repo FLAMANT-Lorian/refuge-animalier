@@ -9,7 +9,7 @@ it('verifies if the animals that are displays in the animals index page are the 
         Animal::factory()->create(['state' => $status->value]);
     }
 
-    $response = $this->get(route('public.animals.index'));
+    $response = $this->get(route('public.animals.index', config('app.locale')));
 
     $response->assertStatus(200);
 
@@ -30,7 +30,12 @@ it('verifies if a guest can access to a animal detail page and that the informat
 
     $other_animal = Animal::factory()->create()->toArray();
 
-    $response = $this->get(route('public.animals.show', $animal['id']));
+    $response = $this->get(route('public.animals.show',
+        [
+            'locale' => config('app.locale'),
+            'animal' => $animal['id']
+        ]
+    ));
 
     $response->assertStatus(200);
 

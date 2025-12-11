@@ -4,25 +4,25 @@ use App\Enums\AnimalStatus;
 use App\Models\Animal;
 
 it('verifies if a guest can access to the public website home page', function () {
-    $response = $this->get(route('public.homepage'));
+    $response = $this->get(route('public.homepage', config('app.locale')));
 
     $response->assertStatus(200);
 });
 
 it('verifies if a guest can access to the public website about page', function () {
-    $response = $this->get(route('public.about'));
+    $response = $this->get(route('public.about', config('app.locale')));
 
     $response->assertStatus(200);
 });
 
 it('verifies if a guest can access to the public website contact page', function () {
-    $response = $this->get(route('public.contact'));
+    $response = $this->get(route('public.contact', config('app.locale')));
 
     $response->assertStatus(200);
 });
 
 it('verifies if a guest can access to the public website animals index page', function () {
-    $response = $this->get(route('public.animals.index'));
+    $response = $this->get(route('public.animals.index', config('app.locale')));
 
     $response->assertStatus(200);
 });
@@ -32,7 +32,14 @@ it('verifies if a guest can access to the public website animals show page', fun
         ['state' => AnimalStatus::AwaitingAdoption->value]
     )->toArray();
 
-    $response = $this->get(route('public.animals.show', $animal['id']));
+    $locale =
+
+    $response = $this->get(route('public.animals.show',
+        [
+            'locale' => config('app.locale'),
+            'animal' => $animal['id']
+        ]
+    ));
 
     $response->assertStatus(200);
 });
