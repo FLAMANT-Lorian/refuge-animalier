@@ -8,16 +8,17 @@
     <td class="max-lg:hidden flex justify-center px-2 w-[3rem]">
         <input class="animal_sheet_{!! '1' !!} hover:cursor-pointer" type="checkbox" name="animal_sheet_{!! '1' !!}"
                id="animal_sheet_{!! '1' !!}"
-               title="Séléctionner la fiche">
-        <label for="animal_sheet_{!! '1' !!}" class="sr-only">Séléctionner la fiche</label>
+               title="{!! __('admin/animal-sheets.one_selector') !!}">
+        <label for="animal_sheet_{!! '1' !!}" class="sr-only">{!! __('admin/animal-sheets.one_selector') !!}</label>
     </td>
 
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Bénévoles&nbsp;:
+                {!! __('admin/animal-sheets.volunteer') !!}&nbsp;:
             </span>
-            <button type="button" wire:click="openModal('sheet-message')" class="text-left cursor-pointer lg:px-4 lg:py-4 font-normal">
+            <button type="button" wire:click="openModal('sheet-message')"
+                    class="text-left cursor-pointer lg:px-4 lg:py-4 font-normal">
                 {!! $animal_sheet['volunteer'] !!}
             </button>
         </div>
@@ -25,7 +26,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Animal&nbsp;:
+                {!! __('admin/animal-sheets.animal') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $animal_sheet['name'] !!}
@@ -36,7 +37,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Date&nbsp;:
+                {!! __('admin/animal-sheets.date') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $animal_sheet['date'] !!}
@@ -47,7 +48,7 @@
     <td class="absolute top-4 right-4 lg:static lg:text-left lg:w-[10rem]">
         <div class="flex flex-col gap-1">
             <span class="hidden font-bold">
-                Statut&nbsp;:
+                {!! __('admin/animal-sheets.status') !!}&nbsp;:
             </span>
             <div class="flex flex-row justify-start font-normal">
                 <x-states.sheet-state
@@ -61,9 +62,9 @@
 
             {{-- VOIR L'ANIMAL - MOBILE --}}
             <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
-               title="Voir la fiche de : {!! $animal_sheet['name'] !!}"
+               title="{!! __('admin/animal-sheets.view_animal_sheet_of') . $animal_sheet['name'] !!}"
                href="{!! route('admin.animals.show', ['animal' => 1, 'locale' => config('app.locale')]) !!}">
-                Voir la fiche de l’animal
+                {!! __('admin/animal-sheets.view_animal_sheet') !!}
             </a>
 
             {{-- EDIT --}}

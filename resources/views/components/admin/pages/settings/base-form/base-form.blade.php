@@ -12,5 +12,5 @@
     {{-- BOUTON DE SOUMISSION --}}
     <x-forms.buttons.normal-button-submit
         class="self-start"
-        label="Sauvegarder les changements"/>
+        :label="__('admin/settings.save_change')"/>
 </form>

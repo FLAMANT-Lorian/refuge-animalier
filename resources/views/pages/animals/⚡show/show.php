@@ -6,7 +6,7 @@ use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-new #[Title('Animal · Les pattes heureuses')]
+new #[Title('admin/page_title.animals_show')]
 class extends Component {
     public Animal $animal;
     public string $app_title;
@@ -20,7 +20,7 @@ class extends Component {
     public function mount(Animal $animal): void
     {
         $this->animal = $animal;
-        $this->app_title = 'Fiche de ' . $this->animal->name;
+        $this->app_title = __('admin/animals.show_title') . $this->animal->name;
     }
 
     #[Computed]

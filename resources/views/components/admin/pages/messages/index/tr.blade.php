@@ -8,18 +8,18 @@
     <td class="max-lg:hidden flex justify-center px-2 w-[3rem]">
         <input class="message_{!! '1' !!} hover:cursor-pointer" type="checkbox" name="message_{!! '1' !!}"
                id="message_{!! '1' !!}"
-               title="Séléctionner l'animal">
-        <label for="message_{!! '1' !!}" class="sr-only">Séléctionner le message</label>
+               title="{!! __('admin/messages.one_selector') !!}">
+        <label for="message_{!! '1' !!}" class="sr-only">{!! __('admin/messages.one_selector') !!}</label>
     </td>
 
     <td class="lg:flex-1 h-full lg:text-left font-normal">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Nom complet&nbsp;:
+                {!! __('admin/messages.name') !!}&nbsp;:
             </span>
             <button type="button"
                     wire:click="openModal('message')"
-               class="text-left cursor-pointer lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200">
+                    class="text-left cursor-pointer lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200">
                 {!! $message['name'] !!}
             </button>
         </div>
@@ -28,7 +28,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Adresse e-mail&nbsp;:
+                {!! __('admin/messages.email') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $message['email'] !!}
@@ -39,7 +39,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Date d’envoi&nbsp;:
+                {!! __('admin/messages.date') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $message['date'] !!}
@@ -50,7 +50,7 @@
     <td class="absolute top-4 right-4 lg:static lg:text-left lg:w-[10rem]">
         <div class="flex flex-col gap-1">
             <span class="hidden font-bold">
-                Statut&nbsp;:
+                {!! __('admin/messages.status') !!}&nbsp;:
             </span>
             <div class="flex flex-row justify-start font-normal">
                 <x-states.message-state
@@ -64,9 +64,9 @@
 
             {{-- VOIR LA MESSAGE - MOBILE --}}
             <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
-               title="Voir le message de {!! $message['name'] !!}"
+               title="{!! __('admin/messages.view_message_of') . $message['name'] !!}"
                href="#">
-                Voir le message
+                {!! __('admin/messages.view_message') !!}
             </a>
 
             {{-- DELETE --}}

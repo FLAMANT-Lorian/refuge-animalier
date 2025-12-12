@@ -4,13 +4,18 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 
 
-new #[Title('Bénévoles · Les pattes heureuses')]
+new #[Title('admin/page_title.volunteers_show')]
 class extends Component
 {
-    public string $app_title = "Profil de Flamant Lorian";
+    public string $app_title;
 
     public bool $openDeleteVolunteerAvatar = false;
     public bool $openDeleteVolunteer = false;
+
+    public function mount(): void
+    {
+        $this->app_title = __('admin/volunteers.show_title') . 'Lorian';
+    }
 
     public function openModal(string $modal): void
     {

@@ -10,17 +10,17 @@
         class="md:order-1"
         name="message_search"
         id="message_search"
-        label="Rechercher un message"
-        placeholder="Rechercher un message"
+        :label="__('admin/messages.search')"
+        :placeholder="__('admin/messages.search')"
     />
 
     {{-- SELECTION DES FILTRES --}}
     <x-forms.fields.select-filter
         container_classes="md:order-3"
         :all_selector="true"
-        all_selector_label="Tous"
+        :all_selector_label="__('admin/messages.all')"
         id="messages_filter"
-        label="Filtrer les messages"
+        :label="__('admin/messages.filter')"
         :with_label="false"
         name="messages_filter"
         :collection="MessageStatus::cases()"

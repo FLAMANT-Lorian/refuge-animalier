@@ -4,12 +4,17 @@ use App\Enums\SheetsStatus;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-new #[Title('Tableau de bord · Les pattes heureuses')]
+new #[Title('admin/page_title.dashboard')]
 class extends Component {
 
     public string $app_title = 'Tableau de bord';
     public bool $openEditAnimalSheet = false;
     public bool $openAnimalAdoptionRequest = false;
+
+    public function mount(): void
+    {
+        $this->app_title = __('app_title');
+    }
     public array $sheet = [
         'name' => 'Moka',
         'date' => '30 octobre 2026',

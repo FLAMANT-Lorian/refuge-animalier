@@ -6,15 +6,15 @@
     <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4">
         <div class="flex flex-col gap-1">
             <h2 class="text-lg font-semibold">
-                Gestion des fiches
+                {!! __('admin/dashboard.sheets_title') !!}
             </h2>
-            <p class="font-base font-normal text-gray-500">Il vous reste {!! $sheets_count !!} fiches à valider !</p>
+            <p class="font-base font-normal text-gray-500">{!! __('admin/dashboard.you_still_have') !!} {!! $sheets_count !!} {!! __('admin/dashboard.files_to_be_validated') !!}</p>
         </div>
         <x-buttons.base
             class="max-lg:self-start"
             :destination="route('admin.animal-sheets.index', config('app.locale'))"
-            title="Vers la page des fiches des animaux">
-            Tout afficher
+            title="{!! __('admin/dashboard.sheet_text') !!}">
+            {!! __('admin/dashboard.sheet_title') !!}
         </x-buttons.base>
     </div>
     <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-y-scroll">

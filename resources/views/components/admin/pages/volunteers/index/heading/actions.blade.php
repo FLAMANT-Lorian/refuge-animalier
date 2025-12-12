@@ -8,9 +8,9 @@
     {{-- BOUTON POUR AJOUTER UN BÉNÉVOLE --}}
     <x-buttons.add-item-button
         class="self-start md:order-2 md:ml-auto lg:m-0"
-        title="Ajouter un bénévole"
+        title="{!! __('admin/volunteers.add_volunteer_btn') !!}"
         :href="route('admin.volunteers.create', config('app.locale'))">
-        Ajouter un bénévole
+        {!! __('admin/volunteers.add_volunteer_btn') !!}
     </x-buttons.add-item-button>
 
     {{-- CHAMPS DE RECHERCHE --}}
@@ -18,17 +18,17 @@
         class="md:order-1"
         name="volunteer_search"
         id="volunteer_search"
-        label="Rechercher un bénévole"
-        placeholder="Rechercher un bénévole"
+        :label="__('admin/volunteers.search')"
+        :placeholder="__('admin/volunteers.search')"
     />
 
     {{-- SELECTION DES FILTRES --}}
     <x-forms.fields.select-filter
         container_classes="md:order-3"
         :all_selector="true"
-        all_selector_label="Tous"
+        :all_selector_label="__('admin/volunteers.all')"
         id="volunteers_filter"
-        label="Filtrer les Bénévoles"
+        :label="__('admin/volunteers.filter')"
         :with_label="false"
         name="volunteers_filter"
         :collection="VolunteerStatus::cases()"

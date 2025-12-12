@@ -5,8 +5,8 @@
         field_name="email"
         name="email"
         type="email"
-        label="Adresse e-mail"
-        placeholder="johndoe@example.be"
+        :label="__('admin/login.email')"
+        :placeholder="__('admin/login.email_placeholder')"
         :required="true"/>
 
     {{-- INPUT PASSWORD --}}
@@ -14,13 +14,13 @@
         <x-forms.fields.input-password
             field_name="password"
             name="password"
-            label="Mot de passe"
+            :label="__('admin/login.password')"
             :required="true"/>
         <a href="#" class="text-blue-600 hover:underline self-end">
-            Mot de passe oublié ?
+            {!! __('admin/login.forgot_password') !!}
         </a>
     </div>
 
     {{-- INPUT SUBMIT --}}
-    <x-forms.buttons.outlined-button-submit label="Me connecter"/>
+    <x-forms.buttons.outlined-button-submit :label="__('admin/login.btn')"/>
 </form>

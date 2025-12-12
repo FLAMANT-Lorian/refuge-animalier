@@ -3,11 +3,11 @@
         <th scope="col" class="p-2 w-[3rem]">
             <input class="animal hover:cursor-pointer" type="checkbox" name="all_coll_selector"
                    id="all_coll_selector"
-                   title="Séléctionner l'animal 1">
-            <label for="all_coll_selector" class="sr-only">Séléctionner l'animal 1</label>
+                   title="{!! __('admin/animals.all_selector') !!}">
+            <label for="all_coll_selector" class="sr-only">{!! __('admin/animals.all_selector') !!}</label>
         </th>
         <th scope="col" class="hidden">
-            <span class="sr-only">Image de l’animal</span>
+            <span class="sr-only">{!! __('admin/animals.picture') !!}</span>
         </th>
         <th scope="col" class="flex-1 text-left">
             <div class="flex flex-row px-4 py-2">
@@ -22,8 +22,8 @@
                     arrow_breed = 'middle';
                     arrow_name = 'middle';
                 }"
-                      class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Nom de l’animal
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                    {!! __('admin/animals.name') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_name === 'desc',
@@ -52,8 +52,8 @@
                     arrow_name = 'middle';
                     arrow_breed = 'middle';
                 }"
-                      class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Race
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                    {!! __('admin/animals.breed') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_breed === 'desc',
@@ -73,14 +73,14 @@
         <th scope="col" class="flex-1 text-left">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    Statut
+                    {!! __('admin/animals.status') !!}
                 </span>
             </div>
         </th>
         <th scope="col" class="text-right w-[9.375rem]">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    Actions
+                    {!! __('admin/animals.actions') !!}
                 </span>
             </div>
         </th>

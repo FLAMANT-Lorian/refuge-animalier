@@ -9,17 +9,17 @@
         class="md:order-1"
         name="adoption-requests_search"
         id="adoption-requests_search"
-        label="Rechercher une demande"
-        placeholder="Rechercher une demande"
+        :label="__('admin/adoption-requests.search_field')"
+        :placeholder="__('admin/adoption-requests.search_field')"
     />
 
     {{-- SELECTION DES FILTRES --}}
     <x-forms.fields.select-filter
         container_classes="md:order-3"
         :all_selector="true"
-        all_selector_label="Toutes"
+        :all_selector_label="__('admin/adoption-requests.all')"
         id="adoption-requests_filter"
-        label="Filtrer les demandes"
+        :label="__('admin/adoption-requests.filter_field')"
         :with_label="false"
         name="adoption-requests_filter"
         :collection="AdoptionRequestsStatus::cases()"

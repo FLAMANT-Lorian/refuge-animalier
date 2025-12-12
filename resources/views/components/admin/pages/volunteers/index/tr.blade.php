@@ -8,14 +8,14 @@
     <td class="max-lg:hidden flex justify-center px-2 w-[3rem]">
         <input class="volunteer_{!! '1' !!} hover:cursor-pointer" type="checkbox" name="volunteer_{!! '1' !!}"
                id="volunteer_{!! '1' !!}"
-               title="Séléctionner le bénévole">
-        <label for="volunteer_{!! '1' !!}" class="sr-only">Séléctionner le bénévole</label>
+               title="{!! __('admin/volunteers.one_selector') !!}">
+        <label for="volunteer_{!! '1' !!}" class="sr-only">{!! __('admin/volunteers.one_selector') !!}</label>
     </td>
 
     <td class="lg:flex-1 h-full lg:text-left font-normal">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Nom complet&nbsp;:
+                {!! __('admin/volunteers.name') !!}&nbsp;:
             </span>
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
@@ -29,7 +29,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Adresse e-mail&nbsp;:
+                {!! __('admin/volunteers.email') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $volunteers['email'] !!}
@@ -40,7 +40,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Date d’envoi&nbsp;:
+                {!! __('admin/volunteers.date') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $volunteers['date'] !!}
@@ -51,7 +51,7 @@
     <td class="absolute top-4 right-4 lg:static lg:text-left lg:w-[10rem]">
         <div class="flex flex-col gap-1">
             <span class="hidden font-bold">
-                Statut&nbsp;:
+                {!! __('admin/volunteers.status') !!}&nbsp;:
             </span>
             <div class="flex flex-row justify-start font-normal">
                 <x-states.volunteer-state
@@ -65,14 +65,14 @@
 
             {{-- VOIR LE BÉNÉVOLES - MOBILE --}}
             <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
-               title="Voir la fiche de : {!! $volunteers['name'] !!}"
+               title="{!! __('admin/volunteers.view_volunteer_sheet_title') . $volunteers['name'] !!}"
                href="{!! route('admin.volunteers.show', ['volunteer' => 1, 'locale' => config('app.locale')]) !!}">
-                Voir la fiche du bénévole
+                {!! __('admin/volunteers.view_volunteer_sheet') !!}
             </a>
 
             {{-- EDIT --}}
             <x-table.edit
-                title="Vers la fiche du bénévole"
+                :title="__('admin/volunteers.view_volunteer_sheet')"
                 class="max-lg:hidden"
                 :destination="route('admin.volunteers.show', ['volunteer' => 1, 'locale' => config('app.locale')])"/>
 

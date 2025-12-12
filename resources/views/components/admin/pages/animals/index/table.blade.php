@@ -13,5 +13,5 @@
     </table>
 
     {{--  PAGINATION --}}
-    {!! $animals->links('vendor.livewire.tailwind', ['results_name' => 'animaux']) !!}
+    {!! $animals->links('vendor.livewire.tailwind', ['results_name' => __('admin/animals.pagination')]) !!}
 </section>

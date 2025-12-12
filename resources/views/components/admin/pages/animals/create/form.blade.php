@@ -1,6 +1,6 @@
 <section>
     <h2 class="sr-only">
-        Formulaire de création d’une nouvelle fiche d’animal
+        {!! __('admin/animals.create_title') !!}
     </h2>
 
     <form action="" method="post" class="flex flex-col gap-6">
@@ -13,6 +13,6 @@
 
         <x-forms.buttons.normal-button-submit
             class="self-end"
-            label="Créer la fiche de l’animal"/>
+            :label="__('admin/animals.create_animal_btn')"/>
     </form>
 </section>

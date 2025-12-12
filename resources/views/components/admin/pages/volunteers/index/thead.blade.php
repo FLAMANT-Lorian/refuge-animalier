@@ -3,8 +3,8 @@
         <th scope="col" class="p-2 w-[3rem]">
             <input class="volunteers hover:cursor-pointer" type="checkbox" name="all_coll_selector"
                    id="all_coll_selector"
-                   title="Séléctionner tout les bénévoles">
-            <label for="all_coll_selector" class="sr-only">Séléctionner tout les bénévoles</label>
+                   title="{!! __('admin/volunteers.all_selector') !!}">
+            <label for="all_coll_selector" class="sr-only">{!! __('admin/volunteers.all_selector') !!}</label>
         </th>
         <th scope="col" class="flex-1 text-left">
             <div class="px-4 py-2">
@@ -22,8 +22,8 @@
                     arrow_date = 'middle';
                     arrow_name = 'middle'
                 }"
-                      class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Nom complet
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                    {!! __('admin/volunteers.name') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_name === 'desc',
@@ -55,8 +55,8 @@
                     arrow_date = 'middle';
                     arrow_email = 'middle'
                 }"
-                    class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Adresse e-mail
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                    {!! __('admin/volunteers.email') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_email === 'desc',
@@ -88,8 +88,8 @@
                     arrow_email = 'middle';
                     arrow_date = 'middle'
                 }"
-                    class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Date d’entrée
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                    {!! __('admin/volunteers.date') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_date === 'desc',
@@ -108,14 +108,14 @@
         <th scope="col" class="text-left w-[10rem]">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    Statut
+                    {!! __('admin/volunteers.status') !!}
                 </span>
             </div>
         </th>
         <th scope="col" class="text-right w-[9.375rem]">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    Actions
+                    {!! __('admin/volunteers.actions') !!}
                 </span>
             </div>
         </th>

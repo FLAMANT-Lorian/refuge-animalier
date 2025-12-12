@@ -7,9 +7,9 @@
     {{-- BOUTON POUR AJOUTER UN ANIMAL --}}
     <x-buttons.add-item-button
         class="self-start md:order-2 md:ml-auto lg:m-0"
-        title="Ajouter un animal"
+        title="{!! __('admin/animals.add_animal_title') !!}"
         :href="route('admin.animals.create', config('app.locale'))">
-        Ajouter un animal
+        {!! __('admin/animals.add_animal_text') !!}
     </x-buttons.add-item-button>
 
     {{-- CHAMPS DE RECHERCHE --}}
@@ -17,17 +17,17 @@
         class="md:order-1"
         name="animal_search"
         id="animal_search"
-        label="Rechercher un animal"
-        placeholder="Rechercher un animal"
+        :label="__('admin/animals.search_animal_text')"
+        :placeholder="__('admin/animals.search_animal_placeholder')"
     />
 
     {{-- SELECTION DES FILTRES --}}
     <x-forms.fields.select-filter
         container_classes="md:order-3"
         :all_selector="true"
-        all_selector_label="Tous"
+        :all_selector_label="__('admin/animals.filter_animal_all_selector')"
         id="animals_filter"
-        label="Filtrer les animaux"
+        :label="__('admin/animals.filter_animal_text')"
         :with_label="false"
         name="animals_filter"
         :collection="AnimalStatus::cases()"

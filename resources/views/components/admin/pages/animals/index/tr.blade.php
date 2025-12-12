@@ -8,13 +8,13 @@
     <td class="max-lg:hidden flex justify-center px-2 w-[3rem]">
         <input class="animal_{!! $animal->id !!} hover:cursor-pointer" type="checkbox" name="animal_{!! $animal->id !!}"
                id="animal_{!! $animal->id !!}"
-               title="Séléctionner l'animal">
-        <label for="animal_{!! $animal->id !!}" class="sr-only">Séléctionner l'animal</label>
+               title="{!! __('admin/animals.one_selector') !!}">
+        <label for="animal_{!! $animal->id !!}" class="sr-only">{!! __('admin/animals.one_selector') !!}</label>
     </td>
 
     <td class="min-lg:hidden">
         <span class="font-normal sr-only">
-            Image de l’animal
+            {!! __('admin/animals.animals_img') !!}
         </span>
         <img alt="phot de {!! $animal->name !!}"
              class="w-[5rem] h-[5rem] rounded-2xl" src="{!! asset('assets/img/tmp.png') !!}">
@@ -23,7 +23,7 @@
     <td class="lg:flex-1 h-full lg:text-left font-normal">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Nom&nbsp;:
+                {!! __('admin/animals.show_name') !!}&nbsp;:
             </span>
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
@@ -37,7 +37,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Race&nbsp;:
+                {!! __('admin/animals.show_breed') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $animal->breed !!}
@@ -57,16 +57,16 @@
 
             {{-- VOIR LA FICHE DE L’ANIMAL - MOBILE --}}
             <x-buttons.base
-                title="Aller vers la page de {!! $animal->name !!}"
+                :title="__('admin/animals.view_animal_details_title') . $animal->name"
                 :destination="route('admin.animals.show', ['animal' => $animal->id, 'locale' => config('app.locale')])"
                 class="lg:hidden">
-                Voir la fiche de l’animal
+                {!! __('admin/animals.view_animal_details') !!}
             </x-buttons.base>
 
             {{-- EDIT --}}
             <x-table.edit
                 class="max-lg:hidden"
-                title="Vers la page de modification de l'animal"
+                :title="__('admin/animals.modification_link_title')"
                 :destination="route('admin.animals.show', ['animal' => $animal->id, 'locale' => config('app.locale')])"/>
 
             {{-- DELETE --}}

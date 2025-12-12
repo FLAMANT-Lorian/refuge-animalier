@@ -8,14 +8,14 @@
                 –
                 <a wire:navigate
                    class="text-gray-500"
-                   title="Vers la page des animaux"
+                   title="{!! __('admin/animals.show_breadcrumb1_title') !!}"
                    href="{!! route('admin.animals.index', ['locale' => config('app.locale')]) !!}">
-                    Animaux
+                    {!! __('admin/animals.show_breadcrumb1_text') !!}
                 </a>
                 →
                 <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
-                   title="Vers la page de l’animal"
+                   title="{!! __('admin/animals.show_breadcrumb2_title') !!}"
                    href="{!! route('admin.animals.show', ['animal' => $animal->id, 'locale' => config('app.locale')]) !!}">
                     {!! $app_title !!}
                 </a>
@@ -23,13 +23,13 @@
     <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
         <div>
             <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>
-            <p class="font-base text-gray-500">Toutes les informations sur {!! $animal->name !!}</p>
+            <p class="font-base text-gray-500">{!! __('admin/animals.show_sub_title') . $animal->name !!}</p>
         </div>
         <x-buttons.base
             class="self-start md:self-center"
             :destination="route('admin.animals.edit', ['animal' => $animal->id, 'locale' => config('app.locale')])"
-            title="Modifier la page de {!! $animal->name !!}">
-            Modifier la fiche de {!! $animal->name !!}
+            title="{!! __('admin/animals.show_edit_btn_title') . $animal->name !!}">
+            {!! __('admin/animals.show_edit_btn_title') . $animal->name !!}
         </x-buttons.base>
     </div>
 </section>

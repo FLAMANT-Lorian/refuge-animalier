@@ -6,15 +6,20 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-new #[Title('Messages · Les pattes heureuses')]
+new #[Title('admin/messages.title')]
 class extends Component {
 
     use WithPagination;
 
-    public string $app_title = "Messages";
+    public string $app_title;
 
     public bool $openMessage = false;
     public bool $openDeleteMessage = false;
+
+    public function mount(): void
+    {
+        $this->app_title = __('admin/messages.title');
+    }
 
     #[Computed]
     public function messages(): array

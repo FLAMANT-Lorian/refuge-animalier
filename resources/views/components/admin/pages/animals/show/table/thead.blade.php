@@ -3,8 +3,8 @@
         <th scope="col" class="p-2 w-[3rem]">
             <input class="notes hover:cursor-pointer" type="checkbox" name="all_coll_selector"
                    id="all_coll_selector"
-                   title="Séléctionner toutes les notes">
-            <label for="all_coll_selector" class="sr-only">Séléctionner toutes les notes</label>
+                   title="{!! __('admin/animals.select_all_notes') !!}">
+            <label for="all_coll_selector" class="sr-only">{!! __('admin/animals.select_all_notes') !!}</label>
         </th>
         <th scope="col" class="flex-1 text-left">
             <div class="px-4 py-2">
@@ -23,7 +23,7 @@
                     arrow_name = 'middle'
                 }"
                       class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Nom complet
+                    {!! __('admin/animals.visit_notes_th1') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_name === 'desc',
@@ -56,7 +56,7 @@
                     arrow_email = 'middle'
                 }"
                     class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Adresse e-mail
+                    {!! __('admin/animals.visit_notes_th2') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_email === 'desc',
@@ -89,7 +89,7 @@
                     arrow_date = 'middle'
                 }"
                     class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Date de la visite
+                    {!! __('admin/animals.visit_notes_th3') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_date === 'desc',
@@ -108,7 +108,7 @@
         <th scope="col" class="text-right w-[9.375rem]">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    Actions
+                    {!! __('admin/animals.visit_notes_th4') !!}
                 </span>
             </div>
         </th>

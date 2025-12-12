@@ -1,10 +1,11 @@
 <thead class="max-lg:hidden w-full bg-green-500">
-    <tr x-data="{ arrow_name: 'middle', arrow_email: 'middle', arrow_animal: 'middle'}" class="flex w-full items-center">
+    <tr x-data="{ arrow_name: 'middle', arrow_email: 'middle', arrow_animal: 'middle'}"
+        class="flex w-full items-center">
         <th scope="col" class="p-2 w-[3rem]">
             <input class="adoption-requests hover:cursor-pointer" type="checkbox" name="all_coll_selector"
                    id="all_coll_selector"
-                   title="Séléctionner toutes les demandes d’adoptions">
-            <label for="all_coll_selector" class="sr-only">Séléctionner toutes les demandes d’adoptions</label>
+                   title="{!! __('admin/adoption-requests.all_selector') !!}">
+            <label for="all_coll_selector" class="sr-only">{!! __('admin/adoption-requests.all_selector') !!}</label>
         </th>
         <th scope="col" class="flex-1 text-left">
             <div class="px-4 py-2">
@@ -22,8 +23,8 @@
                     arrow_animal = 'middle';
                     arrow_name = 'middle'
                 }"
-                      class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Nom complet
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                    {!! __('admin/adoption-requests.full_name') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_name === 'desc',
@@ -55,8 +56,8 @@
                     arrow_animal = 'middle';
                     arrow_email = 'middle'
                 }"
-                    class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Adresse e-mail
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                    {!! __('admin/adoption-requests.email') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_email === 'desc',
@@ -88,8 +89,8 @@
                     arrow_email = 'middle';
                     arrow_animal = 'middle'
                 }"
-                    class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Animal
+                        class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
+                    {!! __('admin/adoption-requests.animal') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_animal === 'desc',
@@ -108,14 +109,14 @@
         <th scope="col" class="text-left w-[10rem]">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    Statut
+                    {!! __('admin/adoption-requests.status') !!}
                 </span>
             </div>
         </th>
         <th scope="col" class="text-right w-[9.375rem]">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    Actions
+                    {!! __('admin/adoption-requests.actions') !!}
                 </span>
             </div>
         </th>

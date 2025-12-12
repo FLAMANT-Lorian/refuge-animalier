@@ -1,12 +1,12 @@
 @php
 
     $items = [
-        ['icon' => 'dashboard','label'=> 'Tableau de bord', 'title' => 'Aller vers le tableau de bord', 'destination' => route('admin.dashboard')],
-        ['icon' => 'animals','label'=> 'Animaux', 'title' => 'Aller vers la page des animaux', 'destination' => route('admin.animals.index')],
-        ['icon' => 'adoption-requests','label'=> 'Demandes d’adoptions', 'title' => 'Aller vers la page des demandes d’adoptions', 'destination' => route('admin.adoption-requests.index')],
-        ['icon' => 'animal-sheets','label'=> 'Gestion des fiches', 'title' => 'Aller vers la page des fiches des animaux', 'destination' => route('admin.animal-sheets.index')],
-        ['icon' => 'messages','label'=> 'Messages', 'title' => 'Aller vers la page des messages', 'destination' => route('admin.messages.index')],
-        ['icon' => 'volunteers','label'=> 'Bénévoles', 'title' => 'Aller vers la page des bénévoles', 'destination' => route('admin.volunteers.index')],
+        ['icon' => 'dashboard','label'=> __('admin/navigation.dashboard'), 'title' => __('admin/navigation.dashboard_title'), 'destination' => route('admin.dashboard')],
+        ['icon' => 'animals','label'=> __('admin/navigation.animals'), 'title' => __('admin/navigation.animals_title'), 'destination' => route('admin.animals.index')],
+        ['icon' => 'adoption-requests','label'=> __('admin/navigation.adoption-requests'), 'title' => __('admin/navigation.adoption-requests_title'), 'destination' => route('admin.adoption-requests.index')],
+        ['icon' => 'animal-sheets','label'=> __('admin/navigation.animal-sheets'), 'title' => __('admin/navigation.animal-sheets_title'), 'destination' => route('admin.animal-sheets.index')],
+        ['icon' => 'messages','label'=> __('admin/navigation.messages'), 'title' => __('admin/navigation.messages_title'), 'destination' => route('admin.messages.index')],
+        ['icon' => 'volunteers','label'=> __('admin/navigation.volunteers'), 'title' => __('admin/navigation.volunteers_title'), 'destination' => route('admin.volunteers.index')],
     ];
 
 @endphp

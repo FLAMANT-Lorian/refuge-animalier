@@ -6,15 +6,20 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-new #[Title('Bénévoles · Les pattes heureuses')]
+new #[Title('admin/page_title.volunteers')]
 class extends Component {
 
     use WithPagination;
 
-    public string $app_title = "Bénévoles";
+    public string $app_title;
 
     public bool $openDeleteVolunteer = false;
     public bool $openDeleteVolunteerAvatar = false;
+
+    public function mount(): void
+    {
+        $this->app_title = __('admin/volunteers.title');
+    }
 
     #[Computed]
     public function volunteers(): array
