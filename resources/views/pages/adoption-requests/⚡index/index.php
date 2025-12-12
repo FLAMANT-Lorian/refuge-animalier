@@ -7,15 +7,20 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-new #[Title('Demandes d’adoptions · Les pattes heureuses')]
+new #[Title('admin/page_title.adoption_requests')]
 class extends Component {
 
     use WithPagination;
 
-    public string $app_title = "Demandes d’adoptions";
+    public string $app_title;
     public bool $openAdoptionRequest = false;
     public bool $openDeleteAdoptionRequest = false;
     public Animal $animalToBeAdopted;
+
+    public function mount(): void
+    {
+        $this->app_title = __('admin/adoption-requests.title');
+    }
 
     #[Computed]
     public function adoption_requests(): array

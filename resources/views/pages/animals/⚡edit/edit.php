@@ -4,10 +4,10 @@ use App\Models\Animal;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-new #[Title('Modifier la fiche de l’animal · Les pattes heureuses')]
+new #[Title('admin/page_title.animals_edit')]
 class extends Component {
     public Animal $animal;
-    public string $app_title = 'Modification de la fiche de l’animal';
+    public string $app_title;
 
     public bool $openAddBreed = false;
     public bool $openDeleteAnimal = false;
@@ -16,6 +16,7 @@ class extends Component {
     public function mount(Animal $animal): void
     {
         $this->animal = $animal;
+        $this->app_title = __('admin/animals.edit_title');
     }
 
     public function openModal(string $modal, Animal $animal = null): void

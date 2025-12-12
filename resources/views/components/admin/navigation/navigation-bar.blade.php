@@ -8,9 +8,9 @@
 
     {{-- BOUTON AJOUTER UN ANIMAL --}}
     <x-buttons.add-item-button
-        title="Ajouter un animal"
+        :title="__('admin/navigation.add_animal')"
         :href="route('admin.animals.create')">
-        Ajouter un animal
+        {!! __('admin/navigation.add_animal') !!}
     </x-buttons.add-item-button>
 
     {{-- FOND DU MENU --}}

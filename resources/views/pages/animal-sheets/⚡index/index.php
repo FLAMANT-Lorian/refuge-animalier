@@ -6,14 +6,19 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-new #[Title('Gestion des fiches · Les pattes heureuses')]
+new #[Title('admin/page_title.animal_sheets')]
 class extends Component {
 
     use WithPagination;
 
-    public string $app_title = 'Gestion des fiches';
+    public string $app_title;
 
     public bool $openSheetMessage = false;
+
+    public function mount(): void
+    {
+        $this->app_title = __('admin/animal-sheets.title');
+    }
 
     #[Computed]
     public function animal_sheets(): array

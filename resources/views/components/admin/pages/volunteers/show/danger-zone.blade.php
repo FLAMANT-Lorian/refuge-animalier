@@ -1,8 +1,8 @@
 <section>
-    <h2 class="text-lg font-semibold text-red pb-1">Supprimer le bénévole</h2>
-    <p class="font-base pb-6 text-gray-500">Après suppression, ce compte ne pourra plus être récupéré !</p>
+    <h2 class="text-lg font-semibold text-red pb-1">{!! __('admin/volunteers.danger_zone_title') !!}</h2>
+    <p class="font-base pb-6 text-gray-500">{!! __('admin/volunteers.danger_zone_sub_title') !!}</p>
 
     <x-forms.buttons.delete
         wire:click="openModal('delete-volunteer')"
-        label="Supprimer le bénévole"/>
+        :label="__('admin/volunteers.delete_volunteer')"/>
 </section>

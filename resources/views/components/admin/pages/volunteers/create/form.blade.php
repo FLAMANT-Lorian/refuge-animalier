@@ -1,5 +1,5 @@
 <section>
-    <h2 class="sr-only">Formulaire de création d’un nouveau bénévole</h2>
+    <h2 class="sr-only">{!! __('admin/volunteers.create_form') !!}</h2>
 
     <form action="" method="post" class="flex flex-col gap-10">
         {{-- AVATAR --}}
@@ -17,7 +17,7 @@
         {{-- BOUTON DE SOUMISSION --}}
         <x-forms.buttons.normal-button-submit
             class="self-end"
-            label="Créer le profil du bénévole"/>
+            :label="__('admin/volunteers.create_volunteer')"/>
     </form>
 
 </section>

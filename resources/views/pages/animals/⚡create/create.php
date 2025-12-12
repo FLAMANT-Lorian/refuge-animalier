@@ -3,9 +3,14 @@
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-new #[Title('Créer un animal · Les pattes heureuses')]
+new #[Title('animals_create')]
 class extends Component {
-    public string $app_title = "Créer une nouvelle fiche";
+    public string $app_title;
+
+    public function mount(): void
+    {
+        $this->app_title = __('admin/animals.create_title');
+    }
 
     public bool $openAddBreed = false;
 

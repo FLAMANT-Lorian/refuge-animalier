@@ -3,12 +3,17 @@
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-new #[Title('Paramètres · Les pattes heureuses')]
+new #[Title('admin/page_title.settings')]
 class extends Component {
 
-    public string $app_title = "Paramètres";
+    public string $app_title;
 
     public bool $openDeleteAvatar = false;
+
+    public function mount(): void
+    {
+        $this->app_title = __('admin/settings.title');
+    }
 
     public function openModal(string $modal): void
     {

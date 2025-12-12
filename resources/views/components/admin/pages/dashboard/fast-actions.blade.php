@@ -1,27 +1,27 @@
 <section {!! $attributes->merge(['class' => 'flex flex-col gap-6 p-6 border border-gray-200 rounded-2xl bg-white']) !!}>
     <h3 class="text-lg font-semibold">
-        Actions rapides
+        {!! __('admin/dashboard.fast_actions_big_title') !!}
     </h3>
     <div class="flex md:grid flex-col md:grid-cols-2 lg:flex lg:flex-col gap-6">
 
         {{-- CRÉER UN ANIMAL --}}
         <x-admin.pages.dashboard.action-card
-            title="Ajouter un animal"
-            subtitle="Ajouter un nouvel animal au refuge"
+            :title="__('admin/dashboard.fast_actions1_title')"
+            :subtitle="__('admin/dashboard.fast_actions1_subtitle')"
             :img_path="asset('assets/img/svg/dashboard/dog.svg')"
-            img_alt="Illustration d’un chien"
+            :img_alt="__('admin/dashboard.fast_actions1_')"
             :destination="route('admin.animals.create', config('app.locale'))"
-            destination_title="Créer une nouvelle fiche animal"
+            :destination_title="__('admin/dashboard.fast_actions1_destination_title')"
         />
 
         {{-- CRÉER UN BÉNÉVOLE --}}
         <x-admin.pages.dashboard.action-card
-            title="Ajouter un bénévole"
-            subtitle="Enregistrer un nouveau bénévole pour votre refuge"
+            :title="__('admin/dashboard.fast_actions2_title')"
+            :subtitle="__('admin/dashboard.fast_actions2_subtitle')"
             :img_path="asset('assets/img/svg/dashboard/children.svg')"
-            img_alt="Illustration d’un humain"
+            :img_alt="__('admin/dashboard.fast_actions2_alt')"
             :destination="route('admin.volunteers.create', config('app.locale'))"
-            destination_title="Créer un nouveau profil bénévole"
+            :destination_title="__('admin/dashboard.fast_actions2_destination_title')"
         />
     </div>
 </section>

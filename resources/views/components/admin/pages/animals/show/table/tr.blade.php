@@ -9,14 +9,14 @@
     <td class="max-lg:hidden flex justify-center px-2 w-[3rem]">
         <input class="note_{!! '1' !!} hover:cursor-pointer" type="checkbox" name="note_{!! '1' !!}"
                id="note_{!! '1' !!}"
-               title="Séléctionner l'animal">
-        <label for="note_{!! '1' !!}" class="sr-only">Séléctionner la note</label>
+               title="{!! __('admin/animals.select_one_note') !!}">
+        <label for="note_{!! '1' !!}" class="sr-only">{!! __('admin/animals.select_one_note') !!}</label>
     </td>
 
     <td class="lg:flex-1 h-full lg:text-left font-normal">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Nom complet&nbsp;:
+                {!! __('admin/animals.visit_notes_th1') !!}
             </span>
             <button type="button"
                     wire:click="openModal('edit-note', {!! $animal !!})"
@@ -29,7 +29,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Adresse e-mail&nbsp;:
+                {!! __('admin/animals.visit_notes_th2') !!}
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $note['email'] !!}
@@ -40,7 +40,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Date d’envoi&nbsp;:
+                {!! __('admin/animals.visit_notes_th3') !!}
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $note['date'] !!}
@@ -52,11 +52,11 @@
         <div class="flex justify-between items-center lg:justify-end flex-row gap-4 lg:px-4">
 
             {{-- VOIR LA NOTE - MOBILE --}}
-            <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
-               title="Voir la note pour {!! $note['name'] !!}"
-               href="#">
-                Voir la note de visite
-            </a>
+            <button type="button"
+                    wire:click="openModal('edit-note', {!! $animal !!})"
+                    class="cursor-pointer lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
+                {!! __('admin/animals.view_visit_note') !!}
+            </button>
 
             {{-- EDIT --}}
             <x-table.edit-modal

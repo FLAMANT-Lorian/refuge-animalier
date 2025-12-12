@@ -7,15 +7,19 @@ use Livewire\Component;
 use Livewire\WithPagination;
 
 
-new #[Title('Animaux · Les pattes heureuses')]
+new #[Title('admin/page_title.animals_index')]
 class extends Component {
 
     use WithPagination;
 
-
-    public string $app_title = "Animaux";
+    public string $app_title;
     public bool $openDeleteAnimal = false;
     public Animal $animalToDelete;
+
+    public function mount(): void
+    {
+        $this->app_title = __('admin/animals.title');
+    }
 
     #[Computed]
     public function animals()

@@ -4,8 +4,8 @@
         <th scope="col" class="p-2 w-[3rem]">
             <input class="animal-sheets hover:cursor-pointer" type="checkbox" name="all_coll_selector"
                    id="all_coll_selector"
-                   title="Séléctionner toutes les fiches">
-            <label for="all_coll_selector" class="sr-only">Séléctionner toutes les fiches</label>
+                   title="{!! __('admin/animal-sheets.all_selector') !!}">
+            <label for="all_coll_selector" class="sr-only">{!! __('admin/animal-sheets.all_selector') !!}</label>
         </th>
         <th scope="col" class="flex-1 text-left">
             <div class="px-4 py-2">
@@ -24,7 +24,7 @@
                     arrow_volunteer = 'middle'
                 }"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Bénévole
+                    {!! __('admin/animal-sheets.volunteer') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_volunteer === 'desc',
@@ -57,7 +57,7 @@
                     arrow_animal = 'middle'
                 }"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Bénévole
+                    {!! __('admin/animal-sheets.animal') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_animal === 'desc',
@@ -90,7 +90,7 @@
                     arrow_date = 'middle'
                 }"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    Date
+                    {!! __('admin/animal-sheets.date') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_date === 'desc',
@@ -109,14 +109,14 @@
         <th scope="col" class="text-left w-[10rem]">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    Statut
+                    {!! __('admin/animal-sheets.status') !!}
                 </span>
             </div>
         </th>
         <th scope="col" class="text-right w-[9.375rem]">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    Actions
+                    {!! __('admin/animal-sheets.actions') !!}
                 </span>
             </div>
         </th>

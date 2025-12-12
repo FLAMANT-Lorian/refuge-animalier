@@ -4,7 +4,7 @@
 
 <section class="flex flex-col gap-4 pt-8 border-t border-t-gray-200">
     <h2 class="text-lg">
-        Notes de visite
+        {!! __('admin/animals.visit_notes_title') !!}
     </h2>
 
     <x-admin.pages.animals.show.table.table
@@ -15,7 +15,7 @@
         <button type="button"
                 wire:click="openModal('create-note', {!! $animal !!})"
                 class="text-blue-500 hover:underline hover:cursor-pointer self-start">
-            Ajouter une nouvelle note de visite
+            {!! __('admin/animals.add_visit_notes') !!}
         </button>
 
         {{--  PAGINATION --}}

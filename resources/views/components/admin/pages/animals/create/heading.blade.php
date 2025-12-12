@@ -10,14 +10,14 @@
                 –
                 <a wire:navigate
                    class="text-gray-500"
-                   title="Vers la page des animaux"
+                   title="{!! __('admin/animals.create_breadcrumb1_title') !!}"
                    href="{!! route('admin.animals.index', config('app.locale')) !!}">
-                    Animaux
+                    {!! __('admin/animals.create_breadcrumb1_text') !!}
                 </a>
                 →
                 <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
-                   title="Vers la page de création d’une nouvelle fiche animal"
+                   title="{!! __('admin/animals.create_breadcrumb2_text') !!}"
                    href="{!! route('admin.animals.create', config('app.locale')) !!}">
                     {!! $app_title !!}
                 </a>
@@ -25,6 +25,7 @@
 
     <div class="flex flex-col gap-1">
         <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>
-        <p class="text-gray-500 text-base">Les champs renseignés avec <strong class="text-red">*</strong> sont obligatoires</p>
+        <p class="text-gray-500 text-base">{!! __('forms.field_with') !!}<strong
+                class="text-red">*</strong>{!! __('forms.are_required') !!}</p>
     </div>
 </section>

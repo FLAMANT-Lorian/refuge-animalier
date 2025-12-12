@@ -9,14 +9,14 @@
         <input class="adoption_request_{!! '1' !!} hover:cursor-pointer" type="checkbox"
                name="adoption_request_{!! '1' !!}"
                id="adoption_request_{!! '1' !!}"
-               title="Séléctionner la demande d'adoption">
-        <label for="adoption_request_{!! '1' !!}" class="sr-only">Séléctionner la demande d'adoption</label>
+               title="{!! __('admin/adoption-requests.one_selector') !!}">
+        <label for="adoption_request_{!! '1' !!}" class="sr-only">{!! __('admin/adoption-requests.one_selector') !!}</label>
     </td>
 
     <td class="lg:flex-1 h-full lg:text-left font-normal">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Nom complet&nbsp;:
+                {!! __('admin/adoption-requests.full_name') !!}&nbsp;:
             </span>
             <button wire:click="openModal('adoption-request')"
                     class="text-left lg:px-4 lg:py-4 hover:cursor-pointer hover:font-bold transition-all ease-in-out duration-200">
@@ -28,7 +28,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Adresse e-mail&nbsp;:
+                {!! __('admin/adoption-requests.email') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $adoption_requests['email'] !!}
@@ -39,7 +39,7 @@
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
-                Animal&nbsp;:
+                {!! __('admin/adoption-requests.animal') !!}&nbsp;:
             </span>
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
@@ -53,7 +53,7 @@
     <td class="absolute top-4 right-4 lg:static lg:text-left lg:w-[10rem]">
         <div class="flex flex-col gap-1">
             <span class="hidden font-bold">
-                Statut&nbsp;:
+                {!! __('admin/adoption-requests.status') !!}&nbsp;:
             </span>
             <div class="flex flex-row justify-start font-normal">
                 <x-states.adoption-request-state
@@ -69,7 +69,7 @@
             <button type="button"
                     wire:click="openModal('adoption-request')"
                     class="cursor-pointer lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
-                Voir la demande
+                {!! __('admin/adoption-requests.view_adoption_request') !!}
             </button>
 
             {{-- DELETE --}}

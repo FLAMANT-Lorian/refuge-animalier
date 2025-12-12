@@ -5,13 +5,13 @@
         {{-- FIL D’ARIANE --}}
         <section
             class="flex items-start flex-col gap-4 lg:col-start-1 lg:col-end-10 lg:p-4 lg:border lg:border-gray-200 lg:rounded-2xl lg:bg-white">
-            <a title="Vers le tableau de bord"
+            <a title="{!! __('admin/dashboard.breadcrumb_title') !!}"
                wire:navigate
                href="{!! route('admin.dashboard', config('app.locale')) !!}"
                class="font-bold text-gray-500">
-                – {!! $app_title !!}
+                – {!! __('admin/dashboard.breadcrumb_text') !!}
             </a>
-            <h2 class="text-2xl font-bold">Tableau de bord</h2>
+            <h2 class="text-2xl font-bold">{!! __('admin/dashboard.breadcrumb_text') !!}</h2>
         </section>
 
         {{-- ACTIONS RAPIDES --}}
