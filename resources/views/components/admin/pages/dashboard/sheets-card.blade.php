@@ -12,7 +12,7 @@
                 <a wire:navigate
                    class="relative z-20 hover:underline"
                    title="Vers la fiche de {!! $data['name'] !!}"
-                   href="{!! route('admin.animals.show', 1) !!}">
+                   href="{!! route('admin.animals.show', ['animal' => 1, 'locale' => config('app.locale')]) !!}">
                     {!! $data['name'] !!}
                 </a>
             </dd>

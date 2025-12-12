@@ -6,7 +6,7 @@
 
     {{-- FIL D'ARIANE --}}
     <a wire:navigate
-       href="{!! route('admin.adoption-requests.index') !!}"
+       href="{!! route('admin.adoption-requests.index', config('app.locale')) !!}"
        class="self-start font-bold text-gray-500"
        title="Vers la page des demandes d’adoptions">
         – {!! $app_title !!}

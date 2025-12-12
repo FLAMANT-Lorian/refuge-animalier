@@ -7,7 +7,7 @@
     {{-- FIL D'ARIANE --}}
     <a title="Vers la pages des messages"
        wire:navigate
-       href="{!! route('admin.messages.index') !!}"
+       href="{!! route('admin.messages.index', config('app.locale')) !!}"
        class="self-start font-bold text-gray-500">
         – {!! $app_title !!}
     </a>

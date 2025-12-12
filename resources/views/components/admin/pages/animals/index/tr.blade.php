@@ -17,7 +17,7 @@
             Image de l’animal
         </span>
         <img alt="phot de {!! $animal->name !!}"
-            class="w-[5rem] h-[5rem] rounded-2xl" src="{!! asset('assets/img/tmp.png') !!}">
+             class="w-[5rem] h-[5rem] rounded-2xl" src="{!! asset('assets/img/tmp.png') !!}">
     </td>
 
     <td class="lg:flex-1 h-full lg:text-left font-normal">
@@ -28,7 +28,7 @@
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
                title="Vers la page de pedro"
-               href="{!! route('admin.animals.show', $animal->id) !!}">
+               href="{!! route('admin.animals.show', ['animal' => $animal->id, 'locale' => config('app.locale')]) !!}">
                 {!! $animal->name !!}
             </a>
         </div>
@@ -58,7 +58,7 @@
             {{-- VOIR LA FICHE DE L’ANIMAL - MOBILE --}}
             <x-buttons.base
                 title="Aller vers la page de {!! $animal->name !!}"
-                :destination="route('admin.animals.show', $animal->id)"
+                :destination="route('admin.animals.show', ['animal' => $animal->id, 'locale' => config('app.locale')])"
                 class="lg:hidden">
                 Voir la fiche de l’animal
             </x-buttons.base>
@@ -67,7 +67,7 @@
             <x-table.edit
                 class="max-lg:hidden"
                 title="Vers la page de modification de l'animal"
-                :destination="route('admin.animals.show', $animal->id)"/>
+                :destination="route('admin.animals.show', ['animal' => $animal->id, 'locale' => config('app.locale')])"/>
 
             {{-- DELETE --}}
             <x-table.delete

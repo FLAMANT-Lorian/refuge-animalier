@@ -20,7 +20,7 @@
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
                title="Voie le bénévole : {!! $volunteers['name'] !!}"
-               href="{!! route('admin.volunteers.show', 1) !!}">
+               href="{!! route('admin.volunteers.show', ['volunteer' => 1, 'locale' => config('app.locale')]) !!}">
                 {!! $volunteers['name'] !!}
             </a>
         </div>
@@ -66,7 +66,7 @@
             {{-- VOIR LE BÉNÉVOLES - MOBILE --}}
             <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
                title="Voir la fiche de : {!! $volunteers['name'] !!}"
-               href="{!! route('admin.volunteers.show', 1) !!}">
+               href="{!! route('admin.volunteers.show', ['volunteer' => 1, 'locale' => config('app.locale')]) !!}">
                 Voir la fiche du bénévole
             </a>
 
@@ -74,7 +74,7 @@
             <x-table.edit
                 title="Vers la fiche du bénévole"
                 class="max-lg:hidden"
-                :destination="route('admin.volunteers.show', 1)"/>
+                :destination="route('admin.volunteers.show', ['volunteer' => 1, 'locale' => config('app.locale')])"/>
 
             {{-- DELETE --}}
             <x-table.delete

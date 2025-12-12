@@ -1,4 +1,4 @@
-<x-admin.partials.modal
+    <x-admin.partials.modal
     :have_sub_title="false">
 
     <x-slot:title>

@@ -8,7 +8,7 @@
     <x-buttons.add-item-button
         class="self-start md:order-2 md:ml-auto lg:m-0"
         title="Ajouter un animal"
-        :href="route('admin.animals.create')">
+        :href="route('admin.animals.create', config('app.locale'))">
         Ajouter un animal
     </x-buttons.add-item-button>
 

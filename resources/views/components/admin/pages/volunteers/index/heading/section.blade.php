@@ -7,7 +7,7 @@
     {{-- FIL D'ARIANE --}}
     <a wire:navigate
        title="Aller vers la page des bénévoles"
-       href="{!! route('admin.volunteers.index') !!}"
+       href="{!! route('admin.volunteers.index', config('app.locale')) !!}"
        class="self-start font-bold text-gray-500">
         – {!! $app_title !!}
     </a>

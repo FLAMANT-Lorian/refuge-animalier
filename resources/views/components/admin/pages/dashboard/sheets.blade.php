@@ -12,7 +12,7 @@
         </div>
         <x-buttons.base
             class="max-lg:self-start"
-            :destination="route('admin.animal-sheets.index')"
+            :destination="route('admin.animal-sheets.index', config('app.locale'))"
             title="Vers la page des fiches des animaux">
             Tout afficher
         </x-buttons.base>

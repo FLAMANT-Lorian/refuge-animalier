@@ -10,14 +10,14 @@
                 <a wire:navigate
                    class="text-gray-500"
                    title="Vers la page des bénévoles"
-                   href="{!! route('admin.volunteers.index') !!}">
+                   href="{!! route('admin.volunteers.index', config('app.locale')) !!}">
                     Bénévoles
                 </a>
                 →
                 <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
                    title="Vers la page du bénévole"
-                   href="{!! route('admin.volunteers.show', 1) !!}">
+                   href="{!! route('admin.volunteers.show', ['volunteer' => 1, 'locale' => config('app.locale')]) !!}">
                     {!! $app_title !!}
                 </a>
     </span>

@@ -44,7 +44,7 @@
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
                title="Voir la demande d'adoptions de : {!! $adoption_requests['animal'] !!}"
-               href="{!! route('admin.animals.show', 1) !!}">
+               href="{!! route('admin.animals.show', ['animal' => 1, 'locale' => config('app.locale')]) !!}">
                 {!! $adoption_requests['animal'] !!}
             </a>
         </div>

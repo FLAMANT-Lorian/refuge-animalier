@@ -17,12 +17,19 @@
             <span class="min-lg:hidden font-bold">
                 Bénévoles&nbsp;:
             </span>
-            <a wire:navigate
-               class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
-               title="Voir le profil bénévole de {!! $animal_sheet['volunteer'] !!}"
-               href="{!! route('admin.volunteers.show', 1) !!}">
+            <button type="button" wire:click="openModal('sheet-message')" class="text-left cursor-pointer lg:px-4 lg:py-4 font-normal">
                 {!! $animal_sheet['volunteer'] !!}
-            </a>
+            </button>
+        </div>
+    </td>
+    <td class="lg:flex-1 lg:text-left">
+        <div class="flex flex-col gap-1">
+            <span class="min-lg:hidden font-bold">
+                Animal&nbsp;:
+            </span>
+            <span class="lg:px-4 lg:py-4 font-normal">
+                {!! $animal_sheet['name'] !!}
+            </span>
         </div>
     </td>
 
@@ -55,7 +62,7 @@
             {{-- VOIR L'ANIMAL - MOBILE --}}
             <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
                title="Voir la fiche de : {!! $animal_sheet['name'] !!}"
-               href="{!! route('admin.animals.show', 1) !!}">
+               href="{!! route('admin.animals.show', ['animal' => 1, 'locale' => config('app.locale')]) !!}">
                 Voir la fiche de l’animal
             </a>
 

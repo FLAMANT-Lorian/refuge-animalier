@@ -7,7 +7,7 @@
     {{-- FIL D'ARIANE --}}
     <a wire:navigate
        title="Vers la page des fiches des animaux"
-       href="{!! route('admin.animal-sheets.index') !!}"
+       href="{!! route('admin.animal-sheets.index', config('app.locale')) !!}"
        class="self-start font-bold text-gray-500">
         – {!! $app_title !!}
     </a>

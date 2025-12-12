@@ -11,14 +11,14 @@
                 <a wire:navigate
                    class="text-gray-500"
                    title="Vers la page des animaux"
-                   href="{!! route('admin.animals.index') !!}">
+                   href="{!! route('admin.animals.index', config('app.locale')) !!}">
                     Animaux
                 </a>
                 →
                 <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
                    title="Vers la page de création d’une nouvelle fiche animal"
-                   href="{!! route('admin.animals.create') !!}">
+                   href="{!! route('admin.animals.create', config('app.locale')) !!}">
                     {!! $app_title !!}
                 </a>
     </span>

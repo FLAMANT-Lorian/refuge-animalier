@@ -10,7 +10,7 @@
             subtitle="Ajouter un nouvel animal au refuge"
             :img_path="asset('assets/img/svg/dashboard/dog.svg')"
             img_alt="Illustration d’un chien"
-            :destination="route('admin.animals.create')"
+            :destination="route('admin.animals.create', config('app.locale'))"
             destination_title="Créer une nouvelle fiche animal"
         />
 
@@ -20,7 +20,7 @@
             subtitle="Enregistrer un nouveau bénévole pour votre refuge"
             :img_path="asset('assets/img/svg/dashboard/children.svg')"
             img_alt="Illustration d’un humain"
-            :destination="route('admin.volunteers.create')"
+            :destination="route('admin.volunteers.create', config('app.locale'))"
             destination_title="Créer un nouveau profil bénévole"
         />
     </div>

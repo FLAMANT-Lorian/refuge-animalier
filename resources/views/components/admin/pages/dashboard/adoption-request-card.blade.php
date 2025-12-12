@@ -19,8 +19,8 @@
             <p>Intéressé par</p>
             <a wire:navigate
                title="Voir la fichde de {!! $data['animal_name'] !!}"
-               href="{!! route('admin.animals.show', 1) !!}"
-               class="relative z-20 hover:underline text-lg font-bold py-1 px-4 text-white bg-green-500 rounded-lg">
+               href="{!! route('admin.animals.show', ['animal' => 1, 'locale' => config('app.locale')]) !!}"
+               class="relative z-10 hover:underline text-lg font-bold py-1 px-4 text-white bg-green-500 rounded-lg">
                 {!! $data['animal_name'] !!}
             </a>
         </div>

@@ -7,7 +7,7 @@
             class="flex items-start flex-col gap-4 lg:col-start-1 lg:col-end-10 lg:p-4 lg:border lg:border-gray-200 lg:rounded-2xl lg:bg-white">
             <a title="Vers le tableau de bord"
                wire:navigate
-               href="{!! route('admin.dashboard') !!}"
+               href="{!! route('admin.dashboard', config('app.locale')) !!}"
                class="font-bold text-gray-500">
                 – {!! $app_title !!}
             </a>

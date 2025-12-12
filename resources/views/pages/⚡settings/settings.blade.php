@@ -5,7 +5,7 @@
         <section class="flex flex-col gap-4">
             {{-- FIL D'ARIANE --}}
             <a title="Vers la page des paramètres"
-               wire:navigate href="{!! route('admin.settings') !!}"
+               wire:navigate href="{!! route('admin.settings', config('app.locale')) !!}"
                class="self-start font-bold text-gray-500">
                 – {!! $app_title !!}
             </a>

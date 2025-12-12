@@ -11,21 +11,21 @@
                 <a wire:navigate
                    class="text-gray-500"
                    title="Vers la page des animaux"
-                   href="{!! route('admin.animals.index') !!}">
+                   href="{!! route('admin.animals.index', config('app.locale')) !!}">
                     Animaux
                 </a>
                 →
                 <a wire:navigate
                    class="text-gray-500"
                    title="Vers la page des animaux"
-                   href="{!! route('admin.animals.show', $animal->id) !!}">
+                   href="{!! route('admin.animals.show', ['animal' => $animal->id, 'locale' => config('app.locale')]) !!}">
                     fiche de {!! $animal->name !!}
                 </a>
                 →
                 <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
                    title="Vers la page de modification d’une fiche animal"
-                   href="{!! route('admin.animals.edit', $animal->id) !!}">
+                   href="{!! route('admin.animals.edit', ['animal' => $animal->id, 'locale' => config('app.locale')]) !!}">
                     {!! $app_title !!}
                 </a>
     </span>

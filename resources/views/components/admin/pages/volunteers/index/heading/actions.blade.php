@@ -9,7 +9,7 @@
     <x-buttons.add-item-button
         class="self-start md:order-2 md:ml-auto lg:m-0"
         title="Ajouter un bénévole"
-        :href="route('admin.volunteers.create')">
+        :href="route('admin.volunteers.create', config('app.locale'))">
         Ajouter un bénévole
     </x-buttons.add-item-button>
 

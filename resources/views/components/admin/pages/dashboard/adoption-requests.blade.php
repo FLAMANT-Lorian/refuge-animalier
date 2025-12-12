@@ -13,7 +13,7 @@
         </div>
         <x-buttons.base
             class="max-lg:self-start"
-            :destination="route('admin.adoption-requests.index')"
+            :destination="route('admin.adoption-requests.index', config('app.locale'))"
             title="Vers la page des demandes d’adoptions">
             Tout afficher
         </x-buttons.base>

@@ -22,7 +22,7 @@ class extends Component {
     {
         return Animal::orderBy('created_at')
             ->paginate(12)
-            ->withPath(route('admin.animals.index'));
+            ->withPath(route('admin.animals.index', config('app.locale')));
 
     }
 

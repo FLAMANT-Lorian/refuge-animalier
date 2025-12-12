@@ -9,14 +9,14 @@
                 <a wire:navigate
                    class="text-gray-500"
                    title="Vers la page des animaux"
-                   href="{!! route('admin.animals.index') !!}">
+                   href="{!! route('admin.animals.index', ['locale' => config('app.locale')]) !!}">
                     Animaux
                 </a>
                 →
                 <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
                    title="Vers la page de l’animal"
-                   href="{!! route('admin.animals.show', $animal->id) !!}">
+                   href="{!! route('admin.animals.show', ['animal' => $animal->id, 'locale' => config('app.locale')]) !!}">
                     {!! $app_title !!}
                 </a>
     </span>
@@ -27,7 +27,7 @@
         </div>
         <x-buttons.base
             class="self-start md:self-center"
-            :destination="route('admin.animals.edit', $animal->id)"
+            :destination="route('admin.animals.edit', ['animal' => $animal->id, 'locale' => config('app.locale')])"
             title="Modifier la page de {!! $animal->name !!}">
             Modifier la fiche de {!! $animal->name !!}
         </x-buttons.base>
