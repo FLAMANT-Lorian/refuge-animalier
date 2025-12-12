@@ -9,14 +9,14 @@
                 –
                 <a wire:navigate
                    class="text-gray-500"
-                   title="{!! __('admin/animals.show_breadcrumb1_title') !!}"
+                   title="{!! __('admin/volunteers.create_breadcrumb1_title') !!}"
                    href="{!! route('admin.volunteers.index', config('app.locale')) !!}">
-                    {!! __('admin/animals.show_breadcrumb1_text') !!}
+                    {!! __('admin/volunteers.create_breadcrumb1_text') !!}
                 </a>
                 →
                 <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
-                   title="{!! __('admin/animals.show_breadcrumb2_title') !!}"
+                   title="{!! $app_title !!}"
                    href="{!! route('admin.volunteers.show', ['volunteer' => 1, 'locale' => config('app.locale')]) !!}">
                     {!! $app_title !!}
                 </a>
