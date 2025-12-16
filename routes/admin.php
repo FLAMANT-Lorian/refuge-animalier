@@ -2,7 +2,7 @@
 
 use App\Http\Middleware\SetLocale;
 
-Route::prefix('{locale}')->middleware([SetLocale::class])->group(function () {
+Route::prefix('{locale}')->middleware([SetLocale::class, 'auth'])->group(function () {
 
     Route::livewire('/admin/login', 'pages::login')->name('admin.login');
 

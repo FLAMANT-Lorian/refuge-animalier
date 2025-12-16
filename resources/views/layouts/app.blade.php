@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta charset="UTF-8">
+    <meta name="author" content="Flamant Lorian">
+    <meta name="description" content="Site public pour le refuge : Les pattes heureuses">
+    <meta name="keywords" content="Animaux, design web, refuge, HEPL">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ __($title) ?? config('app.name') }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])

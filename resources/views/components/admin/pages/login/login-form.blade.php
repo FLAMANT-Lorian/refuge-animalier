@@ -1,5 +1,5 @@
-<form action="" method="post" class="flex flex-col gap-5 w-full">
-
+<form action="{!! route('login.store') !!}" method="post" class="flex flex-col gap-5 w-full">
+    @csrf
     {{-- INPUT EMAIL --}}
     <x-forms.fields.input-text
         field_name="email"
