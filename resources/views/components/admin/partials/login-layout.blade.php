@@ -9,7 +9,7 @@
     <title>{!! __('admin/page_title.login') !!}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="admin overflow-hidden">
+<body class="admin login overflow-hidden">
     {!! $slot !!}
 </body>
 </html>

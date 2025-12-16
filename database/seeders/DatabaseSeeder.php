@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory([
-            'name' => 'Flamant Lorian',
+        $user = User::factory([
+            'first_name' => 'Lorian',
+            'last_name' => 'Flamant',
             'email' => 'lorian@test.be',
-            'password' => '1234567890'
         ])->create();
 
         Animal::factory()->count(50)->create();
