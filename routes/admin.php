@@ -4,8 +4,6 @@ use App\Http\Middleware\SetLocale;
 
 Route::prefix('{locale}')->middleware([SetLocale::class, 'auth'])->group(function () {
 
-    Route::livewire('/admin/login', 'pages::login')->name('admin.login');
-
     Route::livewire('/admin/dashboard', 'pages::dashboard')->name('admin.dashboard');
 
     Route::livewire('/admin/settings', 'pages::settings')->name('admin.settings');
