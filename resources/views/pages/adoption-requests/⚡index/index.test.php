@@ -1,15 +1,45 @@
 <?php
 
+use App\Models\AdoptionRequest;
+use App\Models\Animal;
 use App\Models\User;
 use Livewire\Livewire;
+use function Pest\Laravel\actingAs;
 
-it('verifies if a you can access to the admin adoption requests index page',
-    function () {
-        $user = User::factory()->create();
+describe('CONNECTED USER', function () {
+    beforeEach(function () {
+        $this->user = User::factory()->create();
+        actingAs($this->user);
+    });
 
-        Livewire::actingAs($user)
-            ->test('pages::adoption-requests.index')
-            ->assertStatus(200);
-    }
-);
+    it('verifies if a you can access to the admin adoption requests index page',
+        function () {
+
+            Livewire::test('pages::adoption-requests.index')
+                ->assertStatus(200);
+        }
+    );
+
+    it('verifies if a user can see all adoption requests',
+        function () {
+
+            $animal1 = Animal::factory()
+                ->create();
+
+            $animal2 = Animal::factory()
+                ->create();
+
+            $adoptionsRequest1 = AdoptionRequest::factory()
+                ->for($animal1)
+                ->create();
+
+            $adoptionsRequest2 = AdoptionRequest::factory()
+                ->for($animal2)
+                ->create();
+
+            Livewire::test('pages::adoption-requests.index')
+                ->assertSee($adoptionsRequest1->full_name, $adoptionsRequest2->full_name);
+        }
+    );
+});
 

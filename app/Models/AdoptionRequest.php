@@ -13,7 +13,6 @@ class AdoptionRequest extends Model
     protected $fillable = [
         'full_name',
         'email',
-        'animal_id',
         'status',
         'message',
         'rejection_message',

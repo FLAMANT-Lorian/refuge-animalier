@@ -65,25 +65,15 @@ class User extends Authenticatable
         return $this->status === UserStatus::Volunteer->value;
     }
 
-    protected function fullName(): Attribute
-    {
-        return Attribute::make(
-            get: fn() => $this->last_name . ' ' . $this->first_name
-        );
-    }
-
-    public function animals(): HasMany
-    {
-        return $this->hasMany(Animal::class);
-    }
-
     public function animalSheets(): HasMany
     {
         return $this->hasMany(AnimalSheet::class);
     }
 
-    public function messages(): HasMany
+    protected function fullName(): Attribute
     {
-        return $this->hasMany(Message::class);
+        return Attribute::make(
+            get: fn() => $this->last_name . ' ' . $this->first_name
+        );
     }
 }

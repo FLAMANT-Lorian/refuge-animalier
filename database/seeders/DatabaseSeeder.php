@@ -33,8 +33,7 @@ class DatabaseSeeder extends Seeder
             'status' => UserStatus::Volunteer->value
         ]);
 
-        $animals = Animal::factory()
-            ->for($user)
+        Animal::factory()
             ->has(AnimalNote::factory()->count(12))
             ->has(AnimalSheet::factory()->for($user))
             ->has(AnimalSheet::factory()->for($user1))
@@ -43,7 +42,6 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         Message::factory()
-            ->for($user)
             ->count(25)
             ->create();
     }

@@ -24,10 +24,7 @@ class extends Component {
     #[Computed]
     public function animals()
     {
-        return auth()
-            ->user()
-            ->animals()
-            ->paginate(12)
+        return Animal::paginate(12)
             ->withPath(route('admin.animals.index', config('app.locale')));
 
     }
@@ -35,7 +32,7 @@ class extends Component {
     #[Computed]
     public function getAnimalsCount()
     {
-        return auth()->user()->animals()->count();
+        return Animal::count();
     }
 
     public function openModal(string $modal, Animal $animal = null): void

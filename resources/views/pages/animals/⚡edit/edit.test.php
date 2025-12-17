@@ -8,7 +8,6 @@ it('verifies if a you can access to the admin animals edit page', function () {
     $user = User::factory()->create();
 
     $animal = Animal::factory()
-        ->for($user)
         ->create();
 
     Livewire::test('pages::animals.edit',

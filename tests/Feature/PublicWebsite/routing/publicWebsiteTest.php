@@ -32,7 +32,6 @@ it('verifies if a guest can access to the public website animals show page', fun
     $user = User::factory()->create();
 
     $animal = Animal::factory()
-        ->for($user)
         ->create(
         ['state' => AnimalStatus::AwaitingAdoption->value]
     )->toArray();

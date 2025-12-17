@@ -9,7 +9,6 @@ it('verifies if you can create an sheets for an animal and recover it using the 
         $user = User::factory()->create();
 
         $animal = Animal::factory()
-            ->for($user)
             ->create();
 
         $sheet = AnimalSheet::factory()
@@ -18,8 +17,6 @@ it('verifies if you can create an sheets for an animal and recover it using the 
             ->create();
 
         expect($sheet->animal->name)->toBe($animal->name)
-            ->and($user->animals()->first()->animalSheet->status)->toBe($sheet->status)
-            ->and($sheet->user->email)->toBe($user->email)
-            ->and($user->animalSheets()->first()->status)->toBe($sheet->status);
+            ->and($animal->animalSheet->status)->toBe($user->animalSheets()->first()->status);
     }
 );

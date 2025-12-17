@@ -24,7 +24,7 @@
                href="
                {!! $animal_sheet->user->is(auth()->user()) ?
                     route('admin.settings', app()->getLocale()) :
-                    route('admin.volunteers.show', $animal_sheet->user->id)
+                    route('admin.volunteers.show', ['volunteer' => $animal_sheet->user, 'locale' => app()->getLocale()])
                !!}"
                title="{!! __('admin/volunteers.view_volunteer_sheet') !!}">
                 {!! $animal_sheet->user->fullName !!}
@@ -36,7 +36,7 @@
             <span class="min-lg:hidden font-bold">
                 {!! __('admin/animal-sheets.animal') !!}&nbsp;:
             </span>
-            <a href="{!! route('admin.animals.show', $animal_sheet->animal->id) !!}"
+            <a href="{!! route('admin.animals.show', ['animal' => $animal_sheet->animal, 'locale' => app()->getLocale()]) !!}"
                title="{!! __('admin/animals.show_breadcrumb2_title') !!}"
                class="hover:font-bold trans-all lg:px-4 lg:py-4 font-normal">
                 {!! $animal_sheet->animal->name !!}
