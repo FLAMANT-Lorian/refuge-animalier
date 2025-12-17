@@ -16,7 +16,7 @@
         <span class="font-normal sr-only">
             {!! __('admin/animals.animals_img') !!}
         </span>
-        <img alt="phot de {!! $animal->name !!}"
+        <img alt="photo de {!! $animal->name !!}"
              class="w-[5rem] h-[5rem] rounded-2xl" src="{!! asset('assets/img/tmp.png') !!}">
     </td>
 

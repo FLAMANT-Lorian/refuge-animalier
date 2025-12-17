@@ -33,7 +33,7 @@ return [
     'show_sub_title' => 'All information about ',
     'show_edit_btn_title' => 'Edit the sheet of ',
     'show_name' => 'Name',
-    'show_age' => 'Age',
+    'show_birth_date' => 'Birth date',
     'show_breed' => 'Breed',
     'show_color' => 'Coat',
     'show_sex' => 'Sex',
@@ -52,6 +52,7 @@ return [
     'visit_notes_th4' => 'Actions',
     'animals_img' => 'Animal picture',
     'view_visit_note' => 'View the visit note',
+    'notes' => 'notes',
 
     // CREATE
     'create_title' => 'Create a new sheet',
@@ -69,7 +70,7 @@ return [
     'create_sex' => 'Sex',
     'create_sex_placeholder' => 'Female',
     'create_breed' => 'Breed',
-    'add_new_breed' => 'Breed',
+    'add_new_breed' => 'Add a new breed',
     'create_color' => 'Coat',
     'create_color_placeholder' => 'Brown',
     'create_vaccines' => 'Vaccines',

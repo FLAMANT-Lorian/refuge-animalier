@@ -33,7 +33,7 @@ return [
     'show_sub_title' => 'Toutes les informations sur ',
     'show_edit_btn_title' => 'Modifier la fiche de ',
     'show_name' => 'Nom',
-    'show_age' => 'Age',
+    'show_birth_date' => 'Date de naissance',
     'show_breed' => 'Race',
     'show_color' => 'Pelage',
     'show_sex' => 'Sexe',
@@ -52,6 +52,7 @@ return [
     'visit_notes_th4' => 'Actions',
     'animals_img' => 'Image de l’animal',
     'view_visit_note' => 'Voir la note de visite',
+    'notes' => 'notes',
 
     // CREATE
     'create_title' => 'Créer une nouvelle fiche',
@@ -69,7 +70,7 @@ return [
     'create_sex' => 'Sexe',
     'create_sex_placeholder' => 'Femelle',
     'create_breed' => 'Race',
-    'add_new_breed' => 'Race',
+    'add_new_breed' => 'Ajouter une nouvelle race',
     'create_color' => 'Pelage',
     'create_color_placeholder' => 'Brun',
     'create_vaccines' => 'Vaccins',

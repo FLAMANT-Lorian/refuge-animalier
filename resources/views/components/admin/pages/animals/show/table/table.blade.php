@@ -1,5 +1,4 @@
 @props([
-    'notes',
     'animal'
 ])
 
@@ -10,7 +9,6 @@
 
     {{-- TBODY --}}
     <x-admin.pages.animals.show.table.tbody
-        :animal="$animal"
-        :notes="$notes"/>
+        :animal="$animal"/>
 </table>
 

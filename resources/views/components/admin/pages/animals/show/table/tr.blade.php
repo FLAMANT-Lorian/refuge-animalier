@@ -21,7 +21,7 @@
             <button type="button"
                     wire:click="openModal('edit-note', {!! $animal !!})"
                     class="hover:font-bold hover:cursor-pointer text-left lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200">
-                {!! $note['name'] !!}
+                {!! $note->full_name !!}
             </button>
         </div>
     </td>
@@ -32,7 +32,7 @@
                 {!! __('admin/animals.visit_notes_th2') !!}
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
-                {!! $note['email'] !!}
+                {!! $note->email !!}
             </span>
         </div>
     </td>
@@ -43,7 +43,7 @@
                 {!! __('admin/animals.visit_notes_th3') !!}
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
-                {!! $note['date'] !!}
+                {!! strtolower($note->visit_date->translatedFormat('d F Y')) !!}
             </span>
         </div>
     </td>

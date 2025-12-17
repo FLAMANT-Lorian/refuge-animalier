@@ -24,7 +24,9 @@ class extends Component {
     #[Computed]
     public function animals()
     {
-        return Animal::orderBy('created_at')
+        return auth()
+            ->user()
+            ->animals()
             ->paginate(12)
             ->withPath(route('admin.animals.index', config('app.locale')));
 
