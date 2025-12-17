@@ -1,8 +1,12 @@
+@props([
+    'message'
+])
+
 <x-admin.partials.modal
     :have_sub_title="false">
 
     <x-slot:title>
-        Message de Lorian Flamant
+        Message de {!! $message->full_name !!}
     </x-slot:title>
 
     <x-slot:body>

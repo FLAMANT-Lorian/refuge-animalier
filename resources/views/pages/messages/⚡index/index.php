@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\MessageStatus;
+use App\Models\Message;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -16,26 +17,33 @@ class extends Component {
     public bool $openMessage = false;
     public bool $openDeleteMessage = false;
 
+    public Message $messageModal;
+
     public function mount(): void
     {
         $this->app_title = __('admin/messages.title');
     }
 
     #[Computed]
-    public function messages(): array
+    public function messages()
     {
-        return [
-            'name' => 'Flamant Lorian',
-            'email' => 'lorianflamant@example.be',
-            'date' => '30 octobre 2026',
-            'hour' => '15h32',
-            'status' => MessageStatus::read->value
-        ];
+        return Message::paginate(12)
+            ->withPath(route('admin.messages.index', config('app.locale')));
 
     }
 
-    public function openModal(string $modal): void
+    #[Computed]
+    public function getUnreadMessageCount(): int
     {
+        return Message::where('status', MessageStatus::Unread->value)->count();
+    }
+
+    public function openModal(string $modal, Message $message = null): void
+    {
+        if ($message !== null) {
+            $this->messageModal = $message;
+        }
+
         if ($modal === 'message') {
             $this->openMessage = true;
         } elseif ($modal === 'delete-message') {

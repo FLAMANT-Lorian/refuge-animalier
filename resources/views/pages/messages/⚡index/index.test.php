@@ -22,7 +22,7 @@ describe('CONNECTED USER', function () {
 
             $message = Message::factory()->create();
 
-            Livewire::test('pages::adoption-requests.index')
+            Livewire::test('pages::messages.index')
                 ->assertSee($message->email);
         }
     );

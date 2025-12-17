@@ -8,8 +8,8 @@
 
 @php
     $states  = [
-        MessageStatus::unread->value => 'bg-blue-100 before:bg-blue-500',
-        MessageStatus::read->value => 'bg-green-100 before:bg-green-500',
+        MessageStatus::Unread->value => 'bg-blue-100 before:bg-blue-500',
+        MessageStatus::Read->value => 'bg-green-100 before:bg-green-500',
     ];
 
     $classes = $states[(string)$message_state];

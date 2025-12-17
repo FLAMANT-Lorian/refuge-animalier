@@ -20,7 +20,7 @@ class Message extends Model
     protected function casts(): array
     {
         return [
-            'submit_date' => 'timestamp',
+            'submit_date' => 'date',
         ];
     }
 }

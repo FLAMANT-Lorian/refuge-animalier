@@ -13,8 +13,7 @@ class MessageFactory extends Factory
 
     public function definition(): array
     {
-        $states = [MessageStatus::read->value, MessageStatus::unread->value];
-
+        $states = [MessageStatus::Read->value, MessageStatus::Unread->value];
         return [
             'full_name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
