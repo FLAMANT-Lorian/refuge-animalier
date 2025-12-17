@@ -15,7 +15,7 @@
     <div class="flex flex-col lg:grid lg:grid-cols-9 lg:items-center lg:gap-6 gap-6">
         <div class="flex flex-col gap-2 lg:col-start-1 lg:col-end-5">
             <h2 class="text-2xl font-bold">{!! __('admin/adoption-requests.title') !!}</h2>
-            <p class="text-base text-gray-500">{!! __('admin/dashboard.you_have') !!} {!! __('admin/adoption-requests.pending_requests') !!}</p>
+            <p class="text-base text-gray-500">{!! __('admin/dashboard.you_have') . $this->getAdoptionRequestsCount . __('admin/adoption-requests.pending_requests') !!}</p>
         </div>
 
         {{-- ACTIONS --}}

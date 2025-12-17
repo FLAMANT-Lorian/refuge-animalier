@@ -4,7 +4,7 @@
 
         {{-- EN TÊTE --}}
         <x-admin.pages.animals.index.heading.section
-        :app_title="$app_title"/>
+            :app_title="$app_title"/>
 
         {{-- TABLEAU DES ANIMAUX --}}
         <x-admin.pages.animals.index.table
@@ -15,7 +15,7 @@
 
     @if($openDeleteAnimal)
         <x-admin.modals.animals.index.deleteAnimal
-        :animal="$animalToDelete"/>
+            :animal="$animalToDelete"/>
     @endif
 </main>
 

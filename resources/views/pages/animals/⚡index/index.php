@@ -32,6 +32,12 @@ class extends Component {
 
     }
 
+    #[Computed]
+    public function getAnimalsCount()
+    {
+        return auth()->user()->animals()->count();
+    }
+
     public function openModal(string $modal, Animal $animal = null): void
     {
         if ($modal === 'delete-animal') {

@@ -30,6 +30,12 @@ class extends Component {
             ->withPath(route('admin.adoption-requests.index', config('app.locale')));
     }
 
+    #[Computed]
+    public function getAdoptionRequestsCount()
+    {
+        return AdoptionRequest::count();
+    }
+
     public function openModal(string $modal): void
     {
         if ($modal === 'adoption-request') {

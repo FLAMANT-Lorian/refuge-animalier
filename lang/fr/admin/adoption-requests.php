@@ -4,7 +4,7 @@ return [
     'title' => 'Demandes d’adoptions',
     'breadcrumb_title' => 'Vers la page des demandes d’adoptions',
     'sub_title' => 'Vers la page des demandes d’adoptions',
-    'pending_requests' => 'demandes en cours',
+    'pending_requests' => ' demandes d’adoptions pour votre refuge !',
     'search_field' => 'Rechercher une demande',
     'filter_field' => 'Filtrer les demandes',
     'all' => 'Toutes',
