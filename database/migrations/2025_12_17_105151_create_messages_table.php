@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('animal_sheets', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('animal_id')->constrained('animals')->cascadeOnDelete();
-            $table->timestamp('date');
-            $table->string('status');
+            $table->string('full_name');
+            $table->string('email');
+            $table->timestamp('submit_date');
             $table->string('message');
             $table->timestamps();
         });
@@ -20,6 +20,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('animal_sheets');
+        Schema::dropIfExists('messages');
     }
 };

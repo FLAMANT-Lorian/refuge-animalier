@@ -81,4 +81,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(AnimalSheet::class);
     }
+
+    public function messages(): HasMany
+    {
+        return $this->hasMany(Message::class);
+    }
 }
