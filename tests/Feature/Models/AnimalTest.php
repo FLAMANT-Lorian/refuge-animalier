@@ -3,7 +3,7 @@
 use App\Models\Animal;
 use App\Models\User;
 
-it('verifies if you can create an animal for a user',
+it('verifies if you can create an animal for a user and recover it using the relation',
     function () {
         $user = User::factory()->create();
 
