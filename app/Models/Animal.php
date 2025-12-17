@@ -22,4 +22,9 @@ class Animal extends Model
     {
         return $this->hasMany(AnimalNote::class);
     }
+
+    public function adoption_requests(): HasMany
+    {
+        return $this->hasMany(AdoptionRequest::class);
+    }
 }
