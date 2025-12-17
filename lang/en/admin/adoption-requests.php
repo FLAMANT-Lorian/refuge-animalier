@@ -16,4 +16,5 @@ return [
     'status' => 'Status',
     'actions' => 'Actions',
     'view_adoption_request' => 'View Request',
+    'pagination' => 'adoption requests'
 ];

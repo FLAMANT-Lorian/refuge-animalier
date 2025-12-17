@@ -1,5 +1,5 @@
 @props([
-    'adoption_requests'
+    'adoption_request'
 ])
 
 <tr scope="row"
@@ -20,7 +20,7 @@
             </span>
             <button wire:click="openModal('adoption-request')"
                     class="text-left lg:px-4 lg:py-4 hover:cursor-pointer hover:font-bold transition-all ease-in-out duration-200">
-                {!! $adoption_requests['name'] !!}
+                {!! $adoption_request->full_name !!}
             </button>
         </div>
     </td>
@@ -31,7 +31,7 @@
                 {!! __('admin/adoption-requests.email') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
-                {!! $adoption_requests['email'] !!}
+                {!! $adoption_request->email !!}
             </span>
         </div>
     </td>
@@ -43,9 +43,9 @@
             </span>
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
-               title="Voir la demande d'adoptions de : {!! $adoption_requests['animal'] !!}"
+               title="Voir la demande d'adoptions de : {!! $adoption_request->animal->name !!}"
                href="{!! route('admin.animals.show', ['animal' => 1, 'locale' => config('app.locale')]) !!}">
-                {!! $adoption_requests['animal'] !!}
+                {!! $adoption_request->animal->name !!}
             </a>
         </div>
     </td>
@@ -57,7 +57,7 @@
             </span>
             <div class="flex flex-row justify-start font-normal">
                 <x-states.adoption-request-state
-                    :adoption_request_state="$adoption_requests['status']"/>
+                    :adoption_request_state="$adoption_request->status"/>
             </div>
         </div>
     </td>

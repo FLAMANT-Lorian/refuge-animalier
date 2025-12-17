@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\AdoptionRequestsStatus;
+use App\Models\AdoptionRequest;
 use App\Models\Animal;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
@@ -23,14 +24,10 @@ class extends Component {
     }
 
     #[Computed]
-    public function adoption_requests(): array
+    public function adoption_requests()
     {
-        return [
-            'name' => 'Flamant Lorian',
-            'email' => 'lorianflamant@example.be',
-            'animal' => 'Pedro',
-            'status' => AdoptionRequestsStatus::Closed->value
-        ];
+        return AdoptionRequest::paginate(12)
+            ->withPath(route('admin.adoption-requests.index', config('app.locale')));
     }
 
     public function openModal(string $modal): void
