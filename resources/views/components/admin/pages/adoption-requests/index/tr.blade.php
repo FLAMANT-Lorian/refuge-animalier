@@ -15,7 +15,7 @@
 
     <td class="lg:flex-1 h-full lg:text-left font-normal">
         <div class="flex flex-col gap-1">
-            <span class="min-lg:hidden font-bold">
+            <span class="lg:hidden font-bold">
                 {!! __('admin/adoption-requests.full_name') !!}&nbsp;:
             </span>
             <button wire:click="openModal('adoption-request')"
@@ -27,7 +27,7 @@
 
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
-            <span class="min-lg:hidden font-bold">
+            <span class="lg:hidden font-bold">
                 {!! __('admin/adoption-requests.email') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
@@ -38,7 +38,7 @@
 
     <td class="lg:flex-1 lg:text-left">
         <div class="flex flex-col gap-1">
-            <span class="min-lg:hidden font-bold">
+            <span class="lg:hidden font-bold">
                 {!! __('admin/adoption-requests.animal') !!}&nbsp;:
             </span>
             <a wire:navigate
@@ -50,7 +50,7 @@
         </div>
     </td>
 
-    <td class="absolute top-4 right-4 lg:static lg:text-left lg:w-[10rem]">
+    <td class="absolute top-4 right-4 lg:static lg:text-left lg:w-40">
         <div class="flex flex-col gap-1">
             <span class="hidden font-bold">
                 {!! __('admin/adoption-requests.status') !!}&nbsp;:
@@ -62,13 +62,13 @@
         </div>
     </td>
 
-    <td class="font-medium lg:w-[9.375rem]">
+    <td class="font-medium lg:w-37.5">
         <div class="flex justify-between items-center lg:justify-end flex-row gap-4 lg:px-4">
 
             {{-- VOIR LA DEMANDES D'ADOPTION - MOBILE --}}
             <button type="button"
                     wire:click="openModal('adoption-request')"
-                    class="cursor-pointer lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
+                    class="cursor-pointer lg:hidden font-medium px-4 py-2.5 bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
                 {!! __('admin/adoption-requests.view_adoption_request') !!}
             </button>
 
