@@ -4,7 +4,7 @@ use App\Models\AdoptionRequest;
 use App\Models\Animal;
 use App\Models\User;
 
-it('verifies if you can create an adoption-request for a animal and recover it using the relation',
+it('verifies if you can create an adoption-request for an animal and recover it using the relation',
     function () {
         $user = User::factory()->create();
 
