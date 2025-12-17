@@ -15,7 +15,7 @@ class AnimalSheetFactory extends Factory
 
     public function definition(): array
     {
-        $states = [SheetsStatus::Creation->value, SheetsStatus::InOrder->value, SheetsStatus::Modification->value];
+        $states = [SheetsStatus::Creation->value, SheetsStatus::Validate->value, SheetsStatus::Modification->value];
 
         return [
             'date' => Carbon::now(),

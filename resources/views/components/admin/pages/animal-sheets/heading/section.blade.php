@@ -15,8 +15,8 @@
     <div class="flex flex-col lg:grid lg:grid-cols-9 lg:items-center lg:gap-6 gap-6">
         <div class="flex flex-col gap-2 lg:col-start-1 lg:col-end-5">
             <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>
-            <p class="text-base text-gray-500">{!! __('admin/dashboard.you_have') !!}
-                13{!! __('admin/animal-sheets.files_to_validated') !!}</p>
+            <p class="text-base text-gray-500">
+                {!! __('admin/dashboard.you_have') . $this->sheetsToValidateCount .  __('admin/animal-sheets.files_to_validated') !!}</p>
         </div>
 
         {{-- ACTIONS --}}

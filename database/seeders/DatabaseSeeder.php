@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\UserStatus;
 use App\Models\AdoptionRequest;
 use App\Models\Animal;
 use App\Models\AnimalNote;
@@ -24,13 +25,20 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Lorian',
             'last_name' => 'Flamant',
             'email' => 'lorian@test.be',
+            'status' => UserStatus::Admin->value
         ])->create();
+
+        $user1 = User::factory()->create([
+            'email' => 'lorian@volunteer.be',
+            'status' => UserStatus::Volunteer->value
+        ]);
 
         $animals = Animal::factory()
             ->for($user)
             ->has(AnimalNote::factory()->count(12))
             ->has(AnimalSheet::factory()->for($user))
-            ->has(AdoptionRequest::factory()->count(2)->for($user))
+            ->has(AnimalSheet::factory()->for($user1))
+            ->has(AdoptionRequest::factory()->count(2))
             ->count(30)
             ->create();
 

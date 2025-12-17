@@ -6,10 +6,12 @@
     class="relative flex flex-col gap-4 lg:gap-0 p-4 lg:p-0 border border-gray-200 lg:border-none rounded-2xl lg:rounded-none lg:flex-row lg:w-full lg:bg-white lg:items-center lg:nth-of-type-[odd]:bg-gray-50 lg:nth-of-type-[even]:bg-white">
 
     <td class="max-lg:hidden flex justify-center px-2 w-[3rem]">
-        <input class="animal_sheet_{!! '1' !!} hover:cursor-pointer" type="checkbox" name="animal_sheet_{!! '1' !!}"
-               id="animal_sheet_{!! '1' !!}"
+        <input class="animal_sheet_{!! $animal_sheet->id !!} hover:cursor-pointer" type="checkbox"
+               name="animal_sheet_{!! $animal_sheet->id !!}"
+               id="animal_sheet_{!! $animal_sheet->id !!}"
                title="{!! __('admin/animal-sheets.one_selector') !!}">
-        <label for="animal_sheet_{!! '1' !!}" class="sr-only">{!! __('admin/animal-sheets.one_selector') !!}</label>
+        <label for="animal_sheet_{!! $animal_sheet->id !!}"
+               class="sr-only">{!! __('admin/animal-sheets.one_selector') !!}</label>
     </td>
 
     <td class="lg:flex-1 lg:text-left">
@@ -17,10 +19,16 @@
             <span class="min-lg:hidden font-bold">
                 {!! __('admin/animal-sheets.volunteer') !!}&nbsp;:
             </span>
-            <button type="button" wire:click="openModal('sheet-message')"
-                    class="text-left cursor-pointer lg:px-4 lg:py-4 font-normal">
-                {!! $animal_sheet['volunteer'] !!}
-            </button>
+            <a wire:navigate
+               class="hover:font-bold trans-all text-left cursor-pointer lg:px-4 lg:py-4 font-normal"
+               href="
+               {!! $animal_sheet->user->is(auth()->user()) ?
+                    route('admin.settings', app()->getLocale()) :
+                    route('admin.volunteers.show', $animal_sheet->user->id)
+               !!}"
+               title="{!! __('admin/volunteers.view_volunteer_sheet') !!}">
+                {!! $animal_sheet->user->fullName !!}
+            </a>
         </div>
     </td>
     <td class="lg:flex-1 lg:text-left">
@@ -28,9 +36,11 @@
             <span class="min-lg:hidden font-bold">
                 {!! __('admin/animal-sheets.animal') !!}&nbsp;:
             </span>
-            <span class="lg:px-4 lg:py-4 font-normal">
-                {!! $animal_sheet['name'] !!}
-            </span>
+            <a href="{!! route('admin.animals.show', $animal_sheet->animal->id) !!}"
+               title="{!! __('admin/animals.show_breadcrumb2_title') !!}"
+               class="hover:font-bold trans-all lg:px-4 lg:py-4 font-normal">
+                {!! $animal_sheet->animal->name !!}
+            </a>
         </div>
     </td>
 
@@ -40,7 +50,7 @@
                 {!! __('admin/animal-sheets.date') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
-                {!! $animal_sheet['date'] !!}
+                {!! $animal_sheet->date->translatedFormat('d F Y') !!}
             </span>
         </div>
     </td>
@@ -52,7 +62,7 @@
             </span>
             <div class="flex flex-row justify-start font-normal">
                 <x-states.sheet-state
-                    :sheet_state="$animal_sheet['status']"/>
+                    :sheet_state="$animal_sheet->status"/>
             </div>
         </div>
     </td>

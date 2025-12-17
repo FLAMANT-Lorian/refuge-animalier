@@ -9,9 +9,9 @@ return new class extends Migration {
     {
         Schema::create('adoption_requests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('animal_id')->constrained('animals')->cascadeOnDelete();
             $table->string('full_name');
             $table->string('email');
-            $table->foreignId('animal_id')->constrained('animals')->cascadeOnDelete();
             $table->string('status');
             $table->string('message');
             $table->string('rejection_message')->nullable();

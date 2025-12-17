@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\SheetsStatus;
+use App\Models\AnimalSheet;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -21,15 +22,17 @@ class extends Component {
     }
 
     #[Computed]
-    public function animal_sheets(): array
+    public function animal_sheets()
     {
-        return [
-            'name' => 'Moka',
-            'date' => '30 octobre 2026',
-            'volunteer' => 'Flamant Lorian',
-            'status' => SheetsStatus::Creation->value
-        ];
+        return AnimalSheet::paginate(12)
+            ->withPath(route('admin.animal-sheets.index', config('app.locale')));
 
+    }
+
+    #[Computed]
+    public function sheetsToValidateCount()
+    {
+        return AnimalSheet::whereIn('status', [SheetsStatus::Modification, SheetsStatus::Creation])->count();
     }
 
     public function openModal(string $modal): void
