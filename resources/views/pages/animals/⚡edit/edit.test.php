@@ -2,9 +2,14 @@
 
 use App\Models\Animal;
 use Livewire\Livewire;
+use App\Models\User;
 
 it('verifies if a you can access to the admin animals edit page', function () {
-    $animal = Animal::factory()->create();
+    $user = User::factory()->create();
+
+    $animal = Animal::factory()
+        ->for($user)
+        ->create();
 
     Livewire::test('pages::animals.edit',
         [

@@ -1,9 +1,14 @@
 <?php
 
 use App\Models\Animal;
+use App\Models\User;
 
 it('verifies if a you can access to the admin animals show page', function () {
-    $animal = Animal::factory()->create();
+    $user = User::factory()->create();
+
+    $animal = Animal::factory()
+        ->for($user)
+        ->create();
     Livewire::test('pages::animals.show',
         [
             'animal' => $animal,

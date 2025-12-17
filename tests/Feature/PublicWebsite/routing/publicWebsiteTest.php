@@ -2,6 +2,7 @@
 
 use App\Enums\AnimalStatus;
 use App\Models\Animal;
+use App\Models\User;
 
 it('verifies if a guest can access to the public website home page', function () {
     $response = $this->get(route('public.homepage', config('app.locale')));
@@ -28,11 +29,13 @@ it('verifies if a guest can access to the public website animals index page', fu
 });
 
 it('verifies if a guest can access to the public website animals show page', function () {
-    $animal = Animal::factory()->create(
+    $user = User::factory()->create();
+
+    $animal = Animal::factory()
+        ->for($user)
+        ->create(
         ['state' => AnimalStatus::AwaitingAdoption->value]
     )->toArray();
-
-    $locale =
 
     $response = $this->get(route('public.animals.show',
         [

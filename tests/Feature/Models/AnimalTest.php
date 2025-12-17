@@ -12,6 +12,7 @@ it('verifies if you can create an animal for a user',
             ->create();
 
         expect($user->animals()->count())->toBe(1)
-            ->and($animal->name)->toBe($user->animals()->first()->name);
+            ->and($animal->name)->toBe($user->animals()->first()->name)
+            ->and($animal->state)->toBe($user->animals()->first()->state);
     }
 );

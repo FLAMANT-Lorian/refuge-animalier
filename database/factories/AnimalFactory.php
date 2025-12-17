@@ -23,7 +23,7 @@ class AnimalFactory extends Factory
 
         $vaccines = [null, 'Rage'];
 
-        $states = [AnimalStatus::Adopted, AnimalStatus::InTreatment, AnimalStatus::ProcessOfAdoption, AnimalStatus::AwaitingAdoption];
+        $states = [AnimalStatus::Adopted->value, AnimalStatus::InTreatment->value, AnimalStatus::ProcessOfAdoption->value, AnimalStatus::AwaitingAdoption->value];
 
 
         return [
