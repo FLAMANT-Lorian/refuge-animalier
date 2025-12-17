@@ -28,25 +28,11 @@ class DatabaseSeeder extends Seeder
 
         $animals = Animal::factory()
             ->for($user)
+            ->has(AnimalNote::factory()->count(12))
+            ->has(AnimalSheet::factory()->for($user))
+            ->has(AdoptionRequest::factory()->count(3))
             ->count(50)
             ->create();
-
-        foreach ($animals as $animal) {
-            AnimalNote::factory()
-                ->for($animal)
-                ->count(12)
-                ->create();
-
-            AnimalSheet::factory()
-                ->for($animal)
-                ->for($user)
-                ->create();
-
-            AdoptionRequest::factory()
-                ->for($animal)
-                ->count(3)
-                ->create();
-        }
 
         Message::factory()
             ->for($user)

@@ -14,8 +14,8 @@ it('verifies if you can create an note for a animal and recover it using the rel
             ->for($animal)
             ->create();
 
-        expect($animal_note->full_name)->toBe($animal->animal_notes()->first()->full_name)
-            ->and($animal_note->full_name)->toBe($user->animals()->first()->animal_notes()->first()->full_name)
+        expect($animal_note->full_name)->toBe($animal->animalNotes()->first()->full_name)
+            ->and($animal_note->full_name)->toBe($user->animals()->first()->animalNotes()->first()->full_name)
             ->and($animal_note->animal->name)->toBe($animal->name);
     }
 );

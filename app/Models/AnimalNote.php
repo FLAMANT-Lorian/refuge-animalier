@@ -20,7 +20,7 @@ class AnimalNote extends Model
     protected function casts(): array
     {
         return [
-            'visit_date' => 'timestamp',
+            'visit_date' => 'date',
         ];
     }
 
