@@ -25,18 +25,19 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Lorian',
             'last_name' => 'Flamant',
             'email' => 'lorian@test.be',
-            'status' => UserStatus::Admin->value
+            'role' => UserStatus::Admin->value
         ])->create();
 
-        $user1 = User::factory()->create([
-            'email' => 'lorian@volunteer.be',
-            'status' => UserStatus::Volunteer->value
-        ]);
+        $user1 = User::factory()
+            ->count(24)
+            ->create([
+                'role' => UserStatus::Volunteer->value
+            ]);
 
         Animal::factory()
-            ->has(AnimalNote::factory()->count(12))
+            ->has(AnimalNote::factory()->count(8))
             ->has(AnimalSheet::factory()->for($user))
-            ->has(AnimalSheet::factory()->for($user1))
+            ->has(AnimalSheet::factory()->for($user1->first()))
             ->has(AdoptionRequest::factory()->count(2))
             ->count(30)
             ->create();

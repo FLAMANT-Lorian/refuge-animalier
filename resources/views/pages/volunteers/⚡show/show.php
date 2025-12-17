@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -12,9 +13,9 @@ class extends Component
     public bool $openDeleteVolunteerAvatar = false;
     public bool $openDeleteVolunteer = false;
 
-    public function mount(): void
+    public function mount(User $volunteer): void
     {
-        $this->app_title = __('admin/volunteers.show_title') . 'Lorian';
+        $this->app_title = __('admin/volunteers.show_title') . $volunteer->first_name;
     }
 
     public function openModal(string $modal): void

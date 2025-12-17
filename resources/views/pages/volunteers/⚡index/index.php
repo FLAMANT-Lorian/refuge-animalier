@@ -1,6 +1,8 @@
 <?php
 
+use App\Enums\UserStatus;
 use App\Enums\VolunteerStatus;
+use App\Models\User;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -22,15 +24,18 @@ class extends Component {
     }
 
     #[Computed]
-    public function volunteers(): array
+    public function volunteers()
     {
-        return [
-            'name' => 'Flamant Lorian',
-            'email' => 'lorianflamant@example.be',
-            'date' => '30 octobre 2026',
-            'status' => VolunteerStatus::InBreak->value
-        ];
+        return User::where('role', UserStatus::Volunteer)
+            ->paginate(12)
+            ->withPath(route('admin.volunteers.index', config('app.locale')));
 
+    }
+
+    #[Computed]
+    public function getVolunteerCount(): int
+    {
+        return User::where('role', UserStatus::Volunteer->value)->count();
     }
 
     public function openModal(string $modal): void
