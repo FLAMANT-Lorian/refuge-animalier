@@ -20,7 +20,7 @@
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
                title="Voie le bénévole : {!! $volunteer->full_name !!}"
-               href="{!! route('admin.volunteers.show', ['volunteer' => $volunteer->id, 'locale' => config('app.locale')]) !!}">
+               href="{!! route('admin.volunteers.show', ['volunteer' => $volunteer, 'locale' => config('app.locale')]) !!}">
                 {!! $volunteer->full_name !!}
             </a>
         </div>

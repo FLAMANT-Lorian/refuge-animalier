@@ -23,7 +23,7 @@
                     arrow_name = 'middle'
                 }"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    {!! __('admin/messages.name') !!}
+                    {{ __('admin/messages.name') }}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_name === 'desc',
@@ -56,7 +56,7 @@
                     arrow_email = 'middle'
                 }"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    {!! __('admin/messages.email') !!}
+                    {{ __('admin/messages.email') }}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_email === 'desc',
@@ -89,7 +89,7 @@
                     arrow_date = 'middle'
                 }"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
-                    {!! __('admin/messages.date') !!}
+                    {{ __('admin/messages.date')  }}
                     <svg class="fill-white transition-all ease-in-out duration-200"
                          :class="{
                             '-rotate-0': arrow_date === 'desc',
@@ -108,14 +108,14 @@
         <th scope="col" class="text-left w-[10rem]">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    {!! __('admin/messages.status') !!}
+                    {{ __('admin/messages.status') }}
                 </span>
             </div>
         </th>
         <th scope="col" class="text-right w-[9.375rem]">
             <div class="px-4 py-2">
                 <span class="font-semibold text-white">
-                    {!! __('admin/messages.actions') !!}
+                    {{ __('admin/messages.actions') }}
                 </span>
             </div>
         </th>

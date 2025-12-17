@@ -11,7 +11,7 @@
 
     <div class="flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">
         <dt class="text-base">{!! __('admin/animals.show_birth_date') . ' (' . $animal->age . ' ans)' !!}</dt>
-        <dd class="text-lg font-bold">{!! $animal->birth_date->translatedFormat('d F Y') !!}</dd>
+        <dd class="text-lg font-bold">{!! $animal->translatedFormatDate !!}</dd>
     </div>
 
     <div class="flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">

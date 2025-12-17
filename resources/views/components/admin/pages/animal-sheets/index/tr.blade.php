@@ -50,7 +50,7 @@
                 {!! __('admin/animal-sheets.date') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
-                {!! $animal_sheet->date->translatedFormat('d F Y') !!}
+                {!! $animal_sheet->translatedFormatDate !!}
             </span>
         </div>
     </td>

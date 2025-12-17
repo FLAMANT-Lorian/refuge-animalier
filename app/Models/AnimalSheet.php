@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -31,5 +32,12 @@ class AnimalSheet extends Model
         return [
             'date' => 'date',
         ];
+    }
+
+    protected function translatedFormatDate(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => $this->date->translatedFormat('d F Y')
+        );
     }
 }

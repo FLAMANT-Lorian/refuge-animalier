@@ -37,7 +37,6 @@ class DatabaseSeeder extends Seeder
         Animal::factory()
             ->has(AnimalNote::factory()->count(8))
             ->has(AnimalSheet::factory()->for($user))
-            ->has(AnimalSheet::factory()->for($user1->first()))
             ->has(AdoptionRequest::factory()->count(2))
             ->count(30)
             ->create();

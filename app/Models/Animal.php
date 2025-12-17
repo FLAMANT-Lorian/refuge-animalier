@@ -44,4 +44,11 @@ class Animal extends Model
             get: fn() => Carbon::parse($this->birth_date)->age
         );
     }
+
+    protected function translatedFormatDate(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => $this->birth_date->translatedFormat('d F Y')
+        );
+    }
 }
