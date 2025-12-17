@@ -76,4 +76,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Animal::class);
     }
+
+    public function animal_sheets(): HasMany
+    {
+        return $this->hasMany(AnimalSheet::class);
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Animal extends Model
 {
@@ -26,5 +27,10 @@ class Animal extends Model
     public function adoption_requests(): HasMany
     {
         return $this->hasMany(AdoptionRequest::class);
+    }
+
+    public function animal_sheet(): HasOne
+    {
+        return $this->hasOne(AnimalSheet::class);
     }
 }
