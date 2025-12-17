@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'address' => fake()->city(),
             'postal_code' => '4000',
             'status' => UserStatus::Admin->value,
-            'password' => static::$password ??= Hash::make('1234567890'),
+            'password' => Hash::make('1234567890'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10)
         ];

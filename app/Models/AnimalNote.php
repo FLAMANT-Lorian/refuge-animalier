@@ -15,7 +15,6 @@ class AnimalNote extends Model
         'email',
         'visit_date',
         'note',
-        'animal_id',
     ];
 
     protected function casts(): array
