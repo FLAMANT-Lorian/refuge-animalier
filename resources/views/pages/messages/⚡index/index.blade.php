@@ -13,7 +13,8 @@
 
     </div>
     @if($openMessage)
-        <x-admin.modals.messages.message/>
+        <x-admin.modals.messages.message
+        :message="$messageModal"/>
     @elseif($openDeleteMessage)
         <x-admin.modals.messages.message-delete/>
     @endif

@@ -20,13 +20,11 @@
 
         {{-- FICHES ANIMAUX --}}
         <x-admin.pages.dashboard.sheets
-            class="lg:col-start-1 lg:col-end-6 lg:row-start-3"
-            :sheets="$sheet"/>
+            class="lg:col-start-1 lg:col-end-6 lg:row-start-3"/>
 
         {{-- DEMANDES d’ADOPTIONS --}}
         <x-admin.pages.dashboard.adoption-requests
-            class="lg:col-start-6 lg:col-end-10 lg:row-start-3"
-            :adoption_requests="$adoptions_requests"/>
+            class="lg:col-start-6 lg:col-end-10 lg:row-start-3"/>
 
         {{-- STATISTIQUES --}}
         <x-admin.pages.dashboard.statistics

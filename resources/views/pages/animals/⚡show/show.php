@@ -5,9 +5,13 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 new #[Title('admin/page_title.animals_show')]
 class extends Component {
+
+    use WithPagination;
+
     public Animal $animal;
     public string $app_title;
     public bool $openCreateNote = false;
@@ -24,13 +28,12 @@ class extends Component {
     }
 
     #[Computed]
-    public function notes(): array
+    public function notes()
     {
-        return [
-            'name' => 'Flamant Lorian',
-            'email' => 'lorianflamant@example.be',
-            'date' => '30 octobre 2026',
-        ];
+        return $this->animal
+            ->animalNotes()
+            ->paginate(6)
+            ->withPath(route('admin.animals.show', ['locale' => config('app.locale'), 'animal' => $this->animal]));
     }
 
     public function openModal(string $modal, Animal $animal = null): void

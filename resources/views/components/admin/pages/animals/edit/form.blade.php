@@ -11,7 +11,7 @@
 
         {{-- FIELDSET ANIMAL --}}
         <x-admin.pages.animals.edit.animal-fieldset
-            :animal="$this->animal"/>
+            :animal="$animal"/>
 
         {{-- FIELDSET ADOPTANT --}}
         <x-admin.pages.animals.edit.adopter-fieldset/>

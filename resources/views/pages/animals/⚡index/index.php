@@ -24,10 +24,15 @@ class extends Component {
     #[Computed]
     public function animals()
     {
-        return Animal::orderBy('created_at')
-            ->paginate(12)
+        return Animal::paginate(12)
             ->withPath(route('admin.animals.index', config('app.locale')));
 
+    }
+
+    #[Computed]
+    public function getAnimalsCount()
+    {
+        return Animal::count();
     }
 
     public function openModal(string $modal, Animal $animal = null): void

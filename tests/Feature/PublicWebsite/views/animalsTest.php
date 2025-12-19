@@ -9,7 +9,6 @@ it('verifies if the animals that are displays in the animals index page are the 
 
     foreach (AnimalStatus::cases() as $status) {
         Animal::factory()
-            ->for($user)
             ->create(['state' => $status->value]);
     }
 
@@ -28,7 +27,6 @@ it('verifies if a guest can access to a animal detail page and that the informat
     $user = User::factory()->create();
 
     $animal = Animal::factory()
-        ->for($user)
         ->create(
             ['state' => AnimalStatus::ProcessOfAdoption->value,
                 'name' => 'toto'
@@ -36,7 +34,6 @@ it('verifies if a guest can access to a animal detail page and that the informat
         )->toArray();
 
     $other_animal = Animal::factory()
-        ->for($user)
         ->create()
         ->toArray();
 

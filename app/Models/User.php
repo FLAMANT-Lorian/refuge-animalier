@@ -65,25 +65,15 @@ class User extends Authenticatable
         return $this->status === UserStatus::Volunteer->value;
     }
 
+    public function animalSheets(): HasMany
+    {
+        return $this->hasMany(AnimalSheet::class);
+    }
+
     protected function fullName(): Attribute
     {
         return Attribute::make(
             get: fn() => $this->last_name . ' ' . $this->first_name
         );
-    }
-
-    public function animals(): HasMany
-    {
-        return $this->hasMany(Animal::class);
-    }
-
-    public function animal_sheets(): HasMany
-    {
-        return $this->hasMany(AnimalSheet::class);
-    }
-
-    public function messages(): HasMany
-    {
-        return $this->hasMany(Message::class);
     }
 }

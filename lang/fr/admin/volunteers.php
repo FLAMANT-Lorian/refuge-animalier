@@ -4,8 +4,8 @@ return [
     // INDEX
     'title' => 'Bénévoles',
     'breadcrumb_title' => 'Aller vers la page des bénévoles',
-    'your_refuge' => 'Your refuge includes ',
-    'volunteers' => 'bénévoles !',
+    'your_refuge' => 'Votre refuge comporte ',
+    'volunteers' => ' bénévoles !',
     'add_volunteer_btn' => 'Ajouter un bénévole',
     'search' => 'Rechercher un bénévole',
     'filter' => 'Filtrer les Bénévoles',
@@ -19,6 +19,7 @@ return [
     'actions' => 'Actions',
     'view_volunteer_sheet' => 'Voir la fiche du bénévole',
     'view_volunteer_sheet_title' => 'Voir la fiche de : ',
+    'paginator' => 'bénévoles',
 
     // CREATE
     'create_title' => 'Créer un profil bénévole',

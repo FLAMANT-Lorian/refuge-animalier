@@ -17,7 +17,8 @@ return new class extends Migration {
             $table->integer('postal_code')->after('address')->nullable();
             $table->json('notifications')->after('postal_code')->nullable();
             $table->json('availability')->after('notifications')->nullable();
-            $table->string('status')->after('availability');
+            $table->string('role')->after('availability');
+            $table->string('status')->after('role');
         });
     }
 

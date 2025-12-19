@@ -17,7 +17,8 @@
                     </p>
                 @endif
             </div>
-            <button type="button" wire:click="closeModal()">
+            <button type="button"
+                    wire:click="closeModal()">
                 <svg class="hover:cursor-pointer hover:bg-gray-100 rounded-none hover:rounded-lg trans-all" width="32" height="32"
                      viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path

@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('breed');
             $table->string('coat')->nullable();
@@ -23,6 +22,7 @@ return new class extends Migration
             $table->timestamp('birth_date');
             $table->string('state');
             $table->string('img_path');
+            $table->timestamp('adopted_at')->nullable();
             $table->timestamps();
         });
     }

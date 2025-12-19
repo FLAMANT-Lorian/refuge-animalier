@@ -2,17 +2,38 @@
 
 use App\Models\Animal;
 use App\Models\User;
+use function Pest\Laravel\actingAs;
 
-it('verifies if a you can access to the admin animals show page', function () {
-    $user = User::factory()->create();
+describe('CONNECTED USER', function () {
+    beforeEach(function () {
+        $this->user = User::factory()->create();
+        actingAs($this->user);
+    });
 
-    $animal = Animal::factory()
-        ->for($user)
-        ->create();
-    Livewire::test('pages::animals.show',
-        [
-            'animal' => $animal,
-            'app_title' => 'Fiche de ' . $animal->name,
-        ])
-        ->assertStatus(200);
+    it('verifies if a you can access to the admin animals show page', function () {
+
+        $animal = Animal::factory()
+            ->create();
+        Livewire::test('pages::animals.show', ['animal' => $animal,])
+            ->assertStatus(200);
+    });
+
+    it('verifies if you see the correct animal data in animal show page',
+        function () {
+            $animal = Animal::factory()
+                ->create([
+                    'name' => 'toto'
+                ]);
+
+            $user1 = User::factory()->create();
+            $animal1 = Animal::factory()
+                ->create([
+                    'name' => 'titi'
+                ]);
+
+            Livewire::test('pages::animals.show', ['animal' => $animal])
+                ->assertSee($animal->name)
+                ->assertDontSee($animal1->name);
+        }
+    );
 });

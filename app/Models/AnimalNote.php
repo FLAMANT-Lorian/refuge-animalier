@@ -15,13 +15,12 @@ class AnimalNote extends Model
         'email',
         'visit_date',
         'note',
-        'animal_id',
     ];
 
     protected function casts(): array
     {
         return [
-            'visit_date' => 'timestamp',
+            'visit_date' => 'date',
         ];
     }
 

@@ -15,5 +15,6 @@ return [
     'status' => 'Status',
     'actions' => 'Actions',
     'view_message_of' => 'View the message from ',
-    'view_message' => 'View the message'
+    'view_message' => 'View the message',
+    'paginator' => 'messages',
 ];

@@ -13,5 +13,5 @@
     </table>
 
     {{--  PAGINATION --}}
-    {{--{!! $volunteers->links('vendor.livewire.tailwind', ['results_name' => '$volunteers']) !!}--}}
+    {!! $volunteers->links('vendor.livewire.tailwind', ['results_name' => __('admin/volunteers.paginator')]) !!}
 </section>

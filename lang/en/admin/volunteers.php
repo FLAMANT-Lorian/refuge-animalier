@@ -19,6 +19,7 @@ return [
     'actions' => 'Actions',
     'view_volunteer_sheet' => 'View volunteer profile',
     'view_volunteer_sheet_title' => 'View the profile of: ',
+    'paginator' => 'volunteers',
 
     // CREATE
     'create_title' => 'Create a volunteer profile',

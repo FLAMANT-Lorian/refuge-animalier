@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Enums\AdoptionRequestsStatus;
 use App\Models\AdoptionRequest;
-use App\Models\Animal;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Carbon;
 
 class AdoptionRequestFactory extends Factory
 {
@@ -13,10 +12,12 @@ class AdoptionRequestFactory extends Factory
 
     public function definition(): array
     {
+        $states = [AdoptionRequestsStatus::InWay->value, AdoptionRequestsStatus::Awaiting->value, AdoptionRequestsStatus::Closed->value, AdoptionRequestsStatus::Refused->value];
+
         return [
             'full_name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement($states),
             'message' => $this->faker->word(),
             'rejection_message' => $this->faker->word(),
         ];

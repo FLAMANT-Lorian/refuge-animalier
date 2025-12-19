@@ -3,7 +3,7 @@
 return [
     'title' => 'Sheet Management',
     'breadcrumb_title' => 'To the Animal Sheets Page',
-    'files_to_validated' => 'sheets to validate!',
+    'files_to_validated' => ' sheets to validate!',
     'search' => 'Search a sheet',
     'filter' => 'Filter sheets',
     'all' => 'All',
@@ -16,4 +16,5 @@ return [
     'actions' => 'Actions',
     'view_animal_sheet' => 'View the animal sheet',
     'view_animal_sheet_of' => 'View the animal sheet of',
+    'paginator' => 'sheets'
 ];

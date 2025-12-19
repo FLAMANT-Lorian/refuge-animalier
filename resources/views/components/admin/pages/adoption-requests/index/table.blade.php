@@ -13,5 +13,5 @@
     </table>
 
     {{--  PAGINATION --}}
-    {{--{!! $volunteers->links('vendor.livewire.tailwind', ['results_name' => '$volunteers']) !!}--}}
+    {!! $adoption_requests->links('vendor.livewire.tailwind', ['results_name' => __('admin/adoption-requests.pagination')]) !!}
 </section>

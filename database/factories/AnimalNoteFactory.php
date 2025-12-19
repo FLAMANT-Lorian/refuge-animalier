@@ -18,8 +18,6 @@ class AnimalNoteFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'visit_date' => Carbon::now(),
             'note' => $this->faker->word(),
-
-            'animal_id' => Animal::factory(),
         ];
     }
 }

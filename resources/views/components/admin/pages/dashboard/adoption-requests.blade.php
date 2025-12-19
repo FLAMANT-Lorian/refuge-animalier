@@ -1,7 +1,3 @@
-@props([
-    'adoption_request_count' => 6,
-    'adoption_requests'
-])
 <section
     {!! $attributes->merge(['class' => 'flex flex-col gap-6 p-6 border border-gray-200 rounded-2xl bg-white']) !!}>
     <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4">
@@ -10,7 +6,7 @@
                 {!! __('admin/dashboard.adoption_requests_big_title') !!}
             </h2>
             <p class="font-base font-normal text-gray-500">
-                {!! __('admin/dashboard.you_have') . $adoption_request_count . __('admin/dashboard.new_adoption_request') !!}</p>
+                {!! __('admin/dashboard.you_have') . $this->adoption_request_count . __('admin/dashboard.new_adoption_request') !!}</p>
         </div>
         <x-buttons.base
             class="max-lg:self-start"
@@ -20,8 +16,8 @@
         </x-buttons.base>
     </div>
     <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-y-scroll">
-        @for($i = 0; $i < $adoption_request_count; $i++)
-            <x-admin.pages.dashboard.adoption-request-card :data="$adoption_requests"/>
-        @endfor
+        @foreach($this->adoption_requests as $adoption_request)
+            <x-admin.pages.dashboard.adoption-request-card :adoption_request="$adoption_request"/>
+        @endforeach()
     </ul>
 </section>

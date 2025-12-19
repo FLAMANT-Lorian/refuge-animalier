@@ -1,5 +1,5 @@
 @props([
-    'data'
+    'sheet'
 ])
 
 <li wire:click="openModal('animal-sheet')"
@@ -7,26 +7,26 @@
     <dl class="flex flex-col md:flex-row gap-4">
         <div
             class="md:flex md:flex-row md:gap-4 md: items-center md:order-2 md:before:block md:before:content[''] md:before:h-5 md:before:w-0.5 md:before:bg-gray-100">
-            <dt class="font-bold pb-1  md:sr-only">{!! __('admin/dashboard.single_sheet_animal') !!}&nbsp;:</dt>
+            <dt class="font-bold pb-1  md:sr-only">{{ __('admin/dashboard.single_sheet_animal') }}&nbsp;:</dt>
             <dd class="md:font-bold">
                 <a wire:navigate
                    class="relative z-20 hover:underline"
-                   title="{!! __('admin/dashboard.single_sheet_animal_title') . $data['name'] !!}"
-                   href="{!! route('admin.animals.show', ['animal' => 1, 'locale' => config('app.locale')]) !!}">
-                    {!! $data['name'] !!}
+                   title="{{ __('admin/dashboard.single_sheet_animal_title') . $sheet->animal->id }}"
+                   href="{{ route('admin.animals.show', ['animal' => $sheet->animal->id, 'locale' => config('app.locale')]) }}">
+                    {{ $sheet->animal->name }}
                 </a>
             </dd>
         </div>
         <div>
             <dt class="font-bold pb-1 md:sr-only">{!! __('admin/dashboard.single_sheet_date') !!}&nbsp;:</dt>
-            <dd>{!! $data['date'] !!}</dd>
+            <dd>{{ $sheet->translatedFormatDate }}</dd>
         </div>
         <div class="md:order-3">
-            <dt class="font-bold pb-1  md:sr-only">{!! __('admin/dashboard.single_sheet_Race') !!}&nbsp;:</dt>
-            <dd class="md:text-gray-500">{!! $data['breed'] !!}</dd>
+            <dt class="font-bold pb-1  md:sr-only">{{ __('admin/dashboard.single_sheet_Race') }}&nbsp;:</dt>
+            <dd class="md:text-gray-500">{{ $sheet->animal->breed }}</dd>
         </div>
     </dl>
     <x-states.sheet-state
         class="absolute md:static top-4 right-4"
-        :sheet_state="$data['state']"/>
+        :sheet_state="$sheet->status"/>
 </li>

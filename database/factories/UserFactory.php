@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\UserStatus;
+use App\Enums\VolunteerStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -24,14 +25,17 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $roles = [UserStatus::Admin->value, UserStatus::Volunteer->value];
+        $status = [VolunteerStatus::Parts->value, VolunteerStatus::Active->value, VolunteerStatus::InBreak->value];
         return [
             'last_name' => fake()->lastName(),
             'first_name' => fake()->firstName(),
             'email' => fake()->unique()->safeEmail(),
             'address' => fake()->city(),
             'postal_code' => '4000',
-            'status' => UserStatus::Admin->value,
-            'password' => static::$password ??= Hash::make('1234567890'),
+            'role' => $this->faker->randomElement($roles),
+            'status' => $this->faker->randomElement($status),
+            'password' => Hash::make('1234567890'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10)
         ];
