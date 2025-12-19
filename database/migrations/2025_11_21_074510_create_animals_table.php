@@ -22,6 +22,7 @@ return new class extends Migration
             $table->timestamp('birth_date');
             $table->string('state');
             $table->string('img_path');
+            $table->timestamp('adopted_at')->nullable();
             $table->timestamps();
         });
     }

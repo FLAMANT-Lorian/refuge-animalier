@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
+
 use App\Enums\AnimalStatus;
 use App\Models\Animal;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Carbon;
 
 class AnimalFactory extends Factory
 {
@@ -25,6 +26,8 @@ class AnimalFactory extends Factory
 
         $states = [AnimalStatus::Adopted->value, AnimalStatus::InTreatment->value, AnimalStatus::ProcessOfAdoption->value, AnimalStatus::AwaitingAdoption->value];
 
+        $adopted_at = [null, Carbon::now()];
+
 
         return [
             'name' => $this->faker->randomElement($animals_name),
@@ -35,7 +38,8 @@ class AnimalFactory extends Factory
             'description' => $this->faker->text(),
             'birth_date' => $this->faker->date(),
             'state' => $this->faker->randomElement($states),
-            'img_path' => 'public_2.webp'
+            'img_path' => 'public_2.webp',
+            'adopted_at' => $this->faker->randomElement($adopted_at)
         ];
     }
 }
