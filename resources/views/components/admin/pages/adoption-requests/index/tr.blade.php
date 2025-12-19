@@ -10,7 +10,8 @@
                name="adoption_request_{!! $adoption_request->id !!}"
                id="adoption_request_{!! $adoption_request->id !!}"
                title="{!! __('admin/adoption-requests.one_selector') !!}">
-        <label for="adoption_request_{!! $adoption_request->id !!}" class="sr-only">{!! __('admin/adoption-requests.one_selector') !!}</label>
+        <label for="adoption_request_{!! $adoption_request->id !!}"
+               class="sr-only">{!! __('admin/adoption-requests.one_selector') !!}</label>
     </td>
 
     <td class="lg:flex-1 h-full lg:text-left font-normal">
@@ -18,10 +19,11 @@
             <span class="lg:hidden font-bold">
                 {!! __('admin/adoption-requests.full_name') !!}&nbsp;:
             </span>
-            <button wire:click="openModal('adoption-request')"
-                    class="text-left lg:px-4 lg:py-4 hover:cursor-pointer hover:font-bold transition-all ease-in-out duration-200">
+            <a href="{{ route('admin.adoption-requests.edit', $adoption_request) }}"
+               title=""
+               class="text-left lg:px-4 lg:py-4 hover:cursor-pointer hover:font-bold transition-all ease-in-out duration-200">
                 {!! $adoption_request->full_name !!}
-            </button>
+            </a>
         </div>
     </td>
 

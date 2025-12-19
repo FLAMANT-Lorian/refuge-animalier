@@ -14,6 +14,6 @@ return [
 
     // OTHERS
     'field_with' => 'Fields marked with ',
-    'are_required' => 'are required!',
+    'are_required' => ' are required!',
     'send' => 'Send'
 ];
