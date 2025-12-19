@@ -19,7 +19,7 @@
         </div>
 
         {{-- ACTIONS --}}
-        <x-admin.pages.adoption-requests.heading.actions/>
+        <x-admin.pages.adoption-requests.index.heading.actions/>
     </div>
 
 </section>

@@ -8,9 +8,6 @@
         {{-- FIELDSET ANIMAL --}}
         <x-admin.pages.animals.create.animal-fieldset/>
 
-        {{-- FIELDSET ADOPTANT --}}
-        <x-admin.pages.animals.create.adopter-fieldset/>
-
         <x-forms.buttons.normal-button-submit
             class="self-end"
             :label="__('admin/animals.create_animal_btn')"/>

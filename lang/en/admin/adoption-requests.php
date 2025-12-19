@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // INDEX
     'title' => 'Adoption Requests',
     'breadcrumb_title' => 'To the Adoption Requests Page',
     'sub_title' => 'To the Adoption Requests Page',
@@ -16,5 +17,36 @@ return [
     'status' => 'Status',
     'actions' => 'Actions',
     'view_adoption_request' => 'View Request',
-    'pagination' => 'adoption requests'
+    'pagination' => 'adoption requests',
+    'create_btn' => 'Create an adoption request',
+    'create_btn_title' => 'Create an adoption request',
+
+    // CREATE
+    'create_title' => 'Create a new adoption request',
+    'breadcrumb_create_title' => 'Go to the adoption request creation page',
+    'fieldset_title' => 'Basic information',
+    'phone' => 'Phone',
+    'phone_placeholder' => '0725 82 92 56',
+    'address' => 'Address',
+    'address_placeholder' => 'Garden Street ...',
+    'message' => 'Message',
+    'message_placeholder' => 'I would like to adopt this animal ...',
+    'postal_code' => 'Postal code',
+    'postal_code_placeholder' => '4000',
+    'housing' => 'Housing',
+    'housing_placeholder' => 'House',
+    'outdoor_area' => 'Do you have a outside area ?',
+    'children' => 'Do you have children?',
+    'children_count' => 'Number of children',
+    'children_count_placeholder' => '3',
+    'animals_at_home' => 'Pets at home',
+    'animals_at_home_type' => 'Types of pets',
+    'animals_at_home_type_placeholder' => 'Dog, ...',
+    'btn' => 'Create adoption request',
+    'environment' => 'Environment',
+
+    // EDIT
+    'edit_title' => 'Edit the adoption request of ',
+    'edit_btn' => 'Edit the adoption request',
+    'breadcrumb_edit_title' => 'Go to the adoption request edit page',
 ];

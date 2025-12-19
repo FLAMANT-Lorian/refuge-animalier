@@ -6,7 +6,8 @@
     'value',
     'required' => false,
     'min_number',
-    'max_number'
+    'max_number',
+    'js_class' => ''
 ])
 
 <div {!! $attributes->merge(['class' => 'relative flex flex-col gap-1']) !!}>
@@ -17,7 +18,7 @@
         @endif
     </label>
     <input
-        class="focus:outline-gray-400 transition-all px-4 py-3 bg-gray-50 outline outline-gray-200 rounded-lg placeholder:text-gray-500"
+        class="{{ $js_class }} disabled:text-gray-200 focus:outline-gray-400 transition-all px-4 py-3 bg-gray-50 outline outline-gray-200 rounded-lg placeholder:text-gray-500"
         placeholder="{!! $placeholder ?? '' !!}"
         type="number"
         @isset($min_number)

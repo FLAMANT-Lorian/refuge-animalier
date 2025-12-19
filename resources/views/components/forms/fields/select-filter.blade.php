@@ -27,7 +27,7 @@
         @endif
         @foreach ($collection as $item)
             <option value="{!! $item->$identifier !!}">
-                {!! $item->$identifier !!}
+                {!! __('enum.' . $item->$identifier . '_filter') !!}
             </option>
         @endforeach
     </select>
