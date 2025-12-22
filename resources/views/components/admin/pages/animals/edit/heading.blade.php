@@ -6,7 +6,7 @@
 <section class="flex flex-col gap-4">
 
     {{-- FIL D'ARIANE --}}
-    <span class="flex flex-row gap-1 items-center">
+    <span class="flex flex-row flex-wrap gap-1 items-center">
                 –
                 <a wire:navigate
                    class="text-gray-500"

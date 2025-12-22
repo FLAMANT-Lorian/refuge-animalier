@@ -26,4 +26,10 @@ return [
     'in_treatment' => 'En soin',
     'process_of_adoption' => 'En cours d’adoption',
     'awaiting_adoption' => 'En attente d’adoption',
+
+    // AnimalStatusFilter
+    'adopted_filter' => 'Adoptés',
+    'in_treatment_filter' => 'En soins',
+    'process_of_adoption_filter' => 'En cours d’adoption',
+    'awaiting_adoption_filter' => 'En attente d’adoption',
 ];

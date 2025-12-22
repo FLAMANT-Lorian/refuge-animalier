@@ -94,6 +94,7 @@ return [
     'create_volunteer_departure_hour_placeholder' => '12:12',
     'create_animal_btn' => 'Create the animal sheet',
     'create_loading_label' => 'Recording in progress',
+    'create_flash_message' => 'Animals successfully created !',
 
     // EDIT
     'edit_title' => 'Edit the animal sheet',
@@ -107,4 +108,5 @@ return [
     'edit_danger_zone_title' => 'Delete the animal sheet',
     'edit_danger_zone_subtitle' => 'After deletion, this sheet cannot be recovered!',
     'edit_danger_zone_btn' => 'Delete the animal sheet',
+    'edit_flash_message' => 'Animals successfully updated !',
 ];

@@ -29,11 +29,13 @@ class extends Component {
 
         $animal = $this->form->store();
 
-        redirect(route('admin.animals.show', [
+        session()->flash('status', __('admin/animals.create_flash_message'));
+
+        $this->redirectRoute('admin.animals.show', [
                 'locale' => app()->getLocale(),
                 'animal' => $animal
             ]
-        ));
+        );
     }
 
     public function openModal(string $modal): void

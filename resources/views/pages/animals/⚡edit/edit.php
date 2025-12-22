@@ -35,11 +35,13 @@ class extends Component {
 
         $animal = $this->form->update();
 
-        redirect(route('admin.animals.show', [
+        session()->flash('status', __('admin/animals.edit_flash_message'));
+
+        $this->redirectRoute('admin.animals.show', [
                 'locale' => app()->getLocale(),
                 'animal' => $animal
             ]
-        ));
+        );
     }
 
     public function openModal(string $modal, Animal $animal = null): void

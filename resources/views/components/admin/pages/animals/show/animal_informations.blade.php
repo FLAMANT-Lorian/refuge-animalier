@@ -16,7 +16,7 @@
 
     <div class="flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">
         <dt class="text-base">{!! __('admin/animals.show_breed') !!}</dt>
-        <dd class="text-lg font-bold">{!! $animal->breed !!}</dd>
+        <dd class="text-lg font-bold">{!! $animal->breed->name !!}</dd>
     </div>
 
     <div class="flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">
@@ -30,7 +30,7 @@
     </div>
 
     <div
-        class="min-h-[12.5rem] md:min-h-full flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">
+        class="max-h-[9rem] min-h-50 md:min-h-full flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">
         <dt class="text-base font-bold">{!! __('admin/animals.show_vaccines') !!}</dt>
         @if(!empty($animal->vaccines))
             <dd class="text-base">{!! $animal->vaccines !!}</dd>
@@ -40,9 +40,9 @@
     </div>
 
     <div
-        class="md:col-start-2 md:col-end-3 row-start-3 row-end-5 min-h-[12.5rem] md:min-h-full flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">
+        class="max-h-[18rem] overflow-auto md:col-start-2 md:col-end-3 row-start-3 row-end-5 min-h-[12.5rem] md:min-h-full flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">
         <dt class="text-base font-bold">{!! __('admin/animals.show_description') !!}</dt>
-        <dd class="text-base overflow-y-auto">{!! $animal->description !!}</dd>
+        <dd class="text-base overflow-y-auto">{!! $animal->character !!}</dd>
     </div>
 
     <div

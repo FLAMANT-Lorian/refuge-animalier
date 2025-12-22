@@ -94,6 +94,7 @@ return [
     'create_volunteer_departure_hour_placeholder' => '12:12',
     'create_animal_btn' => 'Créer la fiche de l’animal',
     'create_loading_label' => 'Enregistrement en cours',
+    'create_flash_message' => 'Animal créé avec succès !',
 
     // EDIT
     'edit_title' => 'Modification de la fiche de l’animal',
@@ -107,4 +108,5 @@ return [
     'edit_danger_zone_title' => 'Supprimer la fiche de l’animal',
     'edit_danger_zone_subtitle' => 'Après suppression, cette fiche ne pourra plus être récupérée !',
     'edit_danger_zone_btn' => 'Supprimer la fiche de l’animal',
+    'edit_flash_message' => 'Animal modifié avec succès !',
 ];

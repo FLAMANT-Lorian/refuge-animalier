@@ -25,6 +25,12 @@
 
     {{ $slot }}
 
+    @if (session('status'))
+        <div
+            class="flash-message fixed top-24 lg:top-12 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full border border-gray-100 bg-green-500 text-white font-base z-50">
+            {{ session('status') }}
+        </div>
+    @endif
 </body>
 </html>
 
