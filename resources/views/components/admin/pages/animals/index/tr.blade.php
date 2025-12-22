@@ -40,7 +40,7 @@
                 {!! __('admin/animals.show_breed') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
-                {!! $animal->breed !!}
+                {!! $animal->breed->name !!}
             </span>
         </div>
     </td>

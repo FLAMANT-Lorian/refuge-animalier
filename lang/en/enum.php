@@ -15,5 +15,15 @@ return [
     'refused_filter' => 'Refused',
     'in_way_filter' => 'In Way',
     'closed_filter' => 'Closed',
-    'awaiting_filter' => 'Awaiting'
+    'awaiting_filter' => 'Awaiting',
+
+    // Sex
+    'male' => 'Male',
+    'female' => 'Female',
+
+    // AnimalStatus
+    'adopted' => 'Adopted',
+    'in_treatment' => 'Under treatment',
+    'process_of_adoption' => 'In the process of adoption',
+    'awaiting_adoption' => 'Awaiting adoption',
 ];

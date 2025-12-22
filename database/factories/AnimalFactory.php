@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Sex;
 use Carbon\Carbon;
 
 use App\Enums\AnimalStatus;
@@ -14,13 +15,12 @@ class AnimalFactory extends Factory
 
     public function definition(): array
     {
-        $breed = ['Caniche', 'Berger Allemand', 'Dobermann'];
 
         $animals_name = ['Pedro', 'Pascal', 'Capsule', 'Cléopatre', 'Harber'];
 
         $colors = ['Brun', 'Blanc', 'Noir'];
 
-        $sex = ['Mâle', 'Femelle'];
+        $sex = [Sex::Male->value, Sex::Female->value];
 
         $vaccines = [null, 'Rage'];
 
@@ -31,7 +31,6 @@ class AnimalFactory extends Factory
 
         return [
             'name' => $this->faker->randomElement($animals_name),
-            'breed' => $this->faker->randomElement($breed),
             'sex' => $this->faker->randomElement($sex),
             'coat' => $this->faker->randomElement($colors),
             'vaccines' => $this->faker->randomElement($vaccines),

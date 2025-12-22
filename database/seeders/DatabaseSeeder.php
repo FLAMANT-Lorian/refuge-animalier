@@ -7,6 +7,7 @@ use App\Models\AdoptionRequest;
 use App\Models\Animal;
 use App\Models\AnimalNote;
 use App\Models\AnimalSheet;
+use App\Models\Breed;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -34,11 +35,16 @@ class DatabaseSeeder extends Seeder
                 'role' => UserStatus::Volunteer->value
             ]);
 
+        $breeds = Breed::factory()->count(50)->create();
+
         Animal::factory()
             ->has(AnimalNote::factory()->count(8))
             ->has(AnimalSheet::factory()->for($user))
             ->has(AdoptionRequest::factory()->count(2))
             ->count(30)
+            ->afterMaking(function (Animal $animal) use ($breeds) {
+                return $animal->breed_id = $breeds->random()->id;
+            })
             ->create();
 
         Message::factory()

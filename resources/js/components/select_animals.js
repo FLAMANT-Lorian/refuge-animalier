@@ -1,5 +1,5 @@
 (function () {
-    const childrenSelect = {
+    const animalSelect = {
         select: document.querySelector('.animals_select'),
         inputNumber: document.querySelector('.animals_number'),
 
@@ -18,5 +18,9 @@
             }
         }
     };
-    childrenSelect.init();
+    if (document.querySelector('main').classList.contains('volunteer-create') ||
+        document.querySelector('main').classList.contains('volunteer-show')
+    ) {
+        animalSelect.init();
+    }
 })();
