@@ -26,5 +26,8 @@
     @elseif($openDeleteNote)
         <x-admin.modals.animals.show.deleteNote
             :animal="$animalToDeleteNote"/>
+    @elseif($openUpdateRequest)
+        <x-admin.modals.animals.show.updateRequest
+            :animal="$animalToAskToUpdate"/>
     @endif
 </main>

@@ -25,13 +25,13 @@ class DatabaseSeeder extends Seeder
         $user = User::factory([
             'first_name' => 'Lorian',
             'last_name' => 'Flamant',
-            'email' => 'lorian@test.be',
+            'email' => 'lorian@admin.be',
             'role' => UserStatus::Admin->value
         ])->create();
 
         $user1 = User::factory()
-            ->count(24)
             ->create([
+                'email' => 'lorian@volunteer.be',
                 'role' => UserStatus::Volunteer->value
             ]);
 

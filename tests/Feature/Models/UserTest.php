@@ -15,8 +15,8 @@ it('verfies if you can get the fullName of a user in database',
 
 it('verifies if you can confirm that a user is admin or volunteer',
     function () {
-        $user1 = User::factory()->create(['status' => UserStatus::Admin->value]);
-        $user2 = User::factory()->create(['status' => UserStatus::Volunteer->value]);
+        $user1 = User::factory()->create(['role' => UserStatus::Admin->value]);
+        $user2 = User::factory()->create(['role' => UserStatus::Volunteer->value]);
 
         $user1IsAdmin = $user1->isAdmin();
         $user1IsVolunteer = $user1->isVolunteer();

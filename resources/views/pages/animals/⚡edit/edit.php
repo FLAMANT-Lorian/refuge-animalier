@@ -23,6 +23,8 @@ class extends Component {
 
     public function mount(Animal $animal): void
     {
+        $this->authorize('update', Animal::class);
+
         $this->animal = $animal;
         $this->app_title = __('admin/animals.edit_title');
 
@@ -31,6 +33,9 @@ class extends Component {
 
     public function save(): void
     {
+
+        $this->authorize('update', Animal::class);
+
         $this->form->validate();
 
         $animal = $this->form->update();

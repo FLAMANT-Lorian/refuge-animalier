@@ -17,9 +17,11 @@ class extends Component {
     public bool $openCreateNote = false;
     public bool $openEditNote = false;
     public bool $openDeleteNote = false;
+    public bool $openUpdateRequest = false;
     public Animal $animalToAddNote;
     public Animal $animalToEditNote;
     public Animal $animalToDeleteNote;
+    public Animal $animalToAskToUpdate;
 
     public function mount(Animal $animal): void
     {
@@ -36,8 +38,10 @@ class extends Component {
             ->withPath(route('admin.animals.show', ['locale' => config('app.locale'), 'animal' => $this->animal]));
     }
 
-    public function openModal(string $modal, Animal $animal = null): void
+    public function openModal(string $modal, int $id = null): void
     {
+        $animal = Animal::findOrFail($id);
+
         if ($animal !== null) {
 
             if ($modal === 'create-note') {
@@ -49,6 +53,9 @@ class extends Component {
             } else if ($modal === 'delete-note') {
                 $this->animalToDeleteNote = $animal;
                 $this->openDeleteNote = true;
+            } else if ($modal === 'update-request') {
+                $this->animalToAskToUpdate = $animal;
+                $this->openUpdateRequest = true;
             }
         }
 
@@ -61,6 +68,7 @@ class extends Component {
         $this->openCreateNote = false;
         $this->openEditNote = false;
         $this->openDeleteNote = false;
+        $this->openUpdateRequest = false;
         $this->dispatch('close-modal');
     }
 };

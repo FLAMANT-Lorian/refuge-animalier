@@ -6,36 +6,20 @@ use App\Enums\AnimalStatus;
 use App\Enums\Sex;
 use App\Models\Animal;
 use App\Models\Breed;
-use App\Traits\AnimalsExtraValidationRules;
-use Livewire\Attributes\Validate;
+use App\Traits\AnimalsRules;
 use Livewire\Form;
 
 class AnimalCreateForm extends Form
 {
-    use AnimalsExtraValidationRules;
+    use AnimalsRules;
 
-    #[Validate('required')]
     public string $name;
-
-    #[Validate('required|date_format:Y-m-d')]
     public string $birth_date;
-
-    #[Validate('required')]
     public string $sex;
-
-    #[Validate('required|exists:breeds,id')]
     public string $breed;
-
-    #[Validate('required')]
     public string $coat;
-
-    #[Validate('nullable')]
     public ?string $vaccines;
-
-    #[Validate('required')]
     public string $state;
-
-    #[Validate('required')]
     public string $character;
 
     public function setAnimal(): void

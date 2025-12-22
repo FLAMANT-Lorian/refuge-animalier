@@ -53,18 +53,18 @@
 
             {{-- VOIR LA NOTE - MOBILE --}}
             <button type="button"
-                    wire:click="openModal('edit-note', {!! $animal !!})"
+                    wire:click="openModal('edit-note', {!! $animal->id !!})"
                     class="cursor-pointer lg:hidden font-medium px-4 py-2.5 bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
                 {!! __('admin/animals.view_visit_note') !!}
             </button>
 
             {{-- EDIT --}}
             <x-table.edit-modal
-                wire:click="openModal('edit-note', {!! $animal !!})"/>
+                wire:click="openModal('edit-note', {!! $animal->id !!})"/>
 
             {{-- DELETE --}}
             <x-table.delete
-                wire:click="openModal('delete-note', {!! $animal !!})"/>
+                wire:click="openModal('delete-note', {!! $animal->id !!})"/>
 
         </div>
     </td>

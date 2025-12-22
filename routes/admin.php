@@ -9,7 +9,9 @@ Route::prefix('{locale}')->middleware([SetLocale::class, 'auth'])->group(functio
     Route::livewire('/admin/settings', 'pages::settings')->name('admin.settings');
 
     Route::livewire('/admin/animals', 'pages::animals.index')->name('admin.animals.index');
+
     Route::livewire('/admin/animals/create', 'pages::animals.create')->name('admin.animals.create');
+
     Route::livewire('/admin/animals/{animal}/edit', 'pages::animals.edit')->name('admin.animals.edit');
     Route::livewire('/admin/animals/{animal}', 'pages::animals.show')->name('admin.animals.show');
 

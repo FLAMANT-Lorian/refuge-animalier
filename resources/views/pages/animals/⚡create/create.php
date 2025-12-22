@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Forms\AnimalCreateForm;
+use App\Models\Animal;
 use App\Traits\getBreeds;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -18,6 +19,8 @@ class extends Component {
 
     public function mount(): void
     {
+        $this->authorize('create', Animal::class);
+
         $this->app_title = __('admin/animals.create_title');
 
         $this->form->setAnimal();
@@ -25,6 +28,8 @@ class extends Component {
 
     public function save(): void
     {
+        $this->authorize('create', Animal::class);
+
         $this->form->validate();
 
         $animal = $this->form->store();
