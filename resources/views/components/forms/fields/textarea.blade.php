@@ -1,5 +1,5 @@
 @props([
-    'wire',
+    'wire' => '',
     'field_name',
     'name',
     'label',

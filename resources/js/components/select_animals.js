@@ -5,13 +5,13 @@
 
         init() {
             this.inputNumber.disabled = true;
-            this.select.addEventListener('change', e => {
-                this.handleSelect();
+            this.select.addEventListener('change', e  => {
+                this.handleSelect(e);
             });
         },
 
-        handleSelect() {
-            if (this.select.value === 'yes') {
+        handleSelect(event) {
+            if (event.currentTarget.value === 'yes') {
                 this.inputNumber.disabled = false;
             } else if (this.select.value === 'no') {
                 this.inputNumber.disabled = true;

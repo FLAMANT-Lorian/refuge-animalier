@@ -56,7 +56,7 @@ class AnimalCreateForm extends Form
             'vaccines' => $this->vaccines ?? null,
             'state' => $this->state,
             'img_path' => 'public_2.webp',
-            'description' => $this->character,
+            'character' => $this->character,
         ]);
     }
 }

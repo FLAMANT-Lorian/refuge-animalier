@@ -34,7 +34,7 @@ class AnimalFactory extends Factory
             'sex' => $this->faker->randomElement($sex),
             'coat' => $this->faker->randomElement($colors),
             'vaccines' => $this->faker->randomElement($vaccines),
-            'description' => $this->faker->text(),
+            'character' => $this->faker->text(),
             'birth_date' => $this->faker->date(),
             'state' => $this->faker->randomElement($states),
             'img_path' => 'public_2.webp',

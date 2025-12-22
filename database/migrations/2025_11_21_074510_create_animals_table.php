@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('breed_id')->constrained('breeds')->cascadeOnDelete();
             $table->string('coat');
             $table->string('vaccines')->nullable();
-            $table->string('description');
+            $table->text('character');
             $table->string('sex');
             $table->timestamp('birth_date');
             $table->string('state');

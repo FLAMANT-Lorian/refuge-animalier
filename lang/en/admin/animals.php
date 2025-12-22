@@ -93,6 +93,7 @@ return [
     'create_volunteer_departure_hour' => 'Departure time',
     'create_volunteer_departure_hour_placeholder' => '12:12',
     'create_animal_btn' => 'Create the animal sheet',
+    'create_loading_label' => 'Recording in progress',
 
     // EDIT
     'edit_title' => 'Edit the animal sheet',
