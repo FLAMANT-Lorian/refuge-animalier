@@ -2,6 +2,7 @@
 
 use App\Models\Animal;
 use App\Models\AnimalSheet;
+use App\Models\Breed;
 use App\Models\User;
 use Livewire\Livewire;
 use function Pest\Laravel\actingAs;
@@ -20,11 +21,13 @@ describe('CONNECTED USER', function () {
 
     it('verifies if a user can see all animals-sheets',
         function () {
-            $animal = Animal::factory()->create();
+            $animal = Animal::factory()->create([
+                'breed_id' => Breed::factory()->create(),
+            ]);
 
             $sheet = AnimalSheet::factory()
-                ->for($animal)
                 ->for($this->user)
+                ->for($animal)
                 ->create();
 
 

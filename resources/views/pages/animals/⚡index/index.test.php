@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Animal;
+use App\Models\Breed;
 use App\Models\User;
 use Livewire\Livewire;
 use function Pest\Laravel\actingAs;
@@ -21,11 +22,13 @@ describe('CONNECTED USER', function () {
 
             $animal = Animal::factory()
                 ->create([
+                    'breed_id' => Breed::factory()->create(),
                     'name' => 'toto'
                 ]);
 
             $other_animal = Animal::factory()
                 ->create([
+                    'breed_id' => Breed::factory()->create(),
                     'name' => 'titi'
                 ]);
 

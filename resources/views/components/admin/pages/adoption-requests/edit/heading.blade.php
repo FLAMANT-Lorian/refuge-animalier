@@ -11,14 +11,14 @@
                 <a wire:navigate
                    class="text-gray-500"
                    title="{!! __('admin/adoption-requests.breadcrumb_title') !!}"
-                   href="{!! route('admin.animals.index', config('app.locale')) !!}">
+                   href="{!! route('admin.animals.index', app()->getLocale()) !!}">
                     {!! __('admin/adoption-requests.title') !!}
                 </a>
                 →
                 <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
                    title="{!! __('admin/adoption-requests.breadcrumb_create_title') !!}"
-                   href="{!! route('admin.adoption-requests.index', config('app.locale')) !!}">
+                   href="{!! route('admin.adoption-requests.index', app()->getLocale()) !!}">
                     {!! $app_title !!}
                 </a>
     </span>

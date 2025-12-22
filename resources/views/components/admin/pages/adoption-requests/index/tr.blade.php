@@ -19,7 +19,7 @@
             <span class="lg:hidden font-bold">
                 {!! __('admin/adoption-requests.full_name') !!}&nbsp;:
             </span>
-            <a href="{{ route('admin.adoption-requests.edit', $adoption_request) }}"
+            <a href="{{ route('admin.adoption-requests.edit', ['locale' => app()->getLocale(), 'adoption_request' => $adoption_request]) }}"
                title=""
                class="text-left lg:px-4 lg:py-4 hover:cursor-pointer hover:font-bold transition-all ease-in-out duration-200">
                 {!! $adoption_request->full_name !!}

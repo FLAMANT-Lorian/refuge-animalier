@@ -25,7 +25,6 @@
             :label="__('admin/adoption-requests.outdoor_area')"
             :collection="YesOrNo::cases()"
             identifier="value"
-            :value="YesOrNo::No"
         />
 
         {{-- ENFANT --}}
@@ -35,7 +34,6 @@
             :label="__('admin/adoption-requests.children')"
             :collection="YesOrNo::cases()"
             identifier="value"
-            :value="YesOrNo::No"
         />
 
         {{-- Nombre d’enfant -> SI ENFANT = YES--}}
@@ -54,7 +52,6 @@
             :label="__('admin/adoption-requests.animals_at_home')"
             :collection="YesOrNo::cases()"
             identifier="value"
-            :value="YesOrNo::No"
         />
 
         {{-- type d’animaux -> Si Animaux = YES--}}

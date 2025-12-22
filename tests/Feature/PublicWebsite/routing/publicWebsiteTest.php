@@ -2,6 +2,7 @@
 
 use App\Enums\AnimalStatus;
 use App\Models\Animal;
+use App\Models\Breed;
 use App\Models\User;
 
 it('verifies if a guest can access to the public website home page', function () {
@@ -31,8 +32,9 @@ it('verifies if a guest can access to the public website animals index page', fu
 it('verifies if a guest can access to the public website animals show page', function () {
     $user = User::factory()->create();
 
-    $animal = Animal::factory()
-        ->create(
+    $animal = Animal::factory([
+        'breed_id' => Breed::factory()->create(),
+    ])->create(
         ['state' => AnimalStatus::AwaitingAdoption->value]
     )->toArray();
 

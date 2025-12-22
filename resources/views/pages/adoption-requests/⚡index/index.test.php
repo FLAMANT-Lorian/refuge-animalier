@@ -2,6 +2,7 @@
 
 use App\Models\AdoptionRequest;
 use App\Models\Animal;
+use App\Models\Breed;
 use App\Models\User;
 use Livewire\Livewire;
 use function Pest\Laravel\actingAs;
@@ -24,10 +25,14 @@ describe('CONNECTED USER', function () {
         function () {
 
             $animal1 = Animal::factory()
-                ->create();
+                ->create([
+                    'breed_id' => Breed::factory()->create(),
+                ]);
 
             $animal2 = Animal::factory()
-                ->create();
+                ->create([
+                    'breed_id' => Breed::factory()->create(),
+                ]);
 
             $adoptionsRequest1 = AdoptionRequest::factory()
                 ->for($animal1)

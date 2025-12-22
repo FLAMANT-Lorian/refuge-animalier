@@ -2,6 +2,7 @@
 
 use App\Models\Animal;
 use App\Models\AnimalSheet;
+use App\Models\Breed;
 use App\Models\User;
 
 it('verifies if you can create an sheets for an animal and recover it using the relation',
@@ -9,7 +10,9 @@ it('verifies if you can create an sheets for an animal and recover it using the 
         $user = User::factory()->create();
 
         $animal = Animal::factory()
-            ->create();
+            ->create([
+                'breed_id' => Breed::factory()->create(),
+            ]);
 
         $sheet = AnimalSheet::factory()
             ->for($animal)
