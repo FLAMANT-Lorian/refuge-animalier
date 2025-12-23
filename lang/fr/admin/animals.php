@@ -38,7 +38,7 @@ return [
     'show_color' => 'Pelage',
     'show_sex' => 'Sexe',
     'show_vaccines' => 'Vaccins',
-    'no_vaccines' => 'Non resneignés',
+    'no_vaccines' => 'Non renseignés',
     'show_description' => 'Caractère',
     'show_pictures' => 'Photos',
     'picture_of' => 'Image de ',
@@ -109,4 +109,13 @@ return [
     'edit_danger_zone_subtitle' => 'Après suppression, cette fiche ne pourra plus être récupérée !',
     'edit_danger_zone_btn' => 'Supprimer la fiche de l’animal',
     'edit_flash_message' => 'Animal modifié avec succès !',
+
+    // DELETE
+    'delete_flash_message' => 'Animal supprimé avec succès !',
+
+    // MODAL
+    'delete_modal_title' => 'Supprimer l’animal',
+    'delete_modal_sub_title' => 'Êtes-vous sûr de vouloir supprimer la fiche de ',
+    'delete_modal_btn' => 'Supprimer le fiche de ',
+
 ];

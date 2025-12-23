@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Animal;
+use App\Traits\DeleteAnimal;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -11,6 +12,7 @@ new #[Title('admin/page_title.animals_index')]
 class extends Component {
 
     use WithPagination;
+    use DeleteAnimal;
 
     public string $app_title;
     public bool $openDeleteAnimal = false;
@@ -35,14 +37,23 @@ class extends Component {
         return Animal::count();
     }
 
-    public function openModal(string $modal, Animal $animal = null): void
+    public function delete(int $id): void
     {
+        $this->authorize('delete', Animal::class);
+
+        $this->deleteAnimal($id);
+
+        $this->redirectRoute('admin.animals.index', ['locale' => app()->getLocale()]);
+
+        $this->closeModal();
+    }
+
+    public function openModal(string $modal, int $id): void
+    {
+        $animal = Animal::findOrFail($id);
+
         if ($modal === 'delete-animal') {
-
-            if ($animal !== null) {
-                $this->animalToDelete = $animal;
-            }
-
+            $this->animalToDelete = $animal;
             $this->openDeleteAnimal = true;
         }
 

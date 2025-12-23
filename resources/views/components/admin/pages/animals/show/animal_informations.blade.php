@@ -26,7 +26,7 @@
 
     <div class="flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">
         <dt class="text-base font-bold">{!! __('admin/animals.show_sex') !!}</dt>
-        <dd class="text-base overflow-y-auto">{!! $animal->sex !!}</dd>
+        <dd class="text-base overflow-y-auto">{!! __('enum.' . $animal->sex) !!}</dd>
     </div>
 
     <div

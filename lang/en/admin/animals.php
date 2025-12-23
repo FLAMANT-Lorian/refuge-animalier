@@ -109,4 +109,12 @@ return [
     'edit_danger_zone_subtitle' => 'After deletion, this sheet cannot be recovered!',
     'edit_danger_zone_btn' => 'Delete the animal sheet',
     'edit_flash_message' => 'Animals successfully updated !',
+
+    // DELETE
+    'delete_flash_message' => 'Animal successfully deleted !',
+
+    // MODAL
+    'delete_modal_title' => 'Delete Animal',
+    'delete_modal_sub_title' => 'Are you sure you want to delete the record of ',
+    'delete_modal_btn' => 'Delete the record of ',
 ];
