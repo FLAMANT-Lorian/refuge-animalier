@@ -19,7 +19,7 @@
     @if($openAddBreed)
         <x-admin.modals.animals.edit.addBreed/>
     @elseif($openDeleteAnimal)
-        <x-admin.modals.animals.edit.deleteAnimal
+        <x-admin.modals.animals.index.deleteAnimal
             :animal="$animalToDelete"/>
     @endif
 </main>

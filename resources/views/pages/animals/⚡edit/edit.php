@@ -2,6 +2,7 @@
 
 use App\Livewire\Forms\AnimalEditForm;
 use App\Models\Animal;
+use App\Traits\DeleteAnimal;
 use App\Traits\getBreeds;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -10,6 +11,7 @@ new #[Title('admin/page_title.animals_edit')]
 class extends Component {
 
     use getBreeds;
+    use DeleteAnimal;
 
     public AnimalEditForm $form;
 
@@ -31,6 +33,17 @@ class extends Component {
         $this->form->setAnimal($this->animal);
     }
 
+    public function delete(int $id): void
+    {
+        $this->authorize('delete', Animal::class);
+
+        $this->deleteAnimal($id);
+
+        $this->redirectRoute('admin.animals.index', ['locale' => app()->getLocale()]);
+
+        $this->closeModal();
+    }
+
     public function save(): void
     {
 
@@ -49,13 +62,13 @@ class extends Component {
         );
     }
 
-    public function openModal(string $modal, Animal $animal = null): void
+    public function openModal(string $modal, int $id = null): void
     {
         if ($modal === 'add-breed') {
             $this->openAddBreed = true;
         } elseif ($modal === 'delete-animal') {
-            if ($animal !== null) {
-                $this->animalToDelete = $animal;
+            if ($id !== null) {
+                $this->animalToDelete = Animal::findOrFail($id);
             }
 
             $this->openDeleteAnimal = true;
