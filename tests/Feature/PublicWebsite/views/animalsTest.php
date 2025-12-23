@@ -11,7 +11,9 @@ it('verifies if the animals that are displays in the animals index page are the 
     foreach (AnimalStatus::cases() as $status) {
         Animal::factory()
             ->create([
-                'breed_id' => Breed::factory()->create(),
+                'breed_id' => Breed::factory()->create([
+                    'species_id' => \App\Models\Species::factory()->create()
+                ]),
                 'state' => $status->value
             ]);
     }
@@ -33,7 +35,9 @@ it('verifies if a guest can access to a animal detail page and that the informat
     $animal = Animal::factory()
         ->create(
             [
-                'breed_id' => Breed::factory()->create(),
+                'breed_id' => Breed::factory()->create([
+                    'species_id' => \App\Models\Species::factory()->create()
+                ]),
                 'state' => AnimalStatus::ProcessOfAdoption->value,
                 'name' => 'toto'
             ]
@@ -41,7 +45,9 @@ it('verifies if a guest can access to a animal detail page and that the informat
 
     $other_animal = Animal::factory()
         ->create([
-            'breed_id' => Breed::factory()->create(),
+            'breed_id' => Breed::factory()->create([
+                'species_id' => \App\Models\Species::factory()->create()
+            ]),
         ])
         ->toArray();
 

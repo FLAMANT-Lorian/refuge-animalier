@@ -9,7 +9,9 @@ it('verifies if you can create an note for a animal and recover it using the rel
     function () {
         $animal = Animal::factory()
             ->create([
-                'breed_id' => Breed::factory()->create(),
+                'breed_id' => Breed::factory()->create([
+                    'species_id' => \App\Models\Species::factory()->create()
+                ]),
             ]);
 
         $animal_note = AnimalNote::factory()

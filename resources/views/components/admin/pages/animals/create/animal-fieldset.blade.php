@@ -43,7 +43,7 @@
 
         {{-- RACE -> TODO : CHANGER LE SELECT AVEC LES VALEURS DE DB --}}
         <div class="relative">
-            <x-forms.fields.select
+            <x-forms.fields.select-animal
                 wire="form.breed"
                 field_name="breed"
                 label="Race"

@@ -14,7 +14,9 @@ describe('CONNECTED USER', function () {
     it('verifies if a you can access to the admin animals show page', function () {
 
         $animal = Animal::factory([
-            'breed_id' => Breed::factory()->create()
+            'breed_id' => Breed::factory()->create([
+                'species_id' => \App\Models\Species::factory()->create()
+            ])
         ])->create();
 
         Livewire::test('pages::animals.show', ['animal' => $animal,])
@@ -25,14 +27,18 @@ describe('CONNECTED USER', function () {
         function () {
             $animal = Animal::factory()
                 ->create([
-                    'breed_id' => Breed::factory()->create(),
+                    'breed_id' => Breed::factory()->create([
+                        'species_id' => \App\Models\Species::factory()->create()
+                    ]),
                     'name' => 'toto'
                 ]);
 
             $user1 = User::factory()->create();
             $animal1 = Animal::factory()
                 ->create([
-                    'breed_id' => Breed::factory()->create(),
+                    'breed_id' => Breed::factory()->create([
+                        'species_id' => \App\Models\Species::factory()->create()
+                    ]),
                     'name' => 'titi'
                 ]);
 

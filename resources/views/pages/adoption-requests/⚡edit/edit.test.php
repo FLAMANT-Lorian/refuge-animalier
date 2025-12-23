@@ -7,7 +7,9 @@ use Livewire\Livewire;
 
 it('renders successfully', function () {
     $animal = Animal::factory()->create([
-        'breed_id' => Breed::factory()->create(),
+        'breed_id' => Breed::factory()->create([
+            'species_id' => \App\Models\Species::factory()->create()
+        ]),
     ]);
 
     $adoption_request = AdoptionRequest::factory()->for($animal)->create();

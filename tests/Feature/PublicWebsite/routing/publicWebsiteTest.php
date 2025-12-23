@@ -33,7 +33,9 @@ it('verifies if a guest can access to the public website animals show page', fun
     $user = User::factory()->create();
 
     $animal = Animal::factory([
-        'breed_id' => Breed::factory()->create(),
+        'breed_id' => Breed::factory()->create([
+            'species_id' => \App\Models\Species::factory()->create()
+        ]),
     ])->create(
         ['state' => AnimalStatus::AwaitingAdoption->value]
     )->toArray();

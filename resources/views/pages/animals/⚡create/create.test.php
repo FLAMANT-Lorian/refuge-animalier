@@ -16,7 +16,9 @@ describe('VOLUNTEER USER', function () {
         ]);
         actingAs($this->user);
 
-        Breed::factory()->count(50)->create();
+        Breed::factory()->count(50)->create([
+            'species_id' => \App\Models\Species::factory()->create()
+        ]);
     });
 
     it('verifies if a you a volunteer can’t access to the admin animals create page', function () {
@@ -33,7 +35,9 @@ describe('ADMIN USER', function () {
         ]);
         actingAs($this->user);
 
-        Breed::factory()->count(50)->create();
+        Breed::factory()->count(50)->create([
+            'species_id' => \App\Models\Species::factory()->create()
+        ]);
     });
 
     it('verifies if a you an admin can access to the admin animals create page', function () {

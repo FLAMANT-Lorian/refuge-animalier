@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('breeds', function (Blueprint $table) {
+        Schema::create('species', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('species_id')->constrained('species')->cascadeOnDelete();
             $table->string('name');
             $table->timestamps();
         });
@@ -17,6 +16,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('breeds');
+        Schema::dropIfExists('species');
     }
 };

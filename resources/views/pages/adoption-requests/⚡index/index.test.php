@@ -26,12 +26,16 @@ describe('CONNECTED USER', function () {
 
             $animal1 = Animal::factory()
                 ->create([
-                    'breed_id' => Breed::factory()->create(),
+                    'breed_id' => Breed::factory()->create([
+                        'species_id' => \App\Models\Species::factory()->create()
+                    ]),
                 ]);
 
             $animal2 = Animal::factory()
                 ->create([
-                    'breed_id' => Breed::factory()->create(),
+                    'breed_id' => Breed::factory()->create([
+                        'species_id' => \App\Models\Species::factory()->create()
+                    ]),
                 ]);
 
             $adoptionsRequest1 = AdoptionRequest::factory()

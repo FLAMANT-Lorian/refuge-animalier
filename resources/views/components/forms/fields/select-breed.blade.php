@@ -1,5 +1,4 @@
 @props([
-    'wire' => '',
     'field_name',
     'label',
     'name',
@@ -17,13 +16,12 @@
         @endif
     </label>
     <select
-        wire:model="{{ $wire }}"
         class="cursor-pointer select_form pl-4 pr-7 py-3 outline bg-gray-50 outline-gray-200 focus:outline-gray-400 rounded-lg font-medium"
         name="{!! $name !!}"
         id="{!! $field_name !!}">
         @foreach ($collection as $item)
             <option value="{!! $item->id !!}">
-                {!! $item->name . ' (' .  $item->species->name . ')' !!}
+                {!! $item->name . ' (' .  $item->breed . ')' !!}
             </option>
         @endforeach
     </select>

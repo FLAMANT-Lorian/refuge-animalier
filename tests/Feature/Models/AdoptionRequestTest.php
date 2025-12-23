@@ -10,7 +10,9 @@ it('verifies if you can create an adoption-request for an animal and recover it 
 
         $animal = Animal::factory()
             ->create([
-                'breed_id' => Breed::factory()->create(),
+                'breed_id' => Breed::factory()->create([
+                    'species_id' => \App\Models\Species::factory()->create()
+                ]),
             ]);
 
         $adoption_requests = AdoptionRequest::factory()

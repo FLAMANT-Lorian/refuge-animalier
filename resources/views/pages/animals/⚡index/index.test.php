@@ -22,13 +22,17 @@ describe('CONNECTED USER', function () {
 
             $animal = Animal::factory()
                 ->create([
-                    'breed_id' => Breed::factory()->create(),
+                    'breed_id' => Breed::factory()->create([
+                        'species_id' => \App\Models\Species::factory()->create()
+                    ]),
                     'name' => 'toto'
                 ]);
 
             $other_animal = Animal::factory()
                 ->create([
-                    'breed_id' => Breed::factory()->create(),
+                    'breed_id' => Breed::factory()->create([
+                        'species_id' => \App\Models\Species::factory()->create()
+                    ]),
                     'name' => 'titi'
                 ]);
 

@@ -22,7 +22,9 @@ describe('CONNECTED USER', function () {
     it('verifies if a user can see all animals-sheets',
         function () {
             $animal = Animal::factory()->create([
-                'breed_id' => Breed::factory()->create(),
+                'breed_id' => Breed::factory()->create([
+                    'species_id' => \App\Models\Species::factory()->create()
+                ]),
             ]);
 
             $sheet = AnimalSheet::factory()

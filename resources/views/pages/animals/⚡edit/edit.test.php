@@ -41,7 +41,9 @@ describe('ADMIN USER', function () {
     it('verifies if it captures validation errors when submitting invalid values in the animals edit form', function () {
         $animal = Animal::factory()->create([
             'name' => 'toto',
-            'breed_id' => Breed::factory()->create()
+            'breed_id' => Breed::factory()->create([
+                'species_id' => \App\Models\Species::factory()->create()
+            ])
         ]);
 
         Livewire::test('pages::animals.edit',[$animal])
@@ -71,7 +73,9 @@ describe('ADMIN USER', function () {
     it('verifies if you are redirected after successfully editing of an animal', function () {
         $animal = Animal::factory()->create([
             'name' => 'toto',
-            'breed_id' => Breed::factory()->create()
+            'breed_id' => Breed::factory()->create([
+                'species_id' => \App\Models\Species::factory()->create()
+            ])
         ]);
 
         Livewire::test('pages::animals.edit', [$animal])

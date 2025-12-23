@@ -46,16 +46,16 @@
 
         {{-- RACE -> TODO : CHANGER LE SELECT AVEC LES VALEURS DE DB --}}
         <div class="relative">
-            <x-forms.fields.select
+            <x-forms.fields.select-animal
                 wire="form.breed"
                 field_name="breed"
-                :label="__('admin/animals.create_breed')"
-                name="breed"
+                label="Race"
+                :name="__('admin/animals.create_breed')"
                 :required="true"
+                :traduction="false"
                 :collection="$this->breeds"
                 identifier="name"
                 id="id"
-                :traduction="false"
             />
             <button
                 wire:click="openModal('add-breed')"
