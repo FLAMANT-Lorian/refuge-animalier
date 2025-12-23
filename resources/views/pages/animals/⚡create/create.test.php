@@ -5,7 +5,9 @@ use App\Enums\Sex;
 use App\Enums\UserStatus;
 use App\Models\Animal;
 use App\Models\Breed;
+use App\Models\Species;
 use App\Models\User;
+use Illuminate\Http\UploadedFile;
 use Livewire\Livewire;
 use function Pest\Laravel\actingAs;
 
@@ -17,7 +19,7 @@ describe('VOLUNTEER USER', function () {
         actingAs($this->user);
 
         Breed::factory()->count(50)->create([
-            'species_id' => \App\Models\Species::factory()->create()
+            'species_id' => Species::factory()->create()
         ]);
     });
 
@@ -36,7 +38,7 @@ describe('ADMIN USER', function () {
         actingAs($this->user);
 
         Breed::factory()->count(50)->create([
-            'species_id' => \App\Models\Species::factory()->create()
+            'species_id' => Species::factory()->create()
         ]);
     });
 
@@ -72,6 +74,10 @@ describe('ADMIN USER', function () {
     });
 
     it('verifies if you are redirected after successfully creating of an animal', function () {
+        Storage::fake('public');
+
+        $file = UploadedFile::fake()->image('test.png');
+
         Livewire::test('pages::animals.create')
             ->set('form.name', 'toto')
             ->set('form.birth_date', '1999-12-12')
@@ -80,6 +86,7 @@ describe('ADMIN USER', function () {
             ->set('form.coat', 'red')
             ->set('form.state', AnimalStatus::Adopted->value)
             ->set('form.character', 'toto')
+            ->set('form.pictures', $file)
             ->call('save')
             ->assertHasNoErrors(
                 [
@@ -94,5 +101,11 @@ describe('ADMIN USER', function () {
             ->assertRedirect();
 
         expect(Animal::count())->toBe(1);
+
+        $animal = Animal::first();
+
+        $file_name = $animal->pictures[0];
+
+        Storage::disk('public')->assertExists($file_name);
     });
 });

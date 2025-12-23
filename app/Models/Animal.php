@@ -14,12 +14,13 @@ class Animal extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['breed_id', 'name', 'coat', 'character', 'vaccines', 'sex', 'birth_date', 'state', 'img_path'];
+    protected $fillable = ['breed_id', 'name', 'coat', 'character', 'vaccines', 'sex', 'birth_date', 'state', 'pictures'];
 
     protected function casts(): array
     {
         return [
             'birth_date' => 'date',
+            'pictures' => 'array'
         ];
     }
 

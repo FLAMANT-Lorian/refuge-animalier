@@ -2,14 +2,19 @@
 
 use App\Livewire\Forms\AnimalCreateForm;
 use App\Models\Animal;
+use App\Traits\CleanLivewireTMPFolder;
 use App\Traits\getBreeds;
+use Illuminate\Http\Request;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 new #[Title('admin/page_title.animals_create')]
 class extends Component {
 
     use getBreeds;
+    use WithFileUploads;
+    use CleanLivewireTMPFolder;
 
     public string $app_title;
 
@@ -26,6 +31,11 @@ class extends Component {
         $this->form->setAnimal();
     }
 
+    public function deleteImage(int $index): void
+    {
+        unset($this->form->pictures[$index]);
+    }
+
     public function save(): void
     {
         $this->authorize('create', Animal::class);
@@ -33,6 +43,8 @@ class extends Component {
         $this->form->validate();
 
         $animal = $this->form->store();
+
+        $this->cleanLivewireTMPFolder();
 
         session()->flash('status', __('admin/animals.create_flash_message'));
 

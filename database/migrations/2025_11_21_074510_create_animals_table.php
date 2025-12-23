@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('sex');
             $table->timestamp('birth_date');
             $table->string('state');
-            $table->string('img_path');
+            $table->json('pictures')->nullable();
             $table->timestamp('adopted_at')->nullable();
             $table->timestamps();
         });

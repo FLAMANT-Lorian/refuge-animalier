@@ -8,6 +8,8 @@ use Carbon\Carbon;
 use App\Enums\AnimalStatus;
 use App\Models\Animal;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class AnimalFactory extends Factory
 {
@@ -28,6 +30,13 @@ class AnimalFactory extends Factory
 
         $adopted_at = [null, Carbon::now()];
 
+        $file_name = uniqid() . '.png';
+
+        Storage::disk('public')->putFileAs(
+            'animals',
+            UploadedFile::fake()->image($file_name),
+            $file_name
+        );
 
         return [
             'name' => $this->faker->randomElement($animals_name),
@@ -37,7 +46,7 @@ class AnimalFactory extends Factory
             'character' => $this->faker->text(),
             'birth_date' => $this->faker->date(),
             'state' => $this->faker->randomElement($states),
-            'img_path' => 'public_2.webp',
+            'pictures' => ["animals/" . $file_name],
             'adopted_at' => $this->faker->randomElement($adopted_at)
         ];
     }

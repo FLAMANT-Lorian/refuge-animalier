@@ -5,6 +5,8 @@ use App\Enums\Sex;
 use App\Enums\UserStatus;
 use App\Models\Animal;
 use App\Models\Breed;
+use App\Models\Species;
+use Illuminate\Http\UploadedFile;
 use Livewire\Livewire;
 use App\Models\User;
 use function Pest\Laravel\actingAs;
@@ -30,6 +32,8 @@ describe('VOLUNTEER USER', function () {
 
 describe('ADMIN USER', function () {
     beforeEach(function () {
+        Storage::fake('public');
+
         $this->user = User::factory()
             ->create([
                 'role' => UserStatus::Admin->value
@@ -42,11 +46,11 @@ describe('ADMIN USER', function () {
         $animal = Animal::factory()->create([
             'name' => 'toto',
             'breed_id' => Breed::factory()->create([
-                'species_id' => \App\Models\Species::factory()->create()
+                'species_id' => Species::factory()->create()
             ])
         ]);
 
-        Livewire::test('pages::animals.edit',[$animal])
+        Livewire::test('pages::animals.edit', [$animal])
             ->set('form.name', 'titi')
             ->set('form.birth_date')
             ->set('form.sex', 'toto')
@@ -54,6 +58,7 @@ describe('ADMIN USER', function () {
             ->set('form.coat')
             ->set('form.state', 'toto')
             ->set('form.character')
+            ->set('form.pictures')
             ->call('save')
             ->assertHasErrors(
                 [
@@ -73,10 +78,13 @@ describe('ADMIN USER', function () {
     it('verifies if you are redirected after successfully editing of an animal', function () {
         $animal = Animal::factory()->create([
             'name' => 'toto',
+            'pictures' => ['test.png'],
             'breed_id' => Breed::factory()->create([
-                'species_id' => \App\Models\Species::factory()->create()
+                'species_id' => Species::factory()->create()
             ])
         ]);
+
+        Storage::disk('public')->put('test.png', 'fake_image_content');
 
         Livewire::test('pages::animals.edit', [$animal])
             ->set('form.name', 'titi')
@@ -86,6 +94,7 @@ describe('ADMIN USER', function () {
             ->set('form.coat', 'red')
             ->set('form.state', AnimalStatus::Adopted->value)
             ->set('form.character', 'toto')
+            ->set('form.pictures', $animal->pictures)
             ->call('save')
             ->assertHasNoErrors(
                 [

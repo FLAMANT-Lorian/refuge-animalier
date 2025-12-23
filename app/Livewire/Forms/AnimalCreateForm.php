@@ -21,6 +21,7 @@ class AnimalCreateForm extends Form
     public ?string $vaccines;
     public string $state;
     public string $character;
+    public ?array $pictures = [];
 
     public function setAnimal(): void
     {
@@ -31,6 +32,16 @@ class AnimalCreateForm extends Form
 
     public function store(): Animal
     {
+        $picturesDB = [];
+
+        foreach ($this->pictures as $picture) {
+            $picturesDB[] = $picture->storeAs(
+                'animals',
+                uniqid() . '.' . $picture->getClientOriginalExtension(),
+                'public'
+            );
+        }
+
         return Animal::create([
             'name' => $this->name,
             'breed_id' => $this->breed,
@@ -39,7 +50,7 @@ class AnimalCreateForm extends Form
             'coat' => $this->coat,
             'vaccines' => $this->vaccines ?? null,
             'state' => $this->state,
-            'img_path' => 'public_2.webp',
+            'pictures' => $picturesDB,
             'character' => $this->character,
         ]);
     }

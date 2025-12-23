@@ -49,11 +49,18 @@
         class="md:col-start-1 md:col-end-3 lg:col-start-3 lg:col-end-5 lg:row-start-1 lg:row-end-5 flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">
         <span class="font-base font-bold">{!! __('admin/animals.show_pictures') !!}</span>
 
-        {!! responsiveImage(
-                img_name: $animal->img_path,
-                img_alt: __('admin/animals.picture_of') . $animal->name,
-                picture_class: 'rounded-lg overflow-hidden',
-                img_class: '') !!}
+        @if($animal->pictures)
+
+            <div class="lg:grid lg:grid-cols-3 gap-4 ">
+                @foreach($animal->pictures as $picture)
+                    <img class="object-fill w-full h-full rounded-2xl"
+                        src="{{ Storage::disk('public')->url($picture) }}"
+                         alt="{{ __('admin/animals.picture_of') . $animal->name }}">
+
+                @endforeach
+            </div>
+
+        @endif
     </div>
 
 </section>

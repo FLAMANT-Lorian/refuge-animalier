@@ -2,16 +2,21 @@
 
 use App\Livewire\Forms\AnimalEditForm;
 use App\Models\Animal;
+use App\Traits\CleanLivewireTMPFolder;
 use App\Traits\DeleteAnimal;
 use App\Traits\getBreeds;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use function PHPUnit\Framework\isEmpty;
 
 new #[Title('admin/page_title.animals_edit')]
 class extends Component {
 
     use getBreeds;
     use DeleteAnimal;
+    use WithFileUploads;
+    use CleanLivewireTMPFolder;
 
     public AnimalEditForm $form;
 
@@ -33,6 +38,30 @@ class extends Component {
         $this->form->setAnimal($this->animal);
     }
 
+    public function removePicture(int $index, int $animal_index): void
+    {
+        $animal = Animal::findOrFail($animal_index);
+
+        Storage::disk('public')->delete($this->form->pictures[$index]);
+
+        unset($this->form->pictures[$index]);
+
+        if (empty($this->form->pictures)) {
+            $this->form->pictures = null;
+        }
+
+
+        $this->form->pictures = !empty($this->form->pictures) ? array_values($this->form->pictures) : null;
+
+        $animal->update(['pictures' => $this->form->pictures]);
+
+    }
+
+    public function deleteImage(int $index): void
+    {
+        unset($this->form->new_pictures[$index]);
+    }
+
     public function delete(int $id): void
     {
         $this->authorize('delete', Animal::class);
@@ -52,6 +81,12 @@ class extends Component {
         $this->form->validate();
 
         $animal = $this->form->update();
+
+        if (is_null($animal)) {
+            return;
+        }
+
+        $this->cleanLivewireTMPFolder();
 
         session()->flash('status', __('admin/animals.edit_flash_message'));
 

@@ -7,6 +7,7 @@
 @props([
     'animal'
 ])
+
 <fieldset class="flex flex-col gap-4">
     <legend class="contents text-lg font-medium">{!! __('admin/animals.create_fieldset1_title') !!}</legend>
     <div class="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-y-10">
@@ -108,12 +109,14 @@
             :required="true"/>
 
         {{-- PHOTOS --}}
-        <x-forms.fields.input-file
+        <x-forms.fields.input-file-edit
+            wire="form.new_pictures"
             name="pictures"
             container_class="md:col-start-2 md:col-end-3 md:row-start-5 md:row-end-6 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-6"
             :label="__('admin/animals.create_picture')"
             :input_content="__('admin/animals.input_content')"
-            :multiple="true"/>
+            :multiple="true"
+            :animal="$animal"/>
 
     </div>
 </fieldset>
