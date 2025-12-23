@@ -1,4 +1,5 @@
 @props([
+    'wire' => '',
     'field_name',
     'name',
     'label',
@@ -16,13 +17,14 @@
     </label>
 
     <textarea
+        wire:model="{{ $wire }}"
         class="max-md:h-[15rem] md:max-h-full h-full md:resize-none focus:outline-gray-400 transition-all px-4 py-3 bg-gray-50 outline outline-gray-200 rounded-lg placeholder:text-gray-500"
         placeholder="{!! $placeholder ?? '' !!}"
         name="{!! $name !!}"
         id="{!! $field_name !!}"
         autocomplete="off"
     >{!! $value ?? old($name) !!}</textarea>
-    @error($field_name)
+    @error($wire)
     <p class="absolute -bottom-5 text-red text-sm font-semibold">{!! $message !!}</p>
     @enderror
 </div>

@@ -194,6 +194,16 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'name',
+        'birth_date' => 'birth date',
+        'sex' => 'sex',
+        'breed' => 'breed',
+        'coat' => 'coat',
+        'vaccines' => 'vaccines',
+        'state' => 'state',
+        'character' => 'character',
+        'pictures' => 'photos'
+    ],
 
 ];

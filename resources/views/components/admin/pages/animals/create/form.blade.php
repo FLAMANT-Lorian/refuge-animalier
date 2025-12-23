@@ -3,12 +3,12 @@
         {!! __('admin/animals.create_title') !!}
     </h2>
 
-    <form action="" method="post" class="flex flex-col gap-6">
-
+    <form wire:submit="save" class="flex flex-col gap-6">
         {{-- FIELDSET ANIMAL --}}
         <x-admin.pages.animals.create.animal-fieldset/>
 
         <x-forms.buttons.normal-button-submit
+            :loading_label="__('admin/animals.create_loading_label')"
             class="self-end"
             :label="__('admin/animals.create_animal_btn')"/>
     </form>

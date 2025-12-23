@@ -3,8 +3,12 @@
     'animal'
 ])
 
+@php
+    use App\Models\Animal;
+@endphp
+
 <section class="flex flex-col gap-4">
-    <span class="flex flex-row gap-1 items-center text-gray-500">
+    <span class="flex flex-row flex-wrap gap-1 items-center text-gray-500">
                 –
                 <a wire:navigate
                    class="text-gray-500"
@@ -25,11 +29,24 @@
             <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>
             <p class="font-base text-gray-500">{!! __('admin/animals.show_sub_title') . $animal->name !!}</p>
         </div>
-        <x-buttons.base
-            class="self-start md:self-center"
-            :destination="route('admin.animals.edit', ['animal' => $animal->id, 'locale' => config('app.locale')])"
-            title="{!! __('admin/animals.show_edit_btn_title') . $animal->name !!}">
-            {!! __('admin/animals.show_edit_btn_title') . $animal->name !!}
-        </x-buttons.base>
+
+        @can('create', Animal::class)
+
+            <x-buttons.base
+                class="self-start md:self-center"
+                :destination="route('admin.animals.edit', ['animal' => $animal->id, 'locale' => config('app.locale')])"
+                title="{!! __('admin/animals.show_edit_btn_title') . $animal->name !!}">
+                {!! __('admin/animals.show_edit_btn_title') . $animal->name !!}
+            </x-buttons.base>
+
+        @elsecannot('create', Animal::class)
+
+            <button type="button"
+                    wire:click="openModal('update-request', {{ $animal->id }})"
+                    class="text-center font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
+                Demander une modification
+            </button>
+
+        @endcan
     </div>
 </section>

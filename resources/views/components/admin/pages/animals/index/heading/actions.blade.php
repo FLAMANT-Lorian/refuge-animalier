@@ -1,16 +1,19 @@
 @php
     use App\Enums\AnimalStatus;
+    use App\Models\Animal;
 @endphp
 
 <div class="flex flex-col md:flex-row gap-4 lg:col-start-5 lg:col-end-10 lg:justify-end lg:items-center lg:gap-6">
 
-    {{-- BOUTON POUR AJOUTER UN ANIMAL --}}
-    <x-buttons.add-item-button
-        class="self-start md:order-2 md:ml-auto lg:m-0"
-        title="{!! __('admin/animals.add_animal_title') !!}"
-        :href="route('admin.animals.create', config('app.locale'))">
-        {!! __('admin/animals.add_animal_text') !!}
-    </x-buttons.add-item-button>
+    @can('create', Animal::class)
+        {{-- BOUTON POUR AJOUTER UN ANIMAL --}}
+        <x-buttons.add-item-button
+            class="self-start md:order-2 md:ml-auto lg:m-0"
+            title="{!! __('admin/animals.add_animal_title') !!}"
+            :href="route('admin.animals.create', config('app.locale'))">
+            {!! __('admin/animals.add_animal_text') !!}
+        </x-buttons.add-item-button>
+    @endcan
 
     {{-- CHAMPS DE RECHERCHE --}}
     <x-forms.fields.input-search

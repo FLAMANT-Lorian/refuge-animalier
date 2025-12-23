@@ -12,7 +12,7 @@
 
     <div class="flex flex-col md:flex-row gap-4 justify-between">
         <button type="button"
-                wire:click="openModal('create-note', {!! $animal !!})"
+                wire:click="openModal('create-note', {!! $animal->id !!})"
                 class="text-blue-500 hover:underline hover:cursor-pointer self-start">
             {!! __('admin/animals.add_visit_notes') !!}
         </button>

@@ -38,7 +38,7 @@ return [
     'show_color' => 'Pelage',
     'show_sex' => 'Sexe',
     'show_vaccines' => 'Vaccins',
-    'no_vaccines' => 'Non resneignés',
+    'no_vaccines' => 'Non renseignés',
     'show_description' => 'Caractère',
     'show_pictures' => 'Photos',
     'picture_of' => 'Image de ',
@@ -65,8 +65,8 @@ return [
     'create_fieldset2_sub_title' => 'Informations sur l’adoptant',
     'create_name' => 'Nom',
     'create_name_placeholder' => 'Moka',
-    'create_age' => 'Age',
-    'create_age_placeholder' => '3',
+    'create_age' => 'Date de naissance',
+    'create_age_placeholder' => '13 novembre 2019',
     'create_sex' => 'Sexe',
     'create_sex_placeholder' => 'Femelle',
     'create_breed' => 'Race',
@@ -78,7 +78,7 @@ return [
     'create_status' => 'Statut',
     'create_character' => 'Caractère',
     'create_character_placeholder' => 'Doux&hellip;',
-    'create_picture' => 'Photos de l’animal',
+    'create_picture' => 'Photos',
     'input_content' => 'Choisir des images ...',
     'create_volunteer_name' => 'Nom',
     'create_volunteer_name_placeholder' => 'Jean',
@@ -93,6 +93,8 @@ return [
     'create_volunteer_departure_hour' => 'Heure de départ',
     'create_volunteer_departure_hour_placeholder' => '12:12',
     'create_animal_btn' => 'Créer la fiche de l’animal',
+    'create_loading_label' => 'Enregistrement en cours',
+    'create_flash_message' => 'Animal créé avec succès !',
 
     // EDIT
     'edit_title' => 'Modification de la fiche de l’animal',
@@ -106,4 +108,14 @@ return [
     'edit_danger_zone_title' => 'Supprimer la fiche de l’animal',
     'edit_danger_zone_subtitle' => 'Après suppression, cette fiche ne pourra plus être récupérée !',
     'edit_danger_zone_btn' => 'Supprimer la fiche de l’animal',
+    'edit_flash_message' => 'Animal modifié avec succès !',
+
+    // DELETE
+    'delete_flash_message' => 'Animal supprimé avec succès !',
+
+    // MODAL
+    'delete_modal_title' => 'Supprimer l’animal',
+    'delete_modal_sub_title' => 'Êtes-vous sûr de vouloir supprimer la fiche de ',
+    'delete_modal_btn' => 'Supprimer le fiche de ',
+
 ];

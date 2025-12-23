@@ -1,4 +1,5 @@
 @props([
+    'name',
     'label',
     'input_content',
     'container_class',
@@ -9,7 +10,7 @@
 
     <div {!! $attributes->merge(['class' => 'flex flex-col gap-4']) !!}>
 
-        <input class="sr-only" type="file" id="file" @if($multiple) multiple @endif>
+        <input name="{{ $name }}" class="sr-only" type="file" id="file" @if($multiple) multiple @endif>
 
         <div class="flex flex-col gap-1">
             <span class="text-base font-semibold pl-3">{!! $label !!}</span>

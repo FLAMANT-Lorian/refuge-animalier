@@ -14,7 +14,7 @@ class Animal extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'breed', 'coat', 'description', 'sex', 'birth_date', 'state', 'img_path'];
+    protected $fillable = ['breed_id', 'name', 'coat', 'character', 'vaccines', 'sex', 'birth_date', 'state', 'img_path'];
 
     protected function casts(): array
     {
@@ -36,6 +36,11 @@ class Animal extends Model
     public function animalSheet(): HasOne
     {
         return $this->hasOne(AnimalSheet::class);
+    }
+
+    public function breed(): BelongsTo
+    {
+        return $this->belongsTo(Breed::class);
     }
 
     protected function age(): Attribute

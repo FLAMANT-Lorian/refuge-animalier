@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Livewire\Forms;
+
+use App\Enums\AnimalStatus;
+use App\Enums\Sex;
+use App\Models\Animal;
+use App\Models\Breed;
+use App\Traits\AnimalsRules;
+use Livewire\Form;
+
+class AnimalCreateForm extends Form
+{
+    use AnimalsRules;
+
+    public string $name;
+    public string $birth_date;
+    public string $sex;
+    public string $breed;
+    public string $coat;
+    public ?string $vaccines;
+    public string $state;
+    public string $character;
+
+    public function setAnimal(): void
+    {
+        $this->breed = Breed::first()->id;
+        $this->sex = Sex::Male->value;
+        $this->state = AnimalStatus::AwaitingAdoption->value;
+    }
+
+    public function store(): Animal
+    {
+        return Animal::create([
+            'name' => $this->name,
+            'breed_id' => $this->breed,
+            'birth_date' => $this->birth_date,
+            'sex' => $this->sex,
+            'coat' => $this->coat,
+            'vaccines' => $this->vaccines ?? null,
+            'state' => $this->state,
+            'img_path' => 'public_2.webp',
+            'character' => $this->character,
+        ]);
+    }
+}

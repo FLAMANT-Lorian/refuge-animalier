@@ -13,6 +13,7 @@
 
         {{-- BOUTON DE SOUMISSION --}}
         <x-forms.buttons.normal-button-submit
+            :loading_label="__('admin/animals.create_loading_label')"
             class="self-end"
             :label="__('admin/volunteers.save_modification')"/>
     </form>

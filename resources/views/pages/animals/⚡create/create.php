@@ -1,18 +1,47 @@
 <?php
 
+use App\Livewire\Forms\AnimalCreateForm;
+use App\Models\Animal;
+use App\Traits\getBreeds;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-new #[Title('animals_create')]
+new #[Title('admin/page_title.animals_create')]
 class extends Component {
+
+    use getBreeds;
+
     public string $app_title;
+
+    public AnimalCreateForm $form;
+
+    public bool $openAddBreed = false;
 
     public function mount(): void
     {
+        $this->authorize('create', Animal::class);
+
         $this->app_title = __('admin/animals.create_title');
+
+        $this->form->setAnimal();
     }
 
-    public bool $openAddBreed = false;
+    public function save(): void
+    {
+        $this->authorize('create', Animal::class);
+
+        $this->form->validate();
+
+        $animal = $this->form->store();
+
+        session()->flash('status', __('admin/animals.create_flash_message'));
+
+        $this->redirectRoute('admin.animals.show', [
+                'locale' => app()->getLocale(),
+                'animal' => $animal
+            ]
+        );
+    }
 
     public function openModal(string $modal): void
     {

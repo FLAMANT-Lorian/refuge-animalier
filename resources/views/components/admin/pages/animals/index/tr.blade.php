@@ -2,6 +2,10 @@
     'animal'
 ])
 
+@php
+    use App\Models\Animal;
+@endphp
+
 <tr scope="row"
     class="relative flex flex-col gap-4 lg:gap-0 p-4 lg:p-0 border border-gray-200 lg:border-none rounded-2xl lg:rounded-none lg:flex-row lg:w-full lg:bg-white lg:items-center lg:nth-of-type-[odd]:bg-gray-50 lg:nth-of-type-[even]:bg-white">
 
@@ -40,7 +44,7 @@
                 {!! __('admin/animals.show_breed') !!}&nbsp;:
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
-                {!! $animal->breed !!}
+                {!! $animal->breed->name !!}
             </span>
         </div>
     </td>
@@ -63,16 +67,30 @@
                 {!! __('admin/animals.view_animal_details') !!}
             </x-buttons.base>
 
-            {{-- EDIT --}}
-            <x-table.edit
-                class="max-lg:hidden"
-                :title="__('admin/animals.modification_link_title')"
-                :destination="route('admin.animals.show', ['animal' => $animal->id, 'locale' => config('app.locale')])"/>
+            @can('update', Animal::class)
 
-            {{-- DELETE --}}
-            <x-table.delete
-                wire:click="openModal('delete-animal' , {!! $animal !!})"
-            />
+                {{-- EDIT --}}
+                <x-table.edit
+                    class="max-lg:hidden"
+                    :title="__('admin/animals.modification_link_title')"
+                    :destination="route('admin.animals.edit', ['animal' => $animal->id, 'locale' => config('app.locale')])"/>
+
+            @endcan
+
+            @cannot('edit', Animal::class)
+
+                {{-- TODO : OUVRIR UNE MODAL POUR DEMANDER DES CHANGEMENT --}}
+
+            @endcannot
+
+            @can('delete', Animal::class)
+
+                {{-- DELETE --}}
+                <x-table.delete
+                    wire:click="openModal('delete-animal' , {!! $animal->id !!})"
+                />
+
+            @endcan
 
         </div>
     </td>

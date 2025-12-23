@@ -1,4 +1,5 @@
 @props([
+    'wire' => '',
     'field_name',
     'name',
     'label',
@@ -17,6 +18,7 @@
         @endif
     </label>
     <input
+        wire:model="{{ $wire }}"
         class="{{ $js_class }} disabled:text-gray-200 focus:outline-gray-400 transition-all px-4 py-3 bg-gray-50 outline outline-gray-200 rounded-lg placeholder:text-gray-500"
         placeholder="{!! $placeholder ?? '' !!}"
         type="{!! $type ?? 'text' !!}"
@@ -24,7 +26,7 @@
         id="{!! $field_name !!}"
         value="{!! $value ?? old($field_name) !!}"
         autocomplete="off">
-    @error($field_name)
-    <p class="absolute -bottom-5 text-red text-sm font-semibold">{!! $message !!}</p>
+    @error($wire)
+    <p class="absolute -bottom-5 text-red text-sm font-medium">{!! $message !!}</p>
     @enderror
 </div>

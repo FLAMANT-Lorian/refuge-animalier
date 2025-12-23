@@ -65,8 +65,8 @@ return [
     'create_fieldset2_sub_title' => 'Information about the adopter',
     'create_name' => 'Name',
     'create_name_placeholder' => 'Moka',
-    'create_age' => 'Age',
-    'create_age_placeholder' => '3',
+    'create_age' => 'Birth date',
+    'create_age_placeholder' => '13 novembre 2019',
     'create_sex' => 'Sex',
     'create_sex_placeholder' => 'Female',
     'create_breed' => 'Breed',
@@ -78,7 +78,7 @@ return [
     'create_status' => 'Status',
     'create_character' => 'Temperament',
     'create_character_placeholder' => 'Gentle&hellip;',
-    'create_picture' => 'Animal photos',
+    'create_picture' => 'Photos',
     'input_content' => 'Choose images ...',
     'create_volunteer_name' => 'Name',
     'create_volunteer_name_placeholder' => 'Jean',
@@ -93,6 +93,8 @@ return [
     'create_volunteer_departure_hour' => 'Departure time',
     'create_volunteer_departure_hour_placeholder' => '12:12',
     'create_animal_btn' => 'Create the animal sheet',
+    'create_loading_label' => 'Recording in progress',
+    'create_flash_message' => 'Animals successfully created !',
 
     // EDIT
     'edit_title' => 'Edit the animal sheet',
@@ -106,4 +108,13 @@ return [
     'edit_danger_zone_title' => 'Delete the animal sheet',
     'edit_danger_zone_subtitle' => 'After deletion, this sheet cannot be recovered!',
     'edit_danger_zone_btn' => 'Delete the animal sheet',
+    'edit_flash_message' => 'Animals successfully updated !',
+
+    // DELETE
+    'delete_flash_message' => 'Animal successfully deleted !',
+
+    // MODAL
+    'delete_modal_title' => 'Delete Animal',
+    'delete_modal_sub_title' => 'Are you sure you want to delete the record of ',
+    'delete_modal_btn' => 'Delete the record of ',
 ];

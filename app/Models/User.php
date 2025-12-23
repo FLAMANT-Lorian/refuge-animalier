@@ -57,12 +57,12 @@ class User extends Authenticatable
 
     public function isAdmin(): bool
     {
-        return $this->status === UserStatus::Admin->value;
+        return $this->role === UserStatus::Admin->value;
     }
 
     public function isVolunteer(): bool
     {
-        return $this->status === UserStatus::Volunteer->value;
+        return $this->role === UserStatus::Volunteer->value;
     }
 
     public function animalSheets(): HasMany
