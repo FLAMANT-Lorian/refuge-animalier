@@ -18,7 +18,9 @@
         @endif
     </label>
     <input
-        wire:model="{{ $wire }}"
+        @if($wire !== '')
+            wire:model="{{ $wire }}"
+        @endif
         class="{{ $js_class }} disabled:text-gray-200 focus:outline-gray-400 transition-all px-4 py-3 bg-gray-50 outline outline-gray-200 rounded-lg placeholder:text-gray-500"
         placeholder="{!! $placeholder ?? '' !!}"
         type="{!! $type ?? 'text' !!}"
@@ -26,7 +28,7 @@
         id="{!! $field_name !!}"
         value="{!! $value ?? old($field_name) !!}"
         autocomplete="off">
-    @error($wire)
+    @error($wire === '' ? $name : $wire)
     <p class="absolute -bottom-5 text-red text-sm font-medium">{!! $message !!}</p>
     @enderror
 </div>

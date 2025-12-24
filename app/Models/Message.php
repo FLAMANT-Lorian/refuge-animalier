@@ -16,6 +16,8 @@ class Message extends Model
         'email',
         'submit_date',
         'message',
+        'object',
+        'status'
     ];
 
     protected function casts(): array

@@ -38,11 +38,40 @@ class extends Component {
         return Message::where('status', MessageStatus::Unread->value)->count();
     }
 
-    public function openModal(string $modal, Message $message = null): void
+    public function markAsRead(Message $message): void
     {
-        if ($message !== null) {
-            $this->messageModal = $message;
+        $message->update(['status' => MessageStatus::Read->value]);
+    }
+
+    public function markAsNotRead(int $id): void
+    {
+        $message = Message::findOrFail($id);
+
+        $message->update(['status' => MessageStatus::Unread->value]);
+
+        $this->closeModal();
+    }
+
+    public function deleteMessage(int $id): void
+    {
+        $message = Message::findOrFail($id);
+
+        $message->delete();
+
+        session()->flash('status', __('admin/messages.delete_message'));
+
+        $this->redirectRoute('admin.messages.index', ['locale' => app()->getLocale()]);
+    }
+
+    public function openModal(string $modal, int $id): void
+    {
+        $message = Message::findOrFail($id);
+
+        if ($message->status === MessageStatus::Unread->value) {
+            $this->markAsRead($message);
         }
+
+        $this->messageModal = $message;
 
         if ($modal === 'message') {
             $this->openMessage = true;

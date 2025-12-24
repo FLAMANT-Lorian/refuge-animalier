@@ -16,5 +16,13 @@ return [
     'actions' => 'Actions',
     'view_message_of' => 'Voir le message de ',
     'view_message' => 'Voir le message',
-    'paginator' => 'messages'
+    'paginator' => 'messages',
+    'mark_as_not_read' => 'Marquer comme non-lu',
+    'reply' => 'Répondre',
+
+    // MODAL
+    'delete_modal' => 'Supprimer le message',
+    'delete_modal_sub_title' => 'Êtes-vous sûr de vouloir supprimer le message de ',
+    'delete_modal_btn' => 'Supprimer définitivement le message',
+    'delete_message' => 'Le message à bien été supprimé !',
 ];

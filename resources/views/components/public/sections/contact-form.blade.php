@@ -1,6 +1,9 @@
 <form class="p-6 flex flex-col gap-8 bg-white border border-gray-200 rounded-2xl"
-      action=""
-      method="post">
+      action="{{ route('public.contact.store', ['locale' => app()->getLocale()]) }}"
+      method="post"
+      novalidate>
+    @csrf
+
     <fieldset class="flex flex-col gap-6 md:grid md:grid-cols-10">
         <legend class="sr-only">{!! __('public/contact.contact_form_legend') !!}</legend>
 
@@ -10,7 +13,6 @@
             name="full_name"
             :label="__('forms.full_name')"
             placeholder="Doe"
-            :required="true"
         />
 
         {{-- ADRESSE E-MAIL --}}
@@ -24,8 +26,20 @@
             :required="true"
         />
 
+        {{-- OBJET --}}
+        <x-forms.fields.input-text
+            class="md:col-start-1 md:col-end-11"
+            type="object"
+            field_name="object"
+            name="object"
+            :label="__('forms.object')"
+            :placeholder="__('forms.object_placeholder')"
+            :required="true"
+        />
+
         {{-- COMMUNICATION --}}
         <x-forms.fields.textarea
+            extra_class="min-h-[15rem]"
             class="md:col-start-1 md:col-end-11"
             field_name="message"
             name="message"

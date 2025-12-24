@@ -5,7 +5,8 @@
     'label',
     'value',
     'placeholder',
-    'required' => false
+    'required' => false,
+    'extra_class'=> ''
 ])
 
 <div {!! $attributes->merge(['class' => 'relative flex flex-col gap-1']) !!}>
@@ -17,14 +18,16 @@
     </label>
 
     <textarea
-        wire:model="{{ $wire }}"
-        class="max-md:h-[15rem] md:max-h-full h-full md:resize-none focus:outline-gray-400 transition-all px-4 py-3 bg-gray-50 outline outline-gray-200 rounded-lg placeholder:text-gray-500"
+        @if($wire !== '')
+            wire:model="{{ $wire }}"
+        @endif
+        class="{{ $extra_class }} max-md:h-[10rem] md:max-h-full h-full md:resize-none focus:outline-gray-400 transition-all px-4 py-3 bg-gray-50 outline outline-gray-200 rounded-lg placeholder:text-gray-500"
         placeholder="{!! $placeholder ?? '' !!}"
         name="{!! $name !!}"
         id="{!! $field_name !!}"
         autocomplete="off"
     >{!! $value ?? old($name) !!}</textarea>
-    @error($wire)
+    @error($wire === '' ? $name : $wire)
     <p class="absolute -bottom-5 text-red text-sm font-semibold">{!! $message !!}</p>
     @enderror
 </div>

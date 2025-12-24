@@ -71,7 +71,7 @@
 
             {{-- DELETE --}}
             <x-table.delete
-                wire:click="openModal('delete-message', {{ $message }})"/>
+                wire:click="openModal('delete-message', {{ $message->id }})"/>
 
         </div>
     </td>

@@ -195,6 +195,8 @@ return [
     */
 
     'attributes' => [
+
+        // ANIMAUX
         'name' => 'nom',
         'birth_date' => 'date de naissance',
         'sex' => 'sexe',
@@ -203,7 +205,13 @@ return [
         'vaccines' => 'vaccins',
         'state' => 'statut',
         'character' => 'caractère',
-        'pictures' => 'photos'
+        'pictures' => 'photos',
+
+        // MESSAGE DE CONTACT
+        'full_name' => 'nom complet',
+        'email' => 'adresse e’mail',
+        'message' => 'message',
+        'object' => 'objet',
     ],
 
 ];

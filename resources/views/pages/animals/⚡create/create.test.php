@@ -74,7 +74,7 @@ describe('ADMIN USER', function () {
     });
 
     it('verifies if you are redirected after successfully creating of an animal', function () {
-        Storage::fake('public');
+        Storage::fake();
 
         $file = UploadedFile::fake()->image('test.png');
 
@@ -106,6 +106,6 @@ describe('ADMIN USER', function () {
 
         $file_name = $animal->pictures[0];
 
-        Storage::disk('public')->assertExists($file_name);
+        Storage::assertExists('animals/original/' . $file_name);
     });
 });

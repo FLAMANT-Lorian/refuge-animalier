@@ -44,7 +44,7 @@ class AnimalEditForm extends Form
         $total = count($this->pictures ?? []) + count($this->new_pictures ?? []);
 
         if ($total > 4) {
-            $this->addError('new_pictures', 'Le champ photos ne doit pas contenir plus de 4 éléments.');
+            $this->addError('new_pictures', __('validation.max.array', ['attribute' => __('validation.attributes.pictures'), 'max' => 4]));
             return null;
         }
 
