@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\AnimalStatus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -49,6 +50,12 @@ class Animal extends Model
         return Attribute::make(
             get: fn() => Carbon::parse($this->birth_date)->age
         );
+    }
+
+    public function isVisible(): bool
+    {
+        return $this->state === AnimalStatus::AwaitingAdoption->value ||
+        $this->state === AnimalStatus::ProcessOfAdoption->value;
     }
 
     protected function translatedFormatDate(): Attribute

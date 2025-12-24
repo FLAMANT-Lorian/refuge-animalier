@@ -16,6 +16,9 @@ class AnimalController extends Controller
 
     public function show($locale, Animal $animal)
     {
+        if (!$animal->isVisible()) {
+            abort(404);
+        }
 
         return view('public.animals.show', compact('locale', 'animal'));
     }
