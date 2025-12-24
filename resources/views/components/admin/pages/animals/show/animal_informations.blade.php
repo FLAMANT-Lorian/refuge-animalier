@@ -51,15 +51,26 @@
 
         @if($animal->pictures)
 
-            <div class="lg:grid lg:grid-cols-3 gap-4 ">
+            <div class="grid grid-cols-2 gap-6 min-[600px]:grid-cols-4">
                 @foreach($animal->pictures as $picture)
-                    <img class="object-fill w-full h-full rounded-2xl"
-                        src="{{ Storage::disk('public')->url($picture) }}"
-                         alt="{{ __('admin/animals.picture_of') . $animal->name }}">
-
+                    @if(Storage::disk('public')->exists('animals/variant/500x500/' . $picture))
+                        <img class="{{ $loop->first ?
+             'col-start-1 col-end-3 min-[600px]:col-end-4 min-[600px]:row-start-1 min-[600px]:row-end-4 aspect-square rounded-2xl overflow-hidden' :
+             'aspect-square rounded-2xl overflow-hidden' }} object-fill w-full h-full rounded-2xl"
+                             width="500"
+                             height="500"
+                             src="{{ asset('storage/animals/variant/500x500/' . $picture) }}"
+                             alt="{{ __('admin/animals.picture_of') . $animal->name }}">
+                    @else
+                        <div class="aspect-square rounded-2xl bg-white border border-gray-200 flex items-center justify-center">
+                            <span class="text-black text-center ">{{ __('admin/animals.image_process') }}</span>
+                        </div>
+                    @endif
                 @endforeach
             </div>
 
+        @else
+            <p class="italic">{{ __('public/animals.no_images') }}</p>
         @endif
     </div>
 

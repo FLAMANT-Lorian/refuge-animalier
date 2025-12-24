@@ -38,11 +38,23 @@ class extends Component {
         $this->form->setAnimal($this->animal);
     }
 
-    public function removePicture(int $index, int $animal_index): void
+    public function deletePictureFromStorage(int $index, int $animal_index): void
     {
         $animal = Animal::findOrFail($animal_index);
+        $sizes = config('animals.sizes');
 
-        Storage::disk('public')->delete($this->form->pictures[$index]);
+        $current_file = $this->form->pictures[$index];
+
+        Storage::disk('public')->delete(config('animals.original_path') . '/' . $current_file);
+
+        foreach ($sizes as $size) {
+            $variant_path = sprintf(
+                config('animals.path_to_variant'),
+                $size['width'],
+                $size['height']);
+
+            Storage::disk('public')->delete($variant_path . '/' . $current_file);
+        }
 
         unset($this->form->pictures[$index]);
 
@@ -50,14 +62,10 @@ class extends Component {
             $this->form->pictures = null;
         }
 
-
-        $this->form->pictures = !empty($this->form->pictures) ? array_values($this->form->pictures) : null;
-
         $animal->update(['pictures' => $this->form->pictures]);
-
     }
 
-    public function deleteImage(int $index): void
+    public function removeTMPImage(int $index): void
     {
         unset($this->form->new_pictures[$index]);
     }

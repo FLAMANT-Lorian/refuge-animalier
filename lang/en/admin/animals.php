@@ -53,6 +53,7 @@ return [
     'animals_img' => 'Animal picture',
     'view_visit_note' => 'View the visit note',
     'notes' => 'notes',
+    'image_process' => 'Processing image...',
 
     // CREATE
     'create_title' => 'Create a new sheet',

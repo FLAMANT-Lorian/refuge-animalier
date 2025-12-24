@@ -20,7 +20,7 @@ trait AnimalsRules
             'state' => ['required', Rule::enum(AnimalStatus::class)],
             'character' => 'required',
             'pictures' => 'nullable|array|max:4',
-            'pictures.*' => 'mimes:jpeg,png,gif,webp|max:5120',
+            'pictures.*' => 'mimes:jpeg,png,gif,webp|max:2048',
         ];
     }
 }

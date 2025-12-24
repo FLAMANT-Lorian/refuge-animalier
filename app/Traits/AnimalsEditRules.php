@@ -19,7 +19,7 @@ trait AnimalsEditRules
             'vaccines' => 'nullable',
             'state' => ['required', Rule::enum(AnimalStatus::class)],
             'character' => 'required',
-            'new_pictures.*' => 'mimes:jpeg,png,gif,webp|max:5120'
+            'new_pictures.*' => 'mimes:jpeg,png,gif,webp|max:2048'
         ];
     }
 }

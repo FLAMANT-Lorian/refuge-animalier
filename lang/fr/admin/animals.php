@@ -53,6 +53,7 @@ return [
     'animals_img' => 'Image de l’animal',
     'view_visit_note' => 'Voir la note de visite',
     'notes' => 'notes',
+    'image_process' => 'Image en traitement...',
 
     // CREATE
     'create_title' => 'Créer une nouvelle fiche',

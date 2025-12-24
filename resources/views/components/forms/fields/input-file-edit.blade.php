@@ -44,16 +44,18 @@
                         <!-- IMAGE -->
                         <div class="flex flex-row items-center gap-4">
                             <img alt="image"
+                                 width="500"
+                                 height="500"
                                  class="w-12 aspect-square rounded-sm"
-                                 src="{{ Storage::disk('public')->url($picture) }}">
+                                 src="{{ asset('storage/animals/variant/500x500/' . $picture) }}">
                             <div class="flex flex-col gap-1">
                                 <span class="break-all">{{ $picture }}</span>
-                                <span class="font-bold">{{ number_format(Storage::disk('public')->size($picture) / (1024*1024), 2) }} mo</span>
+                                <span class="font-bold">{{ number_format(filesize(storage_path('app/public/animals/variant/500x500/' . $picture)) / (1024*1024), 2) }} mo</span>
                             </div>
                         </div>
 
                         <!-- CROIX -->
-                        <button wire:click="removePicture({{ $index }}, {{ $animal->id }})"
+                        <button wire:click="deletePictureFromStorage({{ $index }}, {{ $animal->id }})"
                                 type="button" id="cross" class="cross hover:cursor-pointer">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +83,7 @@
                     </div>
 
                     <!-- CROIX -->
-                    <button wire:click="deleteImage({{ $index }})"
+                    <button wire:click="removeTMPImage({{ $index }})"
                             type="button" id="cross" class="cross hover:cursor-pointer">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">

@@ -7,11 +7,13 @@ use App\Enums\Sex;
 use App\Models\Animal;
 use App\Models\Breed;
 use App\Traits\AnimalsRules;
+use App\Traits\HandleImages;
 use Livewire\Form;
 
 class AnimalCreateForm extends Form
 {
     use AnimalsRules;
+    use HandleImages;
 
     public string $name;
     public string $birth_date;
@@ -34,12 +36,10 @@ class AnimalCreateForm extends Form
     {
         $picturesDB = [];
 
-        foreach ($this->pictures as $picture) {
-            $picturesDB[] = $picture->storeAs(
-                'animals',
-                uniqid() . '.' . $picture->getClientOriginalExtension(),
-                'public'
-            );
+        if (!empty($this->pictures)) {
+            foreach ($this->pictures as $picture) {
+                $picturesDB[] = $this->generateSizedImages($picture);
+            }
         }
 
         return Animal::create([

@@ -4,11 +4,13 @@ namespace App\Livewire\Forms;
 
 use App\Models\Animal;
 use App\Traits\AnimalsEditRules;
+use App\Traits\HandleImages;
 use Livewire\Form;
 
 class AnimalEditForm extends Form
 {
     use AnimalsEditRules;
+    use HandleImages;
 
     public Animal $animal;
 
@@ -49,11 +51,7 @@ class AnimalEditForm extends Form
         $picturesDB = empty($this->pictures) ? [] : $this->pictures;
 
         foreach ($this->new_pictures as $picture) {
-            $picturesDB[] = $picture->storeAs(
-                'animals',
-                uniqid() . '.' . $picture->getClientOriginalExtension(),
-                'public'
-            );
+            $picturesDB[] = $this->generateSizedImages($picture);
         }
 
         $picturesDB = empty($picturesDB) ? null : $picturesDB;
