@@ -16,6 +16,7 @@ return [
     'messages_title' => 'Go to the messages page',
     'volunteers' => 'Volunteers',
     'volunteers_title' => 'Go to the volunteers page',
+    'settings_title' => 'Go to the settings page',
     'add_animal' => 'Add an animal',
     'logout' => 'Log out',
 ];

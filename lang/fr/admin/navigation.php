@@ -17,5 +17,6 @@ return [
     'volunteers' => 'Bénévoles',
     'volunteers_title' => 'Aller vers la page des bénévoles',
     'add_animal' => 'Ajouter un animal',
+    'settings_title' => 'Aller vers la page de paramètres',
     'logout' => 'Me déconnecter',
 ];

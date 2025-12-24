@@ -1,6 +1,10 @@
 <?php
 
 return [
+    // USER
+    'admin' => 'Administrator',
+    'volunteer' => 'Volunteer',
+
     // YesOrNo
     'yes' => 'Yes',
     'no' => 'No',

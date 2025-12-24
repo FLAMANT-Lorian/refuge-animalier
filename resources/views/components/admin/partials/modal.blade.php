@@ -8,7 +8,7 @@
 <div
     class="show_modal p-6 md:p-12 flex h-full w-full justify-center items-center fixed z-50 inset-0 bg-[rgba(0,0,0,0.4)]">
     <div class="flex flex-col gap-4 w-full {{ $delete_modal ? 'lg:max-w-125' : 'lg:max-w-200' }} max-lg:max-w-175 bg-white p-6 rounded-2xl">
-        <div class="flex flex-row gap-4 justify-between">
+        <div class="flex flex-row gap-4 justify-between items-start">
             <div class="flex flex-col gap-1">
                 <p class="text-lg font-medium">
                     {!! $title!!}
