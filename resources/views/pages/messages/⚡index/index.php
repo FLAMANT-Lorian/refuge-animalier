@@ -21,6 +21,8 @@ class extends Component {
 
     public function mount(): void
     {
+        $this->authorize('view', Message::class);
+
         $this->app_title = __('admin/messages.title');
     }
 
@@ -38,11 +40,46 @@ class extends Component {
         return Message::where('status', MessageStatus::Unread->value)->count();
     }
 
-    public function openModal(string $modal, Message $message = null): void
+    public function markAsRead(Message $message): void
     {
-        if ($message !== null) {
-            $this->messageModal = $message;
+        $this->authorize('update', Message::class);
+
+        $message->update(['status' => MessageStatus::Read->value]);
+    }
+
+    public function markAsNotRead(int $id): void
+    {
+        $this->authorize('update', Message::class);
+
+        $message = Message::findOrFail($id);
+
+        $message->update(['status' => MessageStatus::Unread->value]);
+
+        $this->closeModal();
+    }
+
+    public function deleteMessage(int $id): void
+    {
+        $this->authorize('delete', Message::class);
+
+        $message = Message::findOrFail($id);
+
+        $message->delete();
+
+        session()->flash('status', __('admin/messages.delete_message'));
+
+        $this->redirectRoute('admin.messages.index', ['locale' => app()->getLocale()]);
+    }
+
+    public function openModal(string $modal, int $id): void
+    {
+        $message = Message::findOrFail($id);
+
+        if ($message->status === MessageStatus::Unread->value) {
+            $this->markAsRead($message);
         }
+
+        $this->messageModal = $message;
 
         if ($modal === 'message') {
             $this->openMessage = true;

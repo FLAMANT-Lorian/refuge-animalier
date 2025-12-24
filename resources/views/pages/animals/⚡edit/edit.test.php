@@ -3,14 +3,18 @@
 use App\Enums\AnimalStatus;
 use App\Enums\Sex;
 use App\Enums\UserStatus;
+use App\Jobs\ProcessUploadAnimalImages;
 use App\Models\Animal;
 use App\Models\Breed;
 use App\Models\Species;
-use Illuminate\Http\UploadedFile;
+use App\Traits\HandleImages;
+use Illuminate\Http\Testing\File;
 use Livewire\Livewire;
 use App\Models\User;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertDatabaseHas;
+
+uses(HandleImages::class);
 
 
 describe('VOLUNTEER USER', function () {
@@ -31,8 +35,9 @@ describe('VOLUNTEER USER', function () {
 });
 
 describe('ADMIN USER', function () {
+
     beforeEach(function () {
-        Storage::fake('public');
+        Storage::fake();
 
         $this->user = User::factory()
             ->create([
@@ -76,15 +81,29 @@ describe('ADMIN USER', function () {
     });
 
     it('verifies if you are redirected after successfully editing of an animal', function () {
+        Queue::fake();
+
+        $file_name = 'test.png';
+
         $animal = Animal::factory()->create([
             'name' => 'toto',
-            'pictures' => ['test.png'],
+            'pictures' => [$file_name],
             'breed_id' => Breed::factory()->create([
                 'species_id' => Species::factory()->create()
             ])
         ]);
 
-        Storage::disk('public')->put('test.png', 'fake_image_content');
+        $image = File::fake()->image($file_name);
+
+        Storage::disk('public')->putFileAs(
+            config('animals.original_path'),
+            $image,
+            $file_name
+        );
+
+        $job = new ProcessUploadAnimalImages($file_name);
+        $job->handle();
+
 
         Livewire::test('pages::animals.edit', [$animal])
             ->set('form.name', 'titi')

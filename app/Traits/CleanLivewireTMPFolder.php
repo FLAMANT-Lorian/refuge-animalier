@@ -8,7 +8,7 @@ trait CleanLivewireTMPFolder
 {
     public function cleanLivewireTMPFolder(): void
     {
-        $livewireTMPFolder = storage_path('app/private/livewire-tmp');
+        $livewireTMPFolder = storage_path('app/public/livewire-tmp');
         if (File::exists($livewireTMPFolder)) {
             File::cleanDirectory($livewireTMPFolder);
         }

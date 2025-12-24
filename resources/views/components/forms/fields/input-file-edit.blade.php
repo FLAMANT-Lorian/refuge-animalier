@@ -7,6 +7,10 @@
     'animal',
 ])
 
+@php
+    use Illuminate\Support\Facades\Storage;
+@endphp
+
 <div class="file-input-container {!! $container_class !!}">
 
     <div {!! $attributes->merge(['class' => 'relative flex flex-col gap-6']) !!}>
@@ -50,7 +54,7 @@
                                  src="{{ asset('storage/animals/variant/500x500/' . $picture) }}">
                             <div class="flex flex-col gap-1">
                                 <span class="break-all">{{ $picture }}</span>
-                                <span class="font-bold">{{ number_format(filesize(storage_path('app/public/animals/variant/500x500/' . $picture)) / (1024*1024), 2) }} mo</span>
+                                    <span class="font-bold">{{ number_format(Storage::disk('public')->size('animals/variant/500x500/' . $picture) / (1024*1024), 2) }} mo</span>
                             </div>
                         </div>
 

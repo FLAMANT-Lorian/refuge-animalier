@@ -5,6 +5,8 @@ return [
     'email' => 'Adresse e-mail',
     'communication' => 'Communication',
     'communication_placeholder' => 'Je vous contacte pour ...',
+    'object' => 'Objet',
+    'object_placeholder' => 'Demande d’adoption pour ...',
 
     // ANIMALS
     'breed' => 'Race',

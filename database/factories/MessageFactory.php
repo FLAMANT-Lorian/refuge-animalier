@@ -18,7 +18,8 @@ class MessageFactory extends Factory
             'full_name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'submit_date' => Carbon::now(),
-            'message' => $this->faker->word(),
+            'object' => $this->faker->words(4, true),
+            'message' => $this->faker->text(),
             'status' => $this->faker->randomElement($states),
         ];
     }
