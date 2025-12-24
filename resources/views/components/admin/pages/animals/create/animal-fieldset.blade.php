@@ -102,7 +102,8 @@
             :required="true"/>
 
         {{-- PHOTOS --}}
-        <x-forms.fields.input-file
+        <x-forms.fields.input-file-create
+            wire="form.pictures"
             name="pictures"
             container_class="md:col-start-2 md:col-end-3 md:row-start-5 md:row-end-6 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-6"
             :label="__('admin/animals.create_picture')"

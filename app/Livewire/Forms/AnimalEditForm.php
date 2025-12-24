@@ -3,12 +3,14 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Animal;
-use App\Traits\AnimalsRules;
+use App\Traits\AnimalsEditRules;
+use App\Traits\HandleImages;
 use Livewire\Form;
 
 class AnimalEditForm extends Form
 {
-    use AnimalsRules;
+    use AnimalsEditRules;
+    use HandleImages;
 
     public Animal $animal;
 
@@ -20,6 +22,8 @@ class AnimalEditForm extends Form
     public ?string $vaccines;
     public string $state;
     public string $character;
+    public ?array $pictures = [];
+    public ?array $new_pictures = [];
 
     public function setAnimal(Animal $animal): void
     {
@@ -32,10 +36,26 @@ class AnimalEditForm extends Form
         $this->vaccines = $animal->vaccines;
         $this->state = $animal->state;
         $this->character = $animal->character;
+        $this->pictures = $animal->pictures;
     }
 
-    public function update(): Animal
+    public function update(): ?Animal
     {
+        $total = count($this->pictures ?? []) + count($this->new_pictures ?? []);
+
+        if ($total > 4) {
+            $this->addError('new_pictures', 'Le champ photos ne doit pas contenir plus de 4 éléments.');
+            return null;
+        }
+
+        $picturesDB = empty($this->pictures) ? [] : $this->pictures;
+
+        foreach ($this->new_pictures as $picture) {
+            $picturesDB[] = $this->generateSizedImages($picture);
+        }
+
+        $picturesDB = empty($picturesDB) ? null : $picturesDB;
+
         $this->animal->update([
                 'name' => $this->name,
                 'breed_id' => $this->breed,
@@ -44,7 +64,7 @@ class AnimalEditForm extends Form
                 'coat' => $this->coat,
                 'vaccines' => $this->vaccines ?? null,
                 'state' => $this->state,
-                'img_path' => 'public_2.webp',
+                'pictures' => $picturesDB,
                 'character' => $this->character,
             ]
         );

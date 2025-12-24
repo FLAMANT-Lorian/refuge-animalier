@@ -6,9 +6,9 @@ use App\Enums\AnimalStatus;
 use App\Enums\Sex;
 use Illuminate\Validation\Rule;
 
-trait AnimalsRules
+trait AnimalsEditRules
 {
-    protected function rules(): array
+    public function rules(): array
     {
         return [
             'name' => 'required',
@@ -19,8 +19,7 @@ trait AnimalsRules
             'vaccines' => 'nullable',
             'state' => ['required', Rule::enum(AnimalStatus::class)],
             'character' => 'required',
-            'pictures' => 'nullable|array|max:4',
-            'pictures.*' => 'mimes:jpeg,png,gif,webp|max:2048',
+            'new_pictures.*' => 'mimes:jpeg,png,gif,webp|max:2048'
         ];
     }
 }

@@ -18,5 +18,7 @@ return [
     'show_ask_for_meeting' => 'Demande de rendez-vous',
     'show_ask_for_meeting_btn' => 'Demander de rendez-vous',
     'show_legend' => 'Informations pour une demande de rendez-vous',
+    'no_images' => 'Aucunes photos disponible',
+    'year' => 'ans',
 
 ];

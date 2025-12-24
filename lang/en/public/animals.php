@@ -18,4 +18,6 @@ return [
     'show_ask_for_meeting' => 'Request an appointment',
     'show_ask_for_meeting_btn' => 'Request an appointment',
     'show_legend' => 'Information for an appointment request',
+    'no_images' => 'No availabel images',
+    'year' => 'years',
 ];

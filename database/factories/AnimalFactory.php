@@ -3,14 +3,18 @@
 namespace Database\Factories;
 
 use App\Enums\Sex;
+use App\Traits\HandleImages;
 use Carbon\Carbon;
 
 use App\Enums\AnimalStatus;
 use App\Models\Animal;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Http\UploadedFile;
 
 class AnimalFactory extends Factory
 {
+    use HandleImages;
+
     protected $model = Animal::class;
 
     public function definition(): array
@@ -28,7 +32,6 @@ class AnimalFactory extends Factory
 
         $adopted_at = [null, Carbon::now()];
 
-
         return [
             'name' => $this->faker->randomElement($animals_name),
             'sex' => $this->faker->randomElement($sex),
@@ -37,7 +40,7 @@ class AnimalFactory extends Factory
             'character' => $this->faker->text(),
             'birth_date' => $this->faker->date(),
             'state' => $this->faker->randomElement($states),
-            'img_path' => 'public_2.webp',
+            'pictures' => null,
             'adopted_at' => $this->faker->randomElement($adopted_at)
         ];
     }
