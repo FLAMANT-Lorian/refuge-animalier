@@ -1,3 +1,7 @@
+@php
+    use App\Models\Message;
+@endphp
+
 <ul class="flex flex-col gap-6 lg:gap-4 mt-12 lg:mt-20 mb-auto">
 
     <li class="group">
@@ -40,15 +44,19 @@
         </x-admin.navigation.navigation-link>
     </li>
 
-    <li class="group">
-        <x-admin.navigation.navigation-link
-            :destination="route('admin.messages.index')"
-            icon="messages"
-            class="lg:group-hover:text-white"
-            :title="__('admin/navigation.messages_title')">
-            {{ __('admin/navigation.messages') }}
-        </x-admin.navigation.navigation-link>
-    </li>
+    @can('view', Message::class)
+
+        <li class="group">
+            <x-admin.navigation.navigation-link
+                :destination="route('admin.messages.index')"
+                icon="messages"
+                class="lg:group-hover:text-white"
+                :title="__('admin/navigation.messages_title')">
+                {{ __('admin/navigation.messages') }}
+            </x-admin.navigation.navigation-link>
+        </li>
+
+    @endcan
 
     <li class="group">
         <x-admin.navigation.navigation-link

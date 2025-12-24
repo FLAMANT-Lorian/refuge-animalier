@@ -21,6 +21,8 @@ class extends Component {
 
     public function mount(): void
     {
+        $this->authorize('view', Message::class);
+
         $this->app_title = __('admin/messages.title');
     }
 
@@ -40,11 +42,15 @@ class extends Component {
 
     public function markAsRead(Message $message): void
     {
+        $this->authorize('update', Message::class);
+
         $message->update(['status' => MessageStatus::Read->value]);
     }
 
     public function markAsNotRead(int $id): void
     {
+        $this->authorize('update', Message::class);
+
         $message = Message::findOrFail($id);
 
         $message->update(['status' => MessageStatus::Unread->value]);
@@ -54,6 +60,8 @@ class extends Component {
 
     public function deleteMessage(int $id): void
     {
+        $this->authorize('delete', Message::class);
+
         $message = Message::findOrFail($id);
 
         $message->delete();

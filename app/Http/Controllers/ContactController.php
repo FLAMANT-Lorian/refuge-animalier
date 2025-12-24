@@ -15,6 +15,7 @@ class ContactController extends Controller
 
     public function store(StoreMessageRequest $request)
     {
+
         $message = $request->validated();
 
         Message::create([
