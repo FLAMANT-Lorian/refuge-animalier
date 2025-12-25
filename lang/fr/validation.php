@@ -209,7 +209,7 @@ return [
 
         // MESSAGE DE CONTACT
         'full_name' => 'nom complet',
-        'email' => 'adresse e’mail',
+        'email' => 'adresse e-mail',
         'message' => 'message',
         'object' => 'objet',
     ],

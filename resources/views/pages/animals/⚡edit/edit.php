@@ -5,6 +5,8 @@ use App\Models\Animal;
 use App\Traits\CleanLivewireTMPFolder;
 use App\Traits\DeleteAnimal;
 use App\Traits\getBreeds;
+use App\Traits\PicturesHandling;
+use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -17,6 +19,8 @@ class extends Component {
     use DeleteAnimal;
     use WithFileUploads;
     use CleanLivewireTMPFolder;
+    use PicturesHandling;
+    use RedirectToAnimalsPage;
 
     public AnimalEditForm $form;
 
@@ -40,29 +44,7 @@ class extends Component {
 
     public function deletePictureFromStorage(int $index, int $animal_index): void
     {
-        $animal = Animal::findOrFail($animal_index);
-        $sizes = config('animals.sizes');
-
-        $current_file = $this->form->pictures[$index];
-
-        Storage::disk('public')->delete(config('animals.original_path') . '/' . $current_file);
-
-        foreach ($sizes as $size) {
-            $variant_path = sprintf(
-                config('animals.path_to_variant'),
-                $size['width'],
-                $size['height']);
-
-            Storage::disk('public')->delete($variant_path . '/' . $current_file);
-        }
-
-        unset($this->form->pictures[$index]);
-
-        if (empty($this->form->pictures)) {
-            $this->form->pictures = null;
-        }
-
-        $animal->update(['pictures' => $this->form->pictures]);
+        $this->deletePictureFromPublicStorage($animal_index, $index, $this->form);
     }
 
     public function removeTMPImage(int $index): void
@@ -74,9 +56,11 @@ class extends Component {
     {
         $this->authorize('delete', Animal::class);
 
+        $this->deleteAnimalsPictures($id);
+
         $this->deleteAnimal($id);
 
-        $this->redirectRoute('admin.animals.index', ['locale' => app()->getLocale()]);
+        $this->redirectToAnimalIndexPage();
 
         $this->closeModal();
     }
@@ -98,11 +82,7 @@ class extends Component {
 
         session()->flash('status', __('admin/animals.edit_flash_message'));
 
-        $this->redirectRoute('admin.animals.show', [
-                'locale' => app()->getLocale(),
-                'animal' => $animal
-            ]
-        );
+        $this->redirectToAnimalShowPage($this->animal);
     }
 
     public function openModal(string $modal, int $id = null): void

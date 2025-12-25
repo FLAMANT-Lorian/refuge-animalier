@@ -7,6 +7,9 @@ return [
     'communication_placeholder' => 'I am contacting you about ...',
     'object' => 'object',
     'object_placeholder' => 'Adoption request for ...',
+    'visit_date' => 'Visit date',
+    'note' => 'Note',
+    'note_placeholder' => 'He is ...',
 
     // ANIMALS
     'breed' => 'Breed',

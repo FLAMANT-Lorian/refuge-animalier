@@ -12,8 +12,7 @@
             :animal="$animal"/>
 
         {{-- NOTES --}}
-        <x-admin.pages.animals.show.animal_notes
-        :animal="$animal"/>
+        <x-admin.pages.animals.show.animal_notes/>
 
     </div>
 
@@ -22,10 +21,10 @@
         :animal="$animalToAddNote"/>
     @elseif($openEditNote)
         <x-admin.modals.animals.show.editNote
-            :animal="$animalToEditNote"/>
+            :note="$noteToEdit"/>
     @elseif($openDeleteNote)
         <x-admin.modals.animals.show.deleteNote
-            :animal="$animalToDeleteNote"/>
+            :note="$noteToDelete"/>
     @elseif($openUpdateRequest)
         <x-admin.modals.animals.show.updateRequest
             :animal="$animalToAskToUpdate"/>

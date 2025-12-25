@@ -51,7 +51,8 @@ class extends Component {
         $this->redirectRoute('admin.animals.show', [
                 'locale' => app()->getLocale(),
                 'animal' => $animal
-            ]
+            ],
+        navigate: true
         );
     }
 
