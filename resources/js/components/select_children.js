@@ -1,6 +1,7 @@
 (function () {
     const childrenSelect = {
-        select: document.querySelector('.children_select'), inputNumber: document.querySelector('.children_number'),
+        select: document.querySelector('.children_select'),
+        inputNumber: document.querySelector('.children_number'),
 
         init() {
             this.inputNumber.disabled = true;

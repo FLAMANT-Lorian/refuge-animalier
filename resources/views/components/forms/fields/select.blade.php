@@ -26,7 +26,7 @@
         name="{!! $name !!}"
         id="{!! $field_name !!}">
         @foreach ($collection as $item)
-            <option value="@if($id === null){{ $item->$identifier }}@else{!! $item->$id !!}@endif">
+            <option value="{{ $id === null ?  $item->$identifier : $item->id}}">
                 @if($traduction)
                     {{ __('enum.' . $item->$identifier) }}
                 @else

@@ -5,7 +5,7 @@
 
         init() {
             this.inputNumber.disabled = true;
-            this.select.addEventListener('change', e  => {
+            this.select.addEventListener('change', e => {
                 this.handleSelect(e);
             });
         },
@@ -18,8 +18,8 @@
             }
         }
     };
-    if (document.querySelector('main').classList.contains('volunteer-create') ||
-        document.querySelector('main').classList.contains('volunteer-show')
+    if (document.querySelector('main').classList.contains('adoption-requests-create') ||
+        document.querySelector('main').classList.contains('adoption-requests-edit')
     ) {
         animalSelect.init();
     }
