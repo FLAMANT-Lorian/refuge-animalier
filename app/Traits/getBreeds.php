@@ -10,6 +10,6 @@ trait getBreeds
     #[Computed]
     public function breeds()
     {
-        return Breed::all();
+        return Breed::orderBy('name')->get();
     }
 }

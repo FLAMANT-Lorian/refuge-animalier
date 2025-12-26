@@ -36,12 +36,13 @@ class DatabaseSeeder extends Seeder
                 'role' => UserStatus::Volunteer->value
             ]);
 
-        $species = Species::factory()
-            ->has(Breed::factory()->count(4))
-            ->count(2)
-            ->create();
+        foreach (\App\Enums\Species::cases() as $type) {
+            Species::factory()
+                ->has(Breed::factory()->count(2))
+                ->create(['name' => $type->value]);
+        }
 
-
+        $species = Species::all();
 
         Animal::factory()
             ->has(AnimalNote::factory()->count(8))

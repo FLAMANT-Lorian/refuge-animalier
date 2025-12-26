@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\UploadedFile;
 use Livewire\Livewire;
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\assertDatabaseHas;
 
 describe('VOLUNTEER USER', function () {
     beforeEach(function () {
@@ -107,5 +108,29 @@ describe('ADMIN USER', function () {
         $file_name = $animal->pictures[0];
 
         Storage::assertExists('animals/original/' . $file_name);
+    });
+
+    it('verifies if an admin can add a breed', function () {
+        $species = Species::factory()->create();
+
+        Livewire::test('pages::animals.create')
+            ->call('openModal', 'add-breed')
+            ->set('breedForm.species', $species->name)
+            ->set('breedForm.breed', 'toto')
+            ->call('addBreed');
+
+        assertDatabaseHas('breeds', ['name' => 'toto']);
+    });
+
+    it('verifies if an admin can\'t add a breed that already exists', function () {
+        $species = Species::factory()->create();
+        Breed::factory()->create(['species_id' => $species, 'name' => 'toto']);
+
+        Livewire::test('pages::animals.create')
+            ->call('openModal', 'add-breed')
+            ->set('breedForm.species', $species->name)
+            ->set('breedForm.breed', 'toto')
+            ->call('addBreed')
+            ->assertHasErrors(['breedForm.breed']);
     });
 });

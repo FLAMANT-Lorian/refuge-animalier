@@ -1,7 +1,9 @@
 <?php
 
 use App\Livewire\Forms\AnimalEditForm;
+use App\Livewire\Forms\BreedCreateForm;
 use App\Models\Animal;
+use App\Traits\AddBreed;
 use App\Traits\CleanLivewireTMPFolder;
 use App\Traits\DeleteAnimal;
 use App\Traits\getBreeds;
@@ -21,8 +23,10 @@ class extends Component {
     use CleanLivewireTMPFolder;
     use PicturesHandling;
     use RedirectToAnimalsPage;
+    use AddBreed;
 
     public AnimalEditForm $form;
+    public BreedCreateForm $breedForm;
 
     public Animal $animal;
 
@@ -50,6 +54,11 @@ class extends Component {
     public function removeTMPImage(int $index): void
     {
         unset($this->form->new_pictures[$index]);
+    }
+
+    public function addBreed(): void
+    {
+        $this->addBreedModal($this->breedForm);
     }
 
     public function delete(int $id): void

@@ -61,7 +61,7 @@
             <button
                 wire:click="openModal('add-breed')"
                 type="button"
-                class="hover:cursor-pointer text-blue-500 hover:underline absolute -bottom-6 max-md:right-0">
+                class="cursor-pointer text-blue-500 hover:underline absolute -top-0.5 right-0">
                 {!! __('admin/animals.add_new_breed') !!}
             </button>
         </div>

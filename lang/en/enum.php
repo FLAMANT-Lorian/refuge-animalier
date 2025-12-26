@@ -1,39 +1,76 @@
 <?php
 
+use App\Enums\AdoptionRequestsStatus;
+use App\Enums\AnimalStatus;
+use App\Enums\Sex;
+use App\Enums\Species;
+use App\Enums\UserStatus;
+use App\Enums\YesOrNo;
+
 return [
     // USER
-    'admin' => 'Administrator',
-    'volunteer' => 'Volunteer',
+    UserStatus::Admin->value => 'Administrator',
+    UserStatus::Volunteer->value => 'Volunteer',
 
     // YesOrNo
-    'yes' => 'Yes',
-    'no' => 'No',
+    YesOrNo::Yes->value => 'Yes',
+    YesOrNo::No->value => 'No',
 
     // AdoptionRequestStatus
-    'refused' => 'Refused',
-    'in_way' => 'In Way',
-    'closed' => 'Closed',
-    'awaiting' => 'Awaiting',
+    AdoptionRequestsStatus::Refused->value => 'Refused',
+    AdoptionRequestsStatus::InWay->value => 'In progress',
+    AdoptionRequestsStatus::Closed->value => 'Closed',
+    AdoptionRequestsStatus::Awaiting->value => 'Awaiting',
 
     // AdoptionRequestStatusFilter
-    'refused_filter' => 'Refused',
-    'in_way_filter' => 'In Way',
-    'closed_filter' => 'Closed',
-    'awaiting_filter' => 'Awaiting',
+    AdoptionRequestsStatus::Refused->value . '_filter' => 'Refused',
+    AdoptionRequestsStatus::InWay->value . '_filter' => 'In progress',
+    AdoptionRequestsStatus::Closed->value . '_filter' => 'Closed',
+    AdoptionRequestsStatus::Awaiting->value . '_filter' => 'Awaiting',
 
     // Sex
-    'male' => 'Male',
-    'female' => 'Female',
+    Sex::Male->value => 'Male',
+    Sex::Female->value => 'Female',
 
     // AnimalStatus
-    'adopted' => 'Adopted',
-    'in_treatment' => 'Under treatment',
-    'process_of_adoption' => 'In the process of adoption',
-    'awaiting_adoption' => 'Awaiting adoption',
+    AnimalStatus::Adopted->value => 'Adopted',
+    AnimalStatus::InTreatment->value => 'Under treatment',
+    AnimalStatus::ProcessOfAdoption->value => 'In adoption process',
+    AnimalStatus::AwaitingAdoption->value => 'Awaiting adoption',
 
     // AnimalStatusFilter
-    'adopted_filter' => 'Adopted',
-    'in_treatment_filter' => 'Under Treatment',
-    'process_of_adoption_filter' => 'In Adoption Process',
-    'awaiting_adoption_filter' => 'Awaiting Adoption',
+    AnimalStatus::Adopted->value . '_filter' => 'Adopted',
+    AnimalStatus::InTreatment->value . '_filter' => 'Under treatment',
+    AnimalStatus::ProcessOfAdoption->value . '_filter' => 'In adoption process',
+    AnimalStatus::AwaitingAdoption->value . '_filter' => 'Awaiting adoption',
+
+    // SPECIES
+    Species::DOG->value => 'Dog',
+    Species::CAT->value => 'Cat',
+    Species::RABBIT->value => 'Rabbit',
+    Species::HAMSTER->value => 'Hamster',
+    Species::GUINEA_PIG->value => 'Guinea pig',
+    Species::FERRET->value => 'Ferret',
+
+    Species::HORSE->value => 'Horse',
+    Species::COW->value => 'Cow',
+    Species::SHEEP->value => 'Sheep',
+    Species::GOAT->value => 'Goat',
+    Species::PIG->value => 'Pig',
+    Species::DONKEY->value => 'Donkey',
+    Species::CHICKEN->value => 'Chicken',
+    Species::DUCK->value => 'Duck',
+
+    Species::BIRD->value => 'Bird',
+    Species::PARROT->value => 'Parrot',
+    Species::CANARY->value => 'Canary',
+
+    Species::SNAKE->value => 'Snake',
+    Species::LIZARD->value => 'Lizard',
+    Species::TURTLE->value => 'Turtle',
+    Species::FROG->value => 'Frog',
+
+    Species::DEER->value => 'Deer',
+    Species::FOX->value => 'Fox',
+    Species::HEDGEHOG->value => 'Hedgehog',
 ];
