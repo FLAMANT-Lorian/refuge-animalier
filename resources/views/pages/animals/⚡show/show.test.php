@@ -1,9 +1,12 @@
 <?php
 
 use App\Models\Animal;
+use App\Models\AnimalNote;
 use App\Models\Breed;
+use App\Models\Species;
 use App\Models\User;
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\assertDatabaseCount;
 
 describe('CONNECTED USER', function () {
     beforeEach(function () {
@@ -15,7 +18,7 @@ describe('CONNECTED USER', function () {
 
         $animal = Animal::factory([
             'breed_id' => Breed::factory()->create([
-                'species_id' => \App\Models\Species::factory()->create()
+                'species_id' => Species::factory()->create()
             ])
         ])->create();
 
@@ -28,7 +31,7 @@ describe('CONNECTED USER', function () {
             $animal = Animal::factory()
                 ->create([
                     'breed_id' => Breed::factory()->create([
-                        'species_id' => \App\Models\Species::factory()->create()
+                        'species_id' => Species::factory()->create()
                     ]),
                     'name' => 'toto'
                 ]);
@@ -37,7 +40,7 @@ describe('CONNECTED USER', function () {
             $animal1 = Animal::factory()
                 ->create([
                     'breed_id' => Breed::factory()->create([
-                        'species_id' => \App\Models\Species::factory()->create()
+                        'species_id' => Species::factory()->create()
                     ]),
                     'name' => 'titi'
                 ]);
@@ -47,4 +50,58 @@ describe('CONNECTED USER', function () {
                 ->assertDontSee($animal1->name);
         }
     );
+
+    it('verifies if an admin or a volunteer can create a note', function () {
+        $animal = Animal::factory()->create([
+            'breed_id' => Breed::factory()->create([
+                'species_id' => Species::factory()->create()
+            ]),
+        ]);
+
+        Livewire::test('pages::animals.show', ['animal' => $animal])
+            ->call('openModal', 'create-note')
+            ->set('createNoteForm.full_name', 'toto')
+            ->set('createNoteForm.email', 'toto@toto.be')
+            ->set('createNoteForm.message', 'toto')
+            ->set('createNoteForm.visit_date', '1999-12-12')
+            ->call('createNote')
+            ->assertHasNoErrors(['createNoteForm.full_name', 'createNoteForm.email', 'createNoteForm.message', 'createNoteForm.visit_date']);;
+
+        assertDatabaseCount('animal_notes', 1);
+    });
+
+    it('verifies if you have errors message when you want to create a note with false value', function () {
+        $animal = Animal::factory()
+            ->has(AnimalNote::factory())
+            ->create([
+                'breed_id' => Breed::factory()->create([
+                    'species_id' => Species::factory()->create()
+                ]),
+            ]);
+
+        Livewire::test('pages::animals.show', ['animal' => $animal])
+            ->call('openModal', 'edit-note', $animal->animalNotes()->first()->id)
+            ->set('editNoteForm.full_name', '')
+            ->set('editNoteForm.email', '')
+            ->set('editNoteForm.message', '')
+            ->set('editNoteForm.visit_date', '')
+            ->call('editNote', $animal->animalNotes()->first()->id)
+            ->assertHasErrors(['editNoteForm.full_name', 'editNoteForm.email', 'editNoteForm.message', 'editNoteForm.visit_date']);
+    });
+
+    it('verifies if a user can delete a note', function () {
+        $animal = Animal::factory()
+            ->has(AnimalNote::factory())
+            ->create([
+                'breed_id' => Breed::factory()->create([
+                    'species_id' => Species::factory()->create()
+                ]),
+            ]);
+
+        Livewire::test('pages::animals.show', ['animal' => $animal])
+            ->call('openModal', 'delete-note', $animal->animalNotes()->first()->id)
+            ->call('deleteNote', $animal->animalNotes()->first()->id);
+
+        assertDatabaseCount('animal_notes', 0);
+    });
 });

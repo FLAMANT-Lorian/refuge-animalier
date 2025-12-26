@@ -2,6 +2,7 @@
 
 use App\Models\Animal;
 use App\Traits\DeleteAnimal;
+use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -13,6 +14,7 @@ class extends Component {
 
     use WithPagination;
     use DeleteAnimal;
+    use RedirectToAnimalsPage;
 
     public string $app_title;
     public bool $openDeleteAnimal = false;
@@ -43,9 +45,7 @@ class extends Component {
 
         $this->deleteAnimal($id);
 
-        $this->redirectRoute('admin.animals.index', ['locale' => app()->getLocale()]);
-
-        $this->closeModal();
+        $this->redirectToAnimalIndexPage();
     }
 
     public function openModal(string $modal, int $id): void

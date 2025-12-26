@@ -1,6 +1,10 @@
 <?php
 
+use App\Livewire\Forms\NoteCreateForm;
+use App\Livewire\Forms\NoteEditForm;
 use App\Models\Animal;
+use App\Models\AnimalNote;
+use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
@@ -11,6 +15,10 @@ new #[Title('admin/page_title.animals_show')]
 class extends Component {
 
     use WithPagination;
+    use RedirectToAnimalsPage;
+
+    public NoteCreateForm $createNoteForm;
+    public NoteEditForm $editNoteForm;
 
     public Animal $animal;
     public string $app_title;
@@ -18,15 +26,57 @@ class extends Component {
     public bool $openEditNote = false;
     public bool $openDeleteNote = false;
     public bool $openUpdateRequest = false;
+
     public Animal $animalToAddNote;
-    public Animal $animalToEditNote;
-    public Animal $animalToDeleteNote;
+    public AnimalNote $noteToEdit;
+    public AnimalNote $noteToDelete;
     public Animal $animalToAskToUpdate;
 
     public function mount(Animal $animal): void
     {
         $this->animal = $animal;
         $this->app_title = __('admin/animals.show_title') . $this->animal->name;
+    }
+
+    public function createNote(): void
+    {
+        $this->authorize('create', AnimalNote::class);
+
+        $this->createNoteForm->validate();
+
+        $this->createNoteForm->store($this->animal);
+
+        session()->flash('status', __('admin/animals.create_note_message'));
+
+        $this->redirectToAnimalShowPage($this->animal);
+    }
+
+    public function editNote(int $id): void
+    {
+        $this->authorize('update', AnimalNote::class);
+
+        $note = $this->animal->animalNotes()->findOrFail($id);
+
+        $this->editNoteForm->validate();
+
+        $this->editNoteForm->update($note);
+
+        session()->flash('status', __('admin/animals.edit_note_message'));
+
+        $this->redirectToAnimalShowPage($this->animal);
+    }
+
+    public function deleteNote(int $id): void
+    {
+        $this->authorize('delete', AnimalNote::class);
+
+        $note = $this->animal->animalNotes()->findOrFail($id);
+
+        $note->delete();
+
+        session()->flash('status', __('admin/animals.delete_note_message'));
+
+        $this->redirectToAnimalShowPage($this->animal);
     }
 
     #[Computed]
@@ -40,29 +90,30 @@ class extends Component {
 
     public function openModal(string $modal, int $id = null): void
     {
-        $animal = Animal::findOrFail($id);
+        if ($id !== null) {
+            $note = $this->animal->animalNotes()->findOrFail($id);
 
-        if ($animal !== null) {
-
-            if ($modal === 'create-note') {
-                $this->animalToAddNote = $animal;
-                $this->openCreateNote = true;
-            } else if ($modal === 'edit-note') {
-                $this->animalToEditNote = $animal;
+            if ($modal === 'edit-note') {
+                $this->editNoteForm->setNote($note);
                 $this->openEditNote = true;
+                $this->noteToEdit = $note;
             } else if ($modal === 'delete-note') {
-                $this->animalToDeleteNote = $animal;
+                $this->noteToDelete = $note;
                 $this->openDeleteNote = true;
+            }
+        } else {
+            if ($modal === 'create-note') {
+                $this->openCreateNote = true;
+                $this->animalToAddNote = $this->animal;
             } else if ($modal === 'update-request') {
-                $this->animalToAskToUpdate = $animal;
                 $this->openUpdateRequest = true;
+                $this->animalToAskToUpdate = $this->animal;
             }
         }
 
         $this->dispatch('open-modal');
     }
 
-    #[On('close-modal-with-escape')]
     public function closeModal(): void
     {
         $this->openCreateNote = false;

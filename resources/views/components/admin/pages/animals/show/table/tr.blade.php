@@ -1,6 +1,5 @@
 @props([
     'note',
-    'animal'
 ])
 
 <tr scope="row"
@@ -19,7 +18,7 @@
                 {!! __('admin/animals.visit_notes_th1') !!}
             </span>
             <button type="button"
-                    wire:click="openModal('edit-note', {!! $animal !!})"
+                    wire:click="openModal('edit-note', {{ $note->id }})"
                     class="hover:cursor-pointer text-left lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200">
                 {!! $note->full_name !!}
             </button>
@@ -53,18 +52,18 @@
 
             {{-- VOIR LA NOTE - MOBILE --}}
             <button type="button"
-                    wire:click="openModal('edit-note', {!! $animal->id !!})"
+                    wire:click="openModal('edit-note', {!! $note->id !!})"
                     class="cursor-pointer lg:hidden font-medium px-4 py-2.5 bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
                 {!! __('admin/animals.view_visit_note') !!}
             </button>
 
             {{-- EDIT --}}
             <x-table.edit-modal
-                wire:click="openModal('edit-note', {!! $animal->id !!})"/>
+                wire:click="openModal('edit-note', {!! $note->id !!})"/>
 
             {{-- DELETE --}}
             <x-table.delete
-                wire:click="openModal('delete-note', {!! $animal->id !!})"/>
+                wire:click="openModal('delete-note', {!! $note->id !!})"/>
 
         </div>
     </td>

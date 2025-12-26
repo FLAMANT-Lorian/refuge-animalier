@@ -111,12 +111,25 @@ return [
     'edit_danger_zone_btn' => 'Supprimer la fiche de l’animal',
     'edit_flash_message' => 'Animal modifié avec succès !',
 
-    // DELETE
+    // FLASH MESSAGE
     'delete_flash_message' => 'Animal supprimé avec succès !',
+    'delete_note_message' => 'Note supprimée avec succès !',
+    'edit_note_message' => 'Note modifiée avec succès !',
+    'create_note_message' => 'Note créée avec succès !',
 
     // MODAL
     'delete_modal_title' => 'Supprimer l’animal',
     'delete_modal_sub_title' => 'Êtes-vous sûr de vouloir supprimer la fiche de ',
     'delete_modal_btn' => 'Supprimer le fiche de ',
+
+    'delete_note_modal_title' => 'Supprimer la note de visite',
+    'delete_note_modal_sub_title' => 'Êtes-vous sûr de vouloir supprimer la note de ',
+    'delete_note_modal_btn' => 'Supprimer la note de visite',
+
+    'create_note_modal_title' => 'Créer une note de visite',
+    'create_note_modal_btn' => 'Créer la note de visite',
+
+    'edit_note_modal_title' => 'Modifier la note de visite de ',
+    'edit_note_modal_btn' => 'Modifier la note de visite',
 
 ];

@@ -111,11 +111,24 @@ return [
     'edit_danger_zone_btn' => 'Delete the animal sheet',
     'edit_flash_message' => 'Animals successfully updated !',
 
-    // DELETE
-    'delete_flash_message' => 'Animal successfully deleted !',
+    // FLASH MESSAGE
+    'delete_flash_message' => 'Animal deleted successfully!',
+    'delete_note_message' => 'Note deleted successfully!',
+    'edit_note_message' => 'Note updated successfully!',
+    'create_note_message' => 'Note created successfully!',
 
     // MODAL
     'delete_modal_title' => 'Delete Animal',
     'delete_modal_sub_title' => 'Are you sure you want to delete the record of ',
     'delete_modal_btn' => 'Delete the record of ',
+
+    'delete_note_modal_title' => 'Delete visit note',
+    'delete_note_modal_sub_title' => 'Are you sure you want to delete the note from ',
+    'delete_note_modal_btn' => 'Delete visit note',
+
+    'create_note_modal_title' => 'Create visit note',
+    'create_note_modal_btn' => 'Create visit note',
+
+    'edit_note_modal_title' => 'Edit visit note from ',
+    'edit_note_modal_btn' => 'Update visit note',
 ];

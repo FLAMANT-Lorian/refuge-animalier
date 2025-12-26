@@ -10,6 +10,6 @@
     </div>
 
     @if($openAddBreed)
-        <x-admin.modals.animals.create.addBreed/>
+        <x-admin.modals.animals.edit.addBreed/>
     @endif
 </main>

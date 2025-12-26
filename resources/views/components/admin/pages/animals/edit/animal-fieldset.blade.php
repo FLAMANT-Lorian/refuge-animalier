@@ -45,13 +45,13 @@
             identifier="value"
         />
 
-        {{-- RACE -> TODO : CHANGER LE SELECT AVEC LES VALEURS DE DB --}}
+        {{-- RACE --}}
         <div class="relative">
-            <x-forms.fields.select-animal
+            <x-forms.fields.select-breed
                 wire="form.breed"
                 field_name="breed"
-                label="Race"
-                :name="__('admin/animals.create_breed')"
+                :label="__('admin/animals.create_breed')"
+                name="breed"
                 :required="true"
                 :traduction="false"
                 :collection="$this->breeds"

@@ -42,7 +42,6 @@
         {{-- Nombre d’enfant -> SI ENFANT = YES--}}
         <x-forms.fields.input-number
             js_class="children_number"
-            class=""
             field_name="children_count"
             name="children_count"
             :label="__('admin/adoption-requests.children_count')"
@@ -58,7 +57,7 @@
             :label="__('admin/adoption-requests.animals_at_home')"
             :collection="YesOrNo::cases()"
             identifier="value"
-            :value="YesOrNo::No->value"
+            :value="YesOrNo::Yes->value"
         />
 
         {{-- type d’animaux -> Si Animaux = YES--}}

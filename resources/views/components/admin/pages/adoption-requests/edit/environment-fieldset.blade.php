@@ -29,6 +29,7 @@
 
         {{-- ENFANT --}}
         <x-forms.fields.select
+            js_class="children_select"
             field_name="children"
             name="children"
             :label="__('admin/adoption-requests.children')"
@@ -38,6 +39,7 @@
 
         {{-- Nombre d’enfant -> SI ENFANT = YES--}}
         <x-forms.fields.input-number
+            js_class="children_number"
             field_name="children_count"
             name="children_count"
             :label="__('admin/adoption-requests.children_count')"
@@ -47,6 +49,7 @@
 
         {{-- Présence d’animaux --}}
         <x-forms.fields.select
+            js_class="animals_select"
             field_name="animals_at_home"
             name="animals_at_home"
             :label="__('admin/adoption-requests.animals_at_home')"
@@ -56,6 +59,7 @@
 
         {{-- type d’animaux -> Si Animaux = YES--}}
         <x-forms.fields.input-text
+            js_class="animals_number"
             field_name="animals_type"
             name="animals_type"
             :label="__('admin/adoption-requests.animals_at_home_type')"
