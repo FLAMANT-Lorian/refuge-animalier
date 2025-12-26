@@ -23,7 +23,7 @@
         id="{!! $field_name !!}">
         @foreach ($collection as $item)
             <option value="{!! $item->id !!}">
-                {!! $item->name . ' (' .  $item->species->name . ')' !!}
+                {!! $item->name . ' (' .  __('enum.' . $item->species->name) . ')' !!}
             </option>
         @endforeach
     </select>

@@ -13,6 +13,7 @@ return [
 
     // ANIMALS
     'breed' => 'Race',
+    'type' => 'Espèce',
     'sex' => 'Sexe',
     'color' => 'Pelage',
     'age' => 'Âge',

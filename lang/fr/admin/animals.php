@@ -72,6 +72,7 @@ return [
     'create_sex_placeholder' => 'Femelle',
     'create_breed' => 'Race',
     'add_new_breed' => 'Ajouter une nouvelle race',
+    'add_new_breed_1' => 'Ajouter la nouvelle race',
     'create_color' => 'Pelage',
     'create_color_placeholder' => 'Brun',
     'create_vaccines' => 'Vaccins',

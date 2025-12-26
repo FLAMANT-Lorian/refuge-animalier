@@ -72,6 +72,7 @@ return [
     'create_sex_placeholder' => 'Female',
     'create_breed' => 'Breed',
     'add_new_breed' => 'Add a new breed',
+    'add_new_breed_1' => 'Add the new breed',
     'create_color' => 'Coat',
     'create_color_placeholder' => 'Brown',
     'create_vaccines' => 'Vaccines',

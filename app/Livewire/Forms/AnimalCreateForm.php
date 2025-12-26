@@ -27,7 +27,7 @@ class AnimalCreateForm extends Form
 
     public function setAnimal(): void
     {
-        $this->breed = Breed::first()->id;
+        $this->breed = Breed::orderBy('name')->first()->id;
         $this->sex = Sex::Male->value;
         $this->state = AnimalStatus::AwaitingAdoption->value;
     }

@@ -165,6 +165,7 @@ return [
     'url' => 'The :attribute field must be a valid URL.',
     'ulid' => 'The :attribute field must be a valid ULID.',
     'uuid' => 'The :attribute field must be a valid UUID.',
+    'breed_already_exists' => 'This breed already exists for this species.',
 
     /*
     |--------------------------------------------------------------------------
