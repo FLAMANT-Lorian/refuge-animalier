@@ -70,7 +70,7 @@ class extends Component {
 
         session()->flash('status', __('admin/messages.delete_message'));
 
-        $this->redirectRoute('admin.messages.index', ['locale' => app()->getLocale()]);
+        $this->redirectRoute('admin.messages.index', ['locale' => app()->getLocale()], navigate: true);
     }
 
     public function openModal(string $modal, int $id): void
