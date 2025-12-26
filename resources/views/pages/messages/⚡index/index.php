@@ -44,7 +44,9 @@ class extends Component {
     {
         $this->authorize('update', Message::class);
 
-        $message->update(['status' => MessageStatus::Read->value]);
+        if ($message->status !== MessageStatus::Read->value) {
+            $message->update(['status' => MessageStatus::Read->value]);
+        }
     }
 
     public function markAsNotRead(int $id): void

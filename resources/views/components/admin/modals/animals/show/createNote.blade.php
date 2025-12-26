@@ -20,8 +20,8 @@
                 <x-forms.fields.input-text
                     wire="createNoteForm.full_name"
                     class="md:col-start-1 md:col-end-2 md:row-start-1"
-                    field_name="name"
-                    name="name"
+                    field_name="full_name"
+                    name="full_name"
                     :label="__('forms.full_name')"
                     placeholder="Dupont Jean"
                     :required="true"/>

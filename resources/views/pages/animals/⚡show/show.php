@@ -40,6 +40,8 @@ class extends Component {
 
     public function createNote(): void
     {
+        $this->authorize('create', AnimalNote::class);
+
         $this->createNoteForm->validate();
 
         $this->createNoteForm->store($this->animal);
@@ -51,6 +53,7 @@ class extends Component {
 
     public function editNote(int $id): void
     {
+        $this->authorize('update', AnimalNote::class);
 
         $note = $this->animal->animalNotes()->findOrFail($id);
 
@@ -65,6 +68,8 @@ class extends Component {
 
     public function deleteNote(int $id): void
     {
+        $this->authorize('delete', AnimalNote::class);
+
         $note = $this->animal->animalNotes()->findOrFail($id);
 
         $note->delete();
