@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\UserStatus;
 use App\Models\Animal;
 use App\Models\AnimalNote;
 use App\Models\Breed;
@@ -8,9 +9,11 @@ use App\Models\User;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertDatabaseCount;
 
-describe('CONNECTED USER', function () {
+describe('ADMIN USER', function () {
     beforeEach(function () {
-        $this->user = User::factory()->create();
+        $this->user = User::factory()->create([
+            'role' => UserStatus::Admin->value
+        ]);
         actingAs($this->user);
     });
 
@@ -103,5 +106,40 @@ describe('CONNECTED USER', function () {
             ->call('deleteNote', $animal->animalNotes()->first()->id);
 
         assertDatabaseCount('animal_notes', 0);
+    });
+});
+
+describe('VOLUNTEER USER', function () {
+    beforeEach(function () {
+        $this->user = User::factory()->create([
+            'role' => UserStatus::Volunteer->value
+        ]);
+
+        actingAs($this->user);
+    });
+
+    it('verifies if a volunteer can create a sheet for an animal', function () {
+        Livewire::test('pages::animals.index')
+            ->call('openModal', 'ask-for-create')
+            ->set('askToCreateAnimalForm.message', 'toto')
+            ->call('askForCreation');
+
+        assertDatabaseCount('animal_sheets', 1);
+    });
+
+    it('verifies if a volunteer can request a modification for an animal', function () {
+        $animal = Animal::factory()
+            ->create([
+                'breed_id' => Breed::factory()->create([
+                    'species_id' => Species::factory()->create()
+                ]),
+            ]);
+
+        Livewire::test('pages::animals.index')
+            ->call('openModal', 'ask-for-update', $animal->id)
+            ->set('askToUpdateAnimalForm.message', 'toto')
+            ->call('askForUpdate');
+
+        assertDatabaseCount('animal_sheets', 1);
     });
 });

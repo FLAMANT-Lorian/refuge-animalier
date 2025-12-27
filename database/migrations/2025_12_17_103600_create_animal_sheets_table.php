@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('animal_sheets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('animal_id')->unique()->constrained('animals')->cascadeOnDelete();
+            $table->foreignId('animal_id')->nullable()->constrained('animals')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamp('date');
             $table->string('status');

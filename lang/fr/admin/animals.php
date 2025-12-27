@@ -54,6 +54,15 @@ return [
     'view_visit_note' => 'Voir la note de visite',
     'notes' => 'notes',
     'image_process' => 'Image en traitement...',
+    'modal_ask_for_update_title' => 'Demande de modification pour ',
+    'modal_ask_for_update_fieldset' => 'Modification',
+    'modal_ask_for_update_placeholder' => 'Le statut n’est pas bon ...',
+    'modal_ask_for_update_btn' => 'Demander la modification',
+    'modal_ask_for_creation_title' => 'Demande de création',
+    'modal_ask_for_creation_fieldset' => 'Création',
+    'modal_ask_for_creation_placeholder' => 'Je souhaite créer une fiche pour ...',
+    'modal_ask_for_creation_btn' => 'Demander la création',
+    'modal_ask_for_creation_index_title' => 'Demander une création',
 
     // CREATE
     'create_title' => 'Créer une nouvelle fiche',
@@ -117,6 +126,8 @@ return [
     'delete_note_message' => 'Note supprimée avec succès !',
     'edit_note_message' => 'Note modifiée avec succès !',
     'create_note_message' => 'Note créée avec succès !',
+    'askForUpdate' => 'Demande de modification envoyée !',
+    'askForCreation' => 'Demande de création envoyée !',
 
     // MODAL
     'delete_modal_title' => 'Supprimer l’animal',

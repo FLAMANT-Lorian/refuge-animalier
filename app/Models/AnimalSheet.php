@@ -15,6 +15,7 @@ class AnimalSheet extends Model
         'date',
         'status',
         'message',
+        'user_id'
     ];
 
     public function animal(): BelongsTo

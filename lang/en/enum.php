@@ -2,7 +2,10 @@
 
 use App\Enums\AdoptionRequestsStatus;
 use App\Enums\AnimalStatus;
+use App\Enums\DateRange;
+use App\Enums\MessageStatus;
 use App\Enums\Sex;
+use App\Enums\SheetsStatus;
 use App\Enums\Species;
 use App\Enums\UserStatus;
 use App\Enums\YesOrNo;
@@ -73,4 +76,27 @@ return [
     Species::DEER->value => 'Deer',
     Species::FOX->value => 'Fox',
     Species::HEDGEHOG->value => 'Hedgehog',
+
+    // SheetStatus
+    SheetsStatus::Modification->value => 'Modification',
+    SheetsStatus::Creation->value => 'Creation',
+    SheetsStatus::Validate->value => 'Validated',
+
+    // SheetStatus filter
+    SheetsStatus::Modification->value . '_filter' => 'Modifications',
+    SheetsStatus::Creation->value . '_filter' => 'Creations',
+    SheetsStatus::Validate->value . '_filter' => 'Validated',
+
+    // Date Range
+    DateRange::day->value . '_filter' => 'Today',
+    DateRange::week->value . '_filter' => 'Week',
+    DateRange::month->value . '_filter' => 'Month',
+
+    // Message
+    MessageStatus::Read->value => 'Read',
+    MessageStatus::Unread->value => 'New',
+
+    // Message filter
+    MessageStatus::Read->value . '_filter' => 'Read',
+    MessageStatus::Unread->value . '_filter' => 'New',
 ];

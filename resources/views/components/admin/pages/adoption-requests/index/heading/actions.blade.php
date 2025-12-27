@@ -4,7 +4,7 @@
 
 <div class="flex flex-col md:flex-row gap-4 lg:col-start-5 lg:col-end-10 lg:justify-end lg:items-center lg:gap-6">
 
-    {{-- BOUTON POUR AJOUTER UN ANIMAL --}}
+    {{-- BOUTON POUR AJOUTER UNE DEMANDE --}}
     <x-buttons.add-item-button
         class="self-start md:order-2 md:ml-auto lg:m-0"
         title="{!! __('admin/adoption-requests.create_btn_title') !!}"

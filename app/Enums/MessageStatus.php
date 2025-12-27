@@ -4,6 +4,6 @@ namespace App\Enums;
 
 enum MessageStatus: string
 {
-    case Read = 'Ouvert';
-    case Unread = 'Nouveau';
+    case Read = 'read';
+    case Unread = 'new';
 }

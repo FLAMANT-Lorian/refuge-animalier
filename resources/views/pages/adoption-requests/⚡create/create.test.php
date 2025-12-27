@@ -49,3 +49,24 @@ describe('ADMIN USER', function () {
         assertDatabaseCount('adoption_requests', 1);
     });
 });
+
+describe('VOLUNTEER USER', function () {
+    beforeEach(function () {
+        $this->user = User::factory()->create([
+            'role' => UserStatus::Volunteer->value
+        ]);
+
+        actingAs($this->user);
+    });
+
+    it('verifies if an volunteer can\'t access to adoption request create page', function () {
+        Animal::factory()->create([
+            'breed_id' => Breed::factory()->create([
+                'species_id' => Species::factory()->create()
+            ]),
+        ]);
+
+        Livewire::test('pages::adoption-requests.create')
+            ->assertForbidden();
+    });
+});

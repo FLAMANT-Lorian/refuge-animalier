@@ -1,6 +1,7 @@
 @php
     use App\Enums\AnimalStatus;
     use App\Models\Animal;
+    use App\Models\AnimalSheet;
 @endphp
 
 <div class="flex flex-col md:flex-row gap-4 lg:col-start-5 lg:col-end-10 lg:justify-end lg:items-center lg:gap-6">
@@ -13,6 +14,14 @@
             :href="route('admin.animals.create', config('app.locale'))">
             {!! __('admin/animals.add_animal_text') !!}
         </x-buttons.add-item-button>
+    @endcan
+
+    @can('create', AnimalSheet::class)
+        <button
+            class="flex gap-2 justify-center items-center px-4 py-2.5 border border-green-500 rounded-lg hover:bg-green-500 hover:text-white trans-all"
+            type="button" wire:click="openModal('ask-for-create')">
+            {{ __('admin/animals.modal_ask_for_creation_index_title') }}
+        </button>
     @endcan
 
     {{-- CHAMPS DE RECHERCHE --}}

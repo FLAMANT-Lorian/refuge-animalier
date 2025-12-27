@@ -1,9 +1,11 @@
 <?php
 
+use App\Livewire\Forms\AskToUpdateAnimalForm;
 use App\Livewire\Forms\NoteCreateForm;
 use App\Livewire\Forms\NoteEditForm;
 use App\Models\Animal;
 use App\Models\AnimalNote;
+use App\Models\AnimalSheet;
 use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
@@ -20,12 +22,14 @@ class extends Component {
     public NoteCreateForm $createNoteForm;
     public NoteEditForm $editNoteForm;
 
+    public AskToUpdateAnimalForm $askToUpdateAnimalForm;
+
     public Animal $animal;
     public string $app_title;
     public bool $openCreateNote = false;
     public bool $openEditNote = false;
     public bool $openDeleteNote = false;
-    public bool $openUpdateRequest = false;
+    public bool $openAskForUpdate = false;
 
     public Animal $animalToAddNote;
     public AnimalNote $noteToEdit;
@@ -36,6 +40,20 @@ class extends Component {
     {
         $this->animal = $animal;
         $this->app_title = __('admin/animals.show_title') . $this->animal->name;
+    }
+
+    public function askForUpdate(): void
+    {
+        $this->authorize('create', AnimalSheet::class);
+
+        $this->askToUpdateAnimalForm->validate();
+
+        $this->askToUpdateAnimalForm->store($this->animal);
+
+        session()->flash('status', __('admin/animals.askForUpdate'));
+
+        $this->redirectToAnimalShowPage($this->animal);
+
     }
 
     public function createNote(): void
@@ -102,12 +120,12 @@ class extends Component {
                 $this->openDeleteNote = true;
             }
         } else {
-            if ($modal === 'create-note') {
+            if ($modal === 'ask-for-update') {
+                $this->openAskForUpdate = true;
+                $this->animalToAskToUpdate = $this->animal;
+            } else if ($modal === 'create-note') {
                 $this->openCreateNote = true;
                 $this->animalToAddNote = $this->animal;
-            } else if ($modal === 'update-request') {
-                $this->openUpdateRequest = true;
-                $this->animalToAskToUpdate = $this->animal;
             }
         }
 
@@ -119,7 +137,7 @@ class extends Component {
         $this->openCreateNote = false;
         $this->openEditNote = false;
         $this->openDeleteNote = false;
-        $this->openUpdateRequest = false;
+        $this->openAskForUpdate = false;
         $this->dispatch('close-modal');
     }
 };
