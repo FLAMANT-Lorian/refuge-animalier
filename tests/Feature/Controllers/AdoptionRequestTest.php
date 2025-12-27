@@ -1,0 +1,51 @@
+<?php
+
+use App\Models\AdoptionRequest;
+use App\Models\Animal;
+use App\Models\Breed;
+use App\Models\Species;
+use function Pest\Laravel\assertDatabaseCount;
+
+it('verifies if a user can create an adoption request with th form in public website', function () {
+    $animal = Animal::factory()->create([
+        'breed_id' => Breed::factory()->create([
+            'species_id' => Species::factory()->create()
+        ]),
+    ]);
+
+    $adoption_request = AdoptionRequest::factory()->for($animal)->raw();
+
+    $response = $this->from(route('public.animals.show', ['locale' => app()->getLocale(), 'animal' => $animal]))
+        ->post(route('public.adoption-request.store',
+            [
+                'locale' => app()->getLocale()
+            ]
+        ), $adoption_request)
+        ->assertRedirectBack();
+
+    assertDatabaseCount('adoption_requests', 1);
+});
+
+it('verifies if the validation work correctly in public website', function () {
+    $animal = Animal::factory()->create([
+        'breed_id' => Breed::factory()->create([
+            'species_id' => Species::factory()->create()
+        ]),
+    ]);
+
+    $adoption_request = AdoptionRequest::factory()->for($animal)->raw([
+        'full_name' => '',
+        'email' => '',
+        'message' => ''
+    ]);
+
+    $response = $this->from(route('public.animals.show', ['locale' => app()->getLocale(), 'animal' => $animal]))
+        ->post(route('public.adoption-request.store',
+            [
+                'locale' => app()->getLocale()
+            ]
+        ), $adoption_request)
+        ->assertInvalid(['full_name', 'email', 'message']);
+
+    assertDatabaseCount('adoption_requests', 0);
+});

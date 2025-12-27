@@ -7,10 +7,11 @@
 
 <fieldset class="flex flex-col gap-4 border-t border-t-gray-200 pt-6">
     <legend class="contents text-lg font-medium">{{ __('admin/adoption-requests.environment') }}</legend>
-    <div x-data="{children_available : false}" class="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-y-10">
+    <div class="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-y-10">
 
         {{-- Type de logement --}}
         <x-forms.fields.input-text
+            wire="form.housing"
             field_name="housing"
             name="housing"
             :label="__('admin/adoption-requests.housing')"
@@ -19,29 +20,28 @@
 
         {{-- Espace extérieur --}}
         <x-forms.fields.select
+            wire="form.outside_area"
             class="lg:row-start-2 lg:row-end-3 lg:col-start-1 lg:col-end-2"
             field_name="outdoor_area"
             name="outdoor_area"
             :label="__('admin/adoption-requests.outdoor_area')"
             :collection="YesOrNo::cases()"
             identifier="value"
-            :value="YesOrNo::No->value"
         />
 
         {{-- ENFANT --}}
         <x-forms.fields.select
-            js_class="children_select"
+            wire="form.children_at_home"
             field_name="children"
             name="children"
             :label="__('admin/adoption-requests.children')"
             :collection="YesOrNo::cases()"
             identifier="value"
-            :value="YesOrNo::No->value"
         />
 
-        {{-- Nombre d’enfant -> SI ENFANT = YES--}}
+        {{-- Nombre d’enfant --}}
         <x-forms.fields.input-number
-            js_class="children_number"
+            wire="form.children_count"
             field_name="children_count"
             name="children_count"
             :label="__('admin/adoption-requests.children_count')"
@@ -51,18 +51,17 @@
 
         {{-- Présence d’animaux --}}
         <x-forms.fields.select
-            js_class="animals_select"
+            wire="form.animals_at_home"
             field_name="animals_at_home"
             name="animals_at_home"
             :label="__('admin/adoption-requests.animals_at_home')"
             :collection="YesOrNo::cases()"
             identifier="value"
-            :value="YesOrNo::Yes->value"
         />
 
-        {{-- type d’animaux -> Si Animaux = YES--}}
+        {{-- type d’animaux --}}
         <x-forms.fields.input-text
-            js_class="animals_number"
+            wire="form.animals_type"
             field_name="animals_type"
             name="animals_type"
             :label="__('admin/adoption-requests.animals_at_home_type')"

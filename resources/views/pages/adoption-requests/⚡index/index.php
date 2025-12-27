@@ -3,6 +3,7 @@
 use App\Enums\AdoptionRequestsStatus;
 use App\Models\AdoptionRequest;
 use App\Models\Animal;
+use App\Traits\DeleteAdoptionRequest;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -12,11 +13,13 @@ new #[Title('admin/page_title.adoption_requests')]
 class extends Component {
 
     use WithPagination;
+    use DeleteAdoptionRequest;
 
     public string $app_title;
     public bool $openAdoptionRequest = false;
     public bool $openDeleteAdoptionRequest = false;
-    public Animal $animalToBeAdopted;
+
+    public AdoptionRequest $adoptionRequestToDelete;
 
     public function mount(): void
     {
@@ -30,17 +33,23 @@ class extends Component {
             ->withPath(route('admin.adoption-requests.index', config('app.locale')));
     }
 
+    public function delete(int $id): void
+    {
+        $this->deleteAdoptionRequest($id);
+    }
+
     #[Computed]
-    public function getAdoptionRequestsCount()
+    public function getAdoptionRequestsCount(): int
     {
         return AdoptionRequest::count();
     }
 
-    public function openModal(string $modal): void
+    public function openModal(string $modal, int $id): void
     {
-        if ($modal === 'adoption-request') {
-            $this->openAdoptionRequest = true;
-        } elseif ($modal === 'delete-adoption-request') {
+        $adoption_request = AdoptionRequest::findOrFail($id);
+
+        if ($modal === 'delete-adoption-request') {
+            $this->adoptionRequestToDelete = $adoption_request;
             $this->openDeleteAdoptionRequest = true;
         }
 

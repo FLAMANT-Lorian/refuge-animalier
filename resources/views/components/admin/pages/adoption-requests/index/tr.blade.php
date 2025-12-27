@@ -68,15 +68,18 @@
         <div class="flex justify-between items-center lg:justify-end flex-row gap-4 lg:px-4">
 
             {{-- VOIR LA DEMANDES D'ADOPTION - MOBILE --}}
-            <button type="button"
-                    wire:click="openModal('adoption-request')"
-                    class="cursor-pointer lg:hidden font-medium px-4 py-2.5 bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
-                {!! __('admin/adoption-requests.view_adoption_request') !!}
-            </button>
+            <x-buttons.base
+                class="lg:hidden"
+                title="Vers la demande d’adoption"
+                destination="{{ route('admin.adoption-requests.edit', [
+    'locale' => app()->getLocale(), 'adoption_request' => $adoption_request
+    ]) }}">
+                {{ __('admin/adoption-requests.view_adoption_request') }}
+            </x-buttons.base>
 
             {{-- DELETE --}}
             <x-table.delete
-                wire:click="openModal('delete-adoption-request')"/>
+                wire:click="openModal('delete-adoption-request', {{ $adoption_request->id }})"/>
 
         </div>
     </td>

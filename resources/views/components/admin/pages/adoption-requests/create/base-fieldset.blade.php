@@ -9,6 +9,7 @@
 
         {{-- NOM --}}
         <x-forms.fields.input-text
+            wire="form.full_name"
             field_name="name"
             name="name"
             :label="__('admin/adoption-requests.full_name')"
@@ -18,8 +19,9 @@
 
         {{-- EMAIL --}}
         <x-forms.fields.input-text
-            field_name="sex"
-            name="sex"
+            wire="form.email"
+            field_name="email"
+            name="email"
             type="email"
             :label="__('admin/adoption-requests.email')"
             :placeholder="__('admin/adoption-requests.email_placeholder')"
@@ -28,15 +30,17 @@
 
         {{-- PHONE --}}
         <x-forms.fields.input-text
+            wire="form.phone"
             field_name="phone"
             name="phone"
+            type="tel"
             :label="__('admin/adoption-requests.phone')"
             :placeholder="__('admin/adoption-requests.phone_placeholder')"
-            :required="true"
         />
 
         {{-- ADRESSE --}}
         <x-forms.fields.input-text
+            wire="form.address"
             field_name="address"
             name="address"
             :label="__('admin/adoption-requests.address')"
@@ -45,6 +49,7 @@
 
         {{-- MESSAGE --}}
         <x-forms.fields.textarea
+            wire="form.message"
             class="md:col-start-2 md:col-end-3 md:row-start-3 md:row-end-5 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4"
             field_name="message"
             name="message"
@@ -55,6 +60,7 @@
 
         {{-- CODE POSTAL --}}
         <x-forms.fields.input-text
+            wire="form.postal_code"
             field_name="postal_code"
             name="postal_code"
             type="number"
@@ -65,7 +71,8 @@
 
         {{-- STATUS --}}
         <x-forms.fields.select
-            field_name="animal"
+            wire="form.status"
+            field_name="status"
             :label="__('admin/adoption-requests.status')"
             name="status"
             :collection="AdoptionRequestsStatus::cases()"
@@ -76,6 +83,7 @@
 
         {{-- ANIMAL --}}
         <x-forms.fields.select-animal
+            wire="form.animal"
             field_name="animal"
             :label="__('admin/adoption-requests.animal')"
             name="animal"

@@ -1,5 +1,6 @@
 @php
     use App\Models\Message;
+    use App\Models\AdoptionRequest;
 @endphp
 
 <ul class="flex flex-col gap-6 lg:gap-4 mt-12 lg:mt-20 mb-auto">
@@ -24,15 +25,17 @@
         </x-admin.navigation.navigation-link>
     </li>
 
-    <li class="group">
-        <x-admin.navigation.navigation-link
-            :destination="route('admin.adoption-requests.index')"
-            icon="adoption-requests"
-            class="lg:group-hover:text-white"
-            :title="__('admin/navigation.adoption-requests_title')">
-            {{ __('admin/navigation.adoption-requests') }}
-        </x-admin.navigation.navigation-link>
-    </li>
+    @can('view-any', AdoptionRequest::class)
+        <li class="group">
+            <x-admin.navigation.navigation-link
+                :destination="route('admin.adoption-requests.index')"
+                icon="adoption-requests"
+                class="lg:group-hover:text-white"
+                :title="__('admin/navigation.adoption-requests_title')">
+                {{ __('admin/navigation.adoption-requests') }}
+            </x-admin.navigation.navigation-link>
+        </li>
+    @endcan
 
     <li class="group">
         <x-admin.navigation.navigation-link
@@ -44,7 +47,7 @@
         </x-admin.navigation.navigation-link>
     </li>
 
-    @can('view', Message::class)
+    @can('view-any', Message::class)
 
         <li class="group">
             <x-admin.navigation.navigation-link

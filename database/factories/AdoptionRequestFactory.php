@@ -18,8 +18,7 @@ class AdoptionRequestFactory extends Factory
             'full_name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'status' => $this->faker->randomElement($states),
-            'message' => $this->faker->word(),
-            'rejection_message' => $this->faker->word(),
+            'message' => $this->faker->word()
         ];
     }
 }

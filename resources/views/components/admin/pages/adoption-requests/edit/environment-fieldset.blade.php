@@ -11,6 +11,7 @@
 
         {{-- Type de logement --}}
         <x-forms.fields.input-text
+            wire="form.housing"
             field_name="housing"
             name="housing"
             :label="__('admin/adoption-requests.housing')"
@@ -19,6 +20,7 @@
 
         {{-- Espace extérieur --}}
         <x-forms.fields.select
+            wire="form.outside_area"
             class="row-start-2 row-end-3 col-start-1 col-end-2"
             field_name="outdoor_area"
             name="outdoor_area"
@@ -29,7 +31,7 @@
 
         {{-- ENFANT --}}
         <x-forms.fields.select
-            js_class="children_select"
+            wire="form.children_at_home"
             field_name="children"
             name="children"
             :label="__('admin/adoption-requests.children')"
@@ -37,9 +39,9 @@
             identifier="value"
         />
 
-        {{-- Nombre d’enfant -> SI ENFANT = YES--}}
+        {{-- Nombre d’enfant --}}
         <x-forms.fields.input-number
-            js_class="children_number"
+            wire="form.children_count"
             field_name="children_count"
             name="children_count"
             :label="__('admin/adoption-requests.children_count')"
@@ -49,7 +51,7 @@
 
         {{-- Présence d’animaux --}}
         <x-forms.fields.select
-            js_class="animals_select"
+            wire="form.animals_at_home"
             field_name="animals_at_home"
             name="animals_at_home"
             :label="__('admin/adoption-requests.animals_at_home')"
@@ -57,9 +59,9 @@
             identifier="value"
         />
 
-        {{-- type d’animaux -> Si Animaux = YES--}}
+        {{-- type d’animaux --}}
         <x-forms.fields.input-text
-            js_class="animals_number"
+            wire="form.animals_type"
             field_name="animals_type"
             name="animals_type"
             :label="__('admin/adoption-requests.animals_at_home_type')"

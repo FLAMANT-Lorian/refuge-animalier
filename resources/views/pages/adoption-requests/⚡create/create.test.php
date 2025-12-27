@@ -1,8 +1,51 @@
 <?php
 
+use App\Enums\UserStatus;
+use App\Models\AdoptionRequest;
+use App\Models\Animal;
+use App\Models\Breed;
+use App\Models\Species;
+use App\Models\User;
 use Livewire\Livewire;
+use function Pest\Laravel\actingAs;
+use function Pest\Laravel\assertDatabaseCount;
 
-it('renders successfully', function () {
-    Livewire::test('pages::adoption-requests.create')
-        ->assertStatus(200);
+describe('ADMIN USER', function () {
+    beforeEach(function () {
+        $this->user = User::factory()->create([
+            'role' => UserStatus::Admin->value
+        ]);
+
+        actingAs($this->user);
+    });
+
+    it('verifies if an admin can access to create adoption request view', function () {
+        Animal::factory()->create([
+            'breed_id' => Breed::factory()->create([
+                'species_id' => Species::factory()->create()
+            ]),
+        ]);
+
+        Livewire::test('pages::adoption-requests.create')
+            ->assertOk();
+    });
+
+    it('verifies if an admin can create an adoption request with the minimum requirement', function () {
+        Animal::factory()->create([
+            'breed_id' => Breed::factory()->create([
+                'species_id' => Species::factory()->create()
+            ]),
+        ]);
+
+        Livewire::test('pages::adoption-requests.create')
+            ->set('form.full_name', 'toto')
+            ->set('form.email', 'toto@toto.be')
+            ->set('form.message', 'toto')
+            ->call('save');
+
+        $adoption_request = AdoptionRequest::first();
+
+        expect($adoption_request->full_name)->toBe('toto');
+        assertDatabaseCount('adoption_requests', 1);
+    });
 });

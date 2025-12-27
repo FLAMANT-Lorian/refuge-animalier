@@ -40,6 +40,10 @@ trait PicturesHandling
         $animal = Animal::findOrFail($id);
         $sizes = config('animals.sizes');
 
+        if (empty($animal->pictures)) {
+            return;
+        }
+
         foreach ($animal->pictures as $picture) {
             Storage::disk('public')->delete(config('animals.original_path') . '/' . $picture);
 
