@@ -1,3 +1,7 @@
+@props([
+    'id'
+])
+
 <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-1">
         <h4 class="flex items-center gap-4 text-xl font-semibold">
@@ -8,10 +12,15 @@
             {!! __('forms.field_with') !!}<strong class="text-red">*</strong>{!! __('forms.are_required') !!}
         </span>
     </div>
-    <form action="" method="post" class="flex flex-col gap-6">
+    <form novalidate
+          action="{{ route('public.adoption-request.store') }}"
+          method="post"
+          class="flex flex-col gap-6">
+        @csrf
         <fieldset class="flex flex-col gap-6 min-[600px]:grid min-[600px]:grid-cols-2">
             <legend class="sr-only">{!! __('public/animals.show_legend') !!}</legend>
 
+            <input type="hidden" name="animal_id" value="{{ $id }}">
             {{-- NOM COMPLET --}}
             <x-forms.fields.input-text
                 field_name="full_name"

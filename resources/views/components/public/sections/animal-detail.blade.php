@@ -19,7 +19,8 @@
 
         {{-- FORMULAIRE --}}
         @if($animal->state !== AnimalStatus::ProcessOfAdoption->value)
-            <x-public.animals.show-form/>
+            <x-public.animals.show-form
+            :id="$animal->id"/>
         @endif
     </article>
 

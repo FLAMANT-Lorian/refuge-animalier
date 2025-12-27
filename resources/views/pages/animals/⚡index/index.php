@@ -2,6 +2,7 @@
 
 use App\Models\Animal;
 use App\Traits\DeleteAnimal;
+use App\Traits\PicturesHandling;
 use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
@@ -15,6 +16,7 @@ class extends Component {
     use WithPagination;
     use DeleteAnimal;
     use RedirectToAnimalsPage;
+    use PicturesHandling;
 
     public string $app_title;
     public bool $openDeleteAnimal = false;
@@ -43,9 +45,13 @@ class extends Component {
     {
         $this->authorize('delete', Animal::class);
 
+        $this->deleteAnimalsPictures($id);
+
         $this->deleteAnimal($id);
 
         $this->redirectToAnimalIndexPage();
+
+        $this->closeModal();
     }
 
     public function openModal(string $modal, int $id): void

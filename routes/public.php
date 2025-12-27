@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdoptionRequestController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\ContactController;
 use App\Http\Middleware\SetLocale;
@@ -23,4 +24,5 @@ Route::prefix('{locale}')->middleware([SetLocale::class])->group(function () {
 
     Route::get('/nos-animaux', [AnimalController::class, 'index'])->name('public.animals.index');
     Route::get('/nos-animaux/{animal}', [AnimalController::class, 'show'])->name('public.animals.show');
+    Route::post('/adoption-request', [AdoptionRequestController::class, 'store'])->name('public.adoption-request.store');
 });

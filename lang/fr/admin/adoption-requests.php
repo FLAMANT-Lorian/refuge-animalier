@@ -41,7 +41,7 @@ return [
     'children' => 'Présence d’enfants ?',
     'children_count' => 'Nombre d’enfants',
     'children_count_placeholder' => '3',
-    'animals_at_home' => 'Présence d’animaux',
+    'animals_at_home' => 'Présence d’animaux ?',
     'animals_at_home_type' => 'Types d’animaux',
     'animals_at_home_type_placeholder' => 'Chien, ...',
     'btn' => 'Créer la demande d’adoption',
@@ -51,5 +51,17 @@ return [
     'edit_title' => 'Modifier la demande d’adoption pour ',
     'edit_btn' => 'Modifier la demande d’adoption',
     'breadcrumb_edit_title' => 'Vers la page de modfification de la demande d’adoption',
+
+    // FLASH
+    'create_flash_message' => 'Demandes d’adoption créée avec succès !',
+    'edit_flash_message' => 'Demande d’adoption modifiée avec succès !',
+    'delete_flash_message' => 'Demande d’adoption supprimée avec succès !',
+
+    // MODAL
+    'delete_modal_title' => 'Supprimer la demande d’adoption',
+    'delete_modal_sub_title' => 'Êtes-vous sûr de vouloir supprimer la demande d’adoption de ',
+    'delete_modal_btn' => 'Supprimer la demande d’adoption',
+
+    'edit_danger_zone_subtitle' => 'Après suppression, cette demande d’adoption ne pourra plus être récupérée !',
 
 ];
