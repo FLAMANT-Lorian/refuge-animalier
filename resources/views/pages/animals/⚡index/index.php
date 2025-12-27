@@ -6,7 +6,6 @@ use App\Models\Animal;
 use App\Models\AnimalSheet;
 use App\Traits\DeleteAnimal;
 use App\Traits\HandleAnimalsImages;
-use App\Traits\PicturesHandling;
 use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
