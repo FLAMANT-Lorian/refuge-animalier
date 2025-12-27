@@ -8,9 +8,15 @@ use App\Enums\Sex;
 use App\Enums\SheetsStatus;
 use App\Enums\Species;
 use App\Enums\UserStatus;
+use App\Enums\VolunteerStatus;
 use App\Enums\YesOrNo;
 
 return [
+    // VOLUNTEER STATUS
+    VolunteerStatus::Active->value => 'Actif·ve',
+    VolunteerStatus::InBreak->value => 'En pause',
+    VolunteerStatus::Parts->value => 'Parti·e',
+
     // USER
     UserStatus::Admin->value => 'Administrateur',
     UserStatus::Volunteer->value => 'Bénévole',

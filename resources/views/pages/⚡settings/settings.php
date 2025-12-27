@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Forms\SettingsForm;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -10,9 +11,24 @@ class extends Component {
 
     public bool $openDeleteAvatar = false;
 
+    public SettingsForm $form;
+
     public function mount(): void
     {
         $this->app_title = __('admin/settings.title');
+
+        $this->form->setSettings();
+    }
+
+    public function save(): void
+    {
+        $this->form->validate();
+
+        $this->form->update();
+
+        session()->flash('status', 'Votre profil à bien été mis à jour !');
+
+        $this->redirectRoute('admin.settings', ['locale' => app()->getLocale()], navigate: true);
     }
 
     public function openModal(string $modal): void

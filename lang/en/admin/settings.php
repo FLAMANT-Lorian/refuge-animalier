@@ -30,4 +30,7 @@ return [
     'change_password_text' => 'The password must contain at least 10 characters',
     'old_password' => 'Old password',
     'new_password' => 'New password',
+
+    // FLASH MESSAGE
+    'update_flash_message' => 'Votre profil a bien été mis à jour !',
 ];

@@ -4,6 +4,7 @@
 
         {{-- Nom de famille --}}
         <x-forms.fields.input-text
+            wire="form.last_name"
             field_name="last_name"
             name="last_name"
             :label="__('admin/settings.lastname')"
@@ -13,6 +14,7 @@
 
         {{-- Prénom --}}
         <x-forms.fields.input-text
+            wire="form.first_name"
             field_name="first_name"
             name="first_name"
             :label="__('admin/settings.firstname')"
@@ -22,6 +24,7 @@
 
         {{-- EMAIL --}}
         <x-forms.fields.input-text
+            wire="form.email"
             type="email"
             field_name="email"
             name="email"
@@ -32,6 +35,7 @@
 
         {{-- CODE POSTAL --}}
         <x-forms.fields.input-number
+            wire="form.postal_code"
             field_name="postal_code"
             name="postal_code"
             :label="__('admin/settings.postal_code')"
@@ -41,8 +45,9 @@
 
         {{-- ADRESSE --}}
         <x-forms.fields.input-text
-            field_name="location"
-            name="location"
+            wire="form.address"
+            field_name="address"
+            name="address"
             :label="__('admin/settings.location')"
             :placeholder="__('admin/settings.location_placeholder')"
         />
