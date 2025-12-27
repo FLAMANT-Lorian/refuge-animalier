@@ -1,11 +1,7 @@
-@props([
-    'profile_data'
-])
-
 <div class="flex flex-col gap-4 border-t border-t-gray-200 pt-4 mt-6">
 
     {{-- PROFIL --}}
-    <x-admin.navigation.navigation-profile :profile_data="$profile_data"/>
+    <x-admin.navigation.navigation-profile/>
     <form action="{!! route('logout') !!}" method="post">
         @csrf
         <button

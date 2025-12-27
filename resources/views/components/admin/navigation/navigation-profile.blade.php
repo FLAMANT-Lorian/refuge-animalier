@@ -1,12 +1,15 @@
-@props([
-    'profile_data'
-])
 <div class="menu_profile relative flex justify-between items-center">
     <div class="flex items-center gap-2">
-        <figure class="w-[3.125rem] h-[3.125rem] rounded-full overflow-hidden">
-            <img src="{!! asset('assets/img/avatar.png') !!}"
-                 alt="Photo de profile de {{ auth()->user()->full_name }}">
-        </figure>
+        @if(auth()->user()->avatar_path)
+            <img alt="{!! __('admin/settings.avatar_alt') !!}"
+                 class="rounded-full h-15 w-15"
+                 src="{{ asset('storage/avatars/variant/60x60/' . auth()->user()->avatar_path) }}">
+        @else
+            <div class="rounded-full h-15 w-15 p-3 bg-gray-100">
+                <img alt="{!! __('admin/settings.avatar_alt') !!}"
+                     src="{!! asset('assets/img/default-avatar.svg') !!}">
+            </div>
+        @endif
         <div class="flex flex-col">
             <span class="underline_text relative font-base font-semibold">
                 {{ auth()->user()->full_name }}

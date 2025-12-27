@@ -10,7 +10,7 @@
             <div class="inline-flex">
                 <input class="single_file sr-only" type="file" name="avatar" id="avatar">
                 <label for="avatar"
-                       class="font-medium w-full text-center px-4 py-2.5 text-white bg-green-500 rounded-lg border border-green-500 hover:bg-transparent hover:text-black transition-all ease-in-out duration-200 hover:cursor-pointer">
+                       class="font-normal w-full text-center px-4 py-2.5 text-white bg-green-500 rounded-lg border border-green-500 hover:bg-transparent hover:text-black transition-all ease-in-out duration-200 hover:cursor-pointer">
                     {!! __('admin/volunteers.choose_an_avatar') !!}
                 </label>
             </div>

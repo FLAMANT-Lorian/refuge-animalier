@@ -7,13 +7,13 @@ use App\Enums\Sex;
 use App\Models\Animal;
 use App\Models\Breed;
 use App\Traits\AnimalsRules;
-use App\Traits\HandleImages;
+use App\Traits\HandleAnimalsImages;
 use Livewire\Form;
 
 class AnimalCreateForm extends Form
 {
     use AnimalsRules;
-    use HandleImages;
+    use HandleAnimalsImages;
 
     public string $name;
     public string $birth_date;

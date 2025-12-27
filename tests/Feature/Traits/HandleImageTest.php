@@ -1,6 +1,6 @@
 <?php
 
-use App\Jobs\ProcessUploadAnimalImages;
+use App\Jobs\ProcessUploadImages;
 use Illuminate\Http\Testing\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -21,7 +21,7 @@ it('verifies if it\'s creates variants of the uploaded picture using the job', f
         $file_name
     );
 
-    $job = new ProcessUploadAnimalImages($file_name);
+    $job = new ProcessUploadImages($file_name, 'animals');
     $job->handle();
 
     Storage::assertExists($original_path . '/' . $file_name);

@@ -20,5 +20,5 @@
     @endcan
 
     {{-- FOND DU MENU --}}
-    <x-admin.navigation.navigation-bottom :profile_data="$profile_data"/>
+    <x-admin.navigation.navigation-bottom/>
 </div>

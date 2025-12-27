@@ -1,8 +1,5 @@
 <form wire:submit="save" class="flex flex-col gap-10">
 
-    {{-- AVATAR --}}
-    <x-admin.pages.settings.base-form.avatar-fieldset/>
-
     {{-- INFORMATIONS DE L'UTILISATEUR --}}
     <x-admin.pages.settings.base-form.username-info-fieldset/>
 

@@ -3,18 +3,18 @@
 use App\Enums\AnimalStatus;
 use App\Enums\Sex;
 use App\Enums\UserStatus;
-use App\Jobs\ProcessUploadAnimalImages;
+use App\Jobs\ProcessUploadImages;
 use App\Models\Animal;
 use App\Models\Breed;
 use App\Models\Species;
-use App\Traits\HandleImages;
+use App\Traits\HandleAnimalsImages;
 use Illuminate\Http\Testing\File;
 use Livewire\Livewire;
 use App\Models\User;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertDatabaseHas;
 
-uses(HandleImages::class);
+uses(HandleAnimalsImages::class);
 
 
 describe('VOLUNTEER USER', function () {
@@ -101,7 +101,7 @@ describe('ADMIN USER', function () {
             $file_name
         );
 
-        $job = new ProcessUploadAnimalImages($file_name);
+        $job = new ProcessUploadImages($file_name, 'animals');
         $job->handle();
 
 

@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\Sex;
-use App\Traits\HandleImages;
+use App\Traits\HandleAnimalsImages;
 use Carbon\Carbon;
 
 use App\Enums\AnimalStatus;
@@ -13,7 +13,7 @@ use Illuminate\Http\UploadedFile;
 
 class AnimalFactory extends Factory
 {
-    use HandleImages;
+    use HandleAnimalsImages;
 
     protected $model = Animal::class;
 

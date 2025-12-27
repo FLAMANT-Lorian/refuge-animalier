@@ -1,17 +1,24 @@
 <?php
 
+use App\Livewire\Forms\SettingsAvatarForm;
 use App\Livewire\Forms\SettingsForm;
+use App\Traits\HandleAvatar;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 new #[Title('admin/page_title.settings')]
 class extends Component {
+
+    use WithFileUploads;
+    use HandleAvatar;
 
     public string $app_title;
 
     public bool $openDeleteAvatar = false;
 
     public SettingsForm $form;
+    public SettingsAvatarForm $avatarForm;
 
     public function mount(): void
     {
@@ -20,13 +27,20 @@ class extends Component {
         $this->form->setSettings();
     }
 
+    public function delete(): void
+    {
+        $this->deleteAvatar(auth()->user()->avatar_path);
+
+        $this->redirectRoute('admin.settings', ['locale' => app()->getLocale()]);
+    }
+
     public function save(): void
     {
         $this->form->validate();
 
         $this->form->update();
 
-        session()->flash('status', 'Votre profil à bien été mis à jour !');
+        session()->flash('status', __('admin/settings.update_flash_message'));
 
         $this->redirectRoute('admin.settings', ['locale' => app()->getLocale()], navigate: true);
     }

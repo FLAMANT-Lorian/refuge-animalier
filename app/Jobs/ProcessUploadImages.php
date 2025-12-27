@@ -7,14 +7,14 @@ use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image;
 
-class ProcessUploadAnimalImages implements ShouldQueue
+class ProcessUploadImages implements ShouldQueue
 {
     use Queueable;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(public $new_original_file_name)
+    public function __construct(public $new_original_file_name, public $config_path)
     {
         //
     }
@@ -24,13 +24,13 @@ class ProcessUploadAnimalImages implements ShouldQueue
      */
     public function handle(): void
     {
-        $sizes = config('animals.sizes');
-        $extension = config('animals.jpg_image_type');
-        $compression = config('animals.jpg_compression');
+        $sizes = config($this->config_path . '.sizes');
+        $extension = config($this->config_path . '.jpg_image_type');
+        $compression = config($this->config_path . '.jpg_compression');
 
         $image = Image::read(
             Storage::disk('public')
-                ->get(config('animals.original_path') . '/' . $this->new_original_file_name)
+                ->get(config($this->config_path . '.original_path') . '/' . $this->new_original_file_name)
         );
 
         foreach ($sizes as $size) {
@@ -42,7 +42,7 @@ class ProcessUploadAnimalImages implements ShouldQueue
             );
 
             $variant_path = sprintf(
-                config('animals.path_to_variant'),
+                config($this->config_path . '.path_to_variant'),
                 $size['width'],
                 $size['height']
             );

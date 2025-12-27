@@ -5,6 +5,7 @@ use App\Livewire\Forms\AskToUpdateAnimalForm;
 use App\Models\Animal;
 use App\Models\AnimalSheet;
 use App\Traits\DeleteAnimal;
+use App\Traits\HandleAnimalsImages;
 use App\Traits\PicturesHandling;
 use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Computed;
@@ -19,7 +20,7 @@ class extends Component {
     use WithPagination;
     use DeleteAnimal;
     use RedirectToAnimalsPage;
-    use PicturesHandling;
+    use HandleAnimalsImages;
     use RedirectToAnimalsPage;
 
     public string $app_title;
@@ -46,7 +47,7 @@ class extends Component {
     }
 
     #[Computed]
-    public function getAnimalsCount()
+    public function getAnimalsCount(): int
     {
         return Animal::count();
     }

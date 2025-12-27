@@ -32,5 +32,11 @@ return [
     'new_password' => 'Nouveau mot de passe',
 
     // FLASH MESSAGE
-    'update_flash_message' => 'Your profile has been updated successfully!',
+    'update_flash_message' => 'Votre profil a bien été mis à jour !',
+    'update_avatar_flash_message' => 'Votre photo de profil à été mise à jour !',
+
+    // MODAL
+    'delete_avatar_title' => 'Supprimer votre photo de profil',
+    'delete_avatar_sub_title' => 'Êtes-vous sûr de vouloir supprimer votre photo de profil',
+    'delete_avatar_btn' => 'Supprimer ma photo de profil',
 ];

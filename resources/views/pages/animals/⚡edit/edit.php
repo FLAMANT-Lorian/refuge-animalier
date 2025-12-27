@@ -7,6 +7,7 @@ use App\Traits\AddBreed;
 use App\Traits\CleanLivewireTMPFolder;
 use App\Traits\DeleteAnimal;
 use App\Traits\getBreeds;
+use App\Traits\HandleAnimalsImages;
 use App\Traits\PicturesHandling;
 use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Title;
@@ -21,7 +22,7 @@ class extends Component {
     use DeleteAnimal;
     use WithFileUploads;
     use CleanLivewireTMPFolder;
-    use PicturesHandling;
+    use HandleAnimalsImages;
     use RedirectToAnimalsPage;
     use AddBreed;
 
