@@ -16,6 +16,11 @@
     @if($openDeleteAnimal)
         <x-admin.modals.animals.index.deleteAnimal
             :animal="$animalToDelete"/>
+    @elseif($openAskForUpdate)
+        <x-admin.modals.animals.show.askForUpdate
+            :animal="$animalToAskToUpdate"/>
+    @elseif($openAskForCreate)
+        <x-admin.modals.animals.index.askForCreation/>
     @endif
 </main>
 

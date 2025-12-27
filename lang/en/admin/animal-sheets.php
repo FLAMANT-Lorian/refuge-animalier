@@ -16,5 +16,17 @@ return [
     'actions' => 'Actions',
     'view_animal_sheet' => 'View the animal sheet',
     'view_animal_sheet_of' => 'View the animal sheet of',
-    'paginator' => 'sheets'
+    'paginator' => 'sheets',
+
+    // MODAL
+    'sheet_already_validated' => 'This record has already been validated !',
+    'sheet' => ' of a record',
+    'message' => 'Message :',
+    'sheet_btn' => 'Validate record',
+    'delete_title' => 'Delete record',
+    'delete_sub_title' => 'Are you sure you want to modify this record ?',
+    'delete_btn' => 'Delete record',
+
+    // FLASH
+    'delete_flash_message' => 'Record successfully deleted !',
 ];

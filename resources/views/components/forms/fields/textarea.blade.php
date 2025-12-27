@@ -3,7 +3,6 @@
     'field_name',
     'name',
     'label',
-    'value',
     'placeholder',
     'required' => false,
     'extra_class'=> ''

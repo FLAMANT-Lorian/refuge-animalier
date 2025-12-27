@@ -36,11 +36,15 @@
             <span class="min-lg:hidden font-bold">
                 {!! __('admin/animal-sheets.animal') !!}&nbsp;:
             </span>
-            <a href="{!! route('admin.animals.show', ['animal' => $animal_sheet->animal, 'locale' => app()->getLocale()]) !!}"
-               title="{!! __('admin/animals.show_breadcrumb2_title') !!}"
-               class="hover:font-bold trans-all lg:px-4 lg:py-4 font-normal">
-                {!! $animal_sheet->animal->name !!}
-            </a>
+            @if($animal_sheet->animal)
+                <a href="{!! route('admin.animals.show', ['animal' => $animal_sheet->animal, 'locale' => app()->getLocale()]) !!}"
+                   title="{!! __('admin/animals.show_breadcrumb2_title') !!}"
+                   class="hover:font-bold trans-all lg:px-4 lg:py-4 font-normal">
+                    {!! $animal_sheet->animal->name !!}
+                </a>
+            @else
+                <span class="lg:px-4 lg:py-4 font-normal">–</span>
+            @endif
         </div>
     </td>
 
@@ -70,16 +74,15 @@
     <td class="font-medium lg:w-[9.375rem]">
         <div class="flex justify-between items-center lg:justify-end flex-row gap-4 lg:px-4">
 
-            {{-- VOIR L'ANIMAL - MOBILE --}}
-            <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
-               title="{!! __('admin/animal-sheets.view_animal_sheet_of') . $animal_sheet['name'] !!}"
-               href="{!! route('admin.animals.show', ['animal' => 1, 'locale' => config('app.locale')]) !!}">
+            {{-- VOIR LA FICHE - MOBILE --}}
+            <button wire:click="openModal('sheet-message', {{ $animal_sheet->id }})"
+                    class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
                 {!! __('admin/animal-sheets.view_animal_sheet') !!}
-            </a>
+            </button>
 
             {{-- EDIT --}}
-            <button wire:click="openModal('sheet-message')"
-                    class="hover:cursor-pointer">
+            <button wire:click="openModal('sheet-message', {{ $animal_sheet->id }})"
+                    class="max-lg:hidden hover:cursor-pointer">
                 <svg
                     {!! $attributes->merge(['class' => 'rounded-0 hover:bg-green-100 border border-transparent hover:border-green-300 hover:rounded-lg transition-all ease-in-out duration-200']) !!}
                     width="36"
@@ -92,6 +95,10 @@
                         stroke="#292A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
+
+            {{-- DELETE --}}
+            <x-table.delete
+                wire:click="openModal('delete-sheet', {{ $animal_sheet->id }})"/>
         </div>
     </td>
 </tr>

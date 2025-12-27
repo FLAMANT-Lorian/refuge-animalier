@@ -54,6 +54,11 @@ return [
     'view_visit_note' => 'View the visit note',
     'notes' => 'notes',
     'image_process' => 'Processing image...',
+    'modal_ask_for_update_title' => 'Request for modification for ',
+    'modal_ask_for_update_fieldset' => 'Modification',
+    'modal_ask_for_update_placeholder' => 'The status is not correct ...',
+    'modal_ask_for_update_btn' => 'Request modification',
+    'modal_ask_for_creation_index_title' => 'Request for a creation',
 
     // CREATE
     'create_title' => 'Create a new sheet',
@@ -117,6 +122,8 @@ return [
     'delete_note_message' => 'Note deleted successfully!',
     'edit_note_message' => 'Note updated successfully!',
     'create_note_message' => 'Note created successfully!',
+    'askForUpdate' => 'Modification request sent!',
+    'askForCreation' => 'Creation request sent!',
 
     // MODAL
     'delete_modal_title' => 'Delete Animal',

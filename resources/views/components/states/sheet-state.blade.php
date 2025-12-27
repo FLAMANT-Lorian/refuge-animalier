@@ -17,5 +17,5 @@
 @endphp
 
 <span {!! $attributes->merge(['class' => $classes . ' ' . 'flex items-center gap-2 px-2 py-1 rounded-2xl before:block before:content[""] before:w-[0.625rem] before:h-[0.625rem] before:rounded-full']) !!}>
-            {!! $sheet_state !!}
+            {!! __('enum.' . $sheet_state) !!}
 </span>

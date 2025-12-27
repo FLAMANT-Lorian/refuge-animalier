@@ -35,9 +35,9 @@ class Animal extends Model
         return $this->hasMany(AdoptionRequest::class);
     }
 
-    public function animalSheet(): HasOne
+    public function animalSheets(): HasMany
     {
-        return $this->hasOne(AnimalSheet::class);
+        return $this->hasMany(AnimalSheet::class);
     }
 
     public function breed(): BelongsTo

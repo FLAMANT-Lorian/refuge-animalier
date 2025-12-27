@@ -1,6 +1,9 @@
 <?php
 
+use App\Livewire\Forms\AskToCreateAnAnimalForm;
+use App\Livewire\Forms\AskToUpdateAnimalForm;
 use App\Models\Animal;
+use App\Models\AnimalSheet;
 use App\Traits\DeleteAnimal;
 use App\Traits\PicturesHandling;
 use App\Traits\RedirectToAnimalsPage;
@@ -17,10 +20,17 @@ class extends Component {
     use DeleteAnimal;
     use RedirectToAnimalsPage;
     use PicturesHandling;
+    use RedirectToAnimalsPage;
 
     public string $app_title;
+
+    public AskToUpdateAnimalForm $askToUpdateAnimalForm;
+    public AskToCreateAnAnimalForm $askToCreateAnimalForm;
     public bool $openDeleteAnimal = false;
+    public bool $openAskForUpdate = false;
+    public bool $openAskForCreate = false;
     public Animal $animalToDelete;
+    public Animal $animalToAskToUpdate;
 
     public function mount(): void
     {
@@ -54,13 +64,48 @@ class extends Component {
         $this->closeModal();
     }
 
-    public function openModal(string $modal, int $id): void
+    public function askForCreation(): void
     {
-        $animal = Animal::findOrFail($id);
+        $this->authorize('create', AnimalSheet::class);
 
-        if ($modal === 'delete-animal') {
-            $this->animalToDelete = $animal;
-            $this->openDeleteAnimal = true;
+        $this->askToCreateAnimalForm->validate();
+
+        $this->askToCreateAnimalForm->store();
+
+        session()->flash('status', __('admin/animals.askForCreation'));
+
+        $this->redirectToAnimalIndexPage();
+    }
+
+    public function askForUpdate(): void
+    {
+        $this->authorize('create', AnimalSheet::class);
+
+        $this->askToUpdateAnimalForm->validate();
+
+        $this->askToUpdateAnimalForm->store($this->animalToAskToUpdate);
+
+        session()->flash('status', __('admin/animals.askForUpdate'));
+
+        $this->redirectToAnimalIndexPage();
+    }
+
+    public function openModal(string $modal, int $id = null): void
+    {
+        if ($id !== null) {
+            $animal = Animal::findOrFail($id);
+
+            if ($modal === 'delete-animal') {
+                $this->animalToDelete = $animal;
+                $this->openDeleteAnimal = true;
+            } else if ($modal === 'ask-for-update') {
+                $this->openAskForUpdate = true;
+                $this->animalToAskToUpdate = $animal;
+            }
+        } else {
+            if ($modal === 'ask-for-create') {
+                $this->openAskForCreate = true;
+            }
         }
 
         $this->dispatch('open-modal');
@@ -68,7 +113,11 @@ class extends Component {
 
     public function closeModal(): void
     {
+        $this->resetValidation();
+
         $this->openDeleteAnimal = false;
+        $this->openAskForUpdate = false;
+        $this->openAskForCreate = false;
         $this->dispatch('close-modal');
     }
 };

@@ -16,6 +16,18 @@ return [
     'actions' => 'Actions',
     'view_animal_sheet' => 'Voir la fiche de l’animal',
     'view_animal_sheet_of' => 'Voir la fiche de l’animal',
-    'paginator' => 'fiches'
+    'paginator' => 'fiches',
+
+    // MODAL
+    'sheet_already_validated' => 'Cette fiche à déjà été validée !',
+    'sheet' => ' d’une fiche',
+    'message' => 'Message :',
+    'sheet_btn' => 'Valider la fiche',
+    'delete_title' => 'Supprimer la fiche',
+    'delete_sub_title' => 'Êtes-vous sûr de vouloir modifier cette fiche',
+    'delete_btn' => 'Supprimer la fiche',
+
+    // FLASH
+    'delete_flash_message' =>  'Fiche supprimée avec succès !',
 
 ];

@@ -13,7 +13,11 @@
 
     </div>
     @if($openSheetMessage)
-        <x-admin.modals.animal-sheets.adoption-request/>
+        <x-admin.modals.animal-sheets.adoption-request
+            :sheet="$sheetToSee"/>
+    @elseif($openSheetDelete)
+        <x-admin.modals.animal-sheets.deleteSheet
+            :sheet="$sheetToDelete"/>
     @endif
 </main>
 

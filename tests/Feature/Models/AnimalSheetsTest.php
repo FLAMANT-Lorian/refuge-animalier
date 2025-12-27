@@ -22,6 +22,6 @@ it('verifies if you can create an sheets for an animal and recover it using the 
             ->create();
 
         expect($sheet->animal->name)->toBe($animal->name)
-            ->and($animal->animalSheet->status)->toBe($user->animalSheets()->first()->status);
+            ->and($animal->animalSheets()->first()->status)->toBe($user->animalSheets()->first()->status);
     }
 );

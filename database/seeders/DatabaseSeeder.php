@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Enums\UserStatus;
+use App\Enums\VolunteerStatus;
 use App\Models\AdoptionRequest;
 use App\Models\Animal;
 use App\Models\AnimalNote;
@@ -27,13 +28,15 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Lorian',
             'last_name' => 'Flamant',
             'email' => 'lorian@admin.be',
-            'role' => UserStatus::Admin->value
+            'role' => UserStatus::Admin->value,
+            'status' => VolunteerStatus::Active->value
         ])->create();
 
         $user1 = User::factory()
             ->create([
                 'email' => 'lorian@volunteer.be',
-                'role' => UserStatus::Volunteer->value
+                'role' => UserStatus::Volunteer->value,
+                'status' => VolunteerStatus::Active->value
             ]);
 
         foreach (\App\Enums\Species::cases() as $type) {

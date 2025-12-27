@@ -4,7 +4,7 @@ namespace App\Enums;
 
 enum SheetsStatus: string
 {
-    case Validate = 'Validée';
-    case Creation = 'Création';
-    case Modification = 'Modification';
+    case Validate = 'validate';
+    case Creation = 'creation';
+    case Modification = 'modification';
 }

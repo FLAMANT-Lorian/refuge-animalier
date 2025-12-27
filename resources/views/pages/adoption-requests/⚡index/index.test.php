@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\UserStatus;
 use App\Models\AdoptionRequest;
 use App\Models\Animal;
 use App\Models\Breed;
@@ -7,9 +8,11 @@ use App\Models\User;
 use Livewire\Livewire;
 use function Pest\Laravel\actingAs;
 
-describe('CONNECTED USER', function () {
+describe('ADMIN USER', function () {
     beforeEach(function () {
-        $this->user = User::factory()->create();
+        $this->user = User::factory()->create([
+            'role' => UserStatus::Admin->value
+        ]);
         actingAs($this->user);
     });
 
@@ -48,6 +51,23 @@ describe('CONNECTED USER', function () {
 
             Livewire::test('pages::adoption-requests.index')
                 ->assertSee($adoptionsRequest1->full_name, $adoptionsRequest2->full_name);
+        }
+    );
+});
+
+describe('VOLUNTEER USER', function () {
+    beforeEach(function () {
+        $this->user = User::factory()->create([
+            'role' => UserStatus::Volunteer->value
+        ]);
+        actingAs($this->user);
+    });
+
+    it('verifies if a volunteer can’t access to the admin adoption requests index page',
+        function () {
+
+            Livewire::test('pages::adoption-requests.index')
+                ->assertForbidden();
         }
     );
 });

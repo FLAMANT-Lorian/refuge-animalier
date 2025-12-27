@@ -4,7 +4,7 @@ namespace App\Enums;
 
 enum DateRange: string
 {
-    case day = 'Aujourd’hui';
-    case week = "Semaine";
-    case month = 'Mois';
+    case day = 'day';
+    case week = "week";
+    case month = 'month';
 }

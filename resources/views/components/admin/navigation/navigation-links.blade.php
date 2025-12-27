@@ -1,6 +1,7 @@
 @php
     use App\Models\Message;
     use App\Models\AdoptionRequest;
+    use App\Models\AnimalSheet;
 @endphp
 
 <ul class="flex flex-col gap-6 lg:gap-4 mt-12 lg:mt-20 mb-auto">
@@ -37,15 +38,19 @@
         </li>
     @endcan
 
-    <li class="group">
-        <x-admin.navigation.navigation-link
-            :destination="route('admin.animal-sheets.index')"
-            icon="animal-sheets"
-            class="lg:group-hover:text-white"
-            :title="__('admin/navigation.animal-sheets_title')">
-            {{ __('admin/navigation.animal-sheets') }}
-        </x-admin.navigation.navigation-link>
-    </li>
+    @can('view-any', AnimalSheet::class)
+
+        <li class="group">
+            <x-admin.navigation.navigation-link
+                :destination="route('admin.animal-sheets.index')"
+                icon="animal-sheets"
+                class="lg:group-hover:text-white"
+                :title="__('admin/navigation.animal-sheets_title')">
+                {{ __('admin/navigation.animal-sheets') }}
+            </x-admin.navigation.navigation-link>
+        </li>
+
+    @endcan
 
     @can('view-any', Message::class)
 

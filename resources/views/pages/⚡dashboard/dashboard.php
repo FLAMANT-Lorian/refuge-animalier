@@ -28,7 +28,7 @@ class extends Component {
 
         $this->animal_sheets = AnimalSheet::whereIn('status', [
             SheetsStatus::Creation->value, SheetsStatus::Modification->value
-        ])->get();
+        ])->orderBy('created_at', 'desc')->get();
 
         $this->sheet_count = AnimalSheet::whereIn('status', [
             SheetsStatus::Creation->value, SheetsStatus::Modification->value
@@ -36,7 +36,7 @@ class extends Component {
 
         $this->adoption_requests = AdoptionRequest::where('status', [
             AdoptionRequestsStatus::Awaiting->value
-        ])->get();
+        ])->orderBy('created_at', 'desc')->get();
 
         $this->adoption_request_count = AdoptionRequest::where('status', [
             AdoptionRequestsStatus::Awaiting->value

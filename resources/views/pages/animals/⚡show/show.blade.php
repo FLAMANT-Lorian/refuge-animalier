@@ -1,6 +1,6 @@
 <main class="animals_show flex-1 px-6 md:px-12 py-12 lg:px-16 lg:py-10" id="content">
 
-    <div class="flex flex-col gap-8 lg:p-6 lg:border lg:border-gray-200 lg:rounded-2xl lg:bg-white">
+    <div class="flex flex-col gap-6 lg:p-6 lg:border lg:border-gray-200 lg:rounded-2xl lg:bg-white">
 
         {{-- EN TÊTE --}}
         <x-admin.pages.animals.show.heading
@@ -25,8 +25,8 @@
     @elseif($openDeleteNote)
         <x-admin.modals.animals.show.deleteNote
             :note="$noteToDelete"/>
-    @elseif($openUpdateRequest)
-        <x-admin.modals.animals.show.updateRequest
+    @elseif($openAskForUpdate)
+        <x-admin.modals.animals.show.askForUpdate
             :animal="$animalToAskToUpdate"/>
     @endif
 </main>

@@ -5,6 +5,7 @@
 
 @php
     use App\Models\Animal;
+    use App\Models\AnimalSheet;
 @endphp
 
 <section class="flex flex-col gap-4">
@@ -25,9 +26,12 @@
                 </a>
     </span>
     <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-        <div>
+        <div class="flex flex-col">
             <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>
-            <p class="font-base text-gray-500">{!! __('admin/animals.show_sub_title') . $animal->name !!}</p>
+            <p class="font-base pb-2 text-gray-500">{!! __('admin/animals.show_sub_title') . $animal->name !!}</p>
+            <x-states.animal-state
+                class="self-start"
+                :animal_state="$animal->state"/>
         </div>
 
         @can('create', Animal::class)
@@ -39,10 +43,12 @@
                 {!! __('admin/animals.show_edit_btn_title') . $animal->name !!}
             </x-buttons.base>
 
-        @elsecannot('create', Animal::class)
+        @endcan
+
+        @can('create', AnimalSheet::class)
 
             <button type="button"
-                    wire:click="openModal('update-request', {{ $animal->id }})"
+                    wire:click="openModal('ask-for-update')"
                     class="text-center font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
                 Demander une modification
             </button>

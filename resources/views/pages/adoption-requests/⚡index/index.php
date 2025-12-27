@@ -23,6 +23,8 @@ class extends Component {
 
     public function mount(): void
     {
+        $this->authorize('view-any', AdoptionRequest::class);
+
         $this->app_title = __('admin/adoption-requests.title');
     }
 
