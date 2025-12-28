@@ -15,20 +15,15 @@ new #[Title('admin/page_title.dashboard')]
 class extends Component {
 
     public string $app_title = 'Tableau de bord';
-    public Collection $animal_sheets;
     public Collection $adoption_requests;
     public int $sheet_count;
     public int $adoption_request_count;
     public bool $openEditAnimalSheet = false;
-    public bool $openAnimalAdoptionRequest = false;
+    public AnimalSheet $sheetToSee;
 
     public function mount(): void
     {
         $this->app_title = __('app_title');
-
-        $this->animal_sheets = AnimalSheet::whereIn('status', [
-            SheetsStatus::Creation->value, SheetsStatus::Modification->value
-        ])->orderBy('created_at', 'desc')->get();
 
         $this->sheet_count = AnimalSheet::whereIn('status', [
             SheetsStatus::Creation->value, SheetsStatus::Modification->value
@@ -41,6 +36,25 @@ class extends Component {
         $this->adoption_request_count = AdoptionRequest::where('status', [
             AdoptionRequestsStatus::Awaiting->value
         ])->count();
+    }
+
+    #[Computed]
+    public function animal_sheets()
+    {
+        return AnimalSheet::whereIn('status', [
+            SheetsStatus::Creation->value, SheetsStatus::Modification->value
+        ])->orderBy('created_at', 'desc')->get();
+    }
+
+    public function changeStatus(int $id): void
+    {
+        $this->authorize('update', AnimalSheet::class);
+
+        $sheet = AnimalSheet::findOrFail($id);
+
+        $sheet->update(['status' => SheetsStatus::Validate->value]);
+
+        $this->closeModal();
     }
 
     #[Computed]
@@ -61,12 +75,13 @@ class extends Component {
         return Animal::where('created_at', '>', Carbon::now()->subMonths())->count();
     }
 
-    public function openModal(string $modal): void
+    public function openModal(string $modal, int $id): void
     {
+        $sheet = AnimalSheet::findOrFail($id);
+
         if ($modal === 'animal-sheet') {
             $this->openEditAnimalSheet = true;
-        } else if ($modal === 'adoption-request') {
-            $this->openAnimalAdoptionRequest = true;
+            $this->sheetToSee = $sheet;
         }
 
         $this->dispatch('open-modal');
@@ -75,7 +90,6 @@ class extends Component {
     public function closeModal(): void
     {
         $this->openEditAnimalSheet = false;
-        $this->openAnimalAdoptionRequest = false;
         $this->dispatch('close-modal');
     }
 };

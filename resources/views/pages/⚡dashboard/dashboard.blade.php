@@ -1,4 +1,5 @@
-<main class="dashboard" id="content">
+@php use App\Models\AdoptionRequest;use App\Models\AnimalSheet; @endphp
+<main class="flex-1 dashboard" id="content">
 
     <div class="px-6 md:px-12 py-12 lg:px-16 lg:py-10 flex flex-col gap-6 lg:grid lg:grid-cols-9">
 
@@ -18,14 +19,17 @@
         <x-admin.pages.dashboard.fast-actions
             class="lg:col-start-1 lg:col-end-4 lg:row-start-2"/>
 
-        {{-- FICHES ANIMAUX --}}
-        <x-admin.pages.dashboard.sheets
-            class="lg:col-start-1 lg:col-end-6 lg:row-start-3"/>
+        @can('view-any', AnimalSheet::class)
+            {{-- FICHES ANIMAUX --}}
+            <x-admin.pages.dashboard.sheets
+                class="lg:col-start-1 lg:col-end-6 lg:row-start-3"/>
+        @endcan
 
-        {{-- DEMANDES d’ADOPTIONS --}}
-        <x-admin.pages.dashboard.adoption-requests
-            class="lg:col-start-6 lg:col-end-10 lg:row-start-3"/>
-
+        @if(auth()->user()->isAdmin())
+            {{-- DEMANDES d’ADOPTIONS --}}
+            <x-admin.pages.dashboard.adoption-requests
+                class="lg:col-start-6 lg:col-end-10 lg:row-start-3"/>
+        @endif
         {{-- STATISTIQUES --}}
         <x-admin.pages.dashboard.statistics
             class="lg:col-start-4 lg:col-end-10 lg:row-start-2"/>
@@ -33,8 +37,7 @@
     </div>
 
     @if($openEditAnimalSheet)
-        <x-admin.modals.dashboard.animal-sheet/>
-    @elseif($openAnimalAdoptionRequest)
-        <x-admin.modals.dashboard.adoption-request/>
+        <x-admin.modals.animal-sheets.animal-sheet
+            :sheet="$sheetToSee"/>
     @endif
 </main>

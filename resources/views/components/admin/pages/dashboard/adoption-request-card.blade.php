@@ -2,8 +2,7 @@
     'adoption_request'
 ])
 
-<li wire:click="openModal('adoption-request')"
-    class="hover:cursor-pointer relative p-4 border border-green-300 hover:bg-green-100 transition-all ease-in-out duration-200 bg-white rounded-2xl">
+<li class="hover:cursor-pointer relative p-4 border border-green-300 hover:bg-green-100 transition-all ease-in-out duration-200 bg-white rounded-2xl">
     <dl class="flex flex-col items-center md:flex-row gap-4">
         <div class="flex flex-col gap-4 md:gap-0">
             <div>
@@ -29,4 +28,9 @@
             </a>
         </div>
     </dl>
+    <a class="absolute inset-0 rounded-2xl"
+       title="Vers la demande d’adoption"
+       href="{{ route('admin.adoption-requests.edit', ['locale' => app()->getLocale(), 'adoption_request' => $adoption_request]) }}">
+        <span class="sr-only">Voir la demande d’adoption</span>
+    </a>
 </li>

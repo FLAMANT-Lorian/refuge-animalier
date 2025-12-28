@@ -18,6 +18,6 @@
     <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-y-scroll">
         @foreach($this->adoption_requests as $adoption_request)
             <x-admin.pages.dashboard.adoption-request-card :adoption_request="$adoption_request"/>
-        @endforeach()
+        @endforeach
     </ul>
 </section>

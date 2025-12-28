@@ -8,7 +8,7 @@
 ])
 
 <div
-    class="relative hover:bg-green-100 bg-gray-50 transition-all ease-in-out duration-200 flex items-center justify-between gap-6 p-4 border border-green-300 rounded-2xl">
+    class="cursor-pointer relative hover:bg-green-100 bg-gray-50 transition-all ease-in-out duration-200 flex items-center justify-between gap-6 p-4 border border-green-300 rounded-2xl">
     <div>
         <p class="text-lg font-semibold">{!! $title !!}</p>
         <p class="text-base font-normal">{!! $subtitle !!}</p>

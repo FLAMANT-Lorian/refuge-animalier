@@ -2,7 +2,7 @@
     'sheet'
 ])
 
-<li wire:click="openModal('animal-sheet')"
+<li wire:click="openModal('animal-sheet', {{ $sheet->id }})"
     class="hover:cursor-pointer relative p-4 border border-green-300 bg-white hover:bg-green-100 rounded-2xl transition-all ease-in-out duration-200 md:flex md:justify-between md:items-center md:gap-4">
     <dl class="flex flex-col md:flex-row gap-4">
         <div
