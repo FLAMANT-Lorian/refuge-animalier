@@ -9,14 +9,16 @@
         <x-admin.pages.adoption-requests.edit.form/>
     </div>
 
-    <div class="flex flex-col gap-10 bg-white border border-gray-200 rounded-2xl p-6">
-        <x-admin.pages.adoption-requests.edit.danger-zone
-        :adoption_request="$adoption_request"/>
-    </div>
+    @can('delete', AdoptionRequest::class)
+        <div class="flex flex-col gap-10 bg-white border border-gray-200 rounded-2xl p-6">
+            <x-admin.pages.adoption-requests.edit.danger-zone
+                :adoption_request="$adoption_request"/>
+        </div>
+    @endcan
 
     @if($openDeleteAdoptionRequest)
         <x-admin.modals.adoptionRequests.adoption-request-delete
-        :adoption_request="$adoptionRequestToDelete"/>
+            :adoption_request="$adoptionRequestToDelete"/>
     @endif
 </main>
 

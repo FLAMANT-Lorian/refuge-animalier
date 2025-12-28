@@ -13,7 +13,7 @@ class AdoptionRequestPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->isAdmin();
+        return $user->isAdmin() || $user->isVolunteer();
     }
 
     /**
@@ -29,7 +29,7 @@ class AdoptionRequestPolicy
      */
     public function create(User $user): bool
     {
-        return $user->isAdmin();
+        return $user->isAdmin() || $user->isVolunteer();
     }
 
     /**
@@ -37,7 +37,7 @@ class AdoptionRequestPolicy
      */
     public function update(User $user): bool
     {
-        return $user->isAdmin();
+        return $user->isAdmin() || $user->isVolunteer();
     }
 
     /**

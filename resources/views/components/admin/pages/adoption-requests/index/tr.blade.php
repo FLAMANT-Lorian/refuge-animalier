@@ -1,3 +1,4 @@
+@php use App\Models\AdoptionRequest; @endphp
 @props([
     'adoption_request'
 ])
@@ -77,10 +78,15 @@
                 {{ __('admin/adoption-requests.view_adoption_request') }}
             </x-buttons.base>
 
-            {{-- DELETE --}}
-            <x-table.delete
-                wire:click="openModal('delete-adoption-request', {{ $adoption_request->id }})"/>
+            @can('delete', AdoptionRequest::class)
+                {{-- DELETE --}}
+                <x-table.delete
+                    wire:click="openModal('delete-adoption-request', {{ $adoption_request->id }})"/>
+            @endcan
 
+            @cannot('delete', AdoptionRequest::class)
+                <span class="max-lg:hidden">–</span>
+            @endcannot
         </div>
     </td>
 </tr>
