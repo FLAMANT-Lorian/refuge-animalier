@@ -1,3 +1,7 @@
+@props([
+    'volunteer'
+])
+
 <x-admin.partials.modal
     :delete_modal="true">
 
@@ -10,12 +14,12 @@
     </x-slot:sub_title>
 
     <x-slot:body>
-       <div class="flex justify-end">
-           <x-forms.buttons.delete
-               wire:click="deleteVolunteer"
-               :label="__('admin/volunteers.delete_volunteer_title')"
-           />
-       </div>
+        <div class="flex justify-end">
+            <x-forms.buttons.delete
+                wire:click="deleteVolunteer({{ $volunteer->id }})"
+                :label="__('admin/volunteers.delete_volunteer_title')"
+            />
+        </div>
     </x-slot:body>
 
 </x-admin.partials.modal>

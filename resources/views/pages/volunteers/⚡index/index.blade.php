@@ -15,9 +15,8 @@
     </div>
 
     @if($openDeleteVolunteer)
-        <x-admin.modals.volunteers.delete-volunteer/>
-    @elseif($openDeleteVolunteerAvatar)
-        <x-admin.modals.volunteers.delete-volunteer-avatar/>
+        <x-admin.modals.volunteers.delete-volunteer-index
+        :volunteer="$volunteerToDelete"/>
     @endif
 </main>
 

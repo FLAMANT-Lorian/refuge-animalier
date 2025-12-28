@@ -13,10 +13,10 @@ class SettingsForm extends Form
     public string $last_name;
     public string $first_name;
     public string $email;
-    public ?string $postal_code;
-    public ?string $address;
+    public ?string $postal_code = null;
+    public ?string $address = null;
     public array $availability;
-    public array $notifications;
+    public ?array $notifications = null;
 
     protected function rules(): array
     {
@@ -24,12 +24,12 @@ class SettingsForm extends Form
             'last_name' => 'required',
             'first_name' => 'required',
             'email' => 'required|email',
-            'postal_code' => 'int',
-            'address' => 'string',
+            'postal_code' => 'nullable|int',
+            'address' => 'nullable|string',
             'availability' => 'required|array',
-            'availability.*' => 'string',
-            'notifications' => 'required|array',
-            'notifications.*' => 'bool',
+            'availability.*' => 'nullable|string',
+            'notifications' => 'nullable|array',
+            'notifications.*' => 'nullable|bool',
         ];
     }
 
@@ -39,8 +39,8 @@ class SettingsForm extends Form
         $this->last_name = $this->user->last_name;
         $this->first_name = $this->user->first_name;
         $this->email = $this->user->email;
-        $this->postal_code = $this->user->postal_code ?? null;
-        $this->address = $this->user->address ?? null;
+        $this->postal_code = $this->user->postal_code;
+        $this->address = $this->user->address;
         $this->availability = $this->user->availability;
         $this->notifications = $this->user->notifications;
     }

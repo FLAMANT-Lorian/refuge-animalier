@@ -5,6 +5,7 @@ namespace App\Traits;
 use App\Jobs\ProcessUploadImages;
 use App\Livewire\Forms\AnimalEditForm;
 use App\Models\Animal;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 trait HandleAvatar
@@ -29,7 +30,7 @@ trait HandleAvatar
         return $avatar;
     }
 
-    public function deleteAvatar(string $file_name): void
+    public function deleteAvatar(string $file_name, User $user): void
     {
         $sizes = config('avatar.sizes');
         $original_path = config('avatar.original_path');
@@ -42,7 +43,7 @@ trait HandleAvatar
 
         Storage::disk('public')->delete($original_path . '/' . $file_name);
 
-        auth()->user()->update([
+       $user->update([
             'avatar_path' => null
         ]);
     }

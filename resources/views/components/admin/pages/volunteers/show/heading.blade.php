@@ -17,7 +17,7 @@
                 <a wire:navigate
                    class="text-gray-500 font-bold hover:underline"
                    title="{!! $app_title !!}"
-                   href="{!! route('admin.volunteers.show', ['volunteer' => 1, 'locale' => config('app.locale')]) !!}">
+                   href="{!! route('admin.volunteers.edit', ['volunteer' => 1, 'locale' => config('app.locale')]) !!}">
                     {!! $app_title !!}
                 </a>
     </span>

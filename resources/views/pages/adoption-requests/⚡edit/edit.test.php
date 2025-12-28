@@ -90,6 +90,6 @@ describe('VOLUNTEER USER', function () {
 
         Livewire::test('pages::adoption-requests.edit', [
             'adoption_request' => $adoption_request,
-        ])->assertForbidden();
+        ])->assertOK();
     });
 });

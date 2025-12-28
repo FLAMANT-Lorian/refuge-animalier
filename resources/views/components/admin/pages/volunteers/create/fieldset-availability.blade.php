@@ -4,6 +4,7 @@
 
         {{-- LUNDI --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.availability.monday"
             field_name="monday"
             name="monday"
             :label="__('admin/volunteers.monday')"
@@ -12,6 +13,7 @@
 
         {{-- MARDI --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.availability.tuesday"
             field_name="tuesday"
             name="tuesday"
             :label="__('admin/volunteers.tuesday')"
@@ -20,6 +22,7 @@
 
         {{-- MERCREDI --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.availability.wednesday"
             field_name="wednesday"
             name="wednesday"
             :label="__('admin/volunteers.wednesday')"
@@ -28,6 +31,7 @@
 
         {{-- JEUDI --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.availability.thursday"
             field_name="thursday"
             name="thursday"
             :label="__('admin/volunteers.thursday')"
@@ -36,6 +40,7 @@
 
         {{-- VENDREDI --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.availability.friday"
             field_name="friday"
             name="friday"
             :label="__('admin/volunteers.friday')"
@@ -44,6 +49,7 @@
 
         {{-- SAMEDI --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.availability.saturday"
             field_name="saturday"
             name="saturday"
             :label="__('admin/volunteers.saturday')"
@@ -52,6 +58,7 @@
 
         {{-- DIMANCHE --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.availability.sunday"
             field_name="sunday"
             name="sunday"
             :label="__('admin/volunteers.sunday')"

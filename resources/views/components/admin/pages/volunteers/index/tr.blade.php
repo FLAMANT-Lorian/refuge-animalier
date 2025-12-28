@@ -20,7 +20,7 @@
             <a wire:navigate
                class="lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200"
                title="Voie le bénévole : {!! $volunteer->full_name !!}"
-               href="{!! route('admin.volunteers.show', ['volunteer' => $volunteer, 'locale' => config('app.locale')]) !!}">
+               href="{!! route('admin.volunteers.edit', ['volunteer' => $volunteer, 'locale' => config('app.locale')]) !!}">
                 {!! $volunteer->full_name !!}
             </a>
         </div>
@@ -55,7 +55,7 @@
             {{-- VOIR LE BÉNÉVOLES - MOBILE --}}
             <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
                title="{!! __('admin/volunteers.view_volunteer_sheet_title') . $volunteer->full_name !!}"
-               href="{!! route('admin.volunteers.show', ['volunteer' => 1, 'locale' => config('app.locale')]) !!}">
+               href="{!! route('admin.volunteers.edit', ['volunteer' => $volunteer, 'locale' => config('app.locale')]) !!}">
                 {!! __('admin/volunteers.view_volunteer_sheet') !!}
             </a>
 
@@ -63,11 +63,11 @@
             <x-table.edit
                 :title="__('admin/volunteers.view_volunteer_sheet')"
                 class="max-lg:hidden"
-                :destination="route('admin.volunteers.show', ['volunteer' => 1, 'locale' => config('app.locale')])"/>
+                :destination="route('admin.volunteers.edit', ['volunteer' => $volunteer, 'locale' => config('app.locale')])"/>
 
             {{-- DELETE --}}
             <x-table.delete
-                wire:click="openModal('delete-volunteer')"/>
+                wire:click="openModal('delete-volunteer', {{ $volunteer->id }})"/>
 
         </div>
     </td>

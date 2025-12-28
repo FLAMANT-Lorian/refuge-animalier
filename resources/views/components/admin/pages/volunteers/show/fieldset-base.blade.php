@@ -8,19 +8,19 @@
 
         {{-- Nom de famille --}}
         <x-forms.fields.input-text
+            wire="form.last_name"
             field_name="last_name"
             name="last_name"
-            value="Flamant"
-            :label="__('admin/volunteers.name')"
+            :label="__('admin/volunteers.last_name')"
             :placeholder="__('admin/volunteers.last_name_placeholder')"
             required="true"
         />
 
         {{-- Prénom --}}
         <x-forms.fields.input-text
+            wire="form.first_name"
             field_name="first_name"
             name="first_name"
-            value="Lorian"
             :label="__('admin/volunteers.first_name')"
             :placeholder="__('admin/volunteers.first_name_placeholder')"
             required="true"
@@ -28,10 +28,10 @@
 
         {{-- EMAIL --}}
         <x-forms.fields.input-text
+            wire="form.email"
             type="email"
             field_name="email"
             name="email"
-            value="lorian.flamant@example.be"
             :label="__('admin/volunteers.email')"
             :placeholder="__('admin/volunteers.create_email_placeholder')"
             :required="true"
@@ -39,6 +39,7 @@
 
         {{-- CODE POSTAL --}}
         <x-forms.fields.input-number
+            wire="form.postal_code"
             field_name="postal_code"
             name="postal_code"
             value="4000"
@@ -49,6 +50,7 @@
 
         {{-- ADRESSE --}}
         <x-forms.fields.input-text
+            wire="form.address"
             field_name="location"
             name="location"
             value="Rue du champs, 12"
@@ -58,6 +60,7 @@
 
         {{-- STATUT --}}
         <x-forms.fields.select
+            wire="form.status"
             field_name="volunteer_status"
             :label="__('admin/volunteers.status')"
             name="volunteer_status"

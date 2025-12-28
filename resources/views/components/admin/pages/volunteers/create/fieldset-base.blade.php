@@ -8,6 +8,7 @@
 
         {{-- Nom de famille --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.last_name"
             field_name="last_name"
             name="last_name"
             :label="__('admin/volunteers.last_name')"
@@ -17,6 +18,7 @@
 
         {{-- Prénom --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.first_name"
             field_name="first_name"
             name="first_name"
             :label="__('admin/volunteers.first_name')"
@@ -26,6 +28,7 @@
 
         {{-- EMAIL --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.email"
             type="email"
             field_name="email"
             name="email"
@@ -36,6 +39,7 @@
 
         {{-- CODE POSTAL --}}
         <x-forms.fields.input-number
+            wire="volunteerForm.postal_code"
             field_name="postal_code"
             name="postal_code"
             :label="__('admin/volunteers.postal_code')"
@@ -45,6 +49,7 @@
 
         {{-- ADRESSE --}}
         <x-forms.fields.input-text
+            wire="volunteerForm.address"
             field_name="location"
             name="location"
             :label="__('admin/volunteers.location')"
@@ -53,6 +58,7 @@
 
         {{-- STATUT --}}
         <x-forms.fields.select
+            wire="volunteerForm.status"
             field_name="volunteer_status"
             :label="__('admin/volunteers.status')"
             name="volunteer_status"

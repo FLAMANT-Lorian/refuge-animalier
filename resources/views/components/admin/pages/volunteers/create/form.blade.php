@@ -1,7 +1,7 @@
 <section>
     <h2 class="sr-only">{!! __('admin/volunteers.create_form') !!}</h2>
 
-    <form action="" method="post" class="flex flex-col gap-10">
+    <form novalidate wire:submit="save" class="flex flex-col gap-10">
         {{-- AVATAR --}}
         <x-admin.pages.volunteers.create.avatar-fieldset/>
 

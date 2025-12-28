@@ -42,7 +42,7 @@ class extends Component {
 
     public function delete(): void
     {
-        $this->deleteAvatar(auth()->user()->avatar_path);
+        $this->deleteAvatar(auth()->user()->avatar_path, auth()->user());
 
         $this->redirectRoute('admin.settings', ['locale' => app()->getLocale()], navigate: true);
     }

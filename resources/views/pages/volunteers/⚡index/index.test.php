@@ -6,7 +6,9 @@ use function Pest\Laravel\actingAs;
 
 describe('CONNECTED USER', function () {
     beforeEach(function () {
-        $this->user = User::factory()->create();
+        $this->user = User::factory()->create([
+            'role' => UserStatus::Admin->value
+        ]);
 
         actingAs($this->user);
     });
