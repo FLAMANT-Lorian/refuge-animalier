@@ -7,6 +7,7 @@
 
         {{-- MOT DE PASSE --}}
         <x-forms.fields.input-password
+            wire="volunteerForm.password"
             name="password"
             field_name="password"
             :label="__('admin/volunteers.password')"

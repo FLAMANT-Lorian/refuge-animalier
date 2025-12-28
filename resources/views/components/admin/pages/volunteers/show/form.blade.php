@@ -1,9 +1,10 @@
-<section>
+<section class="flex flex-col gap-6">
     <h2 class="sr-only">{!! __('admin/volunteers.show_form') !!}</h2>
 
-    <form action="" method="post" class="flex flex-col gap-10">
-        {{-- AVATAR --}}
-        <x-admin.pages.volunteers.show.avatar-fieldset/>
+    {{-- AVATAR FORM --}}
+    <x-admin.pages.volunteers.show.avatar-fieldset/>
+
+    <form wire:submit="save" class="flex flex-col gap-10">
 
         {{-- INFO DE BASE --}}
         <x-admin.pages.volunteers.show.fieldset-base/>

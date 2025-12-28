@@ -23,7 +23,8 @@ class User extends Authenticatable
         'postal_code',
         'notifications',
         'availability',
-        'status'
+        'status',
+        'role'
     ];
 
     protected $hidden = [

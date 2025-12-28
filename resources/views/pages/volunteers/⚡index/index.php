@@ -3,6 +3,7 @@
 use App\Enums\UserStatus;
 use App\Enums\VolunteerStatus;
 use App\Models\User;
+use App\Traits\HandleAvatar;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -12,15 +13,35 @@ new #[Title('admin/page_title.volunteers')]
 class extends Component {
 
     use WithPagination;
+    use HandleAvatar;
 
     public string $app_title;
 
     public bool $openDeleteVolunteer = false;
-    public bool $openDeleteVolunteerAvatar = false;
+    public User $volunteerToDelete;
 
     public function mount(): void
     {
+        $this->authorize('view', User::class);
+
         $this->app_title = __('admin/volunteers.title');
+    }
+
+    public function deleteVolunteer(int $id): void
+    {
+        $volunteer = User::findOrFail($id);
+
+        $this->authorize('delete', User::class);
+
+        if ($volunteer->avatar_path) {
+            $this->deleteAvatar($volunteer->avatar_path, $volunteer);
+        }
+
+        $volunteer->delete();
+
+        session()->flash('status', __('admin/volunteers.delete_flash_message'));
+
+        $this->redirectRoute('admin.volunteers.index', ['locale' => app()->getLocale()], navigate: true);
     }
 
     #[Computed]
@@ -38,12 +59,13 @@ class extends Component {
         return User::where('role', UserStatus::Volunteer->value)->count();
     }
 
-    public function openModal(string $modal): void
+    public function openModal(string $modal, int $id): void
     {
+        $volunteer = User::findOrFail($id);
+
         if ($modal === 'delete-volunteer') {
             $this->openDeleteVolunteer = true;
-        } elseif ($modal === 'delete-volunteer-avatar') {
-            $this->openDeleteVolunteerAvatar = true;
+            $this->volunteerToDelete = $volunteer;
         }
 
         $this->dispatch('open-modal');
@@ -52,7 +74,6 @@ class extends Component {
     public function closeModal(): void
     {
         $this->openDeleteVolunteer = false;
-        $this->openDeleteVolunteerAvatar = false;
         $this->dispatch('close-modal');
     }
 };

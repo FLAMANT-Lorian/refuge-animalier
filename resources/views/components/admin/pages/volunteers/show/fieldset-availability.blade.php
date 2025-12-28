@@ -58,7 +58,7 @@
 
         {{-- DIMANCHE --}}
         <x-forms.fields.input-text
-            wire="form.availability.monday"
+            wire="form.availability.sunday"
             field_name="sunday"
             name="sunday"
             :label="__('admin/volunteers.sunday')"

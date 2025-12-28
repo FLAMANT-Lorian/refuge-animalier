@@ -72,4 +72,13 @@ return [
     'danger_zone_title' => 'Delete the volunteer',
     'danger_zone_sub_title' => 'After deletion, this account cannot be recovered!',
     'delete_volunteer' => 'Delete the volunteer',
+
+    // FLASH MESSAGE
+    'create_flash_message' => 'Volunteer account created successfully!',
+    'edit_flash_message' => 'Volunteer account updated successfully!',
+    'delete_flash_message' => 'Volunteer account deleted successfully!',
+
+    // MODAL
+    'delete_avatar_title' => 'Delete avatar',
+    'delete_avatar_sub_title' => 'Are you sure you want to delete the avatar?',
 ];

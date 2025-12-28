@@ -24,7 +24,7 @@
                href="
                {!! $animal_sheet->user->is(auth()->user()) ?
                     route('admin.settings', app()->getLocale()) :
-                    route('admin.volunteers.show', ['volunteer' => $animal_sheet->user, 'locale' => app()->getLocale()])
+                    route('admin.volunteers.edit', ['volunteer' => $animal_sheet->user, 'locale' => app()->getLocale()])
                !!}"
                title="{!! __('admin/volunteers.view_volunteer_sheet') !!}">
                 {!! $animal_sheet->user->fullName !!}

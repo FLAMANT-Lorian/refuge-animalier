@@ -19,7 +19,7 @@ Route::prefix('{locale}')->middleware([SetLocale::class, 'auth'])->group(functio
 
     Route::livewire('/admin/volunteers', 'pages::volunteers.index')->name('admin.volunteers.index');
     Route::livewire('/admin/volunteers/create', 'pages::volunteers.create')->name('admin.volunteers.create');
-    Route::livewire('/admin/volunteers/{volunteer}', 'pages::volunteers.show')->name('admin.volunteers.show');
+    Route::livewire('/admin/volunteers/{volunteer}/edit', 'pages::volunteers.edit')->name('admin.volunteers.edit');
 
     Route::livewire('/admin/adoption-requests', 'pages::adoption-requests.index')->name('admin.adoption-requests.index');
     Route::livewire('/admin/adoption-requests/create', 'pages::adoption-requests.create')->name('admin.adoption-requests.create');

@@ -32,7 +32,7 @@ return [
     'avatar_alt' => 'Avatar du bénévole',
     'choose_an_avatar' => 'Choisir un avatar',
     'delete_avatar' => 'Supprimer l’avatar',
-    'last_name' => 'Nom de famille',
+    'last_name' => 'Nom',
     'last_name_placeholder' => 'Dupont',
     'first_name' => 'Prénom',
     'first_name_placeholder' => 'Jean',
@@ -71,6 +71,18 @@ return [
     'save_modification' => 'Enregistrer les modifications',
     'danger_zone_title' => 'Supprimer le bénévole',
     'danger_zone_sub_title' => 'Après suppression, ce compte ne pourra plus être récupéré !',
-    'delete_volunteer' => 'Supprimer le bénévole'
+    'delete_volunteer' => 'Supprimer le bénévole',
+
+    // FLASH MESSAGE
+    'create_flash_message' => 'Compte volontaire créé avec succès !',
+    'edit_flash_message' => 'Compte volontaire modifié avec succès !',
+    'delete_flash_message' => 'Compte volontaire supprimé avec succès !',
+
+    // MODAL
+    'delete_avatar_title' => 'Supprimer l’avatar',
+    'delete_avatar_sub_title' => 'Êtes-vous sûr de vouloir supprimer l\'avatar ?',
+    'delete_volunteer_title' => 'Supprimer le bénévole',
+    'delete_volunteer_sub_title' => 'Êtes-vous sûr de vouloir supprimer le bénévole ?',
+
 
 ];

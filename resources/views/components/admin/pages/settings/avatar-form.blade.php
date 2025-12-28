@@ -10,7 +10,7 @@
                 @if(Storage::disk('public')->exists('avatars/variant/120x120/' . $path))
                     <img alt="{!! __('admin/settings.avatar_alt') !!}"
                          class="rounded-full h-30 w-30"
-                         src="{{ asset('storage/avatars/variant/120x120/' . auth()->user()->avatar_path) }}">
+                         src="{{ asset('storage/avatars/variant/120x120/' . $path) }}">
                 @else
                     <div
                         class="h-30 w-30 rounded-full bg-white border border-gray-200 flex items-center justify-center">

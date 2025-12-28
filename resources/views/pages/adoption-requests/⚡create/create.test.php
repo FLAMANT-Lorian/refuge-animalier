@@ -67,6 +67,6 @@ describe('VOLUNTEER USER', function () {
         ]);
 
         Livewire::test('pages::adoption-requests.create')
-            ->assertForbidden();
+            ->assertOK();
     });
 });

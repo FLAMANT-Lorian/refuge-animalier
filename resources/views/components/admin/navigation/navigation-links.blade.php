@@ -2,6 +2,7 @@
     use App\Models\Message;
     use App\Models\AdoptionRequest;
     use App\Models\AnimalSheet;
+    use App\Models\User;
 @endphp
 
 <ul class="flex flex-col gap-6 lg:gap-4 mt-12 lg:mt-20 mb-auto">
@@ -66,13 +67,17 @@
 
     @endcan
 
-    <li class="group">
-        <x-admin.navigation.navigation-link
-            :destination="route('admin.volunteers.index')"
-            icon="volunteers"
-            class="lg:group-hover:text-white"
-            :title="__('admin/navigation.volunteers_title')">
-            {{ __('admin/navigation.volunteers') }}
-        </x-admin.navigation.navigation-link>
-    </li>
+    @can('view-any', User::class)
+
+        <li class="group">
+            <x-admin.navigation.navigation-link
+                :destination="route('admin.volunteers.index')"
+                icon="volunteers"
+                class="lg:group-hover:text-white"
+                :title="__('admin/navigation.volunteers_title')">
+                {{ __('admin/navigation.volunteers') }}
+            </x-admin.navigation.navigation-link>
+        </li>
+
+    @endcan
 </ul>
