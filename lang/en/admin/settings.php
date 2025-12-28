@@ -34,6 +34,7 @@ return [
     // FLASH MESSAGE
     'update_flash_message' => 'Your profile has been updated successfully!',
     'update_avatar_flash_message' => 'Your profile picture has been updated!',
+    'change_password_flash_message' => 'Your password has been successfully updated',
 
     // MODAL
     'delete_avatar_title' => 'Delete your profile picture',

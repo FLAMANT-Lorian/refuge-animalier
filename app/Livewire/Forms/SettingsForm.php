@@ -9,6 +9,7 @@ class SettingsForm extends Form
 {
     public User $user;
 
+    //BASE INFORMATION
     public string $last_name;
     public string $first_name;
     public string $email;

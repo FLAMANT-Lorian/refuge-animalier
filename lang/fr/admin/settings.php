@@ -34,6 +34,7 @@ return [
     // FLASH MESSAGE
     'update_flash_message' => 'Votre profil a bien été mis à jour !',
     'update_avatar_flash_message' => 'Votre photo de profil à été mise à jour !',
+    'change_password_flash_message' => 'Votre mot de passe à bien été mis à jour',
 
     // MODAL
     'delete_avatar_title' => 'Supprimer votre photo de profil',

@@ -19,7 +19,13 @@ class SettingsAvatarForm extends Form
     public function updatedAvatar(): void
     {
         if ($this->avatar) {
+            if (auth()->user()->avatar_path) {
+                $old_file = auth()->user()->avatar_path;
+                $this->deleteAvatar($old_file);
+            }
+
             $path = $this->generateSizedAvatar($this->avatar);
+
 
             auth()->user()->update([
                 'avatar_path' => $path

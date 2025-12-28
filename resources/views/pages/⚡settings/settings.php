@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Forms\ChangePasswordForm;
 use App\Livewire\Forms\SettingsAvatarForm;
 use App\Livewire\Forms\SettingsForm;
 use App\Traits\HandleAvatar;
@@ -19,6 +20,7 @@ class extends Component {
 
     public SettingsForm $form;
     public SettingsAvatarForm $avatarForm;
+    public ChangePasswordForm $changePasswordForm;
 
     public function mount(): void
     {
@@ -27,11 +29,22 @@ class extends Component {
         $this->form->setSettings();
     }
 
+    public function changePassword(): void
+    {
+        $this->changePasswordForm->validate();
+
+        $this->changePasswordForm->update();
+
+        session()->flash('status', __('admin/settings.change_password_flash_message'));
+
+        $this->redirectRoute('admin.settings', ['locale' => app()->getLocale()], navigate: true);
+    }
+
     public function delete(): void
     {
         $this->deleteAvatar(auth()->user()->avatar_path);
 
-        $this->redirectRoute('admin.settings', ['locale' => app()->getLocale()]);
+        $this->redirectRoute('admin.settings', ['locale' => app()->getLocale()], navigate: true);
     }
 
     public function save(): void
