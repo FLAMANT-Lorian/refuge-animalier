@@ -37,6 +37,21 @@ class UserFactory extends Factory
             'status' => $this->faker->randomElement($status),
             'password' => Hash::make('1234567890'),
             'email_verified_at' => now(),
+            'notifications' => [
+                'adoption_requests' => false,
+                'animal_sheets' => false,
+                'messages' => false,
+                'activity_report' => false,
+            ],
+            'availability' => [
+                'monday' => '',
+                'tuesday' => '',
+                'wednesday' => '',
+                'thursday' => '',
+                'friday' => '',
+                'saturday' => '',
+                'sunday' => '',
+            ],
             'remember_token' => Str::random(10)
         ];
     }

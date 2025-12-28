@@ -27,6 +27,7 @@
     <div class="flex flex-col gap-10 bg-white border border-gray-200 rounded-2xl p-6">
         <x-admin.pages.settings.change-password-section/>
     </div>
+
     @if($openDeleteAvatar)
         <x-admin.modals.settings.delete-avatar/>
     @endif

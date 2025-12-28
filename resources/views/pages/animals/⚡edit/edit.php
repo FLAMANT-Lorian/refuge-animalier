@@ -7,12 +7,11 @@ use App\Traits\AddBreed;
 use App\Traits\CleanLivewireTMPFolder;
 use App\Traits\DeleteAnimal;
 use App\Traits\getBreeds;
-use App\Traits\PicturesHandling;
+use App\Traits\HandleAnimalsImages;
 use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use function PHPUnit\Framework\isEmpty;
 
 new #[Title('admin/page_title.animals_edit')]
 class extends Component {
@@ -21,7 +20,7 @@ class extends Component {
     use DeleteAnimal;
     use WithFileUploads;
     use CleanLivewireTMPFolder;
-    use PicturesHandling;
+    use HandleAnimalsImages;
     use RedirectToAnimalsPage;
     use AddBreed;
 

@@ -4,13 +4,13 @@ namespace App\Livewire\Forms;
 
 use App\Models\Animal;
 use App\Traits\AnimalsEditRules;
-use App\Traits\HandleImages;
+use App\Traits\HandleAnimalsImages;
 use Livewire\Form;
 
 class AnimalEditForm extends Form
 {
     use AnimalsEditRules;
-    use HandleImages;
+    use HandleAnimalsImages;
 
     public Animal $animal;
 

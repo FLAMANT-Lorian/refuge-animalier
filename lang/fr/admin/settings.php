@@ -30,4 +30,14 @@ return [
     'change_password_text' => 'Le mot de passe doit contenir minimum 10 caractères',
     'old_password' => 'Ancien mot de passe',
     'new_password' => 'Nouveau mot de passe',
+
+    // FLASH MESSAGE
+    'update_flash_message' => 'Votre profil a bien été mis à jour !',
+    'update_avatar_flash_message' => 'Votre photo de profil à été mise à jour !',
+    'change_password_flash_message' => 'Votre mot de passe à bien été mis à jour',
+
+    // MODAL
+    'delete_avatar_title' => 'Supprimer votre photo de profil',
+    'delete_avatar_sub_title' => 'Êtes-vous sûr de vouloir supprimer votre photo de profil',
+    'delete_avatar_btn' => 'Supprimer ma photo de profil',
 ];

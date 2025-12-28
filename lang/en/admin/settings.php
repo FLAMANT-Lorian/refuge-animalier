@@ -30,4 +30,14 @@ return [
     'change_password_text' => 'The password must contain at least 10 characters',
     'old_password' => 'Old password',
     'new_password' => 'New password',
+
+    // FLASH MESSAGE
+    'update_flash_message' => 'Your profile has been updated successfully!',
+    'update_avatar_flash_message' => 'Your profile picture has been updated!',
+    'change_password_flash_message' => 'Your password has been successfully updated',
+
+    // MODAL
+    'delete_avatar_title' => 'Delete your profile picture',
+    'delete_avatar_sub_title' => 'Are you sure you want to delete your profile picture?',
+    'delete_avatar_btn' => 'Delete my profile picture',
 ];

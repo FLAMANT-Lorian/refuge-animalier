@@ -17,5 +17,5 @@
 @endphp
 
 <span {!! $attributes->merge(['class' => $classes . ' ' . 'font-normal flex items-center gap-2 px-2 py-1 rounded-2xl before:block before:content[""] before:w-[0.625rem] before:h-[0.625rem] before:rounded-full']) !!}>
-            {!! $volunteer_state !!}
+            {{ __('enum.' . $volunteer_state) }}
 </span>
