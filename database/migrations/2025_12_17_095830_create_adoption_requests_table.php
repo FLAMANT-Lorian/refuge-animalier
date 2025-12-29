@@ -23,7 +23,6 @@ return new class extends Migration {
             $table->boolean('animals_at_home')->nullable();
             $table->string('animals_type')->nullable();
             $table->string('status');
-            $table->string('rejection_message')->nullable();
             $table->timestamps();
         });
     }

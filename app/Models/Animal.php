@@ -15,7 +15,7 @@ class Animal extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['breed_id', 'name', 'coat', 'character', 'vaccines', 'sex', 'birth_date', 'state', 'pictures'];
+    protected $fillable = ['adopted_at', 'breed_id', 'name', 'coat', 'character', 'vaccines', 'sex', 'birth_date', 'state', 'pictures'];
 
     protected function casts(): array
     {
@@ -55,7 +55,7 @@ class Animal extends Model
     public function isVisible(): bool
     {
         return $this->state === AnimalStatus::AwaitingAdoption->value ||
-        $this->state === AnimalStatus::ProcessOfAdoption->value;
+            $this->state === AnimalStatus::ProcessOfAdoption->value;
     }
 
     protected function translatedFormatDate(): Attribute

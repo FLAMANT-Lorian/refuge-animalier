@@ -2,9 +2,11 @@
 
 namespace App\Livewire\Forms;
 
+use App\Enums\AnimalStatus;
 use App\Models\Animal;
 use App\Traits\AnimalsEditRules;
 use App\Traits\HandleAnimalsImages;
+use Carbon\Carbon;
 use Livewire\Form;
 
 class AnimalEditForm extends Form
@@ -56,6 +58,10 @@ class AnimalEditForm extends Form
 
         $picturesDB = empty($picturesDB) ? null : $picturesDB;
 
+        if ($this->state === AnimalStatus::Adopted->value) {
+            $adopted_at = Carbon::now();
+        }
+
         $this->animal->update([
                 'name' => $this->name,
                 'breed_id' => $this->breed,
@@ -66,6 +72,7 @@ class AnimalEditForm extends Form
                 'state' => $this->state,
                 'pictures' => $picturesDB,
                 'character' => $this->character,
+                'adopted_at' => $adopted_at ?? null
             ]
         );
 

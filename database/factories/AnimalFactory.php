@@ -30,7 +30,7 @@ class AnimalFactory extends Factory
 
         $states = [AnimalStatus::Adopted->value, AnimalStatus::InTreatment->value, AnimalStatus::ProcessOfAdoption->value, AnimalStatus::AwaitingAdoption->value];
 
-        $adopted_at = [null, Carbon::now()];
+        $adopted_at = [null, Carbon::now()->subDays(), Carbon::now()];
 
         return [
             'name' => $this->faker->randomElement($animals_name),
