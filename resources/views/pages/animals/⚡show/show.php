@@ -6,10 +6,12 @@ use App\Livewire\Forms\NoteEditForm;
 use App\Models\Animal;
 use App\Models\AnimalNote;
 use App\Models\AnimalSheet;
+use App\Traits\IndexFilter;
 use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -18,6 +20,7 @@ class extends Component {
 
     use WithPagination;
     use RedirectToAnimalsPage;
+    use IndexFilter;
 
     public NoteCreateForm $createNoteForm;
     public NoteEditForm $editNoteForm;
@@ -40,6 +43,20 @@ class extends Component {
     {
         $this->animal = $animal;
         $this->app_title = __('admin/animals.show_title') . $this->animal->name;
+    }
+
+    #[Computed]
+    public function notes()
+    {
+        $query = $this->animal->animalNotes()->with(['animal']);
+
+        // FILTRE DE COLONNE
+        if (!is_null($this->filter_column)) {
+            $query->orderBy($this->filter_column, $this->filter_direction);
+        }
+
+        return $query->paginate(6)
+            ->withPath(route('admin.animals.show', ['locale' => config('app.locale'), 'animal' => $this->animal]));
     }
 
     public function askForUpdate(): void
@@ -95,15 +112,6 @@ class extends Component {
         session()->flash('status', __('admin/animals.delete_note_message'));
 
         $this->redirectToAnimalShowPage($this->animal);
-    }
-
-    #[Computed]
-    public function notes()
-    {
-        return $this->animal
-            ->animalNotes()
-            ->paginate(6)
-            ->withPath(route('admin.animals.show', ['locale' => config('app.locale'), 'animal' => $this->animal]));
     }
 
     public function openModal(string $modal, int $id = null): void

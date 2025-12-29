@@ -21,7 +21,8 @@
                      arrow_email = 'middle';
                     arrow_date = 'middle';
                     arrow_name = 'middle'
-                }"
+                }
+                $wire.sortBy('full_name', arrow_name)"
                       class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/animals.visit_notes_th1') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
@@ -54,7 +55,8 @@
                      arrow_name = 'middle';
                     arrow_date = 'middle';
                     arrow_email = 'middle'
-                }"
+                }
+                $wire.sortBy('email', arrow_email)"
                     class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/animals.visit_notes_th2') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
@@ -87,7 +89,8 @@
                      arrow_name = 'middle';
                     arrow_email = 'middle';
                     arrow_date = 'middle'
-                }"
+                }
+                $wire.sortBy('visit_date', arrow_date)"
                     class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/animals.visit_notes_th3') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"

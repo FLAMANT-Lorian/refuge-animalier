@@ -21,7 +21,9 @@
                 } else if (arrow_name === 'asc') {
                     arrow_breed = 'middle';
                     arrow_name = 'middle';
-                }"
+                }
+                $wire.sortBy('name', arrow_name)
+                "
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/animals.name') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
@@ -51,7 +53,9 @@
                 } else if (arrow_breed === 'asc') {
                     arrow_name = 'middle';
                     arrow_breed = 'middle';
-                }"
+                }
+                $wire.sortBy('breed', arrow_breed)
+                "
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/animals.breed') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"

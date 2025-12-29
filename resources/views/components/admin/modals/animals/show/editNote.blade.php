@@ -5,7 +5,7 @@
 <x-admin.partials.modal>
 
     <x-slot:title>
-        {!! __('admin/animals.edit_note_modal_title') . $note->animal->name !!}
+        {!! __('admin/animals.edit_note_modal_title') . $note->full_name !!}
     </x-slot:title>
 
     <x-slot:sub_title>

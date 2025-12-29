@@ -1,11 +1,14 @@
 <?php
 
+use App\Enums\MessageStatus;
 use App\Enums\UserStatus;
 use App\Enums\VolunteerStatus;
 use App\Models\User;
 use App\Traits\HandleAvatar;
+use App\Traits\IndexFilter;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,11 +17,17 @@ class extends Component {
 
     use WithPagination;
     use HandleAvatar;
+    use IndexFilter;
 
     public string $app_title;
 
     public bool $openDeleteVolunteer = false;
     public User $volunteerToDelete;
+
+    #[Url]
+    public string $selected_filter = 'all';
+    #[Url]
+    public string $term = '';
 
     public function mount(): void
     {
@@ -47,8 +56,31 @@ class extends Component {
     #[Computed]
     public function volunteers()
     {
-        return User::where('role', UserStatus::Volunteer)
-            ->paginate(12)
+        $query = User::where('role', UserStatus::Volunteer);
+
+        $array_of_states = array_map(
+            fn(VolunteerStatus $status) => $status->value,
+            VolunteerStatus::cases()
+        );
+
+        // FILTRE DE BASE – SELECT
+        if (in_array($this->selected_filter, $array_of_states)) {
+            $query->where('status', $this->selected_filter);
+        } else {
+            $this->selected_filter = 'all';
+        }
+
+        // FILTRE DE COLONNE
+        if (!is_null($this->filter_column)) {
+            $query->orderBy($this->filter_column, $this->filter_direction);
+        }
+
+        // CHAMP DE RECHERCHE
+        if (!empty($this->term)) {
+            $query->whereLike('last_name', '%' . $this->term . '%');
+        }
+
+        return $query->paginate(12)
             ->withPath(route('admin.volunteers.index', config('app.locale')));
 
     }

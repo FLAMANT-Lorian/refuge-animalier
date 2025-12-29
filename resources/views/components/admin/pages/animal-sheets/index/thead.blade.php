@@ -22,7 +22,8 @@
                     arrow_date = 'middle';
                     arrow_animal= 'middle';
                     arrow_volunteer = 'middle'
-                }"
+                }
+                $wire.sortBy('volunteer', arrow_volunteer)"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/animal-sheets.volunteer') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
@@ -55,7 +56,8 @@
                     arrow_date = 'middle';
                     arrow_volunteer = 'middle';
                     arrow_animal = 'middle'
-                }"
+                }
+                $wire.sortBy('animal', arrow_animal)"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/animal-sheets.animal') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
@@ -88,7 +90,8 @@
                     arrow_volunteer = 'middle';
                     arrow_animal = 'middle';
                     arrow_date = 'middle'
-                }"
+                }
+                $wire.sortBy('created_at', arrow_date)"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/animal-sheets.date') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"

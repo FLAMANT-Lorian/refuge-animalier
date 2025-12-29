@@ -1,16 +1,19 @@
 <?php
 
+use App\Enums\AnimalStatus;
 use App\Livewire\Forms\AskToCreateAnAnimalForm;
 use App\Livewire\Forms\AskToUpdateAnimalForm;
 use App\Models\Animal;
 use App\Models\AnimalSheet;
 use App\Traits\DeleteAnimal;
 use App\Traits\HandleAnimalsImages;
+use App\Traits\IndexFilter;
 use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Attributes\Url;
 
 
 new #[Title('admin/page_title.animals_index')]
@@ -21,8 +24,14 @@ class extends Component {
     use RedirectToAnimalsPage;
     use HandleAnimalsImages;
     use RedirectToAnimalsPage;
+    use IndexFilter;
 
     public string $app_title;
+
+    #[Url]
+    public string $selected_filter = 'all';
+    #[Url]
+    public string $term = '';
 
     public AskToUpdateAnimalForm $askToUpdateAnimalForm;
     public AskToCreateAnAnimalForm $askToCreateAnimalForm;
@@ -40,9 +49,44 @@ class extends Component {
     #[Computed]
     public function animals()
     {
-        return Animal::paginate(12)
-            ->withPath(route('admin.animals.index', config('app.locale')));
+        $query = Animal::with(['animalNotes', 'adoptionRequests']);
 
+        $array_of_states = array_map(
+            fn(AnimalStatus $status) => $status->value,
+            AnimalStatus::cases()
+        );
+
+        // FILTRE DE BASE – SELECT
+        if (in_array($this->selected_filter, $array_of_states)) {
+            $query->where('animals.state', $this->selected_filter);
+        } else {
+            $this->selected_filter = 'all';
+        }
+
+        // FILTRE DE COLONNE
+        if (!is_null($this->filter_column)) {
+            if ($this->filter_column === 'breed') {
+                $query->join('breeds', 'breeds.id', '=', 'animals.breed_id')
+                    ->orderBy('breeds.name', $this->filter_direction)
+                    ->select('animals.*');
+            } else {
+                $query->orderBy($this->filter_column, $this->filter_direction);
+            }
+        }
+
+        // CHAMP DE RECHERCHE
+        if (!empty($this->term)) {
+            $query->whereLike('animals.name', '%' . $this->term . '%');
+        }
+
+        return $query->paginate(12)
+            ->withPath(route('admin.animals.index', [
+                'selected_filter' => $this->selected_filter,
+                'filter_column' => $this->filter_column,
+                'filter_direction' => $this->filter_direction,
+                'term' => $this->term,
+                'locale' => config('app.locale'),
+            ]));
     }
 
     #[Computed]
