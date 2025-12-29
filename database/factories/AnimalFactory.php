@@ -19,9 +19,6 @@ class AnimalFactory extends Factory
 
     public function definition(): array
     {
-
-        $animals_name = ['Pedro', 'Pascal', 'Capsule', 'Cléopatre', 'Harber'];
-
         $colors = ['Brun', 'Blanc', 'Noir'];
 
         $sex = [Sex::Male->value, Sex::Female->value];
@@ -33,7 +30,7 @@ class AnimalFactory extends Factory
         $adopted_at = [null, Carbon::now()->subDays(), Carbon::now()];
 
         return [
-            'name' => $this->faker->randomElement($animals_name),
+            'name' => $this->faker->name(),
             'sex' => $this->faker->randomElement($sex),
             'coat' => $this->faker->randomElement($colors),
             'vaccines' => $this->faker->randomElement($vaccines),

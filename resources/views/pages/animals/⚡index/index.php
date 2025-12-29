@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\AnimalStatus;
 use App\Livewire\Forms\AskToCreateAnAnimalForm;
 use App\Livewire\Forms\AskToUpdateAnimalForm;
 use App\Models\Animal;
@@ -11,6 +12,7 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Attributes\Url;
 
 
 new #[Title('admin/page_title.animals_index')]
@@ -23,6 +25,14 @@ class extends Component {
     use RedirectToAnimalsPage;
 
     public string $app_title;
+    #[Url]
+    public string $selected_filter;
+    #[Url]
+    public ?string $filter_column = null;
+    #[Url]
+    public string $term = '';
+    #[Url]
+    public ?string $filter_direction = null;
 
     public AskToUpdateAnimalForm $askToUpdateAnimalForm;
     public AskToCreateAnAnimalForm $askToCreateAnimalForm;
@@ -35,14 +45,55 @@ class extends Component {
     public function mount(): void
     {
         $this->app_title = __('admin/animals.title');
+        $this->selected_filter = 'all';
     }
 
     #[Computed]
     public function animals()
     {
-        return Animal::paginate(12)
-            ->withPath(route('admin.animals.index', config('app.locale')));
+        $query = Animal::query();
 
+        $array_of_states = array_map(
+            fn(AnimalStatus $status) => $status->value,
+            AnimalStatus::cases()
+        );
+
+        // FILTRE DE BASE – SELECT
+        if (in_array($this->selected_filter, $array_of_states)) {
+            $query->where('state', $this->selected_filter);
+        } else {
+            $this->selected_filter = 'all';
+        }
+
+        // FILTRE DE COLONNE
+        if (!is_null($this->filter_column)) {
+            if ($this->filter_column === 'breed') {
+                $query->withAggregate('breed', 'name')
+                    ->orderBy('breed_name', $this->filter_direction);
+            } else {
+                $query->orderBy($this->filter_column, $this->filter_direction);
+            }
+        }
+
+        // CHAMP DE RECHERCHE
+        if (!empty($this->term)) {
+            $query->whereLike('animals.name', '%' . $this->term . '%');
+        }
+
+        return $query->paginate(12)
+            ->withPath(route('admin.animals.index', config('app.locale')));
+    }
+
+    public function sortBy(string $column, string $direction): void
+    {
+        if ($direction === 'middle') {
+            $this->filter_direction = null;
+            $this->filter_column = null;
+            return;
+        }
+
+        $this->filter_column = $column;
+        $this->filter_direction = $direction;
     }
 
     #[Computed]
