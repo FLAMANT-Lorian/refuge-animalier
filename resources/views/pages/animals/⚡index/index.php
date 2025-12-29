@@ -7,6 +7,7 @@ use App\Models\Animal;
 use App\Models\AnimalSheet;
 use App\Traits\DeleteAnimal;
 use App\Traits\HandleAnimalsImages;
+use App\Traits\IndexFilter;
 use App\Traits\RedirectToAnimalsPage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
@@ -23,6 +24,7 @@ class extends Component {
     use RedirectToAnimalsPage;
     use HandleAnimalsImages;
     use RedirectToAnimalsPage;
+    use IndexFilter;
 
     public string $app_title;
     #[Url]
@@ -30,9 +32,9 @@ class extends Component {
     #[Url]
     public ?string $filter_column = null;
     #[Url]
-    public string $term = '';
-    #[Url]
     public ?string $filter_direction = null;
+    #[Url]
+    public string $term = '';
 
     public AskToUpdateAnimalForm $askToUpdateAnimalForm;
     public AskToCreateAnAnimalForm $askToCreateAnimalForm;
@@ -82,18 +84,6 @@ class extends Component {
 
         return $query->paginate(12)
             ->withPath(route('admin.animals.index', config('app.locale')));
-    }
-
-    public function sortBy(string $column, string $direction): void
-    {
-        if ($direction === 'middle') {
-            $this->filter_direction = null;
-            $this->filter_column = null;
-            return;
-        }
-
-        $this->filter_column = $column;
-        $this->filter_direction = $direction;
     }
 
     #[Computed]
