@@ -4,12 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Enums\AnimalStatus;
 use App\Models\Animal;
+use Illuminate\Database\Eloquent\Builder;
+use function PHPUnit\Framework\isEmpty;
 
 class AnimalController extends Controller
 {
     public function index()
     {
-        $animals = Animal::whereIn('state', [AnimalStatus::ProcessOfAdoption, AnimalStatus::AwaitingAdoption])->paginate(12);
+        $search = request()->input('search');
+
+        $query = Animal::whereIn('state', [AnimalStatus::ProcessOfAdoption, AnimalStatus::AwaitingAdoption]);
+
+        if (!empty($search)) {
+            $query->where(function (Builder $q1) use ($search) {
+                $q1->whereLike('name', '%' . $search . '%')
+                    ->orWhereLike('coat', '%' . $search . '%')
+                    ->orWhereLike('sex', '%' . $search . '%')
+                    ->orWhereHas('breed', function ($q2) use ($search) {
+                        $q2->whereLike('name', '%' . $search . '%');
+                    });
+            });
+        }
+
+        $animals = $query
+            ->paginate(12);
 
         return view('public.animals.index', compact('animals'));
     }

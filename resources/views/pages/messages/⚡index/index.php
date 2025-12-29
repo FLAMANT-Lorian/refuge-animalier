@@ -57,7 +57,8 @@ class extends Component {
 
         // CHAMP DE RECHERCHE
         if (!empty($this->term)) {
-            $query->whereLike('full_name', '%' . $this->term . '%');
+            $query->whereLike('full_name', '%' . $this->term . '%')
+                ->orWhereLike('email', '%' . $this->term . '%');
         }
 
         return $query->paginate(12)

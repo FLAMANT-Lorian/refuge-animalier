@@ -6,6 +6,7 @@ use App\Enums\VolunteerStatus;
 use App\Models\User;
 use App\Traits\HandleAvatar;
 use App\Traits\IndexFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
@@ -77,11 +78,20 @@ class extends Component {
 
         // CHAMP DE RECHERCHE
         if (!empty($this->term)) {
-            $query->whereLike('last_name', '%' . $this->term . '%');
+            $query->where(function (Builder $q) {
+                $q->whereLike('last_name', '%' . $this->term . '%')
+                    ->orWhereLike('email', '%' . $this->term . '%');
+            });
         }
 
         return $query->paginate(12)
-            ->withPath(route('admin.volunteers.index', config('app.locale')));
+            ->withPath(route('admin.volunteers.index', [
+                'selected_filter' => $this->selected_filter,
+                'filter_column' => $this->filter_column,
+                'filter_direction' => $this->filter_direction,
+                'term' => $this->term,
+                'locale' => config('app.locale'),
+            ]));
 
     }
 

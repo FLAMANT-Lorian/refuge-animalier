@@ -4,12 +4,17 @@
             Nos animaux
         </h2>
 
-        <x-forms.fields.input-search
-            class="mb-8 lg:mb-10"
-            name="search-field"
-            id="search-field"
-            placeholder="{!! __('public/animals.index_animals_search_placeholder') !!}"
-            label="{!! __('public/animals.index_animals_search_label') !!}"/>
+        <form class="flex flex-row items-start gap-4" method="get" action="{{ route('public.animals.index') }}">
+            <x-forms.fields.input-search
+                class="lg:mb-10"
+                name="search"
+                id="search"
+                placeholder="{!! __('public/animals.index_animals_search_placeholder') !!}"
+                label="{!! __('public/animals.index_animals_search_label') !!}"/>
+
+            <x-forms.buttons.outlined-button-submit
+                label="Rechercher"/>
+        </form>
     </div>
 
     <div
