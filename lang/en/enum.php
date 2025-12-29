@@ -17,6 +17,11 @@ return [
     VolunteerStatus::InBreak->value => 'On break',
     VolunteerStatus::Parts->value => 'Left',
 
+    // VOLUNTEER STATUS FILTER
+    VolunteerStatus::Active->value . '_filter' => 'Active',
+    VolunteerStatus::InBreak->value . '_filter' => 'On break',
+    VolunteerStatus::Parts->value . '_filter' => 'Left',
+
     // USER
     UserStatus::Admin->value => 'Administrator',
     UserStatus::Volunteer->value => 'Volunteer',

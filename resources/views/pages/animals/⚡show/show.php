@@ -39,11 +39,6 @@ class extends Component {
     public AnimalNote $noteToDelete;
     public Animal $animalToAskToUpdate;
 
-    #[Url]
-    public ?string $filter_column = null;
-    #[Url]
-    public ?string $filter_direction = null;
-
     public function mount(Animal $animal): void
     {
         $this->animal = $animal;

@@ -25,10 +25,6 @@ class extends Component {
     #[Url]
     public string $selected_filter = 'all';
     #[Url]
-    public ?string $filter_column = null;
-    #[Url]
-    public ?string $filter_direction = null;
-    #[Url]
     public string $term = '';
 
     public AdoptionRequest $adoptionRequestToDelete;

@@ -2,8 +2,15 @@
 
 namespace App\Traits;
 
+use Livewire\Attributes\Url;
+
 trait IndexFilter
 {
+    #[Url]
+    public ?string $filter_column = null;
+    #[Url]
+    public ?string $filter_direction = null;
+
     public function sortBy(string $column, string $direction): void
     {
         if ($direction === 'middle') {

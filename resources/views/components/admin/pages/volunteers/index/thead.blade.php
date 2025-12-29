@@ -18,7 +18,8 @@
                 } else if (arrow_name === 'asc') {
                      arrow_email = 'middle';
                     arrow_name = 'middle'
-                }"
+                }
+                $wire.sortBy('last_name', arrow_name)"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/volunteers.name') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
@@ -48,7 +49,8 @@
                 } else if (arrow_email === 'asc') {
                      arrow_name = 'middle';
                     arrow_email = 'middle'
-                }"
+                }
+                $wire.sortBy('email', arrow_email)"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/volunteers.email') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
