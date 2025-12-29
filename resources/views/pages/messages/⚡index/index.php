@@ -2,8 +2,10 @@
 
 use App\Enums\MessageStatus;
 use App\Models\Message;
+use App\Traits\IndexFilter;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,13 +13,22 @@ new #[Title('admin/messages.title')]
 class extends Component {
 
     use WithPagination;
+    use IndexFilter;
 
     public string $app_title;
 
     public bool $openMessage = false;
     public bool $openDeleteMessage = false;
-
     public Message $messageModal;
+
+    #[Url]
+    public string $selected_filter = 'all';
+    #[Url]
+    public ?string $filter_column = null;
+    #[Url]
+    public ?string $filter_direction = null;
+    #[Url]
+    public string $term = '';
 
     public function mount(): void
     {
@@ -29,8 +40,38 @@ class extends Component {
     #[Computed]
     public function messages()
     {
-        return Message::paginate(12)
-            ->withPath(route('admin.messages.index', config('app.locale')));
+        $query = Message::query();
+
+        $array_of_states = array_map(
+            fn(MessageStatus $status) => $status->value,
+            MessageStatus::cases()
+        );
+
+        // FILTRE DE BASE – SELECT
+        if (in_array($this->selected_filter, $array_of_states)) {
+            $query->where('status', $this->selected_filter);
+        } else {
+            $this->selected_filter = 'all';
+        }
+
+        // FILTRE DE COLONNE
+        if (!is_null($this->filter_column)) {
+            $query->orderBy($this->filter_column, $this->filter_direction);
+        }
+
+        // CHAMP DE RECHERCHE
+        if (!empty($this->term)) {
+            $query->whereLike('full_name', '%' . $this->term . '%');
+        }
+
+        return $query->paginate(12)
+            ->withPath(route('admin.messages.index', [
+                'selected_filter' => $this->selected_filter,
+                'filter_column' => $this->filter_column,
+                'filter_direction' => $this->filter_direction,
+                'term' => $this->term,
+                'locale' => config('app.locale'),
+            ]));
 
     }
 
