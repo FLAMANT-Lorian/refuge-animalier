@@ -24,4 +24,15 @@ trait StatsStartDate
 
         return [$this->startDate, $today];
     }
+
+    public function getCorrectPeriodForPDF(string $selected_period): string
+    {
+        if ($selected_period === DateRange::day->value) {
+            return Carbon::now()->translatedFormat('d F Y');
+        } elseif ($selected_period === DateRange::week->value) {
+            return 'Semaine du ' . Carbon::now()->translatedformat('d F Y');
+        } else {
+            return Carbon::now()->translatedFormat('F') . ' ' . Carbon::now()->year;
+        }
+    }
 }
