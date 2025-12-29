@@ -6,6 +6,7 @@
 
     {{-- CHAMPS DE RECHERCHE --}}
     <x-forms.fields.input-search
+        wire="term"
         class="md:order-1"
         name="animal-sheets_search"
         id="animal-sheets_search"
@@ -15,6 +16,7 @@
 
     {{-- SELECTION DES FILTRES --}}
     <x-forms.fields.select-filter
+        wire="selected_filter"
         container_classes="md:order-3"
         :all_selector="true"
         :all_selector_label="__('admin/animal-sheets.all')"

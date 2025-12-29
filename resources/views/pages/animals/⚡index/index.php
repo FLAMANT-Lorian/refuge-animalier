@@ -27,8 +27,9 @@ class extends Component {
     use IndexFilter;
 
     public string $app_title;
+
     #[Url]
-    public string $selected_filter;
+    public string $selected_filter = 'all';
     #[Url]
     public ?string $filter_column = null;
     #[Url]
@@ -47,13 +48,12 @@ class extends Component {
     public function mount(): void
     {
         $this->app_title = __('admin/animals.title');
-        $this->selected_filter = 'all';
     }
 
     #[Computed]
     public function animals()
     {
-        $query = Animal::query();
+        $query = Animal::with(['animalNotes', 'adoptionRequests']);
 
         $array_of_states = array_map(
             fn(AnimalStatus $status) => $status->value,
@@ -62,7 +62,7 @@ class extends Component {
 
         // FILTRE DE BASE – SELECT
         if (in_array($this->selected_filter, $array_of_states)) {
-            $query->where('state', $this->selected_filter);
+            $query->where('animals.state', $this->selected_filter);
         } else {
             $this->selected_filter = 'all';
         }
@@ -70,8 +70,9 @@ class extends Component {
         // FILTRE DE COLONNE
         if (!is_null($this->filter_column)) {
             if ($this->filter_column === 'breed') {
-                $query->withAggregate('breed', 'name')
-                    ->orderBy('breed_name', $this->filter_direction);
+                $query->join('breeds', 'breeds.id', '=', 'animals.breed_id')
+                    ->orderBy('breeds.name', $this->filter_direction)
+                    ->select('animals.*');
             } else {
                 $query->orderBy($this->filter_column, $this->filter_direction);
             }
@@ -83,7 +84,13 @@ class extends Component {
         }
 
         return $query->paginate(12)
-            ->withPath(route('admin.animals.index', config('app.locale')));
+            ->withPath(route('admin.animals.index', [
+                'selected_filter' => $this->selected_filter,
+                'filter_column' => $this->filter_column,
+                'filter_direction' => $this->filter_direction,
+                'term' => $this->term,
+                'locale' => config('app.locale'),
+            ]));
     }
 
     #[Computed]

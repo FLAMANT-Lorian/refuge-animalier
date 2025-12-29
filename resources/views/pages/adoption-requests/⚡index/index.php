@@ -4,8 +4,10 @@ use App\Enums\AdoptionRequestsStatus;
 use App\Models\AdoptionRequest;
 use App\Models\Animal;
 use App\Traits\DeleteAdoptionRequest;
+use App\Traits\IndexFilter;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,10 +16,20 @@ class extends Component {
 
     use WithPagination;
     use DeleteAdoptionRequest;
+    use IndexFilter;
 
     public string $app_title;
     public bool $openAdoptionRequest = false;
     public bool $openDeleteAdoptionRequest = false;
+
+    #[Url]
+    public string $selected_filter = 'all';
+    #[Url]
+    public ?string $filter_column = null;
+    #[Url]
+    public ?string $filter_direction = null;
+    #[Url]
+    public string $term = '';
 
     public AdoptionRequest $adoptionRequestToDelete;
 
@@ -31,8 +43,45 @@ class extends Component {
     #[Computed]
     public function adoption_requests()
     {
-        return AdoptionRequest::paginate(12)
-            ->withPath(route('admin.adoption-requests.index', config('app.locale')));
+        $query = AdoptionRequest::with(['animal']);
+
+        $array_of_states = array_map(
+            fn(AdoptionRequestsStatus $status) => $status->value,
+            AdoptionRequestsStatus::cases()
+        );
+
+        // FILTRE DE BASE – SELECT
+        if (in_array($this->selected_filter, $array_of_states)) {
+            $query->where('status', $this->selected_filter);
+        } else {
+            $this->selected_filter = 'all';
+        }
+
+        // FILTRE DE COLONNE
+        if (!is_null($this->filter_column)) {
+            if ($this->filter_column === 'animal') {
+                $query->join('animals', 'animals.id', '=', 'adoption_requests.animal_id')
+                    ->orderBy('animals.name', $this->filter_direction)
+                    ->select('adoption_requests.*');
+            } else {
+                $query->orderBy($this->filter_column, $this->filter_direction);
+            }
+        }
+
+        // CHAMP DE RECHERCHE
+        if (!empty($this->term)) {
+            $query->whereLike('full_name', '%' . $this->term . '%');
+        }
+
+        return $query->paginate(12)
+            ->withQueryString()
+            ->withPath(route('admin.adoption-requests.index', [
+                'selected_filter' => $this->selected_filter,
+                'filter_column' => $this->filter_column,
+                'filter_direction' => $this->filter_direction,
+                'term' => $this->term,
+                'locale' => config('app.locale'),
+            ]));
     }
 
     public function delete(int $id): void

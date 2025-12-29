@@ -22,7 +22,8 @@
                      arrow_email = 'middle';
                     arrow_animal = 'middle';
                     arrow_name = 'middle'
-                }"
+                }
+                $wire.sortBy('full_name', arrow_name)"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/adoption-requests.full_name') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
@@ -55,7 +56,8 @@
                      arrow_name = 'middle';
                     arrow_animal = 'middle';
                     arrow_email = 'middle'
-                }"
+                }
+                $wire.sortBy('email', arrow_email)"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/adoption-requests.email') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"
@@ -85,10 +87,11 @@
                     arrow_email = 'middle';
                     arrow_animal = 'asc'
                 } else if (arrow_animal === 'asc') {
-                     arrow_name = 'middle';
+                     arrow_nawme = 'middle';
                     arrow_email = 'middle';
                     arrow_animal = 'middle'
-                }"
+                }
+                $wire.sortBy('animal', arrow_animal)"
                         class="hover:cursor-pointer flex flex-row gap-2 font-semibold text-white">
                     {!! __('admin/adoption-requests.animal') !!}
                     <svg class="fill-white transition-all ease-in-out duration-200"

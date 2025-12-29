@@ -53,7 +53,7 @@ class extends Component {
     #[Computed]
     public function notes()
     {
-        $query = $this->animal->animalNotes();
+        $query = $this->animal->animalNotes()->with(['animal']);
 
         // FILTRE DE COLONNE
         if (!is_null($this->filter_column)) {
