@@ -8,6 +8,7 @@ use App\Models\Animal;
 use App\Models\Breed;
 use App\Traits\AnimalsRules;
 use App\Traits\HandleAnimalsImages;
+use Carbon\Carbon;
 use Livewire\Form;
 
 class AnimalCreateForm extends Form
@@ -42,6 +43,10 @@ class AnimalCreateForm extends Form
             }
         }
 
+        if ($this->state === AnimalStatus::Adopted->value) {
+            $adopted_at = Carbon::now();
+        }
+
         return Animal::create([
             'name' => $this->name,
             'breed_id' => $this->breed,
@@ -52,6 +57,7 @@ class AnimalCreateForm extends Form
             'state' => $this->state,
             'pictures' => $picturesDB,
             'character' => $this->character,
+            'adopted_at' => $adopted_at ?? null
         ]);
     }
 }

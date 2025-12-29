@@ -1,4 +1,5 @@
 @props([
+    'wire' => '',
     'id',
     'label',
     'with_label',
@@ -9,7 +10,6 @@
     'all_selector' => false,
     'all_selector_label',
     'container_classes' => ''
-
 ])
 
 <div class="{!! $container_classes !!}">
@@ -17,6 +17,7 @@
             <strong class="text-red">*</strong>
         @endif</label>
     <select
+        wire:model.live="{{ $wire }}"
         {!! $attributes->merge(['class' => 'hover:cursor-pointer select_form pl-2 pr-7 py-2.5 border border-green-500 rounded-lg font-medium']) !!}
         name="{!! $name !!}"
         id="{!! $id !!}">

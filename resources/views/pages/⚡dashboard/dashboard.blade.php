@@ -26,12 +26,13 @@
         @endcan
 
         @if(auth()->user()->isAdmin())
+
             {{-- DEMANDES d’ADOPTIONS --}}
             <x-admin.pages.dashboard.adoption-requests
                 class="lg:col-start-6 lg:col-end-10 lg:row-start-3"/>
         @endif
         {{-- STATISTIQUES --}}
-        <x-admin.pages.dashboard.statistics
+        <livewire:admin.pages.dashboard.stats
             class="lg:col-start-4 lg:col-end-10 lg:row-start-2"/>
 
     </div>
