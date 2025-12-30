@@ -19,6 +19,10 @@
         <x-admin.pages.dashboard.fast-actions
             class="lg:col-start-1 lg:col-end-4 lg:row-start-2"/>
 
+        {{-- STATISTIQUES --}}
+        <livewire:admin.pages.dashboard.stats
+            class="lg:col-start-4 lg:col-end-10 lg:row-start-2"/>
+
         @can('view-any', AnimalSheet::class)
             {{-- FICHES ANIMAUX --}}
             <x-admin.pages.dashboard.sheets
@@ -31,9 +35,6 @@
             <x-admin.pages.dashboard.adoption-requests
                 class="lg:col-start-6 lg:col-end-10 lg:row-start-3"/>
         @endif
-        {{-- STATISTIQUES --}}
-        <livewire:admin.pages.dashboard.stats
-            class="lg:col-start-4 lg:col-end-10 lg:row-start-2"/>
 
     </div>
 

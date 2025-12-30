@@ -29,7 +29,9 @@ class AdoptionRequestCreatedListener
         $admin_users = User::where('role', UserStatus::Admin->value)->get();
 
         foreach ($admin_users as $admin_user) {
-            Mail::to($admin_user->email)->queue(new AdoptionRequestCreatedMail($event->adoptionRequest));
+            if ($admin_user->notifications['adoption_requests']) {
+                Mail::to($admin_user->email)->queue(new AdoptionRequestCreatedMail($event->adoptionRequest));
+            }
         }
     }
 }

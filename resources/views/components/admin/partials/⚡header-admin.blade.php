@@ -33,7 +33,9 @@ new class extends Component {
 
 <header class="lg:sticky lg:h-screen top-0 px-6 pt-10 lg:pt-0 md:px-12 lg:px-0">
     <h1 class="sr-only">Les pattes heureuses</h1>
-    <a wire:navigate class="sr-only" href="#content" title="{!! __('admin/navigation.go_to_main_content') !!}">
+    <a wire:navigate
+       class="sr-only focus:not-sr-only focus:fixed focus:left-1/2 focus:px-3 focus:py-2 focus:outline focus:outline-gray-200 focus:bg-gray-100 rounded-full -translate-x-1/2 top-0 focus:top-4 trans-all"
+       href="#content" title="{!! __('admin/navigation.go_to_main_content') !!}">
         {!! __('admin/navigation.go_to_main_content') !!}
     </a>
 

@@ -9,6 +9,7 @@ use App\Traits\DeleteAnimal;
 use App\Traits\HandleAnimalsImages;
 use App\Traits\IndexFilter;
 use App\Traits\RedirectToAnimalsPage;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -76,10 +77,12 @@ class extends Component {
 
         // CHAMP DE RECHERCHE
         if (!empty($this->term)) {
-            $query->whereLike('animals.name', '%' . $this->term . '%')
-                ->orWhereHas('breed', function ($q1) {
-                    $q1->whereLike('name', '%' . $this->term . '%');
-                });;
+            $query->where(function (Builder $query) {
+                $query->whereLike('animals.name', '%' . $this->term . '%')
+                    ->orWhereHas('breed', function ($q1) {
+                        $q1->whereLike('name', '%' . $this->term . '%');
+                    });
+            });
         }
 
         return $query->paginate(12)

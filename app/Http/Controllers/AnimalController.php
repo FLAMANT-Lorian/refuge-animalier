@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Enums\AnimalStatus;
 use App\Models\Animal;
 use Illuminate\Database\Eloquent\Builder;
-use function PHPUnit\Framework\isEmpty;
 
 class AnimalController extends Controller
 {

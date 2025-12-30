@@ -8,7 +8,7 @@
     <div class="flex flex-col gap-2">
 
         <x-forms.fields.input-checkbox
-            wire="form.notifications.messages"
+            wire="form.notifications.adoption_requests"
             field_name="adoptions_requests"
             name="notifications[adoption_requests]"
             :label="__('admin/settings.option1')"/>
@@ -20,16 +20,10 @@
             :label="__('admin/settings.option2')"/>
 
         <x-forms.fields.input-checkbox
-            wire="form.notifications.activity_report"
+            wire="form.notifications.messages"
             field_name="messages"
             name="notifications[messages]"
             :label="__('admin/settings.option3')"/>
-
-        <x-forms.fields.input-checkbox
-            wire="form.notifications.adoption_requests"
-            field_name="activity_report"
-            name="notifications[activity_report]"
-            :label="__('admin/settings.option4')"/>
 
     </div>
 </fieldset>

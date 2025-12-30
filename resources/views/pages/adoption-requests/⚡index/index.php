@@ -5,6 +5,7 @@ use App\Models\AdoptionRequest;
 use App\Models\Animal;
 use App\Traits\DeleteAdoptionRequest;
 use App\Traits\IndexFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
@@ -66,11 +67,13 @@ class extends Component {
 
         // CHAMP DE RECHERCHE
         if (!empty($this->term)) {
-            $query->whereLike('full_name', '%' . $this->term . '%')
-                ->orWhereLike('email', '%' . $this->term . '%')
-                ->orWhereHas('animal', function ($q) {
-                    $q->whereLike('animals.name', '%' . $this->term . '%');
-                });
+            $query->where(function (Builder $q) {
+                $q->whereLike('full_name', '%' . $this->term . '%')
+                    ->orWhereLike('email', '%' . $this->term . '%')
+                    ->orWhereHas('animal', function ($q1) {
+                        $q1->whereLike('animals.name', '%' . $this->term . '%');
+                    });
+            });
         }
 
         return $query->paginate(12)

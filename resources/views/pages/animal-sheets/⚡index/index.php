@@ -70,12 +70,14 @@ class extends Component {
 
         // CHAMP DE RECHERCHE
         if (!empty($this->term)) {
-            $query->whereHas('user', function ($q) {
-                $q->whereLike('last_name', '%' . $this->term . '%');
-            })->orWhereHas('user', function ($q) {
-                $q->whereLike('users.last_name', '%' . $this->term . '%');
-            })->orWhereHas('animal', function ($q) {
-                $q->whereLike('animals.name', '%' . $this->term . '%');
+            $query->where(function (Builder $q) {
+                $q->whereHas('user', function ($q1) {
+                    $q1->whereLike('last_name', '%' . $this->term . '%');
+                })->orWhereHas('user', function ($q2) {
+                    $q2->whereLike('users.last_name', '%' . $this->term . '%');
+                })->orWhereHas('animal', function ($q3) {
+                    $q3->whereLike('animals.name', '%' . $this->term . '%');
+                });
             });
         }
 

@@ -29,7 +29,12 @@ class DatabaseSeeder extends Seeder
             'last_name' => 'Flamant',
             'email' => 'lorian@admin.be',
             'role' => UserStatus::Admin->value,
-            'status' => VolunteerStatus::Active->value
+            'status' => VolunteerStatus::Active->value,
+            'notifications' => [
+                'adoption_requests' => true,
+                'animal_sheets' => true,
+                'messages' => true,
+            ]
         ])->create();
 
         $user1 = User::factory()

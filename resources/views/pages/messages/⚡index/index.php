@@ -3,6 +3,7 @@
 use App\Enums\MessageStatus;
 use App\Models\Message;
 use App\Traits\IndexFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
@@ -57,8 +58,10 @@ class extends Component {
 
         // CHAMP DE RECHERCHE
         if (!empty($this->term)) {
-            $query->whereLike('full_name', '%' . $this->term . '%')
-                ->orWhereLike('email', '%' . $this->term . '%');
+            $query->where(function (Builder $q) {
+                $q->whereLike('full_name', '%' . $this->term . '%')
+                    ->orWhereLike('email', '%' . $this->term . '%');
+            });
         }
 
         return $query->paginate(12)

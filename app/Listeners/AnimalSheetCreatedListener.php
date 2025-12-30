@@ -26,7 +26,9 @@ class AnimalSheetCreatedListener
         $admin_users = User::where('role', UserStatus::Admin->value)->get();
 
         foreach ($admin_users as $admin_user) {
-            Mail::to($admin_user->email)->queue(new AnimalSheetCreatedMail($event->animalSheet));
+            if ($admin_user->notifications['animal_sheets']) {
+                Mail::to($admin_user->email)->queue(new AnimalSheetCreatedMail($event->animalSheet));
+            }
         }
     }
 }

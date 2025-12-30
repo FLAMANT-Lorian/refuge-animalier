@@ -41,7 +41,6 @@ class UserFactory extends Factory
                 'adoption_requests' => false,
                 'animal_sheets' => false,
                 'messages' => false,
-                'activity_report' => false,
             ],
             'availability' => [
                 'monday' => '',

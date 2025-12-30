@@ -28,7 +28,9 @@ class MessageCreatedListener
         $admin_users = User::where('role', UserStatus::Admin->value)->get();
 
         foreach ($admin_users as $admin_user) {
-            Mail::to($admin_user->email)->queue(new MessageCreatedMail($event->message));
+            if ($admin_user->notifications['messages']) {
+                Mail::to($admin_user->email)->queue(new MessageCreatedMail($event->message));
+            }
         }
     }
 }

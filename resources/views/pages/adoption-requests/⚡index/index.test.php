@@ -58,7 +58,6 @@ describe('VOLUNTEER USER', function () {
 
     it('verifies if a volunteer can’t access to the admin adoption requests index page',
         function () {
-
             Livewire::test('pages::adoption-requests.index')
                 ->assertOK();
         }

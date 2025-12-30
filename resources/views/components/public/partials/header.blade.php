@@ -1,6 +1,6 @@
 <header class="px-6 pt-10 md:px-12 lg:px-[12rem]">
     <h1 class="sr-only">Les pattes heureuses</h1>
-    <a class="sr-only" href="#content" title="Aller directement au contenu principal">{!! __('public/header.main_content') !!}</a>
+    <a class="sr-only sr-only focus:not-sr-only focus:fixed focus:left-1/2 focus:px-3 focus:py-2 focus:outline focus:outline-gray-200 focus:bg-gray-100 rounded-full -translate-x-1/2 top-0 focus:top-4 trans-all" href="#content" title="Aller directement au contenu principal">{!! __('public/header.main_content') !!}</a>
 
     {{----------------------------}}
     {{-----Menu de navigation-----}}
