@@ -30,6 +30,7 @@
     @can('view-any', AdoptionRequest::class)
         <li class="group">
             <x-admin.navigation.navigation-link
+                :count="$this->getAdoptionRequestsCount"
                 :destination="route('admin.adoption-requests.index')"
                 icon="adoption-requests"
                 class="lg:group-hover:text-white"
@@ -43,6 +44,7 @@
 
         <li class="group">
             <x-admin.navigation.navigation-link
+                :count="$this->getAnimalSheetCount"
                 :destination="route('admin.animal-sheets.index')"
                 icon="animal-sheets"
                 class="lg:group-hover:text-white"
@@ -57,6 +59,7 @@
 
         <li class="group">
             <x-admin.navigation.navigation-link
+                :count="$this->getUnreadMessageCount"
                 :destination="route('admin.messages.index')"
                 icon="messages"
                 class="lg:group-hover:text-white"
