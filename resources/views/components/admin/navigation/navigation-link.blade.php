@@ -8,7 +8,7 @@
 @php
     $class_for_icons = 'hidden lg:block group-hover:text-white transition-all ease-in-out duration-200';
 @endphp<a wire:navigate wire:current="active_btn max-lg:font-bold lg:text-white lg:bg-green-500 lg:border-green-500"
-          {!! $attributes->merge(['class' => 'lg:self-auto lg:px-4 lg:py-3 lg:rounded-lg lg:border lg:border-transparent lg:hover:border-green-500 lg:hover:bg-green-500 transition-all ease-in-out duration-200 lg:flex lg:items-center lg:flex-row lg:gap-2 text-xl lg:text-base max-lg:hover:font-bold font-medium font-normal transition-all']) !!}href="{!! $destination !!}"
+          {!! $attributes->merge(['class' => 'lg:self-auto lg:px-4 lg:py-3 lg:rounded-lg lg:border lg:border-transparent lg:hover:border-green-500 lg:hover:bg-green-500 transition-all ease-in-out duration-200 flex items-center gap-4 lg:flex-row lg:gap-2 text-xl lg:text-base max-lg:hover:font-bold font-medium font-normal transition-all']) !!}href="{!! $destination !!}"
           title="{!! $title !!}">
     @switch($icon)
         @case('dashboard')
@@ -39,7 +39,7 @@
     {!! $slot !!}
 
     @if(!empty($count))
-        <span class="ml-auto py-[1px] px-2 bg-red-200 border border-red-300 rounded-lg !text-black">
+        <span class="min-lg:ml-auto py-[1px] px-2 bg-red-200 border border-red-300 rounded-lg !text-base !text-black">
         {{ $count }}
         </span>
     @endif

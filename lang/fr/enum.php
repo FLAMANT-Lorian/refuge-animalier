@@ -2,6 +2,7 @@
 
 use App\Enums\AdoptionRequestsStatus;
 use App\Enums\AnimalStatus;
+use App\Enums\AvailableLanguage;
 use App\Enums\DateRange;
 use App\Enums\MessageStatus;
 use App\Enums\Sex;
@@ -110,4 +111,8 @@ return [
     // Message filter
     MessageStatus::Read->value . '_filter' => 'Lus',
     MessageStatus::Unread->value . '_filter' => 'Nouveaux',
+
+    // LANGUAGE
+    AvailableLanguage::EN->value => 'Anglais',
+    AvailableLanguage::FR->value => 'Français',
 ];

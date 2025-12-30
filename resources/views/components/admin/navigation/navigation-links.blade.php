@@ -9,7 +9,7 @@
 
     <li class="group">
         <x-admin.navigation.navigation-link
-            :destination="route('admin.dashboard')"
+            :destination="route('admin.dashboard', ['locale' => app()->getLocale()])"
             icon="dashboard"
             class="lg:group-hover:text-white"
             :title="__('admin/navigation.dashboard_title')">
@@ -19,7 +19,7 @@
 
     <li class="group">
         <x-admin.navigation.navigation-link
-            :destination="route('admin.animals.index')"
+            :destination="route('admin.animals.index', ['locale' => app()->getLocale()])"
             icon="animals"
             class="lg:group-hover:text-white"
             :title="__('admin/navigation.animals_title')">
@@ -31,7 +31,7 @@
         <li class="group">
             <x-admin.navigation.navigation-link
                 :count="$this->getAdoptionRequestsCount"
-                :destination="route('admin.adoption-requests.index')"
+                :destination="route('admin.adoption-requests.index', ['locale' => app()->getLocale()])"
                 icon="adoption-requests"
                 class="lg:group-hover:text-white"
                 :title="__('admin/navigation.adoption-requests_title')">
@@ -45,7 +45,7 @@
         <li class="group">
             <x-admin.navigation.navigation-link
                 :count="$this->getAnimalSheetCount"
-                :destination="route('admin.animal-sheets.index')"
+                :destination="route('admin.animal-sheets.index', ['locale' => app()->getLocale()])"
                 icon="animal-sheets"
                 class="lg:group-hover:text-white"
                 :title="__('admin/navigation.animal-sheets_title')">
@@ -60,7 +60,7 @@
         <li class="group">
             <x-admin.navigation.navigation-link
                 :count="$this->getUnreadMessageCount"
-                :destination="route('admin.messages.index')"
+                :destination="route('admin.messages.index', ['locale' => app()->getLocale()])"
                 icon="messages"
                 class="lg:group-hover:text-white"
                 :title="__('admin/navigation.messages_title')">
@@ -74,7 +74,7 @@
 
         <li class="group">
             <x-admin.navigation.navigation-link
-                :destination="route('admin.volunteers.index')"
+                :destination="route('admin.volunteers.index', ['locale' => app()->getLocale()])"
                 icon="volunteers"
                 class="lg:group-hover:text-white"
                 :title="__('admin/navigation.volunteers_title')">
