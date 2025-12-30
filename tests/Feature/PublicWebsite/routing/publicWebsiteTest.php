@@ -3,6 +3,7 @@
 use App\Enums\AnimalStatus;
 use App\Models\Animal;
 use App\Models\Breed;
+use App\Models\Species;
 use App\Models\User;
 
 it('verifies if a guest can access to the public website home page', function () {
@@ -32,13 +33,12 @@ it('verifies if a guest can access to the public website animals index page', fu
 it('verifies if a guest can access to the public website animals show page', function () {
     $user = User::factory()->create();
 
-    $animal = Animal::factory([
-        'breed_id' => Breed::factory()->create([
-            'species_id' => \App\Models\Species::factory()->create()
-        ]),
-    ])->create(
-        ['state' => AnimalStatus::AwaitingAdoption->value]
-    )->toArray();
+    $species = Species::factory()->create();
+    $breed = Breed::factory()->for($species)->create();
+    $animal = Animal::factory()
+        ->for($breed)
+        ->create(['state' => AnimalStatus::AwaitingAdoption->value])
+        ->toArray();
 
     $response = $this->get(route('public.animals.show',
         [

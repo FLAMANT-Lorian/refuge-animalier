@@ -19,11 +19,9 @@ describe('ADMIN USER', function () {
 
     it('verifies if a you can access to the admin animals show page', function () {
 
-        $animal = Animal::factory([
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ])
-        ])->create();
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create();
 
         Livewire::test('pages::animals.show', ['animal' => $animal,])
             ->assertStatus(200);
@@ -31,22 +29,10 @@ describe('ADMIN USER', function () {
 
     it('verifies if you see the correct animal data in animal show page',
         function () {
-            $animal = Animal::factory()
-                ->create([
-                    'breed_id' => Breed::factory()->create([
-                        'species_id' => Species::factory()->create()
-                    ]),
-                    'name' => 'toto'
-                ]);
-
-            $user1 = User::factory()->create();
-            $animal1 = Animal::factory()
-                ->create([
-                    'breed_id' => Breed::factory()->create([
-                        'species_id' => Species::factory()->create()
-                    ]),
-                    'name' => 'titi'
-                ]);
+            $species = Species::factory()->create();
+            $breed = Breed::factory()->for($species)->create();
+            $animal = Animal::factory()->for($breed)->create(['name' => 'toto']);
+            $animal1 = Animal::factory()->for($breed)->create(['name' => 'titi']);
 
             Livewire::test('pages::animals.show', ['animal' => $animal])
                 ->assertSee($animal->name)
@@ -55,11 +41,9 @@ describe('ADMIN USER', function () {
     );
 
     it('verifies if an admin or a volunteer can create a note', function () {
-        $animal = Animal::factory()->create([
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ]),
-        ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create();
 
         Livewire::test('pages::animals.show', ['animal' => $animal])
             ->call('openModal', 'create-note')
@@ -74,13 +58,9 @@ describe('ADMIN USER', function () {
     });
 
     it('verifies if you have errors message when you want to create a note with false value', function () {
-        $animal = Animal::factory()
-            ->has(AnimalNote::factory())
-            ->create([
-                'breed_id' => Breed::factory()->create([
-                    'species_id' => Species::factory()->create()
-                ]),
-            ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->has(AnimalNote::factory())->for($breed)->create();
 
         Livewire::test('pages::animals.show', ['animal' => $animal])
             ->call('openModal', 'edit-note', $animal->animalNotes()->first()->id)
@@ -93,13 +73,9 @@ describe('ADMIN USER', function () {
     });
 
     it('verifies if a user can delete a note', function () {
-        $animal = Animal::factory()
-            ->has(AnimalNote::factory())
-            ->create([
-                'breed_id' => Breed::factory()->create([
-                    'species_id' => Species::factory()->create()
-                ]),
-            ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->has(AnimalNote::factory())->for($breed)->create();
 
         Livewire::test('pages::animals.show', ['animal' => $animal])
             ->call('openModal', 'delete-note', $animal->animalNotes()->first()->id)
@@ -128,12 +104,9 @@ describe('VOLUNTEER USER', function () {
     });
 
     it('verifies if a volunteer can request a modification for an animal', function () {
-        $animal = Animal::factory()
-            ->create([
-                'breed_id' => Breed::factory()->create([
-                    'species_id' => Species::factory()->create()
-                ]),
-            ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create();
 
         Livewire::test('pages::animals.index')
             ->call('openModal', 'ask-for-update', $animal->id)

@@ -21,21 +21,10 @@ describe('CONNECTED USER', function () {
 
     it('verifies if a user can see all animals on index page',
         function () {
-            $animal = Animal::factory()
-                ->create([
-                    'breed_id' => Breed::factory()->create([
-                        'species_id' => \App\Models\Species::factory()->create()
-                    ]),
-                    'name' => 'toto'
-                ]);
-
-            $other_animal = Animal::factory()
-                ->create([
-                    'breed_id' => Breed::factory()->create([
-                        'species_id' => \App\Models\Species::factory()->create()
-                    ]),
-                    'name' => 'titi'
-                ]);
+            $species = Species::factory()->create();
+            $breed = Breed::factory()->for($species)->create();
+            $animal = Animal::factory()->for($breed)->create();
+            $other_animal = Animal::factory()->for($breed)->create();
 
             Livewire::test('pages::animals.index')
                 ->assertSee($animal->name)
@@ -53,11 +42,9 @@ describe('ADMIN USER', function () {
     });
 
     it('verifies if an admin can delete an animal', function () {
-        $animal = Animal::factory()->create([
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ])
-        ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create();
 
         Livewire::test('pages::animals.index')
             ->call('delete', $animal->id)
@@ -74,11 +61,9 @@ describe('VOLUNTEER USER', function () {
     });
 
     it('verifies if an volunteer can’t delete an animal', function () {
-        $animal = Animal::factory()->create([
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ])
-        ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create();
 
         Livewire::test('pages::animals.index')
             ->call('delete', $animal->id)

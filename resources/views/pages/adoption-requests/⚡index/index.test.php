@@ -4,6 +4,7 @@ use App\Enums\UserStatus;
 use App\Models\AdoptionRequest;
 use App\Models\Animal;
 use App\Models\Breed;
+use App\Models\Species;
 use App\Models\User;
 use Livewire\Livewire;
 use function Pest\Laravel\actingAs;
@@ -27,19 +28,11 @@ describe('ADMIN USER', function () {
     it('verifies if a user can see all adoption requests',
         function () {
 
-            $animal1 = Animal::factory()
-                ->create([
-                    'breed_id' => Breed::factory()->create([
-                        'species_id' => \App\Models\Species::factory()->create()
-                    ]),
-                ]);
+            $species = Species::factory()->create();
+            $breed = Breed::factory()->for($species)->create();
+            $animal1 = Animal::factory()->for($breed)->create();
+            $animal2 = Animal::factory()->for($breed)->create();
 
-            $animal2 = Animal::factory()
-                ->create([
-                    'breed_id' => Breed::factory()->create([
-                        'species_id' => \App\Models\Species::factory()->create()
-                    ]),
-                ]);
 
             $adoptionsRequest1 = AdoptionRequest::factory()
                 ->for($animal1)

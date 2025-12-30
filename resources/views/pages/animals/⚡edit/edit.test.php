@@ -48,11 +48,10 @@ describe('ADMIN USER', function () {
     });
 
     it('verifies if it captures validation errors when submitting invalid values in the animals edit form', function () {
-        $animal = Animal::factory()->create([
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create([
             'name' => 'toto',
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ])
         ]);
 
         Livewire::test('pages::animals.edit', [$animal])
@@ -85,12 +84,11 @@ describe('ADMIN USER', function () {
 
         $file_name = 'test.png';
 
-        $animal = Animal::factory()->create([
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create([
             'name' => 'toto',
             'pictures' => [$file_name],
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ])
         ]);
 
         $image = File::fake()->image($file_name);
