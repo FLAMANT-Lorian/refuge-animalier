@@ -38,7 +38,7 @@ class MessageCreatedMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.MessageCreated',
+            markdown: 'emails.messageCreated',
             with: ['message' => $this->message]
         );
     }

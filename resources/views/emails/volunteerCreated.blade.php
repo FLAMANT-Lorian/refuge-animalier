@@ -46,22 +46,22 @@
             <h2 class="medium">Comment me connecter à mon compte ?</h2>
             <ol>
                 <li>Rendez-vous sur l'espace de connexion du refuge : <a href="{{ $url }}"
-                                                                         title="Vers la page de connexion">Page de
-                        connexion</a></li>
+                                                                         title="Vers la page de connexion"> Page de
+                        connexion </a>
+                </li>
                 <li>Entrez vos identifiants dans le formulaire de connexion</li>
                 <li>Vous avez accès à l'interface d’administration du refuge</li>
             </ol>
 
-            <p>PS : Une fois connecté·e, il est vivement conseillé de changer votre mot de passe, le mot de passe
-                contenu dans ce mail n’est pas suffisant pour une sécurité optimale de votre compte ! </p>
+            <p>PS: Une fois connecté·e, il est vivement conseillé de modifier votre mot de passe. Celui contenu dans cet
+                e-mail n’est pas suffisant pour garantir une sécurité optimale.</p>
         </section>
         <section>
             <h2 class="medium">Comment changer mon mot de passe ?</h2>
             <ol>
-                <li>Une fois dans l'interface d’administration du refuge, rendez-vous dans vos paramètres (dans le fond
-                    du menu)
+                <li>Une fois dans l'interface d’administration du refuge, rendez-vous dans vos paramètres (Fond du menu)
                 </li>
-                <li>Dans cette page, vous trouverez un formulaire vous permettant de changer votre mot de passe</li>
+                <li>Sur cette page, vous trouverez un formulaire vous permettant de modifier votre mot de passe.</li>
             </ol>
         </section>
     </main>

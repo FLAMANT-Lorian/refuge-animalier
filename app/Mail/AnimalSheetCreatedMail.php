@@ -2,22 +2,21 @@
 
 namespace App\Mail;
 
-use App\Models\AdoptionRequest;
+use App\Models\AnimalSheet;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class AdoptionRequestCreatedMail extends Mailable
+class AnimalSheetCreatedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(public AdoptionRequest $adoptionRequest)
+    public function __construct(public AnimalSheet $animalSheet)
     {
         //
     }
@@ -28,7 +27,7 @@ class AdoptionRequestCreatedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Nouvelle demande d’adoption',
+            subject: 'Demande de ' . __('enum.' . $this->animalSheet->status),
         );
     }
 
@@ -38,8 +37,8 @@ class AdoptionRequestCreatedMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.adoptionRequestCreated',
-            with: ['adoptionRequest' => $this->adoptionRequest]
+            markdown: 'emails.animalSheetCreated',
+            with: ['animalSheets' => $this->animalSheet]
         );
     }
 
