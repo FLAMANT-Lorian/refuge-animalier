@@ -2,9 +2,6 @@
     use App\Models\Animal;
 @endphp
 
-@props([
-    'profile_data'
-])
 <div class="nav__container--admin">
 
     {{-- MENU DE NAVIGATION --}}

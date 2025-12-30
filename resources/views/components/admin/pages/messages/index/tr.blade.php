@@ -64,11 +64,11 @@
     <td class="font-medium lg:w-[9.375rem]">
         <div class="flex justify-between items-center lg:justify-end flex-row gap-4 lg:px-4">
 
-            {{-- VOIR LA MESSAGE - MOBILE --}}
-            <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
-               title="{{ __('admin/messages.view_message_of') . $message->full_name }}" href="#">
+            {{-- VOIR LE MESSAGE - MOBILE --}}
+            <button wire:click="openModal('delete-message', {{ $message->id }})" type="button"
+                    class="cursor-pointer lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
                 {{ __('admin/messages.view_message') }}
-            </a>
+            </button>
 
             {{-- DELETE --}}
             <x-table.delete wire:click="openModal('delete-message', {{ $message->id }})"/>

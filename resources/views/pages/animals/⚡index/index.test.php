@@ -24,11 +24,10 @@ describe('CONNECTED USER', function () {
             $species = Species::factory()->create();
             $breed = Breed::factory()->for($species)->create();
             $animal = Animal::factory()->for($breed)->create();
-            $other_animal = Animal::factory()->for($breed)->create();
 
             Livewire::test('pages::animals.index')
-                ->assertSee($animal->name)
-                ->assertSee($other_animal->name);
+                ->assertSee($animal->breed->name, false)
+                ->assertSee($animal->name, false);
         }
     );
 });
