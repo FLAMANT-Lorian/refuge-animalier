@@ -7,9 +7,8 @@
 
     <td class="max-lg:hidden flex justify-center px-2 w-[3rem]">
         <input class="message_{{ $message->id }} hover:cursor-pointer" type="checkbox" name="message_{{ $message->id }}"
-               id="message_{{ $message->id }}"
-               title="{!! __('admin/messages.one_selector') !!}">
-        <label for="message_{{ $message->id }}" class="sr-only">{!! __('admin/messages.one_selector') !!}</label>
+               id="message_{{ $message->id }}" title="{!! __('admin/messages.one_selector') !!}"> <label
+            for="message_{{ $message->id }}" class="sr-only">{!! __('admin/messages.one_selector') !!}</label>
     </td>
 
     <td class="lg:flex-1 h-full lg:text-left font-normal">
@@ -17,11 +16,17 @@
             <span class="min-lg:hidden font-bold">
                 {{ __('admin/messages.name') }}&nbsp;:
             </span>
-            <button type="button"
-                    wire:click="openModal('message', {{ $message->id }})"
-                    class="text-left cursor-pointer lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200">
-                {{ $message->full_name }}
-            </button>
+            @if($message->full_name)
+                <button type="button" wire:click="openModal('message', {{ $message->id }})"
+                        class="text-left cursor-pointer lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200">
+                    {{ $message->full_name }}
+                </button>
+            @else
+                <button type="button" wire:click="openModal('message', {{ $message->id }})"
+                        class="text-left cursor-pointer lg:px-4 lg:py-4 hover:font-bold transition-all ease-in-out duration-200">
+                    –
+                </button>
+            @endif
         </div>
     </td>
 
@@ -29,8 +34,7 @@
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
                 {{ __('admin/messages.email') }}&nbsp;:
-            </span>
-            <span class="lg:px-4 lg:py-4 font-normal">
+            </span> <span class="lg:px-4 lg:py-4 font-normal">
                 {{ $message->email }}
             </span>
         </div>
@@ -40,8 +44,7 @@
         <div class="flex flex-col gap-1">
             <span class="min-lg:hidden font-bold">
                 {{ __('admin/messages.date') }}&nbsp;:
-            </span>
-            <span class="lg:px-4 lg:py-4 font-normal">
+            </span> <span class="lg:px-4 lg:py-4 font-normal">
                 {{ $message->translatedFormatDate }}
             </span>
         </div>
@@ -53,8 +56,7 @@
                 {{ __('admin/messages.status') }}&nbsp;:
             </span>
             <div class="flex flex-row justify-start font-normal">
-                <x-states.message-state
-                    :message_state="$message->status"/>
+                <x-states.message-state :message_state="$message->status"/>
             </div>
         </div>
     </td>
@@ -64,14 +66,12 @@
 
             {{-- VOIR LA MESSAGE - MOBILE --}}
             <a class="lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all"
-               title="{{ __('admin/messages.view_message_of') . $message->full_name }}"
-               href="#">
+               title="{{ __('admin/messages.view_message_of') . $message->full_name }}" href="#">
                 {{ __('admin/messages.view_message') }}
             </a>
 
             {{-- DELETE --}}
-            <x-table.delete
-                wire:click="openModal('delete-message', {{ $message->id }})"/>
+            <x-table.delete wire:click="openModal('delete-message', {{ $message->id }})"/>
 
         </div>
     </td>
