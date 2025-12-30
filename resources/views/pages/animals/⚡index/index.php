@@ -76,7 +76,10 @@ class extends Component {
 
         // CHAMP DE RECHERCHE
         if (!empty($this->term)) {
-            $query->whereLike('animals.name', '%' . $this->term . '%');
+            $query->whereLike('animals.name', '%' . $this->term . '%')
+                ->orWhereHas('breed', function ($q1) {
+                    $q1->whereLike('name', '%' . $this->term . '%');
+                });;
         }
 
         return $query->paginate(12)

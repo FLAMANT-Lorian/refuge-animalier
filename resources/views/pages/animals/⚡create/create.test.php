@@ -124,7 +124,7 @@ describe('ADMIN USER', function () {
 
     it('verifies if an admin can\'t add a breed that already exists', function () {
         $species = Species::factory()->create();
-        Breed::factory()->create(['species_id' => $species, 'name' => 'toto']);
+        Breed::factory()->for($species)->create(['name' => 'toto']);
 
         Livewire::test('pages::animals.create')
             ->call('openModal', 'add-breed')

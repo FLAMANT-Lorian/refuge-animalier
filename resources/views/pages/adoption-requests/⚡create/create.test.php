@@ -20,22 +20,18 @@ describe('ADMIN USER', function () {
     });
 
     it('verifies if an admin can access to create adoption request view', function () {
-        Animal::factory()->create([
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ]),
-        ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        Animal::factory()->for($breed)->create();
 
         Livewire::test('pages::adoption-requests.create')
             ->assertOk();
     });
 
     it('verifies if an admin can create an adoption request with the minimum requirement', function () {
-        Animal::factory()->create([
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ]),
-        ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        Animal::factory()->for($breed)->create();
 
         Livewire::test('pages::adoption-requests.create')
             ->set('form.full_name', 'toto')
@@ -60,11 +56,9 @@ describe('VOLUNTEER USER', function () {
     });
 
     it('verifies if an volunteer can\'t access to adoption request create page', function () {
-        Animal::factory()->create([
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ]),
-        ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+       Animal::factory()->for($breed)->create();
 
         Livewire::test('pages::adoption-requests.create')
             ->assertOK();

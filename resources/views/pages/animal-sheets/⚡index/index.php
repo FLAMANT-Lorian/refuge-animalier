@@ -72,6 +72,10 @@ class extends Component {
         if (!empty($this->term)) {
             $query->whereHas('user', function ($q) {
                 $q->whereLike('last_name', '%' . $this->term . '%');
+            })->orWhereHas('user', function ($q) {
+                $q->whereLike('users.last_name', '%' . $this->term . '%');
+            })->orWhereHas('animal', function ($q) {
+                $q->whereLike('animals.name', '%' . $this->term . '%');
             });
         }
 

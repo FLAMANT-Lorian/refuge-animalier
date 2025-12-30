@@ -7,11 +7,9 @@ use App\Models\Species;
 use function Pest\Laravel\assertDatabaseCount;
 
 it('verifies if a user can create an adoption request with th form in public website', function () {
-    $animal = Animal::factory()->create([
-        'breed_id' => Breed::factory()->create([
-            'species_id' => Species::factory()->create()
-        ]),
-    ]);
+    $species = Species::factory()->create();
+    $breed = Breed::factory()->for($species)->create();
+    $animal = Animal::factory()->for($breed)->create();
 
     $adoption_request = AdoptionRequest::factory()->for($animal)->raw();
 
@@ -27,11 +25,9 @@ it('verifies if a user can create an adoption request with th form in public web
 });
 
 it('verifies if the validation work correctly in public website', function () {
-    $animal = Animal::factory()->create([
-        'breed_id' => Breed::factory()->create([
-            'species_id' => Species::factory()->create()
-        ]),
-    ]);
+    $species = Species::factory()->create();
+    $breed = Breed::factory()->for($species)->create();
+    $animal = Animal::factory()->for($breed)->create();
 
     $adoption_request = AdoptionRequest::factory()->for($animal)->raw([
         'full_name' => '',

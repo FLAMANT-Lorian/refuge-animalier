@@ -27,11 +27,9 @@ describe('ADMIN USER', function () {
 
     it('verifies if a user can see all animals-sheets',
         function () {
-            $animal = Animal::factory()->create([
-                'breed_id' => Breed::factory()->create([
-                    'species_id' => Species::factory()->create()
-                ]),
-            ]);
+            $species = Species::factory()->create();
+            $breed = Breed::factory()->for($species)->create();
+            $animal = Animal::factory()->for($breed)->create();
 
             $sheet = AnimalSheet::factory()
                 ->for($this->user)
@@ -45,11 +43,9 @@ describe('ADMIN USER', function () {
     );
 
     it('verifies if an admin can delete a sheet', function () {
-        $animal = Animal::factory()->create([
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ]),
-        ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create();
 
         $sheet = AnimalSheet::factory()
             ->for($this->user)

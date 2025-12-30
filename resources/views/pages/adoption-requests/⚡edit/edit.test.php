@@ -20,11 +20,9 @@ describe('ADMIN USER', function () {
     });
 
     it('verifies if an admin can view an adoption request for an animal an edit it', function () {
-        $animal = Animal::factory()->create([
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ]),
-        ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create();
 
         $adoption_request = AdoptionRequest::factory()
             ->for($animal)
@@ -43,12 +41,9 @@ describe('ADMIN USER', function () {
     });
 
     it('verifies if an admin can delete an adoption request', function () {
-        $animal = Animal::factory()
-            ->create([
-                'breed_id' => Breed::factory()->create([
-                    'species_id' => Species::factory()->create()
-                ]),
-            ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create();
 
         $adoption_request = AdoptionRequest::factory()
             ->for($animal)
@@ -76,11 +71,9 @@ describe('VOLUNTEER USER', function () {
     });
 
     it('verifies if an volunteer can access to adoption requests page', function () {
-        $animal = Animal::factory()->create([
-            'breed_id' => Breed::factory()->create([
-                'species_id' => Species::factory()->create()
-            ]),
-        ]);
+        $species = Species::factory()->create();
+        $breed = Breed::factory()->for($species)->create();
+        $animal = Animal::factory()->for($breed)->create();
 
         $adoption_request = AdoptionRequest::factory()
             ->for($animal)
