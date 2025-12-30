@@ -36,20 +36,20 @@
         }
     </style>
     <header class="header">
-        <h1 class="big">Nouveau message</h1>
-        <p>Vous avez reçu un nouveau message via le formulaire de contact !</p>
+        <h1 class="big">Nouvelle demande d’adoption</h1>
+        <p>Vous avez reçu une nouvelle demande d’adoption pour {{ $adoptionRequest->animal->name }}</p>
     </header>
     <main class="wrapper">
         <section>
-            <p><strong>De</strong>&nbsp;: {{ $message->email }}</p>
-            <p><strong>Objet</strong>&nbsp;: {{ $message->object }}</p>
             <div class="message">
                 <p><strong>Message</strong>&nbsp;:</p>
-                <p>{{ $message->message }}</p>
+                <p>{{ $adoptionRequest->message }}</p>
             </div>
 
-            <a href="{{ config('app.url') . '/' . app()->getLocale() . '/admin/messages'  }}">Voir le message dans
-                l’administration</a>
+            <a title="Voir la demande d’adoption pour {{ $adoptionRequest->animal->name }}"
+               href="{{ config('app.url') . '/' . app()->getLocale() . '/admin/adoption-requests/' . $adoptionRequest->id . '/edit'  }}">
+                Voir la demande d’adoption sur l'interface d’adminstration
+            </a>
         </section>
     </main>
 </body>

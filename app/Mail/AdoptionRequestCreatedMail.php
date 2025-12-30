@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\Message;
+use App\Models\AdoptionRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -10,14 +10,14 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class MessageCreatedMail extends Mailable
+class AdoptionRequestCreatedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(public Message $message)
+    public function __construct(public AdoptionRequest $adoptionRequest)
     {
         //
     }
@@ -28,7 +28,7 @@ class MessageCreatedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Nouveau message',
+            subject: 'Nouvelle demande d’adoption',
         );
     }
 
@@ -38,8 +38,8 @@ class MessageCreatedMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.MessageCreated',
-            with: ['message' => $this->message]
+            markdown: 'emails.AdoptionRequestCreated',
+            with: ['adoptionRequest' => $this->adoptionRequest]
         );
     }
 
