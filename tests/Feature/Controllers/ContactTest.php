@@ -1,5 +1,9 @@
 <?php
 
+use App\Enums\UserStatus;
+use App\Mail\MessageCreatedMail;
+use App\Models\Message;
+use App\Models\User;
 use function Pest\Laravel\assertDatabaseCount;
 
 it('verifies if you can send a message using the contact form with valid data', function () {
@@ -34,4 +38,14 @@ it('verifies if you have an error when you submit the contact form with invalid 
 
     $response->assertInvalid(['email', 'message']);
     assertDatabaseCount('messages', 0);
+});
+
+it('verifies if the content in the mail is correct ', function () {
+    $message = Message::factory()->create();
+
+    $mail = new MessageCreatedMail($message);
+
+    $mail->assertSeeInHtml('Nouveau message');
+    $mail->assertSeeInHtml($message->email);
+    $mail->assertHasSubject('Nouveau message');
 });

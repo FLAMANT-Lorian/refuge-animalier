@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\UserStatus;
+use App\Mail\VolunteerCreatedMail;
 use App\Models\User;
 use function Pest\Laravel\actingAs;
 
@@ -33,4 +34,16 @@ describe('CONNECTED USER', function () {
                 ->assertDontSee($admin->full_name);
         }
     );
+});
+
+it('verifies if the content in the mail is correct ', function () {
+    $plain_password = '1234567890';
+    $user = User::factory()->create(['role' => UserStatus::Volunteer->value, 'password' => Hash::make($plain_password)]);
+
+    $mail = new VolunteerCreatedMail(['email' => $user->email, 'password' => $plain_password]);
+
+    $mail->assertSeeInHtml('Bienvenue au refuge les pattes heureuses ! 👋');
+    $mail->assertSeeInHtml($user->email);
+    $mail->assertSeeInHtml($plain_password);
+    $mail->assertHasSubject('Votre compte bénévole – Identifiant');
 });

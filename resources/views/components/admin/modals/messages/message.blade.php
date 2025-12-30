@@ -21,7 +21,7 @@
             </div>
             <div>
                 <span class="font-bold">{{ __('forms.communication') }}&nbsp;:</span>
-                <p class="font-base">{{ $message->message }}</p>
+                <p class="font-base wrap-break-word">{{ $message->message }}</p>
             </div>
             <div class="mt-4 self-end flex flex-row gap-4">
                 <button
