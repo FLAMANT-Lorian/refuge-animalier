@@ -4,6 +4,7 @@ namespace App\Livewire\Forms;
 
 use App\Enums\UserStatus;
 use App\Enums\VolunteerStatus;
+use App\Events\VolunteerCreatedEvent;
 use App\Models\User;
 use App\Traits\HandleAvatar;
 use Illuminate\Support\Facades\Hash;
@@ -30,7 +31,7 @@ class CreateVolunteerForm extends Form
         return [
             'last_name' => 'required',
             'first_name' => 'required',
-            'email' => 'required|email',
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
             'postal_code' => 'nullable|int',
             'address' => 'nullable',
             'status' => ['required', Rule::enum(VolunteerStatus::class)],
@@ -63,7 +64,7 @@ class CreateVolunteerForm extends Form
             $avatar_path = null;
         }
 
-        User::create([
+        $volunteer = User::create([
             'last_name' => $this->last_name,
             'first_name' => $this->first_name,
             'email' => $this->email,
@@ -76,5 +77,7 @@ class CreateVolunteerForm extends Form
             'status' => $this->status,
             'password' => Hash::make($this->password),
         ]);
+
+        event(new VolunteerCreatedEvent($volunteer, $this->password));
     }
 }
