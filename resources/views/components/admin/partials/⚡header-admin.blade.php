@@ -11,6 +11,26 @@ use Livewire\Component;
 
 new class extends Component {
 
+    public string $locale;
+    public string $currentRoute;
+    public array $parameters;
+
+    public function mount(): void
+    {
+        $this->locale = app()->getLocale();
+        $this->currentRoute = Route::currentRouteName();
+        $this->parameters = Route::current()->parameters();
+    }
+
+    public function updatedLocale(): void
+    {
+        app()->setLocale($this->locale);
+
+        $this->parameters['locale'] = app()->getLocale();
+
+        $this->redirectRoute($this->currentRoute, $this->parameters, navigate: true);
+    }
+
     #[Computed]
     public function getUnreadMessageCount(): int
     {
@@ -46,9 +66,10 @@ new class extends Component {
          class="lg:overflow-auto lg:w-[18.75rem] flex lg:flex-col lg:h-full px-6 py-4 lg:py-10 items-center justify-between lg:justify-start bg-white border border-gray-200 rounded-2xl">
         <h2 class="sr-only">{!! __('admin/navigation.main_nav') !!}</h2>
         <a wire:navigate class="relative z-50 block max-w-[13.75rem] w-full hover:translate-x-1 transition-all"
-           href="{!! route('admin.dashboard') !!}" title="{!! __('admin/navigation.go_to_dashboard') !!}"> <img
-                class="w-full h-auto" src="{!! asset('assets/img/svg/logo/logo_small.svg') !!}"
-                alt="{!! __('public/header.logo_alt') !!}"> </a>
+           href="{!! route('admin.dashboard', ['locale' => app()->getLocale()]) !!}"
+           title="{!! __('admin/navigation.go_to_dashboard') !!}"> <img class="w-full h-auto"
+                                                                        src="{!! asset('assets/img/svg/logo/logo_small.svg') !!}"
+                                                                        alt="{!! __('public/header.logo_alt') !!}"> </a>
 
         <x-admin.navigation.burger-menu-cross-admin/>
 

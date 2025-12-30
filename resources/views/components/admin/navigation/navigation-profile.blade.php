@@ -23,7 +23,7 @@
         class="settings"/>
     <a wire:navigate
        title="{{ __('admin/navigation.settings_title') }}"
-       class="absolute top-0 bottom-0 left-0 right-0 group" href="{!! route('admin.settings') !!}">
+       class="absolute top-0 bottom-0 left-0 right-0 group" href="{!! route('admin.settings', ['locale' => app()->getLocale()]) !!}">
         <span class="sr-only">
             {{ __('admin/navigation.settings_title') }}
         </span>
