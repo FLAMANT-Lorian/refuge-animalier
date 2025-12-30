@@ -1,6 +1,8 @@
 <?php
 
+use App\Enums\SheetsStatus;
 use App\Enums\UserStatus;
+use App\Mail\AnimalSheetCreatedMail;
 use App\Models\Animal;
 use App\Models\AnimalSheet;
 use App\Models\Breed;
@@ -54,7 +56,7 @@ describe('ADMIN USER', function () {
 
         Livewire::test('pages::animal-sheets.index')
             ->call('openModal', 'delete-sheet', $sheet->id)
-        ->call('deleteSheet', $sheet->id);
+            ->call('deleteSheet', $sheet->id);
 
         assertDatabaseCount('animal_sheets', 0);
     });
@@ -73,4 +75,19 @@ describe('VOLUNTEER USER', function () {
         Livewire::test('pages::animal-sheets.index')
             ->assertForbidden();
     });
+});
+
+it('verifies if the content in the mail is correct ', function () {
+    $species = Species::factory()->create();
+    $breed = Breed::factory()->for($species)->create();
+    $animal = Animal::factory()->for($breed)->create();
+    $user = User::factory()->create(['role' => UserStatus::Volunteer->value]);
+    $animalSheet = AnimalSheet::factory()->for($user)->for($animal)->create(['status' => SheetsStatus::Modification->value]);
+
+    $mail = new AnimalSheetCreatedMail($animalSheet);
+
+    $mail->assertSeeInHtml('Nouvelle demande de');
+    $mail->assertSeeInHtml($animalSheet->user->full_name);
+    $mail->assertSeeInHtml($animalSheet->message);
+    $mail->assertHasSubject('Demande de ' . __('enum.' . $animalSheet->status));
 });

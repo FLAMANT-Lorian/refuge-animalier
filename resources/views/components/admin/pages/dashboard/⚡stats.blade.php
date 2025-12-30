@@ -50,7 +50,7 @@ new class extends Component {
         $total_animal_count = $this->getStatsAnimalCount();
 $period = __('enum.' . strtolower($this->selected_period) . '_filter');
 
-        $pdf = Pdf::loadView('pages.pdf.export', [
+        $pdf = Pdf::loadView('pdf.export', [
             'period' => $this->getCorrectPeriodForPDF($this->selected_period),
             'new_animal_count' => $new_animal_count,
             'successfully_adopting' => $successfully_adopting,

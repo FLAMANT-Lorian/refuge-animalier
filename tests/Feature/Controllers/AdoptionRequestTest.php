@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\AdoptionRequestCreatedMail;
 use App\Models\AdoptionRequest;
 use App\Models\Animal;
 use App\Models\Breed;
@@ -44,4 +45,17 @@ it('verifies if the validation work correctly in public website', function () {
         ->assertInvalid(['full_name', 'email', 'message']);
 
     assertDatabaseCount('adoption_requests', 0);
+});
+
+it('verifies if the content in the mail is correct ', function () {
+    $species = Species::factory()->create();
+    $breed = Breed::factory()->for($species)->create();
+    $animal = Animal::factory()->for($breed)->create();
+    $adoptionRequest = AdoptionRequest::factory()->for($animal)->create();
+
+    $mail = new AdoptionRequestCreatedMail($adoptionRequest);
+
+    $mail->assertSeeInHtml('Nouvelle demande d’adoption');
+    $mail->assertSeeInHtml($adoptionRequest->animal->name);
+    $mail->assertHasSubject('Nouvelle demande d’adoption');
 });
