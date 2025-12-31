@@ -16,7 +16,7 @@
             name="password"
             :label="__('admin/login.password')"
             :required="true"/>
-        <a href="#" class="text-blue-600 hover:underline self-end">
+        <a href="{{ route('password.request') }}" class="text-blue-600 hover:underline self-end">
             {!! __('admin/login.forgot_password') !!}
         </a>
     </div>

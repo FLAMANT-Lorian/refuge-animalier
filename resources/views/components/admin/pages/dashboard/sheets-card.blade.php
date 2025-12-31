@@ -16,8 +16,6 @@
                        href="{{ route('admin.animals.show', ['animal' => $sheet->animal->id, 'locale' => config('app.locale')]) }}">
                         {{ $sheet->animal->name }}
                     </a>
-                @else
-                    <span>–</span>
                 @endif
             </dd>
         </div>
@@ -31,7 +29,7 @@
                 <dd class="md:text-gray-500">{{ $sheet->animal->breed->name }}</dd>
             </div>
         @else
-            <span>–</span>
+            <span class="md:order-3">–</span>
         @endif
     </dl>
     <x-states.sheet-state
