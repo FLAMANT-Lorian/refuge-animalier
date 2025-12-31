@@ -74,7 +74,7 @@ return [
     |
     */
 
-    'home' => app()->getLocale() . '/admin/dashboard',
+    'home' => '{locale}/admin/dashboard',
 
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +87,7 @@ return [
     |
     */
 
-    'prefix' => app()->getLocale(),
+    'prefix' => '{locale}',
 
     'domain' => null,
 
