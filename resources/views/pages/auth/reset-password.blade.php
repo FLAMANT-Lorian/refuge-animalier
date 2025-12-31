@@ -17,14 +17,14 @@
             </figure>
             <div class="flex flex-col gap-2">
                 <h2 class="text-xl font-normal text-center">
-                    {!! __('admin/login.title') !!}
+                    {!! __('admin/login.reset_password_title') !!}
                 </h2>
-                <p class="text-base font-normal text-center">
+                <p class="text-gray-500 text-base font-normal text-center">
                     {!! __('forms.field_with') !!}<strong class="text-red">*</strong>
                     {!! __('forms.are_required') !!}
                 </p>
             </div>
-            <x-admin.pages.login.login-form/>
+            <x-admin.pages.auth.reset-password-form/>
         </section>
     </main>
 </x-admin.partials.login-layout>
