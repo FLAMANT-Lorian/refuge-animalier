@@ -43,7 +43,7 @@
             stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
 
-    @error($wire)
+    @error($wire === '' ? $name : $wire)
     <p class="absolute -bottom-5 text-red text-sm font-semibold">{!! $message !!}</p>
     @enderror
 </div>

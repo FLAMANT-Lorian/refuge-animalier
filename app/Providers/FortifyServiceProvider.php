@@ -43,16 +43,13 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::redirectUserForTwoFactorAuthenticationUsing(RedirectIfTwoFactorAuthenticatable::class);
 
-        RateLimiter::for('login', function (Request $request) {
-            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
+        $this->rateLimiters();
+        $this->views();
 
-            return Limit::perMinute(5)->by($throttleKey);
-        });
+    }
 
-        RateLimiter::for('two-factor', function (Request $request) {
-            return Limit::perMinute(5)->by($request->session()->get('login.id'));
-        });
-
+    public function views(): void
+    {
         Fortify::loginView(function () {
             return view('pages.auth.login');
         });
@@ -68,6 +65,18 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetPasswordView(function (Request $request) {
             return view('pages.auth.reset-password', ['request' => $request]);
         });
+    }
 
+    public function rateLimiters(): void
+    {
+        RateLimiter::for('login', function (Request $request) {
+            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
+
+            return Limit::perMinute(5)->by($throttleKey);
+        });
+
+        RateLimiter::for('two-factor', function (Request $request) {
+            return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        });
     }
 }
