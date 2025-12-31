@@ -13,9 +13,13 @@
             {{ __('admin/dashboard.sheet_title') }}
         </x-buttons.base>
     </div>
-    <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-y-scroll">
-        @foreach($this->animal_sheets as $sheet)
-            <x-admin.pages.dashboard.sheets-card :sheet="$sheet"/>
-        @endforeach
-    </ul>
+    @if($this->animal_sheets->isNotEmpty())
+        <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-y-scroll">
+            @foreach($this->animal_sheets as $sheet)
+                <x-admin.pages.dashboard.sheets-card :sheet="$sheet"/>
+            @endforeach
+        </ul>
+    @else
+        <x-admin.partials.no-result/>
+    @endif
 </section>

@@ -11,26 +11,6 @@ use Livewire\Component;
 
 new class extends Component {
 
-    public string $locale;
-    public string $currentRoute;
-    public array $parameters;
-
-    public function mount(): void
-    {
-        $this->locale = app()->getLocale();
-        $this->currentRoute = Route::currentRouteName();
-        $this->parameters = Route::current()->parameters();
-    }
-
-    public function updatedLocale(): void
-    {
-        app()->setLocale($this->locale);
-
-        $this->parameters['locale'] = app()->getLocale();
-
-        $this->redirectRoute($this->currentRoute, $this->parameters, navigate: true);
-    }
-
     #[Computed]
     public function getUnreadMessageCount(): int
     {

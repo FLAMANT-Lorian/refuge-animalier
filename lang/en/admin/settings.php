@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'change_locale' => 'Change language',
     'title' => 'Settings',
     'breadcrumb_title' => 'To the settings page',
     'form_title' => 'User settings form',

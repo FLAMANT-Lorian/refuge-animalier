@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'change_locale' => 'Changer la langue',
     'title' => 'Paramètres',
     'breadcrumb_title' => 'Vers la page des paramètres',
     'form_title' => 'Formulaire pour les paramètres de l\'utilisateur',
