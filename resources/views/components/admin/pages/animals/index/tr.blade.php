@@ -46,6 +46,9 @@
             </span>
             <span class="lg:px-4 lg:py-4 font-normal">
                 {!! $animal->breed->name !!}
+                <strong>
+                ({{ __('enum.' . $animal->breed->species->name) }})
+                </strong>
             </span>
         </div>
     </td>

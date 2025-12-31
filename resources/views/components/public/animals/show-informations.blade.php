@@ -9,7 +9,7 @@
     </h4>
     <ul class="flex flex-col gap-4 min-[600px]:grid min-[600px]:grid-cols-2">
         <x-public.animals.information-card :title="__('forms.breed')" :data="$animal->breed->name"/>
-        <x-public.animals.information-card :title="__('forms.sex')" :data="$animal->sex"/>
+        <x-public.animals.information-card :title="__('forms.sex')" :data="__('enum.' . $animal->sex)"/>
         <x-public.animals.information-card :title="__('forms.color')" :data="$animal->coat"/>
         <x-public.animals.information-card :title="__('forms.age')" :data="$animal->age . ' ans'"/>
     </ul>

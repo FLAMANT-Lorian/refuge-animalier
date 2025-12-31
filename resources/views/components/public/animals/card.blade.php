@@ -29,11 +29,11 @@
         <x-states.animal-state :animal_state="$animal->state" class="absolute left-4 bottom-4 "/>
     </div>
     <div class="flex items-center justify-between gap-4">
-        <h3 class="text-lg font-medium">{!! $animal->name !!}</h3>
-        <span>{!! $animal->age . __('public/animals.year') !!}</span>
+        <h3 class="text-lg font-medium wrap-break-word">{!! $animal->name !!}</h3>
+        <span class="">{!! $animal->age . '&nbsp;' . __('public/animals.year') !!}</span>
     </div>
     <div class="flex items-center justify-between gap-4">
         <span class="font-base font-normal py-0.5 px-2 bg-green-200 rounded-2xl">{!! $animal->breed->name !!}</span>
-        <span>{!! $animal->sex !!}</span>
+        <span>{!! __('enum.' . $animal->sex) !!}</span>
     </div>
 </article>
