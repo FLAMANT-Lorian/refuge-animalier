@@ -22,11 +22,29 @@ class extends Component {
     public SettingsAvatarForm $avatarForm;
     public ChangePasswordForm $changePasswordForm;
 
+    public string $locale;
+    public string $currentRoute;
+    public array $parameters;
+
     public function mount(): void
     {
         $this->app_title = __('admin/settings.title');
 
+        $this->locale = app()->getLocale();
+        $this->currentRoute = Route::currentRouteName();
+        $this->parameters = Route::current()->parameters();
+
         $this->form->setSettings();
+
+    }
+
+    public function updatedLocale(): void
+    {
+        app()->setLocale($this->locale);
+
+        $this->parameters['locale'] = app()->getLocale();
+
+        $this->redirectRoute($this->currentRoute, $this->parameters, navigate: true);
     }
 
     public function changePassword(): void

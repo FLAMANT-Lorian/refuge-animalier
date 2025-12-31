@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             ]
         ])->create();
 
-        $user1 = User::factory()
+        User::factory()
             ->create([
                 'email' => 'lorian@volunteer.be',
                 'role' => UserStatus::Volunteer->value,

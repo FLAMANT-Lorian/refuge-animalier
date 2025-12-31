@@ -15,9 +15,13 @@
             {!! __('admin/dashboard.adoption_requests_text') !!}
         </x-buttons.base>
     </div>
-    <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-y-scroll">
-        @foreach($this->adoption_requests as $adoption_request)
-            <x-admin.pages.dashboard.adoption-request-card :adoption_request="$adoption_request"/>
-        @endforeach
-    </ul>
+    @if($this->adoption_requests->isNotEmpty())
+        <ul class="sheet_dashboard flex flex-col gap-4 max-h-[21.875rem] overflow-y-scroll">
+            @foreach($this->adoption_requests as $adoption_request)
+                <x-admin.pages.dashboard.adoption-request-card :adoption_request="$adoption_request"/>
+            @endforeach
+        </ul>
+    @else
+        <x-admin.partials.no-result/>
+    @endif
 </section>

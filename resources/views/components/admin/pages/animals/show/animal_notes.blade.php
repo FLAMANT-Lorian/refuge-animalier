@@ -3,7 +3,11 @@
         {!! __('admin/animals.visit_notes_title') !!}
     </h2>
 
-    <x-admin.pages.animals.show.table.table/>
+    @if($this->notes->isNotEmpty())
+        <x-admin.pages.animals.show.table.table/>
+    @else
+        <x-admin.partials.no-result/>
+    @endif
 
     <div class="flex flex-col md:flex-row gap-4 justify-between">
         <button type="button"

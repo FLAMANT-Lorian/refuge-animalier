@@ -17,11 +17,15 @@
         </form>
     </div>
 
-    <div
-        class="pb-10 animals_container flex flex-col items-center gap-8 min-[700px]:grid min-[700px]:grid-cols-2 min-[1000px]:grid-cols-3 min-[1300px]:grid-cols-4">
-        @foreach($animals as $animal)
-            <x-public.animals.card :animal="$animal" class="shadow-(--animal-card-boxshadow)"/>
-        @endforeach
-    </div>
+    @if($animals->isNotEmpty())
+        <div
+            class="pb-10 animals_container flex flex-col items-center gap-8 min-[700px]:grid min-[700px]:grid-cols-2 min-[1000px]:grid-cols-3 min-[1300px]:grid-cols-4">
+            @foreach($animals as $animal)
+                <x-public.animals.card :animal="$animal" class="shadow-(--animal-card-boxshadow)"/>
+            @endforeach
+        </div>
+    @else
+        <x-public.partials.no-available-animals/>
+    @endif
     {!! $animals->withQueryString()->fragment('animals')->links('vendor.pagination.tailwind', ['results_name' => 'animaux']) !!}
 </section>

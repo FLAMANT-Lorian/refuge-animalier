@@ -23,7 +23,7 @@
                          src="{!! asset('assets/img/default-avatar.svg') !!}">
                 </div>
             @endif
-            <div class="flex flex-col items-center md:flex-row gap-4">
+            <div class="flex flex-col justify-center items-center md:flex-row gap-4">
                 <div class="inline-flex">
                     <input wire:model="avatarForm.avatar" class="sr-only" type="file" name="avatar" id="avatar"
                            accept="image/jpeg, image/png, image/gif, image/webp">
