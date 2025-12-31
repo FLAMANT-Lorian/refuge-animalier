@@ -4,12 +4,13 @@
 ])
 
 @php
-    use App\Models\Animal;
+    use App\Enums\AnimalStatus;use App\Models\Animal;
     use App\Models\AnimalSheet;
 @endphp
 
 <section class="flex flex-col gap-4">
-    <span class="flex flex-row flex-wrap gap-1 items-center text-gray-500">
+    <div class="flex flex-row gap-4 flex-wrap justify-between">
+        <span class="flex flex-row flex-wrap gap-1 items-center text-gray-500">
                 –
                 <a wire:navigate
                    class="text-gray-500"
@@ -24,7 +25,15 @@
                    href="{!! route('admin.animals.show', ['animal' => $animal->id, 'locale' => config('app.locale')]) !!}">
                     {!! $app_title !!}
                 </a>
-    </span>
+        </span>
+        @if($animal->state === AnimalStatus::AwaitingAdoption->value || $animal->state === AnimalStatus::ProcessOfAdoption->value)
+            <a class="py-2 px-4 border border-transparent hover:border-gray-200 trans-all hover:bg-gray-50 rounded-full trans-all text-base"
+               title="Vers la page de l’animal dans le site public"
+               href="{{ route('public.animals.show', ['locale' => app()->getLocale(), 'animal' => $animal]) }}">
+                Voir l’animal sur le site public
+            </a>
+        @endif
+    </div>
     <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
         <div class="flex flex-col">
             <h2 class="text-2xl font-bold">{!! $app_title !!}</h2>
