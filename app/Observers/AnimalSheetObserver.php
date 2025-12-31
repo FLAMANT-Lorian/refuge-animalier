@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
+use App\Enums\SheetsStatus;
 use App\Events\AnimalSheetCreatedEvent;
+use App\Events\AnimalSheetUpdatedEvent;
 use App\Models\AnimalSheet;
 
 class AnimalSheetObserver
@@ -20,7 +22,7 @@ class AnimalSheetObserver
      */
     public function updated(AnimalSheet $animalSheet): void
     {
-        //
+        event(new AnimalSheetUpdatedEvent($animalSheet));
     }
 
     /**

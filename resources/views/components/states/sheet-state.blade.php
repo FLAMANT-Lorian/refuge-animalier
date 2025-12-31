@@ -11,6 +11,7 @@
         SheetsStatus::Creation->value => 'bg-orange-100 before:bg-orange-500',
         SheetsStatus::Modification->value => 'bg-blue-100 before:bg-blue-500',
         SheetsStatus::Validate->value => 'bg-green-100 before:bg-green-500',
+        SheetsStatus::Refused->value => 'bg-red-100 before:bg-red-500',
     ];
 
     $classes = $states[(string)$sheet_state];

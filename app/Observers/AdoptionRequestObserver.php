@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
+use App\Enums\AdoptionRequestsStatus;
 use App\Events\AdoptionRequestCreatedEvent;
+use App\Events\AdoptionRequestUpdatedEvent;
 use App\Models\AdoptionRequest;
 
 class AdoptionRequestObserver
@@ -20,7 +22,7 @@ class AdoptionRequestObserver
      */
     public function updated(AdoptionRequest $adoptionRequest): void
     {
-        //
+        event(new AdoptionRequestUpdatedEvent($adoptionRequest));
     }
 
     /**

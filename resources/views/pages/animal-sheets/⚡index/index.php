@@ -105,13 +105,13 @@ class extends Component {
         $this->redirectRoute('admin.animal-sheets.index', ['locale' => app()->getLocale()], navigate: true);
     }
 
-    public function changeStatus(int $id): void
+    public function changeStatus(int $id, string $status): void
     {
         $this->authorize('update', AnimalSheet::class);
 
         $sheet = AnimalSheet::findOrFail($id);
 
-        $sheet->update(['status' => SheetsStatus::Validate->value]);
+        $sheet->update(['status' => $status]);
 
         $this->closeModal();
     }

@@ -93,11 +93,13 @@ return [
     SheetsStatus::Modification->value => 'Modification',
     SheetsStatus::Creation->value => 'Création',
     SheetsStatus::Validate->value => 'Validée',
+    SheetsStatus::Refused->value => 'Refusée',
 
     // SheetStatus filter
     SheetsStatus::Modification->value . '_filter' => 'Modifications',
     SheetsStatus::Creation->value . '_filter' => 'Créations',
     SheetsStatus::Validate->value . '_filter' => 'Validées',
+    SheetsStatus::Refused->value . '_filter' => 'Refusées',
 
     // Date Range
     DateRange::day->value . '_filter' => 'Aujourd’hui',

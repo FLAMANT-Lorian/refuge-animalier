@@ -23,6 +23,7 @@ return [
     'sheet' => ' of a record',
     'message' => 'Message :',
     'sheet_btn' => 'Validate record',
+    'sheet_btn_no' => 'Reject the sheet',
     'delete_title' => 'Delete record',
     'delete_sub_title' => 'Are you sure you want to modify this record ?',
     'delete_btn' => 'Delete record',

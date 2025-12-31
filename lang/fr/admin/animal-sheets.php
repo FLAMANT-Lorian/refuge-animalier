@@ -23,6 +23,7 @@ return [
     'sheet' => ' d’une fiche',
     'message' => 'Message :',
     'sheet_btn' => 'Valider la fiche',
+    'sheet_btn_no' => 'Refuser la fiche',
     'delete_title' => 'Supprimer la fiche',
     'delete_sub_title' => 'Êtes-vous sûr de vouloir modifier cette fiche',
     'delete_btn' => 'Supprimer la fiche',
