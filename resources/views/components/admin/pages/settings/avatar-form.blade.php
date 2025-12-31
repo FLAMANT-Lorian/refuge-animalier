@@ -8,7 +8,8 @@
                      src="{{ $this->avatarForm->avatar->temporaryUrl() }}">
             @elseif($path = auth()->user()->avatar_path)
                 @if(Storage::disk('public')->exists('avatars/variant/120x120/' . $path))
-                    <img alt="{!! __('admin/settings.avatar_alt') !!}"
+                    <img accept="image/jpeg, image/png, image/gif, image/webp"
+                         alt="{!! __('admin/settings.avatar_alt') !!}"
                          class="rounded-full h-30 w-30"
                          src="{{ asset('storage/avatars/variant/120x120/' . $path) }}">
                 @else

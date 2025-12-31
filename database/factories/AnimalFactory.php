@@ -30,7 +30,7 @@ class AnimalFactory extends Factory
         $adopted_at = [null, Carbon::now()->subDays(), Carbon::now()];
 
         return [
-            'name' => $this->faker->name(),
+            'name' => $this->faker->firstName(),
             'sex' => $this->faker->randomElement($sex),
             'coat' => $this->faker->randomElement($colors),
             'vaccines' => $this->faker->randomElement($vaccines),

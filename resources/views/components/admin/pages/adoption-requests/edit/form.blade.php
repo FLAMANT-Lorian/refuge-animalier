@@ -3,7 +3,7 @@
         {!! __('admin/animals.create_title') !!}
     </h2>
 
-    <form wire:submit="save" class="flex flex-col gap-6">
+    <form novalidate wire:submit="save" class="flex flex-col gap-6">
 
         {{-- FIELDSET BASE INFORMATIONS --}}
         <x-admin.pages.adoption-requests.edit.base-fieldset/>

@@ -19,16 +19,10 @@
             <span class="min-lg:hidden font-bold">
                 {!! __('admin/animal-sheets.volunteer') !!}&nbsp;:
             </span>
-            <a wire:navigate
-               class="hover:font-bold trans-all text-left cursor-pointer lg:px-4 lg:py-4 font-normal"
-               href="
-               {!! $animal_sheet->user->is(auth()->user()) ?
-                    route('admin.settings', app()->getLocale()) :
-                    route('admin.volunteers.edit', ['volunteer' => $animal_sheet->user, 'locale' => app()->getLocale()])
-               !!}"
-               title="{!! __('admin/volunteers.view_volunteer_sheet') !!}">
+            <span class="hover:font-bold trans-all text-left cursor-pointer lg:px-4 lg:py-4 font-normal"
+                wire:click="openModal('sheet-message', {{ $animal_sheet->id }})">
                 {!! $animal_sheet->user->fullName !!}
-            </a>
+            </span>
         </div>
     </td>
     <td class="lg:flex-1 lg:text-left">
