@@ -3,7 +3,7 @@
 ])
 
 <li class="hover:cursor-pointer relative p-4 border border-green-300 hover:bg-green-100 transition-all ease-in-out duration-200 bg-white rounded-2xl">
-    <dl class="flex flex-col items-center md:flex-row gap-4">
+    <dl class="flex flex-col md:flex-row gap-4">
         <div class="flex flex-col gap-4 md:gap-0">
             <div>
                 <dt class="md:sr-only pb-1 font-bold">

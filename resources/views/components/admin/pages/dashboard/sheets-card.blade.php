@@ -25,8 +25,11 @@
         </div>
         @if($sheet->animal)
             <div class="md:order-3">
-                <dt class="font-bold pb-1  md:sr-only">{{ __('admin/dashboard.single_sheet_Race') }}&nbsp;:</dt>
-                <dd class="md:text-gray-500">{{ $sheet->animal->breed->name }}</dd>
+                <dt class="font-bold pb-1  md:sr-only">{{ __('admin/dashboard.single_adoption_request_breed') }}
+                    &nbsp;:
+                </dt>
+                <dd class="md:text-gray-500">{{ $sheet->animal->breed->name }}
+                    <strong>({{ __('enum.' . $sheet->animal->breed->species->name)}})</strong></dd>
             </div>
         @else
             <span class="md:order-3">–</span>

@@ -198,21 +198,28 @@ return [
     'attributes' => [
 
         // ANIMAUX
-        'name' => 'name',
-        'birth_date' => 'birth date',
-        'sex' => 'sex',
-        'breed' => 'breed',
-        'coat' => 'coat',
-        'vaccines' => 'vaccines',
-        'state' => 'state',
-        'character' => 'character',
-        'pictures' => 'photos',
+        'name'        => 'nom',
+        'birth_date' => 'date de naissance',
+        'sex'        => 'sexe',
+        'breed'      => 'race',
+        'coat'       => 'pelage',
+        'vaccines'   => 'vaccins',
+        'state'      => 'statut',
+        'character'  => 'caractère',
+        'pictures'   => 'photos',
 
-        // CONTACT MESSAGE
-        'full_name' => 'full name',
-        'email' => 'email address',
-        'message' => 'message',
-        'object' => 'object',
+        // UTILISATEUR
+        'last_name'  => 'nom',
+        'first_name' => 'prénom',
+        'password'   => 'mot de passe',
+        'old_password' => 'current password',
+        'new_password' => 'new password',
+
+        // MESSAGE DE CONTACT
+        'full_name' => 'nom complet',
+        'email'     => 'adresse e-mail',
+        'object'    => 'objet',
+        'message'   => 'message',
     ],
 
 ];

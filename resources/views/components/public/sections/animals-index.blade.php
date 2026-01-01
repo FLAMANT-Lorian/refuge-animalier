@@ -1,5 +1,5 @@
 <section id="animals" class="px-6 py-[4.5rem] md:px-12 md:py-[6rem] lg:px-[12rem] lg:pb-[11rem]">
-    <div class="flex flex-col md:flex-row md:justify-between gap-6">
+    <div class="flex flex-col md:flex-row md:justify-between gap-6 pb-6">
         <h2 class="text-2xl font-bold">
             Nos animaux
         </h2>

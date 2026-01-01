@@ -5,13 +5,6 @@
 <tr scope="row"
     class="relative flex flex-col gap-4 lg:gap-0 p-4 lg:p-0 border border-gray-200 lg:border-none rounded-2xl lg:rounded-none lg:flex-row lg:w-full lg:bg-white lg:items-center lg:nth-of-type-[odd]:bg-gray-50 lg:nth-of-type-[even]:bg-white">
 
-    <td class="max-lg:hidden flex justify-center px-2 w-12">
-        <input class="note_{!! $note->id !!} hover:cursor-pointer" type="checkbox" name="note_{!! $note->id !!}"
-               id="note_{!! $note->id !!}"
-               title="{!! __('admin/animals.select_one_note') !!}">
-        <label for="note_{!! $note->id !!}" class="sr-only">{!! __('admin/animals.select_one_note') !!}</label>
-    </td>
-
     <td class="lg:flex-1 h-full lg:text-left font-normal">
         <div class="flex flex-col gap-1">
             <span class="lg:hidden font-bold">

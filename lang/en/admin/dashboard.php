@@ -30,6 +30,7 @@ return [
     'adoption_requests_title' => 'To the adoption requests page',
     'adoption_requests_text' => 'View all',
     'single_adoption_request_name' => 'Name',
+    'single_adoption_request_breed' => 'Breed',
     'single_adoption_request_email' => 'Email address',
     'interested_by' => 'Interested in',
     'single_adoption_request_animal_title' => 'View the sheet of',

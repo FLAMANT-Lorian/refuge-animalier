@@ -207,6 +207,11 @@ return [
         'state' => 'statut',
         'character' => 'caractère',
         'pictures' => 'photos',
+        'last_name' => 'nom',
+        'first_name' => 'prénom',
+        'password' => 'mot de passe',
+        'old_password' => 'ancien mot de passe',
+        'new_password' => 'nouveau mot de passe',
 
         // MESSAGE DE CONTACT
         'full_name' => 'nom complet',

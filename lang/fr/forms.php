@@ -20,6 +20,6 @@ return [
 
     // OTHERS
     'field_with' => 'Les champs renseignés avec ',
-    'are_required' => ' sont requis !',
+    'are_required' => ' sont requis&nbsp;!',
     'send' => 'Envoyer'
 ];

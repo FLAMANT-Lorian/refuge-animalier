@@ -1,11 +1,5 @@
 <thead class="max-lg:hidden w-full bg-green-500">
     <tr x-data="{ arrow_name: 'middle', arrow_email: 'middle', arrow_date: 'middle'}" class="flex w-full items-center">
-        <th scope="col" class="p-2 w-[3rem]">
-            <input class="messages hover:cursor-pointer" type="checkbox" name="all_coll_selector"
-                   id="all_coll_selector"
-                   title="{!! __('admin/messages.all_selector') !!}">
-            <label for="all_coll_selector" class="sr-only">{!! __('admin/messages.all_selector') !!}</label>
-        </th>
         <th scope="col" class="flex-1 text-left">
             <div class="px-4 py-2">
                 <button type="button" @click="

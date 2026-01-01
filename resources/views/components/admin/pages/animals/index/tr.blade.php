@@ -10,13 +10,6 @@
 <tr scope="row"
     class="relative flex flex-col gap-4 lg:gap-0 p-4 lg:p-0 border border-gray-200 lg:border-none rounded-2xl lg:rounded-none lg:flex-row lg:w-full lg:bg-white lg:items-center lg:nth-of-type-[odd]:bg-gray-50 lg:nth-of-type-[even]:bg-white">
 
-    <td class="max-lg:hidden flex justify-center px-2 w-[3rem]">
-        <input class="animal_{!! $animal->id !!} hover:cursor-pointer" type="checkbox" name="animal_{!! $animal->id !!}"
-               id="animal_{!! $animal->id !!}"
-               title="{!! __('admin/animals.one_selector') !!}">
-        <label for="animal_{!! $animal->id !!}" class="sr-only">{!! __('admin/animals.one_selector') !!}</label>
-    </td>
-
     <td class="min-lg:hidden">
         <span class="font-normal sr-only">
             {!! __('admin/animals.animals_img') !!}

@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="flex flex-row gap-2 items-center">
-                <p>{{ __('admin/settings.change_locale') }}</p>
+                <p class="text-right">{{ __('admin/settings.change_locale') }}</p>
                 <form>
                     <label class="sr-only">Sélécteur de langue</label> <select
                         class="hover:cursor-pointer select_form pl-2 pr-7 py-2.5 border border-green-500 rounded-lg font-medium"
