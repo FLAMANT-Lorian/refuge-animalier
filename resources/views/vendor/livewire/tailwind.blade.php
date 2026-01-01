@@ -12,7 +12,7 @@
 
 @if ($paginator->hasPages())
     <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="flex items-center justify-end">
-
+        <h3 class="sr-only">Pagination</h3>
         <div class="flex items-center max-md:flex-col max-md:items-end max-md:items-end gap-6">
             <div>
                 <p class="text-base font-normal dark:text-gray-400">

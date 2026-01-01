@@ -11,9 +11,10 @@
 <x-public.app title="Contact · Les pattes heureuses">
     <main id="content" class="contact">
         <section class="px-6 py-[4.5rem] md:px-12 md:py-[6rem] lg:px-[12rem] lg:py-[11rem] flex lg:grid flex-col lg:grid-cols-[repeat(13,minmax(0,1fr))] gap-6 relative">
+            <h2 class="sr-only">Page de contact</h2>
             <aside class="h-fit flex lg:flex flex-col gap-6 lg:gap-8 md:grid md:grid-cols-10 lg:col-start-1 lg:col-end-5 lg:sticky lg:top-12">
                 <div class="md:col-start-1 md:col-end-6">
-                    <h2 class="text-2xl font-bold pb-2">{!! __('public/contact.contact_title') !!}</h2>
+                    <h3 class="text-2xl font-bold pb-2">{!! __('public/contact.contact_title') !!}</h3>
                     <p class="text-base font-normal">
                         {!! __('public/contact.contact_text') !!}
                     </p>

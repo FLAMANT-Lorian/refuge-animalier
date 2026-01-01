@@ -3,6 +3,7 @@
 ])
 
 <section {!! $attributes->merge(['class' => 'flex flex-col gap-6']) !!}>
+    <h2 class="sr-only">Index des bénévoles</h2>
     @if($volunteers->isNotEmpty())
         <table
             class="lg:overflow-hidden lg:border-separate lg:rounded-2xl lg:border lg:border-green-300 lg:border-spacing-0">

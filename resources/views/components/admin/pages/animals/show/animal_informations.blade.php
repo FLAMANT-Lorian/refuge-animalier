@@ -3,7 +3,7 @@
 ])
 
 <section class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
+    <h2 class="sr-only">Informations sur {{ $animal->name }}</h2>
     <div class="flex flex-col gap-2 p-4 border bg-white lg:bg-gray-50 border-green-300 rounded-lg">
         <dt class="text-base">{!! __('admin/animals.show_name') !!}</dt>
         <dd class="text-lg font-bold">{!! $animal->name !!}</dd>
