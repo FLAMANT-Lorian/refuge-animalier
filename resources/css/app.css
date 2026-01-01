@@ -6,6 +6,11 @@
 @import './partials/accordion.css';
 @import './partials/slider.css';
 @import './partials/bg-images.css';
+@import './partials/select.css';
+@import './partials/transition.css';
+@import './partials/modal.css';
+@import './partials/flash-message.css';
+
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';

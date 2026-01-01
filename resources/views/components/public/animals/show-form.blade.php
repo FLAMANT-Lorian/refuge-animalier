@@ -1,59 +1,56 @@
+@props([
+    'id'
+])
+
 <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-1">
-            <h4 class="flex items-center gap-4 text-xl font-semibold">
+        <h4 class="flex items-center gap-4 text-xl font-semibold">
             <x-icons.calendar class="p-1.5 border border-blue-500 bg-blue-100 rounded-lg"/>
-                Demande de rendez-vous
-            </h4>
+            {!! __('public/animals.show_ask_for_meeting') !!}
+        </h4>
         <span>
-            Les champs renseignés avec <strong class="text-red">*</strong> sont obligatoires
+            {!! __('forms.field_with') !!}<strong class="text-red">*</strong>{!! __('forms.are_required') !!}
         </span>
     </div>
-    <form action="" method="post" class="flex flex-col gap-4">
+    <form novalidate
+          action="{{ route('public.adoption-request.store') }}"
+          method="post"
+          class="flex flex-col gap-6">
+        @csrf
         <fieldset class="flex flex-col gap-6 min-[600px]:grid min-[600px]:grid-cols-2">
-            <legend class="sr-only">Informations pour une demande de rendez-vous</legend>
+            <legend class="sr-only">{!! __('public/animals.show_legend') !!}</legend>
 
-            {{-- NOM --}}
-            <x-forms.input-text
-                class="min-[600px]:col-start-1 min-[600px]:col-end-2"
-                name="lastname"
-                title="lastname"
-                id="lastname"
-                label="Nom"
+            <input type="hidden" name="animal_id" value="{{ $id }}">
+            {{-- NOM COMPLET --}}
+            <x-forms.fields.input-text
+                field_name="full_name"
+                name="full_name"
+                :label="__('forms.full_name')"
                 placeholder="Doe"
                 :required="true"
             />
 
-            {{-- PRÉNOM --}}
-            <x-forms.input-text
-                class="min-[600px]:col-start-2 min-[600px]:col-end-3"
-                name="firstname"
-                id="firstname"
-                label="Prénom"
-                placeholder="John"
-                :required="true"
-            />
-
             {{-- ADRESSE E-MAIL --}}
-            <x-forms.input-text
-                class="min-[600px]:col-start-1 min-[600px]:col-end-3"
+            <x-forms.fields.input-text
+                type="email"
+                field_name="email"
                 name="email"
-                id="email"
-                label="Adresse e-mail"
+                :label="__('forms.email')"
                 placeholder="johndoe@example.be"
                 :required="true"
             />
 
             {{-- COMMUNICATION --}}
-            <x-forms.textarea
+            <x-forms.fields.textarea
                 class="min-[600px]:col-start-1 min-[600px]:col-end-3"
+                field_name="message"
                 name="message"
-                id="message"
-                label="Communication"
-                placeholder="Je vous contacte pour ..."
+                :label="__('forms.communication')"
+                :placeholder="__('forms.communication_placeholder')"
                 :required="true"
             />
 
         </fieldset>
-        <x-forms.button label="Demander un rendez-vous"/>
+        <x-forms.buttons.outlined-button-submit :label="__('public/animals.show_ask_for_meeting_btn')"/>
     </form>
 </div>

@@ -165,6 +165,7 @@ return [
     'url' => 'The :attribute field must be a valid URL.',
     'ulid' => 'The :attribute field must be a valid ULID.',
     'uuid' => 'The :attribute field must be a valid UUID.',
+    'breed_already_exists' => 'This breed already exists for this species.',
 
     /*
     |--------------------------------------------------------------------------
@@ -194,6 +195,31 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+        // ANIMAUX
+        'name'        => 'nom',
+        'birth_date' => 'date de naissance',
+        'sex'        => 'sexe',
+        'breed'      => 'race',
+        'coat'       => 'pelage',
+        'vaccines'   => 'vaccins',
+        'state'      => 'statut',
+        'character'  => 'caractère',
+        'pictures'   => 'photos',
+
+        // UTILISATEUR
+        'last_name'  => 'nom',
+        'first_name' => 'prénom',
+        'password'   => 'mot de passe',
+        'old_password' => 'current password',
+        'new_password' => 'new password',
+
+        // MESSAGE DE CONTACT
+        'full_name' => 'nom complet',
+        'email'     => 'adresse e-mail',
+        'object'    => 'objet',
+        'message'   => 'message',
+    ],
 
 ];

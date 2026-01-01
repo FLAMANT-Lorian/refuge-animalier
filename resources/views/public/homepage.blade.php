@@ -1,9 +1,9 @@
 @php
 
     $slider = [
-        ['title' => 'Une équipe passionnée', 'content' => 'Bénévoles et soigneurs s’engagent chaque jour pour offrir attention, soins et amour à chaque animal — du plus petit oiseau au plus grand chien.'],
-        ['title' => 'Des animaux choyés et socialisés', 'content' => 'Chaque pensionnaire est accueilli, soigné, et accompagné pour retrouver confiance avant l’adoption.'],
-        ['title' => 'Des adoptions responsables', 'content' => 'Nous privilégions la rencontre, le dialogue et le bien-être des animaux, pour que chaque adoption soit une belle histoire durable.'],
+        ['title' => __('public/homepage.slide_1_title'), 'content' => __('public/homepage.slide_1_text')],
+        ['title' => __('public/homepage.slide_2_title'), 'content' => __('public/homepage.slide_2_text')],
+        ['title' => __('public/homepage.slide_3_title'), 'content' => __('public/homepage.slide_3_text')],
 ];
 
 @endphp
@@ -11,26 +11,28 @@
 <x-public.app title="Accueil · Les pattes heureuses">
     <main id="content" class="homepage">
         <x-public.sections.text-media
-            title="Bienvenue au refuge&nbsp;,"
-            subtitle="Les pattes heureuses&nbsp;!"
-            content="Chiens, chats, oiseaux, lapins et bien d’autres compagnons attendent ici une nouvelle famille.Venez leur rendre visite, découvrez leurs histoires et laissez-vous toucher par leurs regards remplis d’espoir. Peut-être trouverez-vous celui ou celle qui fera battre votre cœur"
-            img_name="dog1.webp"
-            img_alt="Image temporaire"
+            :title="__('public/homepage.text_media_1_title')"
+            :subtitle="__('public/homepage.text_media_1_subtitle')"
+            :content="__('public/homepage.text_media_1_text')"
+            img_name="public_2.webp"
+            :img_alt="__('public/homepage.text_media_1_alt')"
             text_location="left"
-            btn_label="Découvrir nos animaux"
-            btn_title="Vers la page des animaux"
+            :btn_label="__('public/homepage.text_media_1_btn')"
+            :btn_destination="route('public.animals.index')"
+            :btn_title="__('public/homepage.text_media_1_btn_title')"
             animals="true"/>
 
-        <x-public.sections.slider title="Les points forts de notre refuge" :articles="$slider"/>
+        <x-public.sections.slider :title="__('public/homepage.slider_title')" :articles="$slider"/>
 
         <x-public.sections.text-media
-            title="Envie de nous rejoindre&nbsp;?"
-            subtitle="Devenez bénévole&nbsp;!"
-            content="Aux Pattes Heureuses, chaque coup de main compte&nbsp;! Rejoindre notre équipe de bénévoles, c’est offrir un peu de votre temps et beaucoup d’amour aux animaux qui en ont besoin. Que ce soit pour nourrir, promener, nettoyer, accompagner les adoptions ou simplement offrir des câlins, votre présence fait toute la différence&nbsp;!"
-            img_name="dog1.webp"
-            img_alt="Image temporaire"
+            :title="__('public/homepage.text_media_2_title')"
+            :subtitle="__('public/homepage.text_media_2_subtitle')"
+            :content="__('public/homepage.text_media_2_text')"
+            img_name="public_1.webp"
+            :img_alt="__('public/homepage.text_media_2_alt')"
             text_location="right"
-            btn_label="Devenir bénévole"
-            btn_title="Vers la page de contact"/>
+            :btn_label="__('public/homepage.text_media_2_btn')"
+            :btn_destination="route('public.contact')"
+            :btn_title="__('public/homepage.text_media_2_btn_title')"/>
     </main>
 </x-public.app>

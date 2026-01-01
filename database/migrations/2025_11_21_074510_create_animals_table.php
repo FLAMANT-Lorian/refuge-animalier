@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('breed');
-            $table->string('color');
-            $table->string('description');
+            $table->foreignId('breed_id')->constrained('breeds')->cascadeOnDelete();
+            $table->string('coat');
+            $table->string('vaccines')->nullable();
+            $table->text('character');
             $table->string('sex');
-            $table->string('age');
+            $table->timestamp('birth_date');
             $table->string('state');
-            $table->string('img_path');
+            $table->json('pictures')->nullable();
+            $table->timestamp('adopted_at')->nullable();
             $table->timestamps();
         });
     }

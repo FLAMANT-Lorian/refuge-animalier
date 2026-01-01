@@ -32,6 +32,8 @@ if (!function_exists('responsiveImage')) {
         return <<<HTML
             <picture class="$picture_class">
             <img
+            width="640"
+            height="640"
             class="$img_class"
             src="$img_path"
             alt="$img_alt"

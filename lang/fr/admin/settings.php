@@ -1,0 +1,44 @@
+<?php
+
+return [
+    'change_locale' => 'Changer la langue',
+    'title' => 'Paramètres',
+    'breadcrumb_title' => 'Vers la page des paramètres',
+    'form_title' => 'Formulaire pour les paramètres de l\'utilisateur',
+    'fieldset1' => 'Photo de profil',
+    'fieldset2' => 'Vos informations',
+    'fieldset3' => 'Notifications',
+    'fieldset3_legend' => 'Sélectionnez les notifications que vous souhaitez recevoir par e-mail',
+    'avatar_alt' => 'Votre avatar',
+    'choose_an_avatar' => 'Choisir un avatar',
+    'delete_avatar' => 'Supprimer l’avatar',
+    'lastname' => 'Nom',
+    'lastname_placeholder' => 'Dupont',
+    'firstname' => 'Prénom',
+    'firstname_placeholder' => 'Jean',
+    'email' => 'Adresse e-mail',
+    'email_placeholder' => 'jean@example.be',
+    'postal_code' => 'Code postal',
+    'postal_code_placeholder' => '4000',
+    'location' => 'Adresse',
+    'location_placeholder' => 'Rue du champs, 12',
+    'option1' => 'Demandes d’adoptions',
+    'option2' => 'Modification / création d’une fiche d’un animal',
+    'option3' => 'Messages via le formulaire de contact',
+    'option4' => 'Rapport d’activité mensuel disponible',
+    'save_change' => 'Sauvegarder les changements',
+    'change_password' => 'Changer mon mot de passe',
+    'change_password_text' => 'Le mot de passe doit contenir minimum 10 caractères',
+    'old_password' => 'Ancien mot de passe',
+    'new_password' => 'Nouveau mot de passe',
+
+    // FLASH MESSAGE
+    'update_flash_message' => 'Votre profil a bien été mis à jour !',
+    'update_avatar_flash_message' => 'Votre photo de profil à été mise à jour !',
+    'change_password_flash_message' => 'Votre mot de passe à bien été mis à jour',
+
+    // MODAL
+    'delete_avatar_title' => 'Supprimer votre photo de profil',
+    'delete_avatar_sub_title' => 'Êtes-vous sûr de vouloir supprimer votre photo de profil',
+    'delete_avatar_btn' => 'Supprimer ma photo de profil',
+];

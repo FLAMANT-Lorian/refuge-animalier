@@ -1,0 +1,22 @@
+.flash-message {
+    animation: showFlashMessage 4s ease-in-out forwards;
+}
+
+@keyframes showFlashMessage {
+    0% {
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+    10% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    90% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+}
