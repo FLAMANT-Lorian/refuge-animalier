@@ -28,10 +28,10 @@ class UserFactory extends Factory
         $roles = [UserStatus::Admin->value, UserStatus::Volunteer->value];
         $status = [VolunteerStatus::Parts->value, VolunteerStatus::Active->value, VolunteerStatus::InBreak->value];
         return [
-            'last_name' => fake()->lastName(),
-            'first_name' => fake()->firstName(),
-            'email' => fake()->unique()->safeEmail(),
-            'address' => fake()->city(),
+            'last_name' => $this->faker->lastName(),
+            'first_name' => $this->faker->firstName(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'address' => $this->faker->city(),
             'postal_code' => '4000',
             'role' => $this->faker->randomElement($roles),
             'status' => $this->faker->randomElement($status),
