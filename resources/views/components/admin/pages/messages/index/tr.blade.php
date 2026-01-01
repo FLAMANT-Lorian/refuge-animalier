@@ -59,7 +59,7 @@
         <div class="flex justify-between items-center lg:justify-end flex-row gap-4 lg:px-4">
 
             {{-- VOIR LE MESSAGE - MOBILE --}}
-            <button wire:click="openModal('delete-message', {{ $message->id }})" type="button"
+            <button wire:click="openModal('message', {{ $message->id }})" type="button"
                     class="cursor-pointer lg:hidden font-medium px-4 py-[0.625rem] bg-green-500 rounded-lg text-white hover:text-black hover:bg-transparent border border-green-500 transition-all">
                 {{ __('admin/messages.view_message') }}
             </button>
