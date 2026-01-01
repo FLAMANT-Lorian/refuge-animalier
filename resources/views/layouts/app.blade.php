@@ -17,11 +17,7 @@
       :class="modalOpen ? 'overflow-hidden' : ''"
       class="admin max-w-[120rem] m-auto relative bg-gray-50 has-[.bg-menu:checked]:overflow-hidden lg:flex">
 
-    @if(Route::is('admin.login'))
-        <header class="sr-only">Menu login</header>
-    @else
-        <livewire:admin.partials.header-admin/>
-    @endif
+    <livewire:admin.partials.header-admin/>
 
     {{ $slot }}
 

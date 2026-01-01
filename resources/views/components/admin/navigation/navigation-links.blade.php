@@ -5,7 +5,7 @@
     use App\Models\User;
 @endphp
 
-<ul class="flex flex-col gap-6 lg:gap-4 mt-12 lg:mt-20 mb-auto">
+<ul class="flex flex-col gap-6 lg:gap-4 mt-12 lg:mt-20 mb-auto pb-4">
 
     <li class="group">
         <x-admin.navigation.navigation-link
