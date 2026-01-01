@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+/* PUBLIC WEBSITE */
+require __DIR__ . '/public.php';
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* ADMIN WEBSITE */
+require __DIR__ . '/admin.php';

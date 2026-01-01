@@ -1,0 +1,38 @@
+:root {
+    /****** BOXSHADOW ******/
+    --slider-boxshadow: 0 0 20px 0 rgba(87, 167, 112, 0.50);
+    --animal-card-boxshadow: 0 7px 29px 0 rgba(100, 100, 111, 0.50);
+
+    /****** ANIMALS MEDIA QUERIES ******/
+    --animals-tablet: 43.75rem;
+}
+
+img:not(.hero) {
+    object-position: center center;
+    object-fit: cover;
+}
+
+.menu_profile:has(a:hover) .underline_text {
+    text-decoration: underline;
+}
+
+.menu_profile:has(a:hover) .settings {
+    animation: rotate infinite 2s ease-in-out;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* CURRENT LINK */
+@media (min-width:theme('--breakpoint-lg')) {
+    a.active_btn > span {
+        color: white;
+    }
+}

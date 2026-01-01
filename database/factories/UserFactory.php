@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\UserStatus;
+use App\Enums\VolunteerStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -23,12 +25,33 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $roles = [UserStatus::Admin->value, UserStatus::Volunteer->value];
+        $status = [VolunteerStatus::Parts->value, VolunteerStatus::Active->value, VolunteerStatus::InBreak->value];
         return [
-            'name' => fake()->name(),
+            'last_name' => fake()->lastName(),
+            'first_name' => fake()->firstName(),
             'email' => fake()->unique()->safeEmail(),
+            'address' => fake()->city(),
+            'postal_code' => '4000',
+            'role' => $this->faker->randomElement($roles),
+            'status' => $this->faker->randomElement($status),
+            'password' => Hash::make('1234567890'),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'notifications' => [
+                'adoption_requests' => false,
+                'animal_sheets' => false,
+                'messages' => false,
+            ],
+            'availability' => [
+                'monday' => '',
+                'tuesday' => '',
+                'wednesday' => '',
+                'thursday' => '',
+                'friday' => '',
+                'saturday' => '',
+                'sunday' => '',
+            ],
+            'remember_token' => Str::random(10)
         ];
     }
 
@@ -37,7 +60,7 @@ class UserFactory extends Factory
      */
     public function unverified(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn(array $attributes) => [
             'email_verified_at' => null,
         ]);
     }

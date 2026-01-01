@@ -1,0 +1,20 @@
+<?php
+return [
+    'link_1' => 'Home',
+    'link_1_title' => 'Go to the homepage',
+    'link_2' => 'Our animals',
+    'link_2_title' => 'Go to the animals page',
+    'link_3' => 'About',
+    'link_3_title' => 'Go to the about page',
+    'link_4' => 'Contact',
+    'link_4_title' => 'Go to the contact page',
+    'secondary_nav' => 'Secondary navigation',
+    'coordinate_title' => 'Contact details',
+    'coordinate_1_title' => 'Our shelter address',
+    'coordinate_2_title' => 'Shelter email address',
+    'coordinate_3_title' => 'Shelter phone number',
+    'opening_hours' => 'Opening hours',
+    'opening_hours_1' => 'Monday - Friday: 12:30 PM - 5:30 PM',
+    'opening_hours_2' => 'Saturday: 10:00 AM - 5:30 PM',
+    'opening_hours_3' => 'Sunday: Closed',
+];

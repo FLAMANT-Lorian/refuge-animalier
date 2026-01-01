@@ -1,0 +1,28 @@
+.accordion_selector.open ~ .accordion_content_selector {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem 1.5rem 1rem;
+    height: auto;
+}
+
+.accordion_selector:not(.open) ~ .accordion_content_selector > picture {
+    display: none;
+}
+
+.accordion_selector svg {
+    transition: all ease-in-out 200ms;
+}
+
+.accordion_selector.open svg {
+    transform: rotate(180deg);
+}
+
+.accordion_selector.close svg {
+    transform: rotate(0deg);
+}
+
+.accordion_selector:not(.open) ~ .accordion_content_selector {
+    height: 0;
+    overflow: hidden;
+}

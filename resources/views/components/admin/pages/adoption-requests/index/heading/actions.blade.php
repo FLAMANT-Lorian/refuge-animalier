@@ -1,0 +1,38 @@
+@php
+    use App\Enums\AdoptionRequestsStatus;
+@endphp
+
+<div class="flex flex-col md:flex-row gap-4 lg:col-start-5 lg:col-end-10 lg:justify-end lg:items-center lg:gap-6">
+
+    {{-- BOUTON POUR AJOUTER UNE DEMANDE --}}
+    <x-buttons.add-item-button
+        class="self-start md:order-2 md:ml-auto lg:m-0"
+        title="{!! __('admin/adoption-requests.create_btn_title') !!}"
+        :href="route('admin.adoption-requests.create', config('app.locale'))">
+        {!! __('admin/adoption-requests.create_btn') !!}
+    </x-buttons.add-item-button>
+
+    {{-- CHAMPS DE RECHERCHE --}}
+    <x-forms.fields.input-search
+        wire="term"
+        class="md:order-1"
+        name="adoption-requests_search"
+        id="adoption-requests_search"
+        :label="__('admin/adoption-requests.search_field')"
+        :placeholder="__('admin/adoption-requests.search_field')"
+    />
+
+    {{-- SELECTION DES FILTRES --}}
+    <x-forms.fields.select-filter
+        wire="selected_filter"
+        container_classes="md:order-3"
+        :all_selector="true"
+        :all_selector_label="__('admin/adoption-requests.all')"
+        id="adoption-requests_filter"
+        :label="__('admin/adoption-requests.filter_field')"
+        :with_label="false"
+        name="adoption-requests_filter"
+        :collection="AdoptionRequestsStatus::cases()"
+        identifier="value"
+    />
+</div>
