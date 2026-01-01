@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::factory([
+        $user = User::factory()->create([
             'first_name' => 'Lorian',
             'last_name' => 'Flamant',
             'email' => 'lorian@admin.be',
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
                 'animal_sheets' => true,
                 'messages' => true,
             ]
-        ])->create();
+        ]);
 
         User::factory()
             ->create([
