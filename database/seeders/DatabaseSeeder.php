@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\SheetsStatus;
 use App\Enums\UserStatus;
 use App\Enums\VolunteerStatus;
 use App\Models\AdoptionRequest;
@@ -25,9 +26,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $user = User::factory()->create([
-            'first_name' => 'Lorian',
-            'last_name' => 'Flamant',
-            'email' => 'lorian@admin.be',
+            'first_name' => 'Elise',
+            'email' => 'elise@admin.be',
             'role' => UserStatus::Admin->value,
             'status' => VolunteerStatus::Active->value,
             'notifications' => [
@@ -39,7 +39,8 @@ class DatabaseSeeder extends Seeder
 
         User::factory()
             ->create([
-                'email' => 'lorian@volunteer.be',
+                'first_name' => 'Thomas',
+                'email' => 'thomas@volunteer.be',
                 'role' => UserStatus::Volunteer->value,
                 'status' => VolunteerStatus::Active->value
             ]);
@@ -81,9 +82,11 @@ class DatabaseSeeder extends Seeder
 
         $species = Species::all();
 
+        $animal_sheet_creation = AnimalSheet::factory()->for($user)->count(10)->create(['status' => SheetsStatus::Creation->value]);
+
         Animal::factory()
-            ->has(AnimalNote::factory()->count(8))
-            ->has(AnimalSheet::factory()->for($user))
+            ->has(AnimalNote::factory()->count(4))
+            ->has(AnimalSheet::factory()->for($user)->state(['status' => SheetsStatus::Modification->value]))
             ->has(AdoptionRequest::factory()->count(2))
             ->count(30)
             ->afterMaking(function (Animal $animal) use ($species) {
@@ -92,7 +95,7 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         Message::factory()
-            ->count(25)
+            ->count(30)
             ->create();
     }
 }
