@@ -74,7 +74,7 @@ class extends Component {
                 $q->whereHas('user', function ($q1) {
                     $q1->whereLike('last_name', '%' . $this->term . '%');
                 })->orWhereHas('user', function ($q2) {
-                    $q2->whereLike('users.last_name', '%' . $this->term . '%');
+                    $q2->whereLike('first_name', '%' . $this->term . '%');
                 })->orWhereHas('animal', function ($q3) {
                     $q3->whereLike('animals.name', '%' . $this->term . '%');
                 });

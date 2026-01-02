@@ -80,6 +80,7 @@ class extends Component {
         if (!empty($this->term)) {
             $query->where(function (Builder $q) {
                 $q->whereLike('last_name', '%' . $this->term . '%')
+                    ->orWhereLike('first_name', '%' . $this->term . '%')
                     ->orWhereLike('email', '%' . $this->term . '%');
             });
         }
