@@ -13,7 +13,7 @@ trait HandleAnimalsImages
     {
         $file_name = uniqid() . '.' . config('animals.jpg_image_type');
 
-        $original_file = Storage::disk('public')->putFileAs(
+        $original_file = Storage::disk('s3')->putFileAs(
             config('animals.original_path'),
             $picture,
             $file_name
@@ -36,7 +36,7 @@ trait HandleAnimalsImages
 
         $current_file = $form->pictures[$index];
 
-        Storage::disk('public')->delete(config('animals.original_path') . '/' . $current_file);
+        Storage::disk('s3')->delete(config('animals.original_path') . '/' . $current_file);
 
         foreach ($sizes as $size) {
             $variant_path = sprintf(
@@ -44,7 +44,7 @@ trait HandleAnimalsImages
                 $size['width'],
                 $size['height']);
 
-            Storage::disk('public')->delete($variant_path . '/' . $current_file);
+            Storage::disk('s3')->delete($variant_path . '/' . $current_file);
         }
 
         unset($form->pictures[$index]);
@@ -66,7 +66,7 @@ trait HandleAnimalsImages
         }
 
         foreach ($animal->pictures as $picture) {
-            Storage::disk('public')->delete(config('animals.original_path') . '/' . $picture);
+            Storage::disk('s3')->delete(config('animals.original_path') . '/' . $picture);
 
             foreach ($sizes as $size) {
                 $variant_path = sprintf(
@@ -74,7 +74,7 @@ trait HandleAnimalsImages
                     $size['width'],
                     $size['height']);
 
-                Storage::disk('public')->delete($variant_path . '/' . $picture);
+                Storage::disk('s3')->delete($variant_path . '/' . $picture);
             }
         }
     }

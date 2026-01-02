@@ -14,7 +14,7 @@ trait HandleAvatar
     {
         $file_name = uniqid() . '.' . config('avatar.jpg_image_type');
 
-        $original_file = Storage::disk('public')->putFileAs(
+        $original_file = Storage::disk('s3')->putFileAs(
             config('avatar.original_path'),
             $avatar,
             $file_name
@@ -38,10 +38,10 @@ trait HandleAvatar
         foreach ($sizes as $size) {
             $variant_path = sprintf(config('avatar.path_to_variant'), $size['height'], $size['width']);
 
-            Storage::disk('public')->delete($variant_path . '/' . $file_name);
+            Storage::disk('s3')->delete($variant_path . '/' . $file_name);
         }
 
-        Storage::disk('public')->delete($original_path . '/' . $file_name);
+        Storage::disk('s3')->delete($original_path . '/' . $file_name);
 
        $user->update([
             'avatar_path' => null

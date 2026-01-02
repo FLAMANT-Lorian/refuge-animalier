@@ -17,7 +17,7 @@
         class="flex-col md:flex-row lg:flex-col md:items-center lg:items-start gap-2 border-t lg:border-none border-t-white pt-6 lg:p-0 md:col-start-1 md:col-end-11 lg:col-end-4 lg:row-start-1 lg:row-end-2">
         <a class="block hover:translate-x-1 transition-all" href="{!! route('public.homepage') !!}"
            title="{!! __('public/header.homepage_link_title') !!}">
-            <img src="{!! asset('assets/img/svg/logo/logo_small_white.svg') !!}" class="self-start"
+            <img src="{!! Storage::disk('s3')->url('base/svg/logo/logo_small_white.svg')  !!}" class="self-start"
                  alt="{!! __('public/header.logo_alt') !!}">
         </a>
         <p class="text-sm font-normal text-white">{!! __('public/header.copyright') !!}</p>

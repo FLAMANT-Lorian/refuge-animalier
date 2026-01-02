@@ -2,6 +2,7 @@
     use App\Models\Animal;
     use App\Models\AnimalSheet;
     use App\Models\User;
+    use Illuminate\Support\Facades\Storage;
 @endphp
 <section {!! $attributes->merge(['class' => 'flex flex-col gap-6 p-6 border border-gray-200 rounded-2xl bg-white']) !!}>
     <h3 class="text-lg font-semibold">
@@ -14,7 +15,7 @@
             <x-admin.pages.dashboard.action-card
                 :title="__('admin/dashboard.fast_actions1_title')"
                 :subtitle="__('admin/dashboard.fast_actions1_subtitle')"
-                :img_path="asset('assets/img/svg/dashboard/dog.svg')"
+                :img_path="Storage::disk('s3')->url('base/svg/dashboard/dog.svg')"
                 :img_alt="__('admin/dashboard.fast_actions1_')"
                 :destination="route('admin.animals.create', config('app.locale'))"
                 :destination_title="__('admin/dashboard.fast_actions1_destination_title')"
@@ -26,7 +27,7 @@
             <x-admin.pages.dashboard.action-card
                 :title="__('admin/dashboard.fast_actions2_title')"
                 :subtitle="__('admin/dashboard.fast_actions2_subtitle')"
-                :img_path="asset('assets/img/svg/dashboard/children.svg')"
+                :img_path="Storage::disk('s3')->url('base/svg/dashboard/children.svg')"
                 :img_alt="__('admin/dashboard.fast_actions2_alt')"
                 :destination="route('admin.volunteers.create', config('app.locale'))"
                 :destination_title="__('admin/dashboard.fast_actions2_destination_title')"
@@ -38,7 +39,7 @@
             <x-admin.pages.dashboard.action-card
                 :title="__('admin/dashboard.fast_actions3_title')"
                 :subtitle="__('admin/dashboard.fast_actions3_subtitle')"
-                :img_path="asset('assets/img/svg/dashboard/dog.svg')"
+                :img_path="Storage::disk('s3')->url('base/svg/dashboard/dog.svg')"
                 :img_alt="__('admin/dashboard.fast_actions3_alt')"
                 :destination="route('admin.animals.index', config('app.locale'))"
                 :destination_title="__('admin/dashboard.fast_actions3_destination_title')"

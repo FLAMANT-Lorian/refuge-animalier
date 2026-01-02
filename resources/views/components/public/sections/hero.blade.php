@@ -19,6 +19,6 @@
         class="absolute block -top-[6.75rem] md:-top-[7.375rem] -z-[2] h-[37.5rem] lg:h-[56.25rem] w-full max-w-[110rem] before:absolute before:w-full before:max-w-[110rem]  before:h-full before:content-[''] before:bg-[rgba(17,17,17,0.45)] before:top-0 before:bottom-0 before:right-0 before:left-0">
         <img class="hero w-full h-full object-cover max-h-full"
              alt="{!! __('public/animals.index_hero_bg_alt') !!}"
-             src="{!! asset("assets/img/bg-image-hero.jpg") !!}">
+             src="{!! Storage::disk('s3')->url('base/bg-image-hero.jpg')  !!}">
     </figure>
 </section>

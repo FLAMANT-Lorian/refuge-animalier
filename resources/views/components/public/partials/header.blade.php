@@ -9,11 +9,11 @@
         <h2 class="sr-only">{!! __('public/header.main_nav') !!}</h2>
         <a class="relative z-50 block md:hidden max-w-[13.75rem] w-full hover:translate-x-1 transition-all"
             href="{!! route('public.homepage') !!}" title="{!! __('public/header.homepage_link_title') !!}">
-            <img class="w-full h-auto" src="{!! asset('assets/img/svg/logo/logo_small.svg') !!}" alt="{!! __('public/header.logo_alt') !!}">
+            <img class="w-full h-auto" src="{!! Storage::disk('s3')->url('base/svg/logo/logo_small.svg')  !!}" alt="{!! __('public/header.logo_alt') !!}">
         </a>
         <a class="relative z-50 hidden md:block max-w-[17.5rem] w-full hover:translate-x-1 transition-all"
             href="{!! route('public.homepage') !!}" title="{!! __('public/header.homepage_link_title') !!}">
-            <img class="w-full h-auto" src="{!! asset('assets/img/svg/logo/logo_normal.svg') !!}" alt="{!! __('public/header.logo_alt') !!}">
+            <img class="w-full h-auto" src="{!! Storage::disk('s3')->url('base/svg/logo/logo_normal.svg')  !!}" alt="{!! __('public/header.logo_alt') !!}">
         </a>
 
         <x-public.navigation.header.burger-menu-cross/>

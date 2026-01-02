@@ -29,14 +29,14 @@ class ProcessUploadImages implements ShouldQueue
         $compression = config($this->config_path . '.jpg_compression');
 
         $image = Image::read(
-            Storage::disk('public')
+            Storage::disk('s3')
                 ->get(config($this->config_path . '.original_path') . '/' . $this->new_original_file_name)
         );
 
         foreach ($sizes as $size) {
             $variant = clone $image;
 
-            $sized_image = Image::read($variant)->cover(
+            $sized_image = $variant->cover(
                 $size['width'],
                 $size['height']
             );
@@ -49,7 +49,7 @@ class ProcessUploadImages implements ShouldQueue
 
             $full_variant_path = $variant_path . '/' . $this->new_original_file_name;
 
-            Storage::disk('public')->put(
+            Storage::disk('s3')->put(
                 $full_variant_path,
                 $sized_image->encodeByExtension($extension, $compression)
             );

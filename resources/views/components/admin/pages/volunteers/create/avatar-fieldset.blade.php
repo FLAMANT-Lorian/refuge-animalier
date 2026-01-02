@@ -10,7 +10,7 @@
         @else
             <div class="rounded-full h-30 w-30 p-4 bg-gray-100">
                 <img alt="{!! __('admin/settings.avatar_alt') !!}"
-                     src="{!! asset('assets/img/default-avatar.svg') !!}">
+                     src="{!! Storage::disk('s3')->url('base/default-avatar.svg') !!}">
             </div>
         @endif
         <div class="flex flex-col items-center md:flex-row gap-4">

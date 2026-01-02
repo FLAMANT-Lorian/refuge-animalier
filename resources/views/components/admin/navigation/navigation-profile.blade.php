@@ -3,11 +3,11 @@
         @if(auth()->user()->avatar_path)
             <img alt="{!! __('admin/settings.avatar_alt') !!}"
                  class="rounded-full h-15 w-15"
-                 src="{{ asset('storage/avatars/variant/60x60/' . auth()->user()->avatar_path) }}">
+                 src="{{ Storage::disk('s3')->url('avatars/variant/60x60/' . auth()->user()->avatar_path) }}">
         @else
             <div class="rounded-full h-15 w-15 p-3 bg-gray-100">
                 <img alt="{!! __('admin/settings.avatar_alt') !!}"
-                     src="{!! asset('assets/img/default-avatar.svg') !!}">
+                     src="{!! Storage::disk('s3')->url('base/default-avatar.svg') !!}">
             </div>
         @endif
         <div class="flex flex-col">

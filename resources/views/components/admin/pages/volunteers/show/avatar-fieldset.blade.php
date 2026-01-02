@@ -6,10 +6,10 @@
                  class="rounded-full h-30 w-30"
                  src="{{ $this->avatarForm->avatar->temporaryUrl() }}">
         @elseif($path = $this->volunteer->avatar_path)
-            @if(Storage::disk('public')->exists('avatars/variant/120x120/' . $path))
+            @if(Storage::disk('s3')->exists('avatars/variant/120x120/' . $path))
                 <img alt="{!! __('admin/settings.avatar_alt') !!}"
                      class="rounded-full h-30 w-30"
-                     src="{{ asset('storage/avatars/variant/120x120/' . $path) }}">
+                     src="{{ Storage::disk('s3')->url('avatars/variant/120x120/' . $path) }}">
             @else
                 <div
                     class="h-30 w-30 rounded-full bg-white border border-gray-200 flex items-center justify-center">
@@ -19,7 +19,7 @@
         @else
             <div class="rounded-full h-30 w-30 p-4 bg-gray-100">
                 <img alt="{!! __('admin/settings.avatar_alt') !!}"
-                     src="{!! asset('assets/img/default-avatar.svg') !!}">
+                     src="{!! Storage::disk('s3')->url('base/default-avatar.svg') !!}">
             </div>
         @endif
         <div class="flex flex-col items-center md:flex-row gap-4">

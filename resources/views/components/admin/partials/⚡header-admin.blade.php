@@ -48,7 +48,7 @@ new class extends Component {
         <a wire:navigate class="relative z-50 block max-w-[13.75rem] w-full hover:translate-x-1 transition-all"
            href="{!! route('admin.dashboard', ['locale' => app()->getLocale()]) !!}"
            title="{!! __('admin/navigation.go_to_dashboard') !!}"> <img class="w-full h-auto"
-                                                                        src="{!! asset('assets/img/svg/logo/logo_small.svg') !!}"
+                                                                        src="{!! Storage::disk('s3')->url('base/svg/logo/logo_small.svg')  !!}"
                                                                         alt="{!! __('public/header.logo_alt') !!}"> </a>
 
         <x-admin.navigation.burger-menu-cross-admin/>
