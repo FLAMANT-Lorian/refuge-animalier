@@ -93,7 +93,7 @@ describe('ADMIN USER', function () {
 
         $image = File::fake()->image($file_name);
 
-        Storage::disk('public')->putFileAs(
+        Storage::disk('s3')->putFileAs(
             config('animals.original_path'),
             $image,
             $file_name

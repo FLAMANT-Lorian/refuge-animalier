@@ -15,7 +15,7 @@ it('verifies if it\'s creates variants of the uploaded picture using the job', f
 
     $image = File::fake()->image($file_name);
 
-    Storage::disk('public')->putFileAs(
+    Storage::disk('s3')->putFileAs(
         $original_path,
         $image,
         $file_name

@@ -92,7 +92,7 @@ describe('CONNECTED USER', function () {
         $file_name = 'test.png';
         $image = File::fake()->image($file_name);
 
-        Storage::disk('public')->putFileAs(
+        Storage::disk('s3')->putFileAs(
             config('avatar.original_path'),
             $image,
             $file_name
@@ -125,7 +125,7 @@ describe('CONNECTED USER', function () {
         $file_name = 'test.png';
         $image = File::fake()->image($file_name);
 
-        Storage::disk('public')->putFileAs(
+        Storage::disk('s3')->putFileAs(
             config('avatar.original_path'),
             $image,
             $file_name
