@@ -23,7 +23,7 @@
             <img class="aspect-square rounded-lg w-full h-full"
                  width="500"
                  height="500"
-            src="{{ Storage::disk('s3')->url('animals/variant/500x500/' . $animal->pictures[0]) }}"
+            src="{{ Storage::disk('s3')->url('animals/variant/500x500/' . array_first($animal->pictures)) }}"
                  alt="Photo de {{ $animal->name }}">
         @endif
         <x-states.animal-state :animal_state="$animal->state" class="absolute left-4 bottom-4 "/>
