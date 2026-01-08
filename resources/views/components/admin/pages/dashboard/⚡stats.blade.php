@@ -22,7 +22,7 @@ new class extends Component {
     #[Computed]
     public function getStatsAnimalCount(): int
     {
-        return Animal::count();
+        return Animal::with(['animalNotes', 'animalSheets', 'breed', 'breed.species'])->count();
     }
 
     #[Computed]
@@ -30,7 +30,8 @@ new class extends Component {
     {
         $period = $this->getStatsStartDate($this->selected_period);
 
-        return Animal::where('adopted_at', '!=', null)
+        return Animal::with(['animalNotes', 'animalSheets', 'breed', 'breed.species'])
+            ->where('adopted_at', '!=', null)
             ->whereBetween('adopted_at', $period)
             ->count();
     }
@@ -40,7 +41,8 @@ new class extends Component {
     {
         $period = $this->getStatsStartDate($this->selected_period);
 
-        return Animal::whereBetween('created_at', $period)->count();
+        return Animal::with(['animalNotes', 'animalSheets', 'breed', 'breed.species'])
+            ->whereBetween('created_at', $period)->count();
     }
 
     public function downloadPDF()
@@ -48,7 +50,7 @@ new class extends Component {
         $new_animal_count = $this->getStatsNewAnimalsCount();
         $successfully_adopting = $this->getStatsSuccessAdoptionsCount();
         $total_animal_count = $this->getStatsAnimalCount();
-$period = __('enum.' . strtolower($this->selected_period) . '_filter');
+        $period = __('enum.' . strtolower($this->selected_period) . '_filter');
 
         $pdf = Pdf::loadView('pdf.export', [
             'period' => $this->getCorrectPeriodForPDF($this->selected_period),
@@ -59,7 +61,7 @@ $period = __('enum.' . strtolower($this->selected_period) . '_filter');
 
         return response()
             ->streamDownload(
-                fn() => print($pdf->stream()),
+                fn() => print($pdf->download()),
                 'report-last-' . strtolower($this->selected_period) . '-lespattesheureuses.pdf');
     }
 };

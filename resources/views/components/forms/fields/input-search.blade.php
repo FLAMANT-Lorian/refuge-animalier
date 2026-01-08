@@ -4,6 +4,7 @@
     'id',
     'label',
     'placeholder',
+    'value' => ''
 ])
 
 <div {!! $attributes->merge(['class' => 'max-w-[15rem] relative']) !!}>
@@ -13,6 +14,9 @@
 
     <x-icons.search class="absolute fill-transparent right-4 top-1/2 -translate-y-1/2"/>
     <input
+        @if($value)
+            value="{{ $value }}"
+        @endif
         @if($wire !== '')
             wire:model.live="{{ $wire }}"
         @endif

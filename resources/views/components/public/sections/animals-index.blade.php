@@ -1,3 +1,8 @@
+@props([
+    'animals',
+    'search'
+])
+
 <section id="animals" class="px-6 py-[4.5rem] md:px-12 md:py-[6rem] lg:px-[12rem] lg:pb-[11rem]">
     <div class="flex flex-col md:flex-row md:justify-between gap-6 pb-6">
         <h2 class="text-2xl font-bold">
@@ -6,6 +11,7 @@
 
         <form class="flex flex-row items-start gap-4" method="get" action="{{ route('public.animals.index') }}">
             <x-forms.fields.input-search
+                value="{{ $search }}"
                 class="lg:mb-10"
                 name="search"
                 id="search"

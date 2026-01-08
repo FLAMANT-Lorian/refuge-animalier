@@ -24,11 +24,11 @@ class extends Component {
     {
         $this->app_title = __('app_title');
 
-        $this->sheet_count = AnimalSheet::whereIn('status', [
+        $this->sheet_count = AnimalSheet::with(['animal', 'animal.breed', 'animal.breed.species', 'user'])->whereIn('status', [
             SheetsStatus::Creation->value, SheetsStatus::Modification->value
         ])->count();
 
-        $this->adoption_request_count = AdoptionRequest::where('status', [
+        $this->adoption_request_count = AdoptionRequest::with(['animal', 'animal.breed', 'animal.breed.species',])->where('status', [
             AdoptionRequestsStatus::Awaiting->value
         ])->count();
     }
@@ -36,7 +36,7 @@ class extends Component {
     #[Computed]
     public function animal_sheets()
     {
-        return AnimalSheet::whereIn('status', [
+        return AnimalSheet::with(['animal', 'animal.breed', 'animal.breed.species', 'user'])->whereIn('status', [
             SheetsStatus::Creation->value, SheetsStatus::Modification->value
         ])->orderBy('created_at', 'desc')->get();
     }
@@ -44,7 +44,7 @@ class extends Component {
     #[Computed]
     public function adoption_requests()
     {
-        return AdoptionRequest::where('status', [
+        return AdoptionRequest::with(['animal', 'animal.breed', 'animal.breed.species'])->where('status', [
             AdoptionRequestsStatus::Awaiting->value
         ])->orderBy('created_at', 'desc')->get();
     }
@@ -53,7 +53,7 @@ class extends Component {
     {
         $this->authorize('update', AnimalSheet::class);
 
-        $sheet = AnimalSheet::findOrFail($id);
+        $sheet = AnimalSheet::with(['animal', 'animal.breed', 'animal.breed.species', 'user'])->findOrFail($id);
 
         $sheet->update(['status' => SheetsStatus::Validate->value]);
 
@@ -62,7 +62,7 @@ class extends Component {
 
     public function openModal(string $modal, int $id): void
     {
-        $sheet = AnimalSheet::findOrFail($id);
+        $sheet = AnimalSheet::with(['animal', 'user'])->findOrFail($id);
 
         if ($modal === 'animal-sheet') {
             $this->openEditAnimalSheet = true;

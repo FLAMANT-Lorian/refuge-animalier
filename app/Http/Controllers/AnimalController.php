@@ -10,11 +10,11 @@ class AnimalController extends Controller
 {
     public function index()
     {
-        $search = request()->input('search');
 
-        $query = Animal::whereIn('state', [AnimalStatus::ProcessOfAdoption, AnimalStatus::AwaitingAdoption]);
+        $query = Animal::with('breed')->whereIn('state', [AnimalStatus::ProcessOfAdoption, AnimalStatus::AwaitingAdoption]);
 
-        if (!empty($search)) {
+        if (!empty($search = request()->input('search'))) {
+
             $query->where(function (Builder $q1) use ($search) {
                 $q1->whereLike('name', '%' . $search . '%')
                     ->orWhereLike('coat', '%' . $search . '%')
@@ -23,15 +23,17 @@ class AnimalController extends Controller
                         $q2->whereLike('name', '%' . $search . '%');
                     });
             });
+
         }
 
         $animals = $query
             ->paginate(12);
 
-        return view('public.animals.index', compact('animals'));
+        return view('public.animals.index', compact('animals', 'search'));
     }
 
-    public function show($locale, Animal $animal)
+    public
+    function show($locale, Animal $animal)
     {
         if (!$animal->isVisible()) {
             abort(404);

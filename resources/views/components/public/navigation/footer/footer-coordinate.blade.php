@@ -1,9 +1,9 @@
 @php
 
     $coordinates = [
-        ['label' => 'Rue des Lavandes 12, 4000 Liège, Belgique', 'title' => __('public/footer.coordinate_1_title'), 'destination' => '#'],
-        ['label' => 'contact@lespattesheureuses.be', 'title' => __('public/footer.coordinate_3_title'), 'destination' => '#'],
-        ['label' => '+32 81 23 45 67', 'title' => __('public/footer.coordinate_3_title'), 'destination' => '#'],
+        ['label' => 'Rue des Lavandes 12, 4000 Liège, Belgique', 'title' => __('public/footer.coordinate_1_title'), 'destination' => 'https://maps.app.goo.gl/iHBAAZvYr4Ey7amMA'],
+        ['label' => 'contact@lespattesheureuses.be', 'title' => __('public/footer.coordinate_3_title'), 'destination' => 'mailto:contact@lespattesheureuses.be'],
+        ['label' => '+32 81 23 45 67', 'title' => __('public/footer.coordinate_3_title'), 'destination' => 'tel:+32 81 23 45 67'],
     ];
 
 @endphp
@@ -12,7 +12,7 @@
     <ul class="flex flex-col gap-2">
         @foreach($coordinates as $coordinate)
             <li>
-                <a class="hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white"
+                <a target="_blank" class="hover:cursor-pointer hover:font-bold transition-all text-base font-normal text-white"
                    href="{!! $coordinate['destination'] !!}"
                    title="{!! $coordinate['title'] !!}">
                     {!! $coordinate['label'] !!}

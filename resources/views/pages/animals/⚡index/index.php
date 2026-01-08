@@ -50,7 +50,7 @@ class extends Component {
     #[Computed]
     public function animals()
     {
-        $query = Animal::with(['animalNotes', 'adoptionRequests']);
+        $query = Animal::with(['breed', 'breed.species']);
 
         $array_of_states = array_map(
             fn(AnimalStatus $status) => $status->value,
